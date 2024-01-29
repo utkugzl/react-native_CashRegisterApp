@@ -6,18 +6,17 @@ import Products from '../screens/Products/Products.js';
 import Reports from '../screens/Reports/Reports.js';
 import Settings from '../screens/Settings/Settings';
 
-import AppIcons from '../components/AppIcons/AppIcons.js';
+import DrawerMenuContent from '../components/DrawerMenuContent/DrawerMenuContent.js';
 
 const Drawer = createDrawerNavigator();
 
 const AppStack = () => {
   return (
-    <Drawer.Navigator>
+    <Drawer.Navigator drawerContent={props => <DrawerMenuContent {...props} />}>
       <Drawer.Screen
         name="dashboard"
         component={Dashboard}
         options={{
-          drawerIcon: () => <AppIcons name={'dashboardIcon'} />,
           title: 'Dashboard',
         }}
       />
@@ -25,7 +24,6 @@ const AppStack = () => {
         name="sale"
         component={Sale}
         options={{
-          drawerIcon: () => <AppIcons name={'salesIcon'} />,
           title: 'Sale',
         }}
       />
@@ -33,7 +31,6 @@ const AppStack = () => {
         name="products"
         component={Products}
         options={{
-          drawerIcon: () => <AppIcons name={'productsIcon'} />,
           title: 'Products',
         }}
       />
@@ -41,7 +38,6 @@ const AppStack = () => {
         name="reports"
         component={Reports}
         options={{
-          drawerIcon: () => <AppIcons name={'reportsIcon'} />,
           title: 'Reports',
         }}
       />
@@ -49,7 +45,6 @@ const AppStack = () => {
         name="settings"
         component={Settings}
         options={{
-          drawerIcon: () => <AppIcons name={'settingsIcon'} />,
           title: 'Settings',
         }}
       />
