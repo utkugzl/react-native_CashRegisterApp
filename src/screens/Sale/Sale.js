@@ -3,12 +3,12 @@ import {SafeAreaView, Text} from 'react-native';
 
 import styles from './styles.js';
 
-const Dashboard = () => {
+const Sale = () => {
   return (
     <SafeAreaView>
-      <Text>Dashboard</Text>
+      <Text>Sale</Text>
     </SafeAreaView>
   );
 };
 
-export default Dashboard;
+export default Sale;

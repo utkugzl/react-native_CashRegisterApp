@@ -21,7 +21,6 @@ const Login = () => {
       const url = 'http://10.0.2.2:3000/version';
       const response = await axios.get(url);
       setVersion(response.data.version);
-      console.log(response.data.version);
     } catch (error) {
       console.error('Error fetching version:', error);
     }

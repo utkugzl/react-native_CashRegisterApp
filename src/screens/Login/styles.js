@@ -13,8 +13,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: scaleByWidth('30'),
+    width: scaleByWidth('45'),
     height: scaleByHeight('10'),
+    resizeMode: 'contain',
   },
   versionText: {
     fontSize: scaleByHeight('2.5'),
@@ -29,12 +30,12 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
   },
   welceomeText: {
-    fontSize: scaleByHeight('2.5'),
+    fontSize: scaleByWidth('2'),
     fontWeight: 'bold',
     marginBottom: 10,
   },
   descriptionText: {
-    fontSize: scaleByHeight('2'),
+    fontSize: scaleByWidth('1.5'),
   },
   inputContainer: {
     flexDirection: 'row',
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
   showPasswordContainer: {
     height: scaleByHeight('4'),
     width: scaleByWidth('3'),
-    marginRight: 10,
+    marginRight: 15,
   },
 });
 
