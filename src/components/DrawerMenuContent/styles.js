@@ -3,6 +3,9 @@ import scaleByWidth from '../../utils/ScaleByWidth.js';
 import scaleByHeight from '../../utils/ScaleByHeight.js';
 
 const styles = StyleSheet.create({
+  menuContainer: {
+    flex: 1,
+  },
   headerContainer: {
     flex: 1.5,
     justifyContent: 'center',

@@ -16,7 +16,7 @@ const DrawerMenuContent = props => {
     {label: 'Settings', routeName: 'settings'},
   ];
   return (
-    <View style={{flex: 1}}>
+    <View style={styles.menuContainer}>
       <View style={styles.headerContainer}>
         <Image
           source={require('../../assets/images/32bitlogo.png')}
@@ -25,7 +25,7 @@ const DrawerMenuContent = props => {
         />
       </View>
       <View style={styles.cashiderCodeContainer}>
-        <Text style={styles.cashiersCodeText}>Cashier Code: </Text>
+        <Text style={styles.cashiersCodeText}>Cashier Code: 123123 </Text>
       </View>
       <View style={styles.bodyContainer}>
         <DrawerContentScrollView>

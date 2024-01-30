@@ -6,6 +6,9 @@ const AppIcons = ({name}) => {
   let iconElement;
 
   switch (name) {
+    case 'menuIcon':
+      iconElement = <Ionicon name="menu" size={35} color="black" />;
+      break;
     case 'dashboardIcon':
       iconElement = <Ionicon name="podium" size={35} color="black" />;
       break;
@@ -29,6 +32,15 @@ const AppIcons = ({name}) => {
       break;
     case 'offlineIcon':
       iconElement = <Ionicon name="radio-button-on" size={30} color="red" />;
+      break;
+    case 'rightArrowIcon':
+      iconElement = <Ionicon name="arrow-forward" size={30} color="black" />;
+      break;
+    case 'otherSettingsIcon':
+      iconElement = <Ionicon name="repeat" size={35} color="black" />;
+      break;
+    case 'printerIcon':
+      iconElement = <Ionicon name="print" size={35} color="black" />;
       break;
     default:
       iconElement = <Ionicon name="remove" size={35} color="black" />;
