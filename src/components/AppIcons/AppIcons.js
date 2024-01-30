@@ -42,6 +42,9 @@ const AppIcons = ({name}) => {
     case 'printerIcon':
       iconElement = <Ionicon name="print" size={35} color="black" />;
       break;
+    case 'changeLanguageIcon':
+      iconElement = <Ionicon name="globe" size={35} color="black" />;
+      break;
     default:
       iconElement = <Ionicon name="remove" size={35} color="black" />;
   }

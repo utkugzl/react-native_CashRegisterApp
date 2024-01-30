@@ -10,7 +10,10 @@ const SettingsOption = ({title, iconName, navigation, screenName}) => {
     navigation.navigate(screenName);
   };
   return (
-    <TouchableOpacity style={styles.optionContainer} onPress={onPressHandler}>
+    <TouchableOpacity
+      style={styles.optionContainer}
+      activeOpacity={0.9}
+      onPress={onPressHandler}>
       <View style={styles.optionTextContainer}>
         <Text style={styles.textStyle}>{title}</Text>
         <AppIcons name={'rightArrowIcon'} />

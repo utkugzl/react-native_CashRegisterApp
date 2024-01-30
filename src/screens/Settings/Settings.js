@@ -34,7 +34,12 @@ const Settings = ({navigation}) => {
           iconName={'otherSettingsIcon'}
         />
         <SettingsOption title={'Yazıcı Testi'} iconName={'printerIcon'} />
-        <SettingsOption title={'Deneme'} iconName={'reportsIcon'} />
+        <SettingsOption
+          title={'Uygulama Dilini Değiştir'}
+          iconName={'changeLanguageIcon'}
+          navigation={navigation}
+          screenName={'changeLanguage'}
+        />
       </View>
     </SafeAreaView>
   );
