@@ -7,16 +7,20 @@ import ChangeLanguage from '../screens/ChangeLanguage/ChangeLanguage.js';
 import Deneme from '../screens/Deneme/Deneme.js';
 import HeaderLeft from '../components/HeaderLeft/HeaderLeft.js';
 
+import {useTranslation} from 'react-i18next';
+import i18next from '../locales/i18next.js';
+
 const Stack = createNativeStackNavigator();
 
 const SettingStack = () => {
+  const {t} = useTranslation();
   return (
     <Stack.Navigator>
       <Stack.Screen
         name="settingsMenu"
         component={Settings}
         options={{
-          title: 'Settings',
+          title: t('settings'),
           headerShown: true,
           headerLeft: () => <HeaderLeft />,
           headerTitleStyle: {
@@ -30,7 +34,7 @@ const SettingStack = () => {
         name="changeLanguage"
         component={ChangeLanguage}
         options={{
-          title: 'Change Language',
+          title: t('choose-language'),
           headerShown: true,
           headerTitleStyle: {
             fontWeight: 'bold',

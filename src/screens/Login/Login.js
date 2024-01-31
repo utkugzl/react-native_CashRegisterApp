@@ -1,6 +1,7 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 import {SafeAreaView, View, Image, Text, TouchableOpacity} from 'react-native';
+import {useTranslation} from 'react-i18next';
 
 import LoginInput from '../../components/LoginInput/LoginInput.js';
 import LoginButton from '../../components/LoginButton/LoginButton.js';
@@ -11,6 +12,7 @@ import scaleByHeight from '../../utils/ScaleByHeight.js';
 import axios from 'axios';
 
 const Login = () => {
+  const {t} = useTranslation();
   const [userCode, setUserCode] = useState('');
   const [password, setPassword] = useState('');
   const [isSecureEntry, setIsSecureEntry] = useState(true);

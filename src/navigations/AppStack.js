@@ -4,14 +4,14 @@ import Dashboard from '../screens/Dashboard/Dashboard.js';
 import Sale from '../screens/Sale/Sale.js';
 import Products from '../screens/Products/Products.js';
 import Reports from '../screens/Reports/Reports.js';
-import Settings from '../screens/Settings/Settings';
 import SettingStack from './SettingStack.js';
-
+import {useTranslation} from 'react-i18next';
 import DrawerMenuContent from '../components/DrawerMenuContent/DrawerMenuContent.js';
 
 const Drawer = createDrawerNavigator();
 
 const AppStack = () => {
+  const {t} = useTranslation();
   return (
     <Drawer.Navigator
       screenOptions={{headerShown: false}}
@@ -20,7 +20,7 @@ const AppStack = () => {
         name="settings"
         component={SettingStack}
         options={{
-          title: 'Settings',
+          title: t('settings'),
           headerTitleStyle: {
             fontWeight: 'bold',
             fontSize: 30,
@@ -32,7 +32,7 @@ const AppStack = () => {
         name="dashboard"
         component={Dashboard}
         options={{
-          title: 'Dashboard',
+          title: t('dashboard'),
           headerTitleStyle: {
             fontWeight: 'bold',
             fontSize: 30,
@@ -44,21 +44,21 @@ const AppStack = () => {
         name="sale"
         component={Sale}
         options={{
-          title: 'Sale',
+          title: t('sale'),
         }}
       />
       <Drawer.Screen
         name="products"
         component={Products}
         options={{
-          title: 'Products',
+          title: t('products'),
         }}
       />
       <Drawer.Screen
         name="reports"
         component={Reports}
         options={{
-          title: 'Reports',
+          title: t('reports'),
           headerTitleStyle: {
             fontWeight: 'bold',
             fontSize: 30,

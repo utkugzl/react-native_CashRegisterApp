@@ -2,6 +2,7 @@ import React from 'react';
 import {SafeAreaView, View, Text, Image} from 'react-native';
 
 import LanguageButton from '../../components/LanguageButton/LanguageButton.js';
+import i18next from '../../locales/i18next.js';
 
 const ChangeLanguage = () => {
   return (
@@ -15,6 +16,9 @@ const ChangeLanguage = () => {
         <LanguageButton
           flagSource={require('../../assets/images/trFlag.png')}
           languageName={'Türkçe'}
+          onPress={() => {
+            i18next.changeLanguage('tr');
+          }}
         />
       </View>
 
@@ -27,6 +31,9 @@ const ChangeLanguage = () => {
         <LanguageButton
           flagSource={require('../../assets/images/enFlag.png')}
           languageName={'English'}
+          onPress={() => {
+            i18next.changeLanguage('en');
+          }}
         />
       </View>
     </SafeAreaView>

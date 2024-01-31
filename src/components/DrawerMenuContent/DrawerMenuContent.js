@@ -2,18 +2,18 @@ import React from 'react';
 import {View, Image, Text} from 'react-native';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import AppIcons from '../AppIcons/AppIcons.js';
-
+import {useTranslation} from 'react-i18next';
 import styles from './styles.js';
 
 const DrawerMenuContent = props => {
+  const {t} = useTranslation();
   const {state} = props;
-
   const menuItems = [
-    {label: 'Dashboard', routeName: 'dashboard'},
-    {label: 'Sale', routeName: 'sale'},
-    {label: 'Products', routeName: 'products'},
-    {label: 'Reports', routeName: 'reports'},
-    {label: 'Settings', routeName: 'settings'},
+    {label: t('dashboard'), routeName: 'dashboard'},
+    {label: t('sale'), routeName: 'sale'},
+    {label: t('products'), routeName: 'products'},
+    {label: t('reports'), routeName: 'reports'},
+    {label: t('settings'), routeName: 'settings'},
   ];
   return (
     <View style={styles.menuContainer}>
@@ -45,7 +45,7 @@ const DrawerMenuContent = props => {
       </View>
       <View>
         <DrawerItem
-          label={'Logout'}
+          label={t('logout')}
           icon={() => <AppIcons name={'logoutIcon'} />}
           labelStyle={styles.labelStyle}
           style={styles.logoutStyle}

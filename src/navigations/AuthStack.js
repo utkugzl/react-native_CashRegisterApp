@@ -7,7 +7,7 @@ import Dashboard from '../screens/Dashboard/Dashboard.js';
 
 const Stack = createNativeStackNavigator();
 
-const Navigator = () => {
+const AuthStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -29,4 +29,4 @@ const Navigator = () => {
   );
 };
 
-export default Navigator;
+export default AuthStack;
