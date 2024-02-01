@@ -8,7 +8,6 @@ import Deneme from '../screens/Deneme/Deneme.js';
 import HeaderLeft from '../components/HeaderLeft/HeaderLeft.js';
 
 import {useTranslation} from 'react-i18next';
-import i18next from '../locales/i18next.js';
 
 const Stack = createNativeStackNavigator();
 

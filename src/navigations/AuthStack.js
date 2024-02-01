@@ -3,7 +3,7 @@ import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import Login from '../screens/Login/Login.js';
-import Dashboard from '../screens/Dashboard/Dashboard.js';
+import AppStack from './AppStack.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,10 +19,10 @@ const AuthStack = () => {
         }}
       />
       <Stack.Screen
-        name="Dashboard"
-        component={Dashboard}
+        name="drawer"
+        component={AppStack}
         options={{
-          title: 'Dashboard',
+          headerShown: false,
         }}
       />
     </Stack.Navigator>

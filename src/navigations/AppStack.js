@@ -1,10 +1,10 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import Dashboard from '../screens/Dashboard/Dashboard.js';
-import Sale from '../screens/Sale/Sale.js';
 import Products from '../screens/Products/Products.js';
 import Reports from '../screens/Reports/Reports.js';
 import SettingStack from './SettingStack.js';
+import SaleStack from './SaleStack.js';
 import {useTranslation} from 'react-i18next';
 import DrawerMenuContent from '../components/DrawerMenuContent/DrawerMenuContent.js';
 
@@ -14,18 +14,14 @@ const AppStack = () => {
   const {t} = useTranslation();
   return (
     <Drawer.Navigator
+      name="drawer"
       screenOptions={{headerShown: false}}
       drawerContent={props => <DrawerMenuContent {...props} />}>
       <Drawer.Screen
-        name="settings"
-        component={SettingStack}
+        name="sale"
+        component={SaleStack}
         options={{
-          title: t('settings'),
-          headerTitleStyle: {
-            fontWeight: 'bold',
-            fontSize: 30,
-          },
-          headerTitleAlign: 'center',
+          title: t('sale'),
         }}
       />
       <Drawer.Screen
@@ -41,13 +37,6 @@ const AppStack = () => {
         }}
       />
       <Drawer.Screen
-        name="sale"
-        component={Sale}
-        options={{
-          title: t('sale'),
-        }}
-      />
-      <Drawer.Screen
         name="products"
         component={Products}
         options={{
@@ -59,6 +48,18 @@ const AppStack = () => {
         component={Reports}
         options={{
           title: t('reports'),
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize: 30,
+          },
+          headerTitleAlign: 'center',
+        }}
+      />
+      <Drawer.Screen
+        name="settings"
+        component={SettingStack}
+        options={{
+          title: t('settings'),
           headerTitleStyle: {
             fontWeight: 'bold',
             fontSize: 30,

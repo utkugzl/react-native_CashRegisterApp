@@ -37,6 +37,17 @@ const styles = StyleSheet.create({
   descriptionText: {
     fontSize: scaleByWidth('1.5'),
   },
+  errorMessageText: {
+    fontSize: scaleByWidth('1.5'),
+    color: 'red',
+    fontWeight: 'bold',
+    marginLeft: 8,
+  },
+  errorMessageContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',

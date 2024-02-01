@@ -1,9 +1,13 @@
 {
-    "login": [
-      { "id": 1, "userCode": "0634", "userPassword": "password" }
+    "users": [
+      { "id": 1, "userCode": "065434", "userPassword": "password" },
+      { "id": 2, "userCode": "762381", "userPassword": "asd" },
+      { "id": 3, "userCode": "925146", "userPassword": "asdas" },
+      { "id": 4, "userCode": "260720", "userPassword": "asdasasdas" },
+      { "id": 5, "userCode": "416973", "userPassword": "dasdas" }
     ],
     "token": [
       { "id": 1, "token": "token" }
     ],
     "version": { "version": "3.0" }
-  }
+}
