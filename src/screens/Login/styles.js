@@ -60,8 +60,6 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   showPasswordContainer: {
-    height: scaleByHeight('4'),
-    width: scaleByWidth('3'),
     marginRight: 15,
   },
 });

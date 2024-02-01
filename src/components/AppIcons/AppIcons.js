@@ -6,6 +6,15 @@ const AppIcons = ({name}) => {
   let iconElement;
 
   switch (name) {
+    case 'personIcon':
+      iconElement = <Ionicon name="person" size={30} color="black" />;
+      break;
+    case 'lockIcon':
+      iconElement = <Ionicon name="key" size={30} color="black" />;
+      break;
+    case 'showPasswordIcon':
+      iconElement = <Ionicon name="eye" size={30} color="black" />;
+      break;
     case 'menuIcon':
       iconElement = <Ionicon name="menu" size={35} color="black" />;
       break;

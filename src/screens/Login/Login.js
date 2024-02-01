@@ -93,10 +93,8 @@ const Login = () => {
             </Text>
           </View>
           <View style={styles.inputContainer}>
-            <Image
-              source={require('../../assets/images/personIcon.png')}
-              style={{height: scaleByHeight('3'), width: scaleByWidth('2')}}
-            />
+            <AppIcons name={'personIcon'} />
+
             <LoginInput
               placeholder="Kullaıcı Kodu"
               keyboardType="numeric"
@@ -104,26 +102,18 @@ const Login = () => {
             />
           </View>
           <View style={styles.inputContainer}>
-            <Image
-              source={require('../../assets/images/lockIcon.png')}
-              style={{
-                height: scaleByHeight('4'),
-                width: scaleByWidth('2'),
-              }}
-            />
+            <AppIcons name={'lockIcon'} />
             <LoginInput
               placeholder="Şifre"
               isSecure={isSecureEntry}
               onChange={handlePasswordChange}
             />
             <TouchableOpacity
+              style={styles.showPasswordContainer}
               onPress={() => {
                 setIsSecureEntry(prev => !prev);
               }}>
-              <Image
-                source={require('../../assets/images/showPasswordIcon.png')}
-                style={styles.showPasswordContainer}
-              />
+              <AppIcons name={'showPasswordIcon'} />
             </TouchableOpacity>
           </View>
           {loginErrorMessage ? (
