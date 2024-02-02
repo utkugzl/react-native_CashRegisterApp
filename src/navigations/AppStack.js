@@ -5,6 +5,7 @@ import Products from '../screens/Products/Products.js';
 import Reports from '../screens/Reports/Reports.js';
 import SettingStack from './SettingStack.js';
 import SaleStack from './SaleStack.js';
+import ProductStack from './ProductStack.js';
 import {useTranslation} from 'react-i18next';
 import DrawerMenuContent from '../components/DrawerMenuContent/DrawerMenuContent.js';
 
@@ -18,10 +19,10 @@ const AppStack = () => {
       screenOptions={{headerShown: false}}
       drawerContent={props => <DrawerMenuContent {...props} />}>
       <Drawer.Screen
-        name="sale"
-        component={SaleStack}
+        name="products"
+        component={ProductStack}
         options={{
-          title: t('sale'),
+          title: t('products'),
         }}
       />
       <Drawer.Screen
@@ -37,10 +38,10 @@ const AppStack = () => {
         }}
       />
       <Drawer.Screen
-        name="products"
-        component={Products}
+        name="sale"
+        component={SaleStack}
         options={{
-          title: t('products'),
+          title: t('sale'),
         }}
       />
       <Drawer.Screen
@@ -60,11 +61,6 @@ const AppStack = () => {
         component={SettingStack}
         options={{
           title: t('settings'),
-          headerTitleStyle: {
-            fontWeight: 'bold',
-            fontSize: 30,
-          },
-          headerTitleAlign: 'center',
         }}
       />
     </Drawer.Navigator>

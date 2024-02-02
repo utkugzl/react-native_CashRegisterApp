@@ -7,8 +7,6 @@ import {useNavigation} from '@react-navigation/native';
 import LoginInput from '../../components/LoginInput/LoginInput.js';
 import LoginButton from '../../components/LoginButton/LoginButton.js';
 import styles from './styles.js';
-import scaleByWidth from '../../utils/ScaleByWidth.js';
-import scaleByHeight from '../../utils/ScaleByHeight.js';
 import AppIcons from '../../components/AppIcons/AppIcons.js';
 
 import axios from 'axios';
@@ -71,6 +69,7 @@ const Login = () => {
     } else {
       setLoginErrorMessage('Invalid user code or password. Please try again.');
       // Vibrate the phone (for 500 milliseconds)
+      //TODO add voice feedback
       Vibration.vibrate(500);
     }
   };

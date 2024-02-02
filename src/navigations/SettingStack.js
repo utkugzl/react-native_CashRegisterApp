@@ -4,7 +4,6 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import Settings from '../screens/Settings/Settings.js';
 import ChangeLanguage from '../screens/ChangeLanguage/ChangeLanguage.js';
-import Deneme from '../screens/Deneme/Deneme.js';
 import HeaderLeft from '../components/HeaderLeft/HeaderLeft.js';
 
 import {useTranslation} from 'react-i18next';

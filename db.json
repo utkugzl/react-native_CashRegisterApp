@@ -9,5 +9,112 @@
     "token": [
       { "id": 1, "token": "token" }
     ],
-    "version": { "version": "3.0" }
+    "version": { "version": "3.0" },
+    "products": [
+      { 
+        "barcode": "1",
+        "name": "Nane", 
+        "image": "https://docsd.ceptesok.com/product/1000x1000/64d96_Nane_Dmt._.jpg" 
+      },
+      { 
+        "barcode": "2",
+        "name": "Roka", 
+        "image": "https://docsd.ceptesok.com/product/1000x1000/2db58_Roka_Demet_.jpg" 
+      },
+      { 
+        "barcode": "3",
+        "name": "Ispanak", 
+        "image": "https://docsd.ceptesok.com/product/1000x1000/39606_Ispanak_Kg._.jpg" 
+      },
+      { 
+        "barcode": "4",
+        "name": "Semizotu", 
+        "image": "https://docsd.ceptesok.com/product/1000x1000/34a88_Semizotu_Demet.jpg" 
+      },
+      { 
+        "barcode": "5",
+        "name": "Lahana", 
+        "image": "https://docsd.ceptesok.com/product/1000x1000/7cb05_Lahana_Beyaz_Kg._.jpg" 
+      },
+      { 
+        "barcode": "6",
+        "name": "Kıvırcık", 
+        "image": "https://docsd.ceptesok.com/product/1000x1000/4026b_Salata_Kivircikadet_.jpg" 
+      },
+      { 
+        "barcode": "7",
+        "name": "Karnabahar", 
+        "image": "https://docsd.ceptesok.com/product/1000x1000/80353_Karnabahar_Kg._.jpg" 
+      },
+      { 
+        "barcode": "8",
+        "name": "Limon", 
+        "image": "https://docsd.ceptesok.com/product/1000x1000/7b5b5_limon-mayer-kg.jpg" 
+      },
+      { 
+        "barcode": "9",
+        "name": "Salatalık", 
+        "image": "https://docsd.ceptesok.com/product/1000x1000/a4a87_Salatalik_Kg_.jpg" 
+      },
+      { 
+        "barcode": "10",
+        "name": "Domates", 
+        "image": "https://docsd.ceptesok.com/product/1000x1000/112c4_Domates_Kg_.jpg" 
+      },
+      { 
+        "barcode": "11",
+        "name": "Yeşil Biber", 
+        "image": "https://docsd.ceptesok.com/product/1000x1000/5ce0d_Biber_Carliston_Kg._.jpg" 
+      },
+      { 
+        "barcode": "12",
+        "name": "Kırmızı Biber", 
+        "image": "https://docsd.ceptesok.com/product/1000x1000/96981_Biber_Kirmizi_Kg._.jpg" 
+      },
+      { 
+        "barcode": "13",
+        "name": "Patlican", 
+        "image": "https://docsd.ceptesok.com/product/1000x1000/b4841_Patlican_Kemer_Kg._.jpg" 
+      },
+      { 
+        "barcode": "14",
+        "name": "Kabak", 
+        "image": "https://docsd.ceptesok.com/product/1000x1000/b08d3_Kabak_Sakiz_Kg._.jpg" 
+      },
+      { 
+        "barcode": "15",
+        "name": "Avakado", 
+        "image": "https://docsd.ceptesok.com/product/1000x1000/3c0b6_avakado-adet.jpg" 
+      },
+      { 
+        "barcode": "16",
+        "name": "Kivi", 
+        "image": "https://docsd.ceptesok.com/product/1000x1000/7278b_Kivi_Paket.JPG" 
+      },
+      { 
+        "barcode": "17",
+        "name": "İncir", 
+        "image": "https://docsd.ceptesok.com/product/1000x1000/6817c_Incir_Siyah_Kg._.jpg" 
+      },
+      { 
+        "barcode": "18",
+        "name": "Muz", 
+        "image": "https://docsd.ceptesok.com/product/1000x1000/9613c_Muz_Yerli_Kg_.jpg" 
+      },
+      { 
+        "barcode": "19",
+        "name": "Elma", 
+        "image": "https://docsd.ceptesok.com/product/1000x1000/ce378_Elma_Granny_Kg_.jpg" 
+      },
+      { 
+        "barcode": "20",
+        "name": "Armut", 
+        "image": "https://docsd.ceptesok.com/product/1000x1000/73524_Armut_Deveci_Kg.jpg" 
+      },
+      { 
+        "barcode": "21",
+        "name": "Üzüm", 
+        "image": "https://docsd.ceptesok.com/product/1000x1000/b826a_uzum_cekirdeksiz_Kg._.jpg" 
+      }
+    ]
 }
