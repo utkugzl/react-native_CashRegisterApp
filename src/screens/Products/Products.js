@@ -13,6 +13,7 @@ import CategoryFilterButton from '../../components/CategoryFilterButton/Category
 
 import styles from './styles.js';
 import axios from 'axios';
+import Product from '../../components/Product/Product.js';
 
 const Products = () => {
   const [selectedFilter, setSelectedFilter] = useState('Tüm Ürünler');
@@ -78,10 +79,6 @@ const Products = () => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    console.log(filteredProducts);
-  }, [filteredProducts]);
-
   const handleFilterPress = filter => {
     setIsLoading(true);
     setSelectedFilter(filter);
@@ -107,30 +104,28 @@ const Products = () => {
         break;
       case 'C-D':
         setFilteredProducts(
-          products.filter(
-            product =>
-              product.name.toUpperCase().toUpperCase().startsWith('C') ||
-              product.name.toUpperCase().toUpperCase().startsWith('D'),
+          products.filter(product =>
+            ['C', 'D'].some(letter =>
+              product.name.toUpperCase().startsWith(letter),
+            ),
           ),
         );
         break;
       case 'E-F':
         setFilteredProducts(
-          products.filter(
-            product =>
-              product.name.toUpperCase().toUpperCase().startsWith('E') ||
-              product.name.toUpperCase().toUpperCase().startsWith('F'),
+          products.filter(product =>
+            ['E', 'F'].some(letter =>
+              product.name.toUpperCase().startsWith(letter),
+            ),
           ),
         );
         break;
       case 'G-I':
         setFilteredProducts(
-          products.filter(
-            product =>
-              product.name.toUpperCase().toUpperCase().startsWith('G') ||
-              product.name.toUpperCase().toUpperCase().startsWith('H') ||
-              product.name.toUpperCase().toUpperCase().startsWith('İ') ||
-              product.name.toUpperCase().toUpperCase().startsWith('I'),
+          products.filter(product =>
+            ['G', 'H', 'I', 'İ'].some(letter =>
+              product.name.toUpperCase().startsWith(letter),
+            ),
           ),
         );
         break;
@@ -143,11 +138,10 @@ const Products = () => {
         break;
       case 'L-N':
         setFilteredProducts(
-          products.filter(
-            product =>
-              product.name.toUpperCase().toUpperCase().startsWith('L') ||
-              product.name.toUpperCase().toUpperCase().startsWith('M') ||
-              product.name.toUpperCase().toUpperCase().startsWith('N'),
+          products.filter(product =>
+            ['L', 'M', 'N'].some(letter =>
+              product.name.toUpperCase().startsWith(letter),
+            ),
           ),
         );
         break;
@@ -160,10 +154,10 @@ const Products = () => {
         break;
       case 'R-S':
         setFilteredProducts(
-          products.filter(
-            product =>
-              product.name.toUpperCase().toUpperCase().startsWith('R') ||
-              product.name.toUpperCase().toUpperCase().startsWith('S'),
+          products.filter(product =>
+            ['R', 'S'].some(letter =>
+              product.name.toUpperCase().startsWith(letter),
+            ),
           ),
         );
         break;
@@ -176,15 +170,10 @@ const Products = () => {
         break;
       case 'Ü-Z':
         setFilteredProducts(
-          products.filter(
-            product =>
-              product.name.toUpperCase().toUpperCase().startsWith('U') ||
-              product.name.toUpperCase().toUpperCase().startsWith('Ü') ||
-              product.name.toUpperCase().toUpperCase().startsWith('V') ||
-              product.name.toUpperCase().toUpperCase().startsWith('W') ||
-              product.name.toUpperCase().toUpperCase().startsWith('X') ||
-              product.name.toUpperCase().toUpperCase().startsWith('Y') ||
-              product.name.toUpperCase().toUpperCase().startsWith('Z'),
+          products.filter(product =>
+            ['U', 'Ü', 'V', 'Y', 'Z'].some(letter =>
+              product.name.toUpperCase().startsWith(letter),
+            ),
           ),
         );
         break;
@@ -199,47 +188,93 @@ const Products = () => {
 
   const handleCategoryPress = category => {
     setSelectedCategory(category.title);
+
+    switch (category.title) {
+      case 'Market':
+        setFilteredProducts(
+          filteredProducts.filter(product => product.category === 'market'),
+        );
+        break;
+      case 'Temizlik':
+        setFilteredProducts(
+          filteredProducts.filter(product => product.category === 'cleaning'),
+        );
+        break;
+      case 'Giyim':
+        setFilteredProducts(
+          filteredProducts.filter(product => product.category === 'clothing'),
+        );
+        break;
+      case 'Ev&Yaşam':
+        setFilteredProducts(
+          filteredProducts.filter(product => product.category === 'home'),
+        );
+        break;
+      case 'Kozmetik':
+        setFilteredProducts(
+          filteredProducts.filter(product => product.category === 'cosmetic'),
+        );
+        break;
+      default:
+        setFilteredProducts(filteredProducts);
+    }
   };
 
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <View style={{flex: 0.5, flexDirection: 'row', marginTop: 8}}>
-        {filters.map((filter, index) => (
-          <FilterButton
-            key={index}
-            title={filter}
-            onPress={() => handleFilterPress(filter)}
-            selected={selectedFilter === filter}
-          />
-        ))}
-      </View>
-      <View style={{backgroundColor: 'yellow', flex: 6}}>
-        {isLoading ? (
-          // Display the activity indicator while loading
-          <ActivityIndicator
-            size="large"
-            color="#0000ff"
-            style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}
-          />
-        ) : (
-          // Render your products based on the filteredProducts array
-          <FlatList
-            data={filteredProducts}
-            keyExtractor={item => item.id.toString()}
-            renderItem={({item}) => <Text>{item.name}</Text>}
-          />
-        )}
-      </View>
-      <View style={{flex: 0.7, flexDirection: 'row'}}>
-        {categories.map((category, index) => (
-          <CategoryFilterButton
-            key={index}
-            title={category.title}
-            backgroundImageSource={category.imageSource}
-            onPress={() => handleCategoryPress(category)}
-            selected={selectedCategory === category.title}
-          />
-        ))}
+    <SafeAreaView style={{flex: 1, flexDirection: 'row'}}>
+      <View style={{flex: 1}}>
+        <View style={{flex: 0.5, flexDirection: 'row', marginTop: 8}}>
+          {filters.map((filter, index) => (
+            <FilterButton
+              key={index}
+              title={filter}
+              onPress={() => handleFilterPress(filter)}
+              selected={selectedFilter === filter}
+            />
+          ))}
+        </View>
+        <View
+          style={{
+            flex: 0.7,
+            flexDirection: 'row',
+            borderTopWidth: 2,
+            borderBottomWidth: 2,
+          }}>
+          {categories.map((category, index) => (
+            <CategoryFilterButton
+              key={index}
+              title={category.title}
+              backgroundImageSource={category.imageSource}
+              onPress={() => handleCategoryPress(category)}
+              selected={selectedCategory === category.title}
+            />
+          ))}
+        </View>
+        <View
+          style={{backgroundColor: '#D5D1A5', flex: 6, alignItems: 'center'}}>
+          {isLoading ? (
+            <ActivityIndicator
+              size="large"
+              color="#232346"
+              style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}
+            />
+          ) : (
+            <FlatList
+              data={filteredProducts}
+              key={'_'}
+              numColumns={5}
+              showsVerticalScrollIndicator={false}
+              keyExtractor={item => item.id.toString()}
+              renderItem={({item}) => (
+                <Product
+                  name={item.name}
+                  price={item.price}
+                  image={item.image}
+                />
+              )}
+            />
+          )}
+        </View>
       </View>
     </SafeAreaView>
   );

@@ -1,0 +1,24 @@
+import React from 'react';
+import {Text, View, Image, TouchableOpacity} from 'react-native';
+import styles from './styles.js';
+
+const Product = ({name, price, image}) => {
+  return (
+    <TouchableOpacity style={styles.productContainer}>
+      <View style={styles.imageContainer}>
+        <Image
+          source={{uri: image}}
+          style={styles.image}
+          resizeMode="contain"
+        />
+      </View>
+
+      <View style={styles.textContainer}>
+        <Text style={styles.name}>{name}</Text>
+        <Text style={styles.price}>{price}₺</Text>
+      </View>
+    </TouchableOpacity>
+  );
+};
+
+export default Product;

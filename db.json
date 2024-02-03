@@ -12,109 +12,803 @@
     "version": { "version": "3.0" },
     "products": [
       { 
-        "barcode": "1",
-        "name": "Nane", 
+        "id": "1",
+        "barcode": "",
+        "name": "Nane Demet",
+        "price": "21.90",
+        "category": "market",  
         "image": "https://docsd.ceptesok.com/product/1000x1000/64d96_Nane_Dmt._.jpg" 
       },
       { 
-        "barcode": "2",
-        "name": "Roka", 
+        "id": "2",
+        "barcode": "",
+        "name": "Roka Demet",
+        "price": "21.90",
+        "category": "market",  
         "image": "https://docsd.ceptesok.com/product/1000x1000/2db58_Roka_Demet_.jpg" 
       },
       { 
-        "barcode": "3",
-        "name": "Ispanak", 
+        "id": "3",
+        "barcode": "",
+        "name": "Ispanak Kg.",
+        "price": "39.90",
+        "category": "market",  
         "image": "https://docsd.ceptesok.com/product/1000x1000/39606_Ispanak_Kg._.jpg" 
       },
       { 
-        "barcode": "4",
-        "name": "Semizotu", 
+        "id": "4",
+        "barcode": "",
+        "name": "Semizotu Demet",
+        "price": "44.90",
+        "category": "market",  
         "image": "https://docsd.ceptesok.com/product/1000x1000/34a88_Semizotu_Demet.jpg" 
       },
       { 
-        "barcode": "5",
-        "name": "Lahana", 
+        "id": "5",
+        "barcode": "",
+        "name": "Lahana Kg.",
+        "price": "7.90",
+        "category": "market",  
         "image": "https://docsd.ceptesok.com/product/1000x1000/7cb05_Lahana_Beyaz_Kg._.jpg" 
       },
       { 
-        "barcode": "6",
-        "name": "Kıvırcık", 
+        "id": "6",
+        "barcode": "",
+        "name": "Kıvırcık Demet",
+        "price": "32.90",
+        "category": "market",  
         "image": "https://docsd.ceptesok.com/product/1000x1000/4026b_Salata_Kivircikadet_.jpg" 
       },
       { 
-        "barcode": "7",
-        "name": "Karnabahar", 
+        "id": "7",
+        "barcode": "",
+        "name": "Karnabahar Kg.",
+        "price": "26.90",
+        "category": "market",  
         "image": "https://docsd.ceptesok.com/product/1000x1000/80353_Karnabahar_Kg._.jpg" 
       },
       { 
-        "barcode": "8",
-        "name": "Limon", 
+        "id": "8",
+        "barcode": "",
+        "name": "Limon Kg.",
+        "price": "19.90",
+        "category": "market",  
         "image": "https://docsd.ceptesok.com/product/1000x1000/7b5b5_limon-mayer-kg.jpg" 
       },
       { 
-        "barcode": "9",
-        "name": "Salatalık", 
+        "id": "9",
+        "barcode": "",
+        "name": "Salatalık Kg.",
+        "price": "69.90",
+        "category": "market",
         "image": "https://docsd.ceptesok.com/product/1000x1000/a4a87_Salatalik_Kg_.jpg" 
       },
       { 
-        "barcode": "10",
-        "name": "Domates", 
+        "id": "10",
+        "barcode": "",
+        "name": "Domates Kg.",
+        "price": "39.90",
+        "category": "market",  
         "image": "https://docsd.ceptesok.com/product/1000x1000/112c4_Domates_Kg_.jpg" 
       },
       { 
-        "barcode": "11",
-        "name": "Yeşil Biber", 
+        "id": "11",
+        "barcode": "",
+        "name": "Yeşil Biber Kg.",
+        "price": "44.90",
+        "category": "market",  
         "image": "https://docsd.ceptesok.com/product/1000x1000/5ce0d_Biber_Carliston_Kg._.jpg" 
       },
       { 
-        "barcode": "12",
-        "name": "Kırmızı Biber", 
+        "id": "12",
+        "barcode": "",
+        "name": "Kırmızı Biber Kg.",
+        "price": "54.90",
+        "category": "market",  
         "image": "https://docsd.ceptesok.com/product/1000x1000/96981_Biber_Kirmizi_Kg._.jpg" 
       },
       { 
-        "barcode": "13",
-        "name": "Patlican", 
+        "id": "13",
+        "barcode": "",
+        "name": "Patlican Kg.",
+        "price": "43.90",
+        "category": "market",  
         "image": "https://docsd.ceptesok.com/product/1000x1000/b4841_Patlican_Kemer_Kg._.jpg" 
       },
       { 
-        "barcode": "14",
-        "name": "Kabak", 
+        "id": "14",
+        "barcode": "",
+        "name": "Kabak Kg.",
+        "price": "49.95",
+        "category": "market",  
         "image": "https://docsd.ceptesok.com/product/1000x1000/b08d3_Kabak_Sakiz_Kg._.jpg" 
       },
       { 
-        "barcode": "15",
-        "name": "Avakado", 
+        "id": "15",
+        "barcode": "",
+        "name": "Avakado Adet",
+        "price": "24.90",
+        "category": "market",  
         "image": "https://docsd.ceptesok.com/product/1000x1000/3c0b6_avakado-adet.jpg" 
       },
       { 
-        "barcode": "16",
-        "name": "Kivi", 
+        "id": "16",
+        "barcode": "",
+        "name": "Kivi Paket", 
+        "price": "39.90",
         "image": "https://docsd.ceptesok.com/product/1000x1000/7278b_Kivi_Paket.JPG" 
       },
       { 
-        "barcode": "17",
-        "name": "İncir", 
+        "id": "17",
+        "barcode": "",
+        "name": "İncir Kg.",
+        "price": "129.90",
+        "category": "market",  
         "image": "https://docsd.ceptesok.com/product/1000x1000/6817c_Incir_Siyah_Kg._.jpg" 
       },
       { 
-        "barcode": "18",
-        "name": "Muz", 
+        "id": "18",
+        "barcode": "",
+        "name": "Muz Kg.",
+        "price": "44.90",
+        "category": "market",  
         "image": "https://docsd.ceptesok.com/product/1000x1000/9613c_Muz_Yerli_Kg_.jpg" 
       },
       { 
-        "barcode": "19",
-        "name": "Elma", 
+        "id": "19",
+        "barcode": "",
+        "name": "Elma Kg.",
+        "price": "43.90",
+        "category": "market",  
         "image": "https://docsd.ceptesok.com/product/1000x1000/ce378_Elma_Granny_Kg_.jpg" 
       },
       { 
-        "barcode": "20",
-        "name": "Armut", 
+        "id": "20",
+        "barcode": "",
+        "name": "Armut Kg.",
+        "price": "49.90",
+        "category": "market",  
         "image": "https://docsd.ceptesok.com/product/1000x1000/73524_Armut_Deveci_Kg.jpg" 
       },
       { 
-        "barcode": "21",
-        "name": "Üzüm", 
+        "id": "21",
+        "barcode": "",
+        "name": "Üzüm Çekirdeksiz Kg.",
+        "price": "89.90",
+        "category": "market",  
         "image": "https://docsd.ceptesok.com/product/1000x1000/b826a_uzum_cekirdeksiz_Kg._.jpg" 
+      },
+      { 
+        "id": "22",
+        "barcode": "",
+        "name": "Fairy Bulaşık Losyon 750 Ml",
+        "price": "66.90",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/bdce0_Bulasik_Losyon_750_Ml.jpg" 
+      },
+      { 
+        "id": "23",
+        "barcode": "",
+        "name": "Fairy Bulaşık Deterjanı Limon Kokulu 750 Ml",
+        "price": "69.90",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/328f8_Bulasik_Deterjani_Limon_Kokulu_750_Ml.jpg" 
+      },
+      { 
+        "id": "24",
+        "barcode": "",
+        "name": "Mintax Sıvı Bulaşık Deterjanı 750 Ml",
+        "price": "39.90",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/b32cb_Ultra_Sivi_Bulasik_Deterjani_750_Ml.jpg" 
+      },
+      { 
+        "id": "25",
+        "barcode": "",
+        "name": "Mintax Bulaşık Makinesi Jel 1 Lt",
+        "price": "79.90",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/19337_Bulasik_Makinesi_Jel_1_Lt.jpg" 
+      },
+      { 
+        "id": "26",
+        "barcode": "",
+        "name": "Finish Hepsi Bir Arada Bulaşık Makinesi Tablet 50 Adet",
+        "price": "219.90",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/c9bfb_Hepsi_Bir_Arada_Bulasik_Makinesi_Tablet_50_Adet.png" 
+      },
+      { 
+        "id": "27",
+        "barcode": "",
+        "name": "Mintax Bulaşık Mak. Temizleyici 250 Ml",
+        "price": "24.90",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/1e12e_Bulasik_Mak._Temizleyici_250_Ml.jpg" 
+      },
+      { 
+        "id": "28",
+        "barcode": "",
+        "name": "Mintax Temizlik Bezi 5'li",
+        "price": "19.90",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/2f19e_Temizlik_Bezi_5li.JPG" 
+      },
+      { 
+        "id": "29",
+        "barcode": "",
+        "name": "Mintax Oluklu Sünger 5'li",
+        "price": "19.90",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/11be3_Oluklu_Sunger_5li.jpg" 
+      },
+      { 
+        "id": "30",
+        "barcode": "",
+        "name": "Mintax Ovma Topu 4'lü",
+        "price": "18.75",
+        "category": "cleaning",  
+        "image": "https://www.sokmarket.com.tr/mintax-ovma-topu-4lu-p-14407" 
+      },
+      { 
+        "id": "31",
+        "barcode": "",
+        "name": "Pril Klasik Limon Bulaşık Sıvısı 4 Kg",
+        "price": "159.90",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/f6af7_Klasik_Limon_Bulasik_Sivisi_4_Kg.JPG" 
+      },
+      { 
+        "id": "32",
+        "barcode": "",
+        "name": "Bingo Soft Yumuşatıcı Lovely 960 Ml",
+        "price": "39.75",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/6e62f_bingo-soft-yumusatici-lovely-960-ml.jpg" 
+      },
+      { 
+        "id": "33",
+        "barcode": "",
+        "name": "Mintax Sensitive Yumuşatıcı 1440 Ml",
+        "price": "65.75",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/16a0e_Sensitive_Yumusatici_1440_Ml.JPG" 
+      },
+      { 
+        "id": "34",
+        "barcode": "",
+        "name": "Omo Matik Color Çamaşır Deterjanı 1.5 kg",
+        "price": "97.50",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/71f51_Matik_Color_Camasir_Deterjani_1.5_kg_.jpg" 
+      },
+      { 
+        "id": "35",
+        "barcode": "",
+        "name": "Mintax Kireç Önleyici 500 Gr",
+        "price": "24.90",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/bc0a4_Kirec_Onleyici_500_Gr.jpg" 
+      },
+      { 
+        "id": "36",
+        "barcode": "",
+        "name": "Perwoll Sıvı Deterjan Siyahlar 2.7 Lt",
+        "price": "181.50",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/19ba7_Sivi_Deterjan_Siyahlar_2.7_Lt.JPG" 
+      },
+      { 
+        "id": "37",
+        "barcode": "",
+        "name": "Bingo Matik Çamaşır Deterjanı 10 Kg",
+        "price": "299.90",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/a746c_Matik_10_Kg_.jpg" 
+      },
+      { 
+        "id": "38",
+        "barcode": "",
+        "name": "Mintax Mutfak Temizleyici 1000 Ml",
+        "price": "40.75",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/cbe20_Mutfak_Temizleyici_1000_Ml.png" 
+      },
+      { 
+        "id": "39",
+        "barcode": "",
+        "name": "Cif Sprey Ultra Hız Banyo Temizleyicisi 1000 Ml",
+        "price": "54.90",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/c0d8b_Sprey_Ultra_Hiz_Banyo_Temizleyicisi_1000_Ml.jpg" 
+      },
+      { 
+        "id": "40",
+        "barcode": "",
+        "name": "Mintax Çiçek Yüzey Temizleyici 2.5 Lt",
+        "price": "54.50",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/f81e1_Cicek_Yuzey_Temizleyici_2.5_Lt.JPG" 
+      },
+      { 
+        "id": "41",
+        "barcode": "",
+        "name": "Asperox Sarı Güç Yağ Çözücü 1 Lt",
+        "price": "69.75",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/ba3de_asperox-sari-guc-1-lt.jpg" 
+      },
+      { 
+        "id": "42",
+        "barcode": "",
+        "name": "Duru Banyo ve Duş Sabunu 600 Gr",
+        "price": "69.75",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/b8825_Banyo_ve_Dus_Sabunu_600_Gr.png" 
+      },
+      { 
+        "id": "43",
+        "barcode": "",
+        "name": "Ebru Sıvı Sabun Okyanus Rüzgarı 750 Ml",
+        "price": "24.75",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/4ffd2_Sivi_Sabun_Okyanus_Ruzgari_750_Ml.jpg" 
+      },
+      { 
+        "id": "44",
+        "barcode": "",
+        "name": "Ebru Sıvı Sabun Hindistan Cevizi 750 Ml",
+        "price": "24.75",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/99307_Sivi_Sabun_Hindistan_Cevizi_750_Ml.jpg" 
+      },
+      { 
+        "id": "45",
+        "barcode": "",
+        "name": "Duru Sıvı Sabun Doğal Zeytinyağlı 1.5 Lt",
+        "price": "108.50",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/8e6e6_sivi-sabun-dogal-zeytinyagli-15-lt.jpg" 
+      },
+      { 
+        "id": "46",
+        "barcode": "",
+        "name": "Mintax Yoğun Çamaşır Suyu 1 Lt",
+        "price": "19.90",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/4c285_Yogun_Camasir_Suyu_1_Lt.jpg" 
+      },
+      { 
+        "id": "47",
+        "barcode": "",
+        "name": "Ace Çamaşır Suyu Klasik 2 lt",
+        "price": "60.70",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/3b824_Klasik_2_lt.JPG" 
+      },
+      { 
+        "id": "48",
+        "barcode": "",
+        "name": "Mintax Yoğun Çamaşır Suyu 4 Kg",
+        "price": "89.90",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/3d6aa_Yogun_Camasir_Suyu_4_Lt.jpg" 
+      },
+      { 
+        "id": "49",
+        "barcode": "",
+        "name": "Off Pump Sprey",
+        "price": "60.90",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/9a41b_Pump_Sprey.jpg" 
+      },
+      { 
+        "id": "50",
+        "barcode": "",
+        "name": "Raid Böceksavar Max Aerosol 300 ML",
+        "price": "86.50",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/0b1ed_Boceksavar_Max_Aerosol_300_ML.jpg" 
+      },
+      { 
+        "id": "51",
+        "barcode": "",
+        "name": "Raid Sineksavar Aeroso",
+        "price": "60.90",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/f1095_Raid_Sineksavar_Aeroso_.jpg" 
+      },
+      { 
+        "id": "52",
+        "barcode": "",
+        "name": "Ebru Oda Kokusu Deniz Ferahlığı Yedek 300 Ml",
+        "price": "43.75",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/3ba0a_Oda_Kokusu_Deniz_Ferahligi_Yedek_300_Ml.jpg" 
+      },
+      { 
+        "id": "53",
+        "barcode": "",
+        "name": "Ebru Oda Kokusu Pudra Esintisi 100 Ml",
+        "price": "49.90",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/60933_oda-kokusu-pudra-esintisi-100-ml.jpg" 
+      },
+      { 
+        "id": "54",
+        "barcode": "",
+        "name": "Glade Aerosol Oda Kokusu 300 Ml",
+        "price": "69.90",
+        "category": "cleaning",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/41d60_glade-aerosol-oda-kokusu-300-ml.jpg" 
+      },
+      { 
+        "id": "55",
+        "barcode": "",
+        "name": "Odun Ekmek 200-250 Gr",
+        "price": "9.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/84b1d_Odun_Ekmek_200-250_Gr.png" 
+      },
+      { 
+        "id": "56",
+        "barcode": "",
+        "name": "Thermoform Soft Termal Üst İçlik L-XL",
+        "price": "101.90",
+        "category": "clothing",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/0f1e8_Thermoform_Soft_Termal__ust_Iclik_L-xl.png" 
+      },
+      { 
+        "id": "57",
+        "barcode": "",
+        "name": "Kadın Sweatshirt Wellsoft S-M",
+        "price": "139.50",
+        "category": "clothing",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/b2b23_Kadin_Sweatshirt_Wellsoft_S-M.jpg" 
+      },
+      { 
+        "id": "58",
+        "barcode": "",
+        "name": "Kadın Polar Alt S-M",
+        "price": "90.25",
+        "category": "clothing",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/bcece_Kadin_Polar_Alt_S-m_.png" 
+      },
+      { 
+        "id": "59",
+        "barcode": "",
+        "name": "Kadın Polar Alt S-M",
+        "price": "90.25",
+        "category": "clothing",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/a079d_Kadin_Polar_Alt_S-m_.JPG" 
+      },
+      { 
+        "id": "60",
+        "barcode": "",
+        "name": "Çorap Peluş Uzun Konçlu",
+        "price": "20.95",
+        "category": "clothing",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/0fded_Kadin_Pelus_corap_Uzun__Konclu.png" 
+      },
+      { 
+        "id": "61",
+        "barcode": "",
+        "name": "Terlik Kadın Kış",
+        "price": "64.95",
+        "category": "clothing",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/d6c97_Gezer_Terlik_Kadin_Kis__Gt2kzm.14481.00.jpg" 
+      },
+      { 
+        "id": "62",
+        "barcode": "",
+        "name": "Bere Zikzak Bantlı Krem",
+        "price": "38.45",
+        "category": "clothing",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/00dba_Kadin_Bere_Zikzak_Bantli__Krem.JPG" 
+      },
+      { 
+        "id": "63",
+        "barcode": "",
+        "name": "Elseve Arginine Direnç Şampuan 450 Ml",
+        "price": "109.90",
+        "category": "cosmetic",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/ecf34_Arginine_Direnc_Sampuan_450_Ml.jpg" 
+      },
+      { 
+        "id": "64",
+        "barcode": "",
+        "name": "Clear Men Saç Dökülme Karşıtı Şampuan 350 Ml",
+        "price": "102.50",
+        "category": "cosmetic",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/404b0_Clear_Men_Sac_Dokulme_Karsiti_sampuan_350_Ml.png" 
+      },
+      { 
+        "id": "65",
+        "barcode": "",
+        "name": "Palmolive Moments Moisturizing Duş Jeli 500 Ml",
+        "price": "49.90",
+        "category": "cosmetic",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/f8142_Palmolive_Moments_Moisturizing_500_Ml.jpg" 
+      },
+      { 
+        "id": "66",
+        "barcode": "",
+        "name": "Elseve 6 Mucizevi Yağ Şampuan 450 Ml",
+        "price": "109.90",
+        "category": "cosmetic",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/369d6_Elseve_6_Mucizevi_Yag_sampuan_450_Ml.JPG" 
+      },
+      { 
+        "id": "67",
+        "barcode": "",
+        "name": "Gliss Intense Therapy Şampuan 500 Ml",
+        "price": "119.90",
+        "category": "cosmetic",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/a1e2c_Intense_Therapy_Sampuan_500_Ml.png" 
+      },
+      { 
+        "id": "68",
+        "barcode": "",
+        "name": "Hobby Şampuan Argan Yağı ve Papatya Çiçeği 600 Ml",
+        "price": "46.90",
+        "category": "cosmetic",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/ea87a_sampuan-argan-yagi-ve-papatya-cicegi-600-ml.jpg" 
+      },
+      { 
+        "id": "69",
+        "barcode": "",
+        "name": "Blendax Şampuan 500 Ml Kepeğe Karşı",
+        "price": "84.75",
+        "category": "cosmetic",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/3e5d3_Sampuan_500_Ml_Kepege_Karsi.jpg" 
+      },
+      { 
+        "id": "70",
+        "barcode": "",
+        "name": "Duru Winter Gingerbread Cookies Duş Jeli 450 Ml",
+        "price": "44.90",
+        "category": "cosmetic",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/498fa_Duru_Winter_Gingerbrea_Cookies_Dus_Jeli_450_M.png" 
+      },
+      { 
+        "id": "71",
+        "barcode": "",
+        "name": "Elidor Saç Dökülmesine Karşı Şampuan 400 Ml",
+        "price": "61.50",
+        "category": "cosmetic",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/91b64_Elidor_Sac_Dokulmesine_Karsi_sampuan_400_Ml.png" 
+      },
+      { 
+        "id": "72",
+        "barcode": "",
+        "name": "Colgate Advanced White Charcoal Diş Macunu 75 Ml",
+        "price": "59.90",
+        "category": "cosmetic",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/1cedd_Advanced_White_Charcoal_Dis_Macunu_75_Ml.png" 
+      },
+      { 
+        "id": "73",
+        "barcode": "",
+        "name": "Colgate Max White Kalıcı Beyazlık Diş Macunu 75 ml",
+        "price": "64.75",
+        "category": "cosmetic",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/7ef52_Max_White_Kalici_Beyazlik_Dis_Macunu_75_ml_.jpg" 
+      },
+      { 
+        "id": "74",
+        "barcode": "",
+        "name": "Rexona Deo Invisible Black+White Deodorant 150 Ml",
+        "price": "119.90",
+        "category": "cosmetic",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/b4293_Deo_Invisible_Black_White_Deodorant_150_Ml.jpg" 
+      },
+      { 
+        "id": "75",
+        "barcode": "",
+        "name": "Nivea Fresh Natural Deo Roll On 50 Ml",
+        "price": "119.50",
+        "category": "cosmetic",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/3d57d_Fresh_Natural_Deo_Roll_On_50_Ml.jpg" 
+      },
+      { 
+        "id": "76",
+        "barcode": "",
+        "name": "Nivea Men Black&White Deodorant 150 Ml",
+        "price": "119.50",
+        "category": "cosmetic",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/5fbcd_Men_BlackWhite_Deodorant_150_Ml.jpg" 
+      },
+      { 
+        "id": "77",
+        "barcode": "",
+        "name": "Nivea Fresh Active Deo Sprey 150ml",
+        "price": "119.50",
+        "category": "cosmetic",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/d4f0d_Fresh_Active_Deo_Sprey_150ml.jpg" 
+      },
+      { 
+        "id": "78",
+        "barcode": "",
+        "name": "Parfüm",
+        "price": "99.90",
+        "category": "cosmetic",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/94664_gabrini-richmen-100-ml.jpg" 
+      },
+      { 
+        "id": "79",
+        "barcode": "",
+        "name": "Rexona Men Cobalt Dry Stick 50 Ml",
+        "price": "149.50",
+        "category": "cosmetic",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/c2ab4_Rexona_Men_Cobalt_Dry_Stick_50_Ml.jpg" 
+      },
+      { 
+        "id": "80",
+        "barcode": "",
+        "name": "Adam Tıraş Kolonyası Cool 250 Ml",
+        "price": "38.50",
+        "category": "cosmetic",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/09157_tiras-kolonyasi-cool-250-ml.jpg" 
+      },
+      { 
+        "id": "81",
+        "barcode": "",
+        "name": "Dalin Bıcı Bıcı Kolonya 150 Ml",
+        "price": "53.90",
+        "category": "cosmetic",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/ece8f_Bici_Bici_Kolonya_150_Ml.jpg" 
+      },
+      { 
+        "id": "82",
+        "barcode": "",
+        "name": "Nivea Besleyici Yüz Kremi 100 Ml",
+        "price": "79.50",
+        "category": "cosmetic",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/638ec_Nivea_Besleyici_Yuz_Kremi_100_Ml.JPG" 
+      },
+      { 
+        "id": "83",
+        "barcode": "",
+        "name": "Neutrogena Hızlı Emilen Bakım Kremi 200 Ml",
+        "price": "78.90",
+        "category": "cosmetic",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/8d6d5_Bakim_Kremi_200_Ml.jpg" 
+      },
+      { 
+        "id": "84",
+        "barcode": "",
+        "name": "Yumak Hidrofil Pamuk 100 Gr",
+        "price": "15.50",
+        "category": "cosmetic",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/yumak-hidrofil-pamuk-100-gr-86832.jpg" 
+      },
+      { 
+        "id": "85",
+        "barcode": "",
+        "name": "Derby Samurai 3 Bıçak 10'lu Poşet",
+        "price": "129.75",
+        "category": "cosmetic",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/59d46_Samurai_3_Bicak_10lu_Poset.jpg" 
+      },
+      { 
+        "id": "86",
+        "barcode": "",
+        "name": "Winney Çalışma Koltuğu",
+        "price": "1299.90",
+        "category": "home",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/25eea_Winney_calisma_Koltugu_.JPG" 
+      },
+      { 
+        "id": "87",
+        "barcode": "",
+        "name": "Eviana Relax Mdf Mutfak Masa",
+        "price": "1399.90",
+        "category": "home",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/a792d_Inserteviana_Relax_Mdf__Mutfak_Masa.png" 
+      },
+      { 
+        "id": "88",
+        "barcode": "",
+        "name": "Ofis Bazaar Oyuncak Dolabı",
+        "price": "799.90",
+        "category": "home",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/a8b3c_Oyuncak_Dolabi_.jpg" 
+      },
+      { 
+        "id": "89",
+        "barcode": "",
+        "name": "Ofis Bazaar Doly Mini Dolap",
+        "price": "1499.90",
+        "category": "home",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/2859e_Doly_Mini_Dolap_.jpg" 
+      },
+      { 
+        "id": "90",
+        "barcode": "",
+        "name": "Masa Örtüsü 140x140 Cm",
+        "price": "79.90",
+        "category": "home",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/d4fd7_Pvc_Masa_ortusu_140_140_Cm.jpg" 
+      },
+      { 
+        "id": "91",
+        "barcode": "",
+        "name": "Çelik Tencere Derin 24x12 Cm",
+        "price": "599.90",
+        "category": "home",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/73464_Amboss_Delta_celik__Tencere_Derin_24_12.jpg" 
+      },
+      { 
+        "id": "92",
+        "barcode": "",
+        "name": "Cezve",
+        "price": "79.95",
+        "category": "home",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/dbbe4_celik_Cezve_No:6_.jpg" 
+      },
+      { 
+        "id": "93",
+        "barcode": "",
+        "name": "Tava Ezme 26 Cm 3mm",
+        "price": "179.90",
+        "category": "home",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/c6376_Kumsal_Tava_26_Cm_Ezme__3mm.png" 
+      },
+      { 
+        "id": "94",
+        "barcode": "",
+        "name": "Çay Bardağı 6'lı 100 Cc",
+        "price": "34.50",
+        "category": "home",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/8b7b2_Cay_Bardagi_6li_100_Cc.jpg" 
+      },
+      { 
+        "id": "95",
+        "barcode": "",
+        "name": "Kase 28 Cm Cam Kırmızı",
+        "price": "99.95",
+        "category": "home",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/ab442_Salata_Kasesi_28_Cm_Cam_Kirmizi.jpg" 
+      },
+      { 
+        "id": "96",
+        "barcode": "",
+        "name": "Çay Süzgeci",
+        "price": "19.95",
+        "category": "home",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/a5177_Pai_cay_Suzgeci_.PNG" 
+      },
+      { 
+        "id": "97",
+        "barcode": "",
+        "name": "Kek Kalıbı 28 Cm Kırmızı",
+        "price": "159.90",
+        "category": "home",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/132b3_Papilla_Bacali_Bravo_Kek__Kalibi_28_Cm_Kirmizi.jpg" 
+      },
+      { 
+        "id": "98",
+        "barcode": "",
+        "name": "Termos 420 Ml",
+        "price": "999.90",
+        "category": "home",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/4c866_Contigo_Pinnacle_Termos_420_Ml_2104546.jpg" 
+      },
+      { 
+        "id": "99",
+        "barcode": "",
+        "name": "Termos Tunç 300 Ml",
+        "price": "699.90",
+        "category": "home",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/1563a_Pinnacle_Tunc_Termos_300_Ml_2095406.jpg" 
+      },
+      { 
+        "id": "100",
+        "barcode": "",
+        "name": "Kek Kalıbı Güneş Kırmızı",
+        "price": "109.90",
+        "category": "home",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/fd804_Papilla_Gunes_Bravo_Kek__Kalibi_Kirmizi.jpg" 
       }
     ]
 }
