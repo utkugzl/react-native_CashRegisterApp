@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 import scaleByWidth from '../../utils/ScaleByWidth.js';
 import scaleByHeight from '../../utils/ScaleByHeight.js';
 
-const styles = StyleSheet.create({
+const stylesLight = StyleSheet.create({
   optionContainer: {
     flexDirection: 'row-reverse',
     alignItems: 'center',
@@ -10,16 +10,17 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   iconContainer: {
-    backgroundColor: 'purple',
+    backgroundColor: '#96B6C5',
     width: 80,
     height: 80,
     borderRadius: 40,
     marginRight: -10,
     justifyContent: 'center',
     alignItems: 'center',
+    borderWidth: 1,
   },
   optionTextContainer: {
-    backgroundColor: 'green',
+    backgroundColor: '#96B6C5',
     width: scaleByWidth('30'),
     height: 55,
     flexDirection: 'row',
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 20,
     borderBottomRightRadius: 20,
     paddingRight: 15,
-    paddingLeft: 20,
+    paddingLeft: 25,
   },
   textStyle: {
     fontSize: 25,
@@ -36,4 +37,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default styles;
+export default stylesLight;

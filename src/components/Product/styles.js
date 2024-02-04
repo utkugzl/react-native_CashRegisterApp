@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#E28F3D',
+    color: '#d16440',
     marginTop: 8,
   },
   favoriteButton: {
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     zIndex: 1,
-    backgroundColor: '#E28F3D',
+    backgroundColor: '#e28769',
   },
   favoriteIcon: {
     padding: 5,

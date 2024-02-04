@@ -1,13 +1,18 @@
 import React from 'react';
+import {useContext} from 'react';
 import {View, Image, Text} from 'react-native';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
-import AppIcons from '../AppIcons/AppIcons.js';
 import {useTranslation} from 'react-i18next';
-import styles from './styles.js';
+import {ThemeContext} from '../../contexts/ThemeContext.js';
+import AppIcons from '../AppIcons/AppIcons.js';
+import stylesDark from './stylesDark.js';
+import stylesLight from './stylesLight.js';
 
 const DrawerMenuContent = props => {
+  const {isDarkMode} = useContext(ThemeContext);
   const {t} = useTranslation();
   const {state} = props;
+  const styles = isDarkMode ? stylesDark : stylesLight;
   const menuItems = [
     {label: t('dashboard'), routeName: 'dashboard'},
     {label: t('sale'), routeName: 'sale'},
@@ -15,11 +20,15 @@ const DrawerMenuContent = props => {
     {label: t('reports'), routeName: 'reports'},
     {label: t('settings'), routeName: 'settings'},
   ];
+  const logoImageSource = isDarkMode
+    ? require('../../assets/images/32bit_logo_dark.png')
+    : require('../../assets/images/32bitlogo.png');
+
   return (
     <View style={styles.menuContainer}>
       <View style={styles.headerContainer}>
         <Image
-          source={require('../../assets/images/32bitlogo.png')}
+          source={logoImageSource}
           style={styles.image}
           resizeMode="contain"
         />
@@ -37,7 +46,12 @@ const DrawerMenuContent = props => {
               icon={() => <AppIcons name={`${item.routeName}Icon`} />}
               labelStyle={styles.labelStyle}
               style={{
-                backgroundColor: state.index === index ? '#BBB2B8' : 'white',
+                backgroundColor:
+                  state.index === index
+                    ? isDarkMode
+                      ? '#276774'
+                      : '#d1cfcf'
+                    : 'transparent',
               }}
             />
           ))}

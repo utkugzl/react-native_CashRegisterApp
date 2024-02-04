@@ -1,9 +1,15 @@
 import React from 'react';
+import {useContext} from 'react';
 import {Text, View, Pressable} from 'react-native';
 
-import styles from './styles.js';
+import {ThemeContext} from '../../contexts/ThemeContext.js';
+import stylesDark from './stylesDark.js';
+import stylesLight from './stylesLight.js';
 
 const LoginButton = ({title, onPress}) => {
+  const {isDarkMode} = useContext(ThemeContext);
+  const styles = isDarkMode ? stylesDark : stylesLight;
+
   return (
     <View style={styles.buttonOuterContainer}>
       <Pressable

@@ -19,10 +19,10 @@ const AppStack = () => {
       screenOptions={{headerShown: false}}
       drawerContent={props => <DrawerMenuContent {...props} />}>
       <Drawer.Screen
-        name="settings"
-        component={SettingStack}
+        name="products"
+        component={ProductStack}
         options={{
-          title: t('settings'),
+          title: t('products'),
         }}
       />
       <Drawer.Screen
@@ -45,13 +45,6 @@ const AppStack = () => {
         }}
       />
       <Drawer.Screen
-        name="products"
-        component={ProductStack}
-        options={{
-          title: t('products'),
-        }}
-      />
-      <Drawer.Screen
         name="reports"
         component={Reports}
         options={{
@@ -61,6 +54,13 @@ const AppStack = () => {
             fontSize: 30,
           },
           headerTitleAlign: 'center',
+        }}
+      />
+      <Drawer.Screen
+        name="settings"
+        component={SettingStack}
+        options={{
+          title: t('settings'),
         }}
       />
     </Drawer.Navigator>

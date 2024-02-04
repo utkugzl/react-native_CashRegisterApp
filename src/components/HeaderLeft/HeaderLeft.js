@@ -1,7 +1,6 @@
 import React from 'react';
-
-import AppIcons from '../AppIcons/AppIcons';
 import {useNavigation, DrawerActions} from '@react-navigation/native';
+import AppIcons from '../AppIcons/AppIcons';
 import {TouchableOpacity} from 'react-native';
 
 const HeaderLeft = () => {

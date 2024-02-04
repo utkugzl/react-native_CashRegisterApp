@@ -43,7 +43,7 @@ const AppIcons = ({name}) => {
       iconElement = <Ionicon name="radio-button-on" size={30} color="red" />;
       break;
     case 'alertIcon':
-      iconElement = <Ionicon name="warning" size={35} color="red" />;
+      iconElement = <Ionicon name="warning" size={35} color="#e11a1a" />;
       break;
     case 'rightArrowIcon':
       iconElement = <Ionicon name="arrow-forward" size={30} color="black" />;

@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 import scaleByWidth from '../../utils/ScaleByWidth.js';
 import scaleByHeight from '../../utils/ScaleByHeight.js';
 
-const styles = StyleSheet.create({
+const stylesLight = StyleSheet.create({
   menuContainer: {
     flex: 1,
   },
@@ -46,7 +46,8 @@ const styles = StyleSheet.create({
   storeStatusText: {
     fontSize: 20,
     fontWeight: 'bold',
+    color: '#a6e8be',
   },
 });
 
-export default styles;
+export default stylesLight;

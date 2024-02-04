@@ -1,5 +1,5 @@
 import React from 'react';
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
 import {
   SafeAreaView,
   View,
@@ -8,10 +8,12 @@ import {
   FlatList,
 } from 'react-native';
 
+import {ThemeContext} from '../../contexts/ThemeContext.js';
 import FilterButton from '../../components/FilterButton/FilterButton.js';
 import CategoryFilterButton from '../../components/CategoryFilterButton/CategoryFilterButton.js';
+import stylesDark from './stylesDark.js';
+import stylesLight from './stylesLight.js';
 
-import styles from './styles.js';
 import axios from 'axios';
 import Product from '../../components/Product/Product.js';
 import {t} from 'i18next';
@@ -23,6 +25,8 @@ const Products = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [showCategoryButtons, setShowCategoryButtons] = useState(false);
+  const {isDarkMode} = useContext(ThemeContext);
+  const styles = isDarkMode ? stylesDark : stylesLight;
   const filters = [
     'Tüm Ürünler',
     'Favoriler',
@@ -108,7 +112,7 @@ const Products = () => {
       case 'C-D':
         setFilteredProducts(
           products.filter(product =>
-            ['C', 'D'].some(letter =>
+            ['C', 'Ç', 'D'].some(letter =>
               product.name.toUpperCase().startsWith(letter),
             ),
           ),
@@ -224,64 +228,51 @@ const Products = () => {
   };
 
   return (
-    <SafeAreaView style={{flex: 1, flexDirection: 'row'}}>
-      <View style={{flex: 1}}>
-        <View style={{flex: 0.6, flexDirection: 'row', marginTop: 8}}>
-          {filters.map((filter, index) => (
-            <FilterButton
+    <SafeAreaView style={styles.screenContainer}>
+      <View style={styles.filterButtonContainer}>
+        {filters.map((filter, index) => (
+          <FilterButton
+            key={index}
+            title={filter}
+            onPress={() => handleFilterPress(filter)}
+            selected={selectedFilter === filter}
+          />
+        ))}
+      </View>
+      <View style={styles.listContainer}>
+        {isLoading ? (
+          <ActivityIndicator
+            size="large"
+            color={isDarkMode ? '#DDDDDD' : '#47D047'}
+            style={styles.activityIndicator}
+          />
+        ) : (
+          <FlatList
+            style={styles.list}
+            data={filteredProducts}
+            key={'_'}
+            numColumns={5}
+            showsVerticalScrollIndicator={false}
+            keyExtractor={item => item.id.toString()}
+            renderItem={({item}) => (
+              <Product name={item.name} price={item.price} image={item.image} />
+            )}
+          />
+        )}
+      </View>
+      {showCategoryButtons && (
+        <View style={styles.categoryButtonContainer}>
+          {categories.map((category, index) => (
+            <CategoryFilterButton
               key={index}
-              title={filter}
-              onPress={() => handleFilterPress(filter)}
-              selected={selectedFilter === filter}
+              title={category.title}
+              backgroundImageSource={category.imageSource}
+              onPress={() => handleCategoryPress(category)}
+              selected={selectedCategory === category.title}
             />
           ))}
         </View>
-        <View
-          style={{backgroundColor: '#D5D1A5', flex: 6, alignItems: 'center'}}>
-          {isLoading ? (
-            <ActivityIndicator
-              size="large"
-              color="#232346"
-              style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}
-            />
-          ) : (
-            <FlatList
-              style={{marginTop: 15}}
-              data={filteredProducts}
-              key={'_'}
-              numColumns={5}
-              showsVerticalScrollIndicator={false}
-              keyExtractor={item => item.id.toString()}
-              renderItem={({item}) => (
-                <Product
-                  name={item.name}
-                  price={item.price}
-                  image={item.image}
-                />
-              )}
-            />
-          )}
-        </View>
-        {showCategoryButtons && (
-          <View
-            style={{
-              flex: 0.7,
-              flexDirection: 'row',
-              borderTopWidth: 2,
-              borderBottomWidth: 2,
-            }}>
-            {categories.map((category, index) => (
-              <CategoryFilterButton
-                key={index}
-                title={category.title}
-                backgroundImageSource={category.imageSource}
-                onPress={() => handleCategoryPress(category)}
-                selected={selectedCategory === category.title}
-              />
-            ))}
-          </View>
-        )}
-      </View>
+      )}
     </SafeAreaView>
   );
 };

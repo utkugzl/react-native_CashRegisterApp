@@ -4,27 +4,27 @@ import {SafeAreaView, View, Image, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import SettingsOption from '../../components/SettingsOption/SettingsOption.js';
 import SettingsSwitchOption from '../../components/SettingsSwitchOption/SettingsSwitchOption.js';
-import styles from './styles.js';
+import stylesDark from './stylesDark.js';
+import stylesLight from './stylesLight.js';
 import {ThemeContext} from '../../contexts/ThemeContext.js';
 
 const Settings = ({navigation}) => {
   const {t} = useTranslation();
   const {isDarkMode} = useContext(ThemeContext);
+
+  const styles = isDarkMode ? stylesDark : stylesLight;
+  const logoImageSource = isDarkMode
+    ? require('../../assets/images/32bit_logo_dark.png')
+    : require('../../assets/images/32bitlogo.png');
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={styles.screenContainer}>
       <View
         style={{
           flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        <Image
-          source={require('../../assets/images/32bitlogo.png')}
-          style={{width: 400, height: 120}}
-        />
-        <Text style={{fontSize: 20, fontWeight: 'bold', color: 'black'}}>
-          {isDarkMode ? 'dark' : 'light'}
-        </Text>
+        <Image source={logoImageSource} style={{width: 400, height: 120}} />
       </View>
       <View style={{flex: 3, flexDirection: 'row'}}>
         <View

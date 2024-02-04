@@ -1,18 +1,21 @@
 import React from 'react';
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
 import {SafeAreaView, View, Image, Text, TouchableOpacity} from 'react-native';
 import {Vibration} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
+import {ThemeContext} from '../../contexts/ThemeContext.js';
 import LoginInput from '../../components/LoginInput/LoginInput.js';
 import LoginButton from '../../components/LoginButton/LoginButton.js';
 import AppIcons from '../../components/AppIcons/AppIcons.js';
-import styles from './styles.js';
+import stylesDark from './stylesDark.js';
+import stylesLight from './stylesLight.js';
 import axios from 'axios';
 
 const Sound = require('react-native-sound');
 const Login = () => {
   const {t} = useTranslation();
+  const {isDarkMode} = useContext(ThemeContext);
   const navigation = useNavigation();
   const [userCode, setUserCode] = useState('');
   const [password, setPassword] = useState('');
@@ -20,6 +23,11 @@ const Login = () => {
   const [version, setVersion] = useState('');
   const [users, setUsers] = useState([]);
   const [loginErrorMessage, setLoginErrorMessage] = useState('');
+
+  const styles = isDarkMode ? stylesDark : stylesLight;
+  const logoImageSource = isDarkMode
+    ? require('../../assets/images/32bit_logo_dark.png')
+    : require('../../assets/images/32bitlogo.png');
 
   const playSound = () => {
     var whoosh = new Sound('wrong_entry.mp3', Sound.MAIN_BUNDLE, error => {
@@ -94,10 +102,7 @@ const Login = () => {
   return (
     <SafeAreaView style={styles.screenContainer}>
       <View style={styles.logoContainer}>
-        <Image
-          source={require('../../assets/images/32bitlogo.png')}
-          style={styles.image}
-        />
+        <Image source={logoImageSource} style={styles.image} />
         <Text style={styles.versionText}>{version}</Text>
       </View>
       <View style={styles.loginInputContainer}>

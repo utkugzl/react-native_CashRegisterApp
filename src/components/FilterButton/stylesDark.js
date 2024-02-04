@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-const styles = StyleSheet.create({
+const stylesDark = StyleSheet.create({
   filterButtonContainer: {
     flex: 1,
     borderTopRightRadius: 25,
@@ -13,9 +13,9 @@ const styles = StyleSheet.create({
   textStyle: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: 'black',
+    color: '#DDDDDD',
     textAlign: 'center',
   },
 });
 
-export default styles;
+export default stylesDark;

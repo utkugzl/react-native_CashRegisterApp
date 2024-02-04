@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 import scaleByHeight from '../../utils/ScaleByHeight.js';
 import scaleByWidth from '../../utils/ScaleByWidth.js';
 
-const styles = StyleSheet.create({
+const stylesLight = StyleSheet.create({
   screenContainer: {
     flex: 1,
     flexDirection: 'row',
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderWidth: 0.5,
     borderColor: '#000',
-    height: scaleByHeight('5'),
+    height: scaleByHeight('6'),
     borderRadius: 5,
     margin: 10,
     paddingLeft: 10,
@@ -65,4 +65,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default styles;
+export default stylesLight;
