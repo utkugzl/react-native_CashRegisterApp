@@ -14,12 +14,13 @@ const styles = StyleSheet.create({
   },
   image: {
     width: scaleByWidth('45'),
-    height: scaleByHeight('10'),
-    resizeMode: 'contain',
+    height: scaleByHeight('13'),
+    resizeMode: 'center',
   },
   versionText: {
     fontSize: scaleByHeight('2.5'),
     fontWeight: 'bold',
+    marginTop: 5,
   },
   loginInputContainer: {
     flex: 1,

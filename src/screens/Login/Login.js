@@ -6,11 +6,11 @@ import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
 import LoginInput from '../../components/LoginInput/LoginInput.js';
 import LoginButton from '../../components/LoginButton/LoginButton.js';
-import styles from './styles.js';
 import AppIcons from '../../components/AppIcons/AppIcons.js';
-
+import styles from './styles.js';
 import axios from 'axios';
 
+const Sound = require('react-native-sound');
 const Login = () => {
   const {t} = useTranslation();
   const navigation = useNavigation();
@@ -20,6 +20,23 @@ const Login = () => {
   const [version, setVersion] = useState('');
   const [users, setUsers] = useState([]);
   const [loginErrorMessage, setLoginErrorMessage] = useState('');
+
+  const playSound = () => {
+    var whoosh = new Sound('wrong_entry.mp3', Sound.MAIN_BUNDLE, error => {
+      if (error) {
+        console.log('failed to load the sound', error);
+        return;
+      }
+      // Play the sound with an onEnd callback
+      whoosh.play(success => {
+        if (success) {
+          console.log('successfully finished playing');
+        } else {
+          console.log('playback failed due to audio decoding errors');
+        }
+      });
+    });
+  };
 
   const fetchVersion = async () => {
     try {
@@ -68,8 +85,8 @@ const Login = () => {
       navigation.navigate('drawer');
     } else {
       setLoginErrorMessage('Invalid user code or password. Please try again.');
-      // Vibrate the phone (for 500 milliseconds)
-      //TODO add voice feedback
+      // Vibrate the phone (for 500 milliseconds) and play the sound
+      playSound();
       Vibration.vibrate(500);
     }
   };

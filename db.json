@@ -9,7 +9,7 @@
     "token": [
       { "id": 1, "token": "token" }
     ],
-    "version": { "version": "3.0" },
+    "version": { "version": "v1.18.3.23" },
     "products": [
       { 
         "id": "1",
