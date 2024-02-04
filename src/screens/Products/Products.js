@@ -14,6 +14,7 @@ import CategoryFilterButton from '../../components/CategoryFilterButton/Category
 import styles from './styles.js';
 import axios from 'axios';
 import Product from '../../components/Product/Product.js';
+import {t} from 'i18next';
 
 const Products = () => {
   const [selectedFilter, setSelectedFilter] = useState('Tüm Ürünler');
@@ -21,7 +22,7 @@ const Products = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState(null);
-
+  const [showCategoryButtons, setShowCategoryButtons] = useState(false);
   const filters = [
     'Tüm Ürünler',
     'Favoriler',
@@ -82,6 +83,8 @@ const Products = () => {
   const handleFilterPress = filter => {
     setIsLoading(true);
     setSelectedFilter(filter);
+    setSelectedCategory(null);
+    setShowCategoryButtons(filter === 'Tüm Ürünler' ? false : true);
     switch (filter) {
       case 'Tüm Ürünler':
         setFilteredProducts(products);
@@ -188,7 +191,6 @@ const Products = () => {
 
   const handleCategoryPress = category => {
     setSelectedCategory(category.title);
-
     switch (category.title) {
       case 'Market':
         setFilteredProducts(
@@ -218,35 +220,19 @@ const Products = () => {
       default:
         setFilteredProducts(filteredProducts);
     }
+    setShowCategoryButtons(false);
   };
 
   return (
     <SafeAreaView style={{flex: 1, flexDirection: 'row'}}>
       <View style={{flex: 1}}>
-        <View style={{flex: 0.5, flexDirection: 'row', marginTop: 8}}>
+        <View style={{flex: 0.6, flexDirection: 'row', marginTop: 8}}>
           {filters.map((filter, index) => (
             <FilterButton
               key={index}
               title={filter}
               onPress={() => handleFilterPress(filter)}
               selected={selectedFilter === filter}
-            />
-          ))}
-        </View>
-        <View
-          style={{
-            flex: 0.7,
-            flexDirection: 'row',
-            borderTopWidth: 2,
-            borderBottomWidth: 2,
-          }}>
-          {categories.map((category, index) => (
-            <CategoryFilterButton
-              key={index}
-              title={category.title}
-              backgroundImageSource={category.imageSource}
-              onPress={() => handleCategoryPress(category)}
-              selected={selectedCategory === category.title}
             />
           ))}
         </View>
@@ -260,6 +246,7 @@ const Products = () => {
             />
           ) : (
             <FlatList
+              style={{marginTop: 15}}
               data={filteredProducts}
               key={'_'}
               numColumns={5}
@@ -275,6 +262,25 @@ const Products = () => {
             />
           )}
         </View>
+        {showCategoryButtons && (
+          <View
+            style={{
+              flex: 0.7,
+              flexDirection: 'row',
+              borderTopWidth: 2,
+              borderBottomWidth: 2,
+            }}>
+            {categories.map((category, index) => (
+              <CategoryFilterButton
+                key={index}
+                title={category.title}
+                backgroundImageSource={category.imageSource}
+                onPress={() => handleCategoryPress(category)}
+                selected={selectedCategory === category.title}
+              />
+            ))}
+          </View>
+        )}
       </View>
     </SafeAreaView>
   );

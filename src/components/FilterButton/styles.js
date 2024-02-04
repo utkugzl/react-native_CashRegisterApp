@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 25,
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 2,
+    borderWidth: 3,
     borderColor: '#A8A5A6',
   },
   textStyle: {

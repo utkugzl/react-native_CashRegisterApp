@@ -7,7 +7,7 @@ import AppStack from './src/navigations/AppStack.js';
 const App = () => {
   return (
     <NavigationContainer>
-      <AuthStack />
+      <AppStack />
     </NavigationContainer>
   );
 };

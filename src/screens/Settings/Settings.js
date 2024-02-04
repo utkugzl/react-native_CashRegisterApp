@@ -11,7 +11,7 @@ const Settings = ({navigation}) => {
       <View
         style={{
           flex: 1,
-          justifyContent: 'flex-end',
+          justifyContent: 'center',
           alignItems: 'center',
         }}>
         <Image
@@ -23,8 +23,9 @@ const Settings = ({navigation}) => {
         <View
           style={{
             flex: 1,
-            justifyContent: 'center',
+            justifyContent: 'flex-start',
             alignItems: 'center',
+            marginTop: 25,
           }}>
           <SettingsOption
             title={'Deneme'}
@@ -38,8 +39,9 @@ const Settings = ({navigation}) => {
         <View
           style={{
             flex: 1,
-            justifyContent: 'center',
+            justifyContent: 'flex-start',
             alignItems: 'center',
+            marginTop: 25,
           }}>
           <SettingsOption
             title={t('other-settings')}

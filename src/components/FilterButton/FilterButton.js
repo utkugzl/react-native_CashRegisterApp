@@ -10,7 +10,8 @@ const FilterButton = ({title, onPress, selected}) => {
       onPress={onPress}
       style={[
         styles.filterButtonContainer,
-        {backgroundColor: selected ? '#4D89B4' : 'transparent'},
+        {backgroundColor: selected ? '#D5D1A5' : 'transparent'},
+        {borderBottomWidth: selected ? 0 : 3},
       ]}>
       <Text style={[styles.textStyle, {color: selected ? 'white' : 'black'}]}>
         {title}

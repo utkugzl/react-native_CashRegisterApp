@@ -4,7 +4,7 @@ import styles from './styles.js';
 
 const Product = ({name, price, image}) => {
   return (
-    <TouchableOpacity style={styles.productContainer}>
+    <TouchableOpacity style={styles.productContainer} activeOpacity={0.8}>
       <View style={styles.imageContainer}>
         <Image
           source={{uri: image}}
