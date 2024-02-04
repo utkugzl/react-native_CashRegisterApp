@@ -1,12 +1,6 @@
 import React from 'react';
 import {useState, useEffect, useContext} from 'react';
-import {
-  SafeAreaView,
-  View,
-  Text,
-  ActivityIndicator,
-  FlatList,
-} from 'react-native';
+import {SafeAreaView, View, ActivityIndicator, FlatList} from 'react-native';
 
 import {ThemeContext} from '../../contexts/ThemeContext.js';
 import FilterButton from '../../components/FilterButton/FilterButton.js';
@@ -243,7 +237,7 @@ const Products = () => {
         {isLoading ? (
           <ActivityIndicator
             size="large"
-            color={isDarkMode ? '#DDDDDD' : '#47D047'}
+            color={isDarkMode ? '#DDDDDD' : '#377481'}
             style={styles.activityIndicator}
           />
         ) : (

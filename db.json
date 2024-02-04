@@ -809,6 +809,406 @@
         "price": "109.90",
         "category": "home",  
         "image": "https://docsd.ceptesok.com/product/1000x1000/fd804_Papilla_Gunes_Bravo_Kek__Kalibi_Kirmizi.jpg" 
+      },
+      { 
+        "id": "101",
+        "barcode": "",
+        "name": "Saka Su 0,5 Lt",
+        "price": "6.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/cfcf4_Su_0,5_Lt.jpg" 
+      },
+      { 
+        "id": "102",
+        "barcode": "",
+        "name": "Saka Su 5 Lt",
+        "price": "17.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/5d343_Su_5_Lt.jpg" 
+      },
+      { 
+        "id": "103",
+        "barcode": "",
+        "name": "Beypazarı Maden Suyu 6x200 Ml",
+        "price": "26.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/88ad1_Maden_Suyu_6x200_Ml.JPG" 
+      },
+      { 
+        "id": "104",
+        "barcode": "",
+        "name": "Coca Cola Kola 2,5 Lt",
+        "price": "49.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/0df6b_Kola_2_5_Lt.png" 
+      },
+      { 
+        "id": "105",
+        "barcode": "",
+        "name": "Coca Cola Kola 330 Ml",
+        "price": "19.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/5bcbe_Kola_330_Ml.png" 
+      },
+      { 
+        "id": "106",
+        "barcode": "",
+        "name": "Coca Cola Zero Sugar Kola 330 Ml",
+        "price": "19.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/d53e6_Zero_Sugar_Kola_330_Ml.png" 
+      },
+      { 
+        "id": "107",
+        "barcode": "",
+        "name": "Fanta Portakal 330 Ml",
+        "price": "19.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/c4997_Portakal_330_Ml.png" 
+      },
+      { 
+        "id": "108",
+        "barcode": "",
+        "name": "Fanta Portakal 2.5 Lt",
+        "price": "49.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/e5432_Portakal__2.5_Lt.png" 
+      },
+      { 
+        "id": "109",
+        "barcode": "",
+        "name": "Gazoz 200 Ml",
+        "price": "10.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/camlica-gazoz-250-ml-68025.jpg" 
+      },
+      { 
+        "id": "110",
+        "barcode": "",
+        "name": "Sprite Gazoz Pet 2.5 Lt",
+        "price": "47.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/cdab1_Gazoz_Pet_2.5_Lt.png" 
+      },
+      { 
+        "id": "111",
+        "barcode": "",
+        "name": "Sprite Gazoz 330 Ml",
+        "price": "19.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/9e1a8_Gazoz_330_Ml_.png" 
+      },
+      { 
+        "id": "112",
+        "barcode": "",
+        "name": "Schweppes Bitter Limon 1 Lt",
+        "price": "29.90",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/95f1c_Bitter_Limon_1_Lt.JPG" 
+      },
+      { 
+        "id": "113",
+        "barcode": "",
+        "name": "Schweppes Tonik 1 Lt",
+        "price": "39.90",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/eed8b_Tonik_1_Lt.JPG" 
+      },
+      { 
+        "id": "114",
+        "barcode": "",
+        "name": "Dimes Cool Lime Özü 310 Ml",
+        "price": "29.90",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/fd72c_Cool_Lime_Ozu_330_Ml.png" 
+      },
+      { 
+        "id": "115",
+        "barcode": "",
+        "name": "Cappy Vişneli İçecek Pet 1 Lt",
+        "price": "32.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/bc285_Cappy_Visneli_Icecek_Pet_1_Lt.png" 
+      },
+      { 
+        "id": "116",
+        "barcode": "",
+        "name": "Link Vişne İçecek 250 Ml",
+        "price": "6.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/d5b64_ulker_Link_Visne_250_Ml.jpg" 
+      },
+      { 
+        "id": "117",
+        "barcode": "",
+        "name": "Cappy Pulpy Portakal İçecek 1lt",
+        "price": "34.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/5d66a_Pulpy_Portakal_Icecek_1lt.png" 
+      },
+      { 
+        "id": "118",
+        "barcode": "",
+        "name": "Cappy Ananaslı İçecek 1 Lt",
+        "price": "32.90",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/29898_Ananasli_Icecek_1_Lt.jpg" 
+      },
+      { 
+        "id": "119",
+        "barcode": "",
+        "name": "Uludağ Şekersiz Limonata 1 Lt",
+        "price": "24.75",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/uludag-sekersiz-limonata-1-lt-30177.jpg" 
+      },
+      { 
+        "id": "120",
+        "barcode": "",
+        "name": "Red Bull Enerji İçeceği 250 Ml",
+        "price": "34.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/572ab_Enerji_Icecegi_250_Ml.jpg" 
+      },
+      { 
+        "id": "121",
+        "barcode": "",
+        "name": "Lipton Ice Tea Şeftali 330 Ml.",
+        "price": "19.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/aef39_Ice_Tea_Seftali_330_Ml..png" 
+      },
+      { 
+        "id": "122",
+        "barcode": "",
+        "name": "Lipton Ice Tea Limon 2 Lt",
+        "price": "39.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/1c373_Ice_Tea_Limon_2_Lt.png" 
+      },
+      { 
+        "id": "123",
+        "barcode": "",
+        "name": "Fuse Tea Soğuk Çay Mango Ve Ananas 1 Lt",
+        "price": "24.90",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/265c1_fuse-tea-mango-ve-ananas-1-lt.jpg" 
+      },
+      { 
+        "id": "124",
+        "barcode": "",
+        "name": "Nescafe Xpress Vanilya Soğuk Kahve 250 Ml",
+        "price": "25.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/8cfa7_Nescafe_Xpress_Vanilya_250_Ml.JPG" 
+      },
+      { 
+        "id": "125",
+        "barcode": "",
+        "name": "Nescafe Xpress Original Kahve 250 Ml",
+        "price": "25.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/d80a4_Xpress_Latte_250_Ml.jpg" 
+      },
+      { 
+        "id": "126",
+        "barcode": "",
+        "name": "Starbucks Frappuccino Coffee 250 Ml",
+        "price": "74.90",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/1e488_Starbucks_Frappuccino_Coffee_250_Ml.png" 
+      },
+      { 
+        "id": "127",
+        "barcode": "",
+        "name": "Maltana Ananas Aromalı İçecek 250 Ml",
+        "price": "21.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/a31fa_Ananas_Aromali_Icecek_270_Ml.jpg" 
+      },
+      { 
+        "id": "128",
+        "barcode": "",
+        "name": "Powerade Ice Blast Sporcu İçecek 500 Ml",
+        "price": "25.45",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/6fb8d_ice-blast-500-ml.jpg" 
+      },
+      { 
+        "id": "129",
+        "barcode": "",
+        "name": "Kefir Orman Meyveli 1 Lt",
+        "price": "42.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/4d695_kefir-orman-meyveli-1-lt.jpg" 
+      },
+      { 
+        "id": "130",
+        "barcode": "",
+        "name": "Ayran Tam Yağlı 1,5 L",
+        "price": "28.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/170b3_Ayran_Sise_1500_Ml.jpg" 
+      },
+      { 
+        "id": "131",
+        "barcode": "",
+        "name": "Ayran Tam Yağlı 285 ml",
+        "price": "6.25",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/4077e_Bardak_Ayran_285_Ml.jpg" 
+      },
+      { 
+        "id": "132",
+        "barcode": "",
+        "name": "Lipton Extra Dem Çay 500 Gr",
+        "price": "68.90",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/84c35_extra-dem-cay-500-gr.jpg" 
+      },
+      { 
+        "id": "133",
+        "barcode": "",
+        "name": "Çaykur Altınbaş Çay 500 gr",
+        "price": "89.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/26773_altinbas-cay-500-gr.jpg" 
+      },
+      { 
+        "id": "134",
+        "barcode": "",
+        "name": "Çaykur Rize Turist Çay 1000 Gr",
+        "price": "149.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/5c56a_Rize_Turist_Cay_1000_Gr.jpg" 
+      },
+      { 
+        "id": "135",
+        "barcode": "",
+        "name": "Yeşil Çay Açaili Ananaslı 20 li",
+        "price": "34.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/e6f72_Yesil_Cay_Acaili_Ananasli_20_li.png" 
+      },
+      { 
+        "id": "136",
+        "barcode": "",
+        "name": "",
+        "price": "34.50",
+        "category": "Yeşil Çay Kayısılı 20 li",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/f51f1_Kayisili_Form_Bitki_Cayi.png" 
+      },
+      { 
+        "id": "137",
+        "barcode": "",
+        "name": "Coffee Mate Coffee Mate 200 Gr",
+        "price": "49.90",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/8ecaa_Coffee_Mate_200_Gr_Ekonomik_Paket.jpg" 
+      },
+      { 
+        "id": "138",
+        "barcode": "",
+        "name": "Nescafe Gold Çözünebilir Kahve 100 Gr",
+        "price": "109.90",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/54b8d_gold-100-gr-ekonomik-paket.jpg" 
+      },
+      { 
+        "id": "139",
+        "barcode": "",
+        "name": "Nescafe 3ü 1 Arada Sütlü Köpüklü Çözünebilir Kahve 18 Gr",
+        "price": "5.75",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/f83ad_3u_1_Arada_Sutlu_Kopuklu_18_Gr.png" 
+      },
+      { 
+        "id": "140",
+        "barcode": "",
+        "name": "Nescafe 2'si 1 Arada Çözünebilir Kahve 10 Gr",
+        "price": "5.75",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/c6deb_2si_1_Arada_10_Gr.png" 
+      },
+      { 
+        "id": "141",
+        "barcode": "",
+        "name": "Nescafe Mocha Kahve 17.9 Gr",
+        "price": "6.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/a5976_Mocha_17.9_Gr_.JPG" 
+      },
+      { 
+        "id": "142",
+        "barcode": "",
+        "name": "Nescafe 2in1 10'lu Mp Çözünebilir Kahve 110 Gr",
+        "price": "49.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/c6cbd_2in1_10lu_Mp_110_Gr.jpg" 
+      },
+      { 
+        "id": "143",
+        "barcode": "",
+        "name": "Nescafe Classic Kahve 20 x 2 Gr",
+        "price": "66.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/28d9a_Classic_20_x_2_Gr.jpg" 
+      },
+      { 
+        "id": "144",
+        "barcode": "",
+        "name": "Jacobs Cronat Gold Kahve 100 Gr",
+        "price": "99.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/6be96_Jacobs_Cronat_Gold_100_Gr.jpg" 
+      },
+      { 
+        "id": "145",
+        "barcode": "",
+        "name": "Jacobs Monarch Stick Hazır Kahve 25x2 Gr",
+        "price": "65.90",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/9ed99_Jacobs_Monarch_Stick_Hazir_Kahve_25_2_Gr.png" 
+      },
+      { 
+        "id": "146",
+        "barcode": "",
+        "name": "Türk Kahvesi 100 Gr",
+        "price": "39.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/52d20_Turk_Kahvesi_100_Gr.jpg" 
+      },
+      { 
+        "id": "147",
+        "barcode": "",
+        "name": "Bozüyük Bozası 1 Kg",
+        "price": "39.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/8716f_bozuyuk-bozasi-1-kg.jpg" 
+      },
+      { 
+        "id": "148",
+        "barcode": "",
+        "name": "Sıcak Çikolata 18.5 Gr",
+        "price": "3.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/eddd4_Lezzcafe_Sicak_cikolata_18.5_Gr.PNG" 
+      },
+      { 
+        "id": "149",
+        "barcode": "",
+        "name": "Nestle Nesquik Ekonomik Paket 375 Gr",
+        "price": "71.90",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/e629a_Nesquik_Ekonomik_Paket_375_Gr.png" 
+      },
+      { 
+        "id": "150",
+        "barcode": "",
+        "name": "Çikolatalı Süt 200 Ml",
+        "price": "7.50",
+        "category": "market",  
+        "image": "https://docsd.ceptesok.com/product/1000x1000/eeaab_Cikolatali_Sut_200_Ml.jpg" 
       }
     ]
 }
