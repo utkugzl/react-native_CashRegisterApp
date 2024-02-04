@@ -57,6 +57,11 @@ const AppIcons = ({name}) => {
     case 'changeLanguageIcon':
       iconElement = <Ionicon name="globe" size={35} color="black" />;
       break;
+    case 'addFavoriteIcon':
+      iconElement = (
+        <Ionicon name="add-circle-outline" size={30} color="black" />
+      );
+      break;
     default:
       iconElement = <Ionicon name="remove" size={35} color="black" />;
   }

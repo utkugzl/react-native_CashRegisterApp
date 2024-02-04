@@ -1,11 +1,11 @@
-import {StyleSheet, Image} from 'react-native';
+import {StyleSheet} from 'react-native';
 import scaleByWidth from '../../utils/ScaleByWidth.js';
 
 const styles = StyleSheet.create({
   productContainer: {
     backgroundColor: 'white',
     width: 200,
-    height: 250,
+    height: 300,
     padding: 10,
     borderRadius: 15,
     margin: 10,
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     padding: 4,
   },
   name: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
   },
@@ -33,6 +33,20 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#E28F3D',
     marginTop: 8,
+  },
+  favoriteButton: {
+    position: 'absolute',
+    top: 5,
+    right: 5,
+    margin: 4,
+    borderRadius: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 1,
+    backgroundColor: '#E28F3D',
+  },
+  favoriteIcon: {
+    padding: 5,
   },
 });
 

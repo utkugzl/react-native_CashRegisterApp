@@ -1,11 +1,15 @@
 import React from 'react';
-import {SafeAreaView, View, Image} from 'react-native';
+import {useContext} from 'react';
+import {SafeAreaView, View, Image, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import SettingsOption from '../../components/SettingsOption/SettingsOption.js';
+import SettingsSwitchOption from '../../components/SettingsSwitchOption/SettingsSwitchOption.js';
 import styles from './styles.js';
+import {ThemeContext} from '../../contexts/ThemeContext.js';
 
 const Settings = ({navigation}) => {
   const {t} = useTranslation();
+  const {isDarkMode} = useContext(ThemeContext);
   return (
     <SafeAreaView style={{flex: 1}}>
       <View
@@ -18,6 +22,9 @@ const Settings = ({navigation}) => {
           source={require('../../assets/images/32bitlogo.png')}
           style={{width: 400, height: 120}}
         />
+        <Text style={{fontSize: 20, fontWeight: 'bold', color: 'black'}}>
+          {isDarkMode ? 'dark' : 'light'}
+        </Text>
       </View>
       <View style={{flex: 3, flexDirection: 'row'}}>
         <View
@@ -34,7 +41,7 @@ const Settings = ({navigation}) => {
             screenName={'deneme'}
           />
           <SettingsOption title={'Deneme'} iconName={'reportsIcon'} />
-          <SettingsOption title={'Deneme'} iconName={'reportsIcon'} />
+          <SettingsSwitchOption title={'Koyu Tema'} iconName={'reportsIcon'} />
         </View>
         <View
           style={{

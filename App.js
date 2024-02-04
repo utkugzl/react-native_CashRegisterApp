@@ -1,14 +1,13 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
 import 'react-native-gesture-handler';
-import AuthStack from './src/navigations/AuthStack.js';
-import AppStack from './src/navigations/AppStack.js';
+import {ThemeProvider} from './src/contexts/ThemeContext.js';
+import AppContainer from './src/navigations/AppContainer.js';
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <AppStack />
-    </NavigationContainer>
+    <ThemeProvider>
+      <AppContainer />
+    </ThemeProvider>
   );
 };
 
