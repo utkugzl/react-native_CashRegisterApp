@@ -1,5 +1,6 @@
 import React from 'react';
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useRef, useContext} from 'react';
+import {CartContext} from '../../contexts/CartContext.js';
 import {
   SafeAreaView,
   View,
@@ -13,11 +14,13 @@ import axios from 'axios';
 import CategoryButton from '../../components/CategoryButton/CategoryButton.js';
 import FilterButton from '../../components/FilterButton/FilterButton.js';
 import SaleProduct from '../../components/SaleProduct/SaleProduct.js';
+import CartProduct from '../../components/CartProduct/CartProduct.js';
 
 const Sale = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [content, setContent] = useState('categories');
+  const {cart, addToCart} = useContext(CartContext);
 
   const categories = [
     {
@@ -148,6 +151,7 @@ const Sale = () => {
                       name={item.name}
                       price={item.price}
                       image={item.image}
+                      onPress={() => addToCart(item)}
                     />
                   )}
                 />
@@ -166,6 +170,7 @@ const Sale = () => {
                       name={item.name}
                       price={item.price}
                       image={item.image}
+                      onPress={() => addToCart(item)}
                     />
                   )}
                 />
@@ -173,7 +178,95 @@ const Sale = () => {
             )}
           </View>
         </View>
-        <View style={{backgroundColor: 'green', flex: 1}}></View>
+        <View
+          style={{
+            backgroundColor: 'green',
+            flex: 1,
+          }}>
+          <View
+            style={{
+              flex: 6,
+              justifyContent: 'center',
+              alignItems: 'center',
+              padding: 4,
+            }}>
+            <FlatList
+              style={{width: '100%'}}
+              key={'_'}
+              data={cart}
+              keyExtractor={(item, index) => `${item.id}_${index}`}
+              showsVerticalScrollIndicator={false}
+              renderItem={({item}) => (
+                <CartProduct name={item.name} price={item.price} />
+              )}
+            />
+          </View>
+          <View
+            style={{
+              backgroundColor: 'brown',
+              flex: 0.8,
+              borderWidth: 8,
+              borderRadius: 16,
+            }}>
+            <View
+              style={{
+                backgroundColor: 'orange',
+                flex: 1,
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                paddingHorizontal: 12,
+                borderBottomWidth: 4,
+                borderTopStartRadius: 16,
+                borderTopEndRadius: 16,
+              }}>
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontWeight: 'bold',
+                  color: 'white',
+                }}>
+                Ara Toplam
+              </Text>
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontWeight: 'bold',
+                  color: 'white',
+                }}>
+                123
+              </Text>
+            </View>
+            <View
+              style={{
+                backgroundColor: 'brown',
+                flex: 1,
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                paddingHorizontal: 12,
+                borderBottomStartRadius: 16,
+                borderBottomEndRadius: 16,
+              }}>
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontWeight: 'bold',
+                  color: 'white',
+                }}>
+                Toplam Tutar
+              </Text>
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontWeight: 'bold',
+                  color: 'white',
+                }}>
+                123
+              </Text>
+            </View>
+          </View>
+        </View>
         <View style={{backgroundColor: 'purple', flex: 1}}></View>
       </View>
       <View style={{backgroundColor: 'blue', flex: 0.1}}></View>

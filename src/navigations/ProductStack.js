@@ -5,6 +5,7 @@ import {useTranslation} from 'react-i18next';
 import {ThemeContext} from '../contexts/ThemeContext.js';
 import Products from '../screens/Products/Products.js';
 import HeaderLeft from '../components/HeaderLeft/HeaderLeft.js';
+import ProductStackHeaderRight from '../components/ProductStackHeaderRight/ProductStackHeaderRight.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,7 @@ const ProductStack = () => {
           title: t('products'),
           headerShown: true,
           headerLeft: () => <HeaderLeft />,
+          headerRight: () => <ProductStackHeaderRight />,
           headerTitleStyle: {
             fontWeight: 'bold',
             fontSize: 30,

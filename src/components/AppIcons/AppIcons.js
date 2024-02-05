@@ -62,6 +62,9 @@ const AppIcons = ({name}) => {
         <Ionicon name="add-circle-outline" size={30} color="black" />
       );
       break;
+    case 'cartIcon':
+      iconElement = <Ionicon name="cart" size={35} color="black" />;
+      break;
     default:
       iconElement = <Ionicon name="remove" size={35} color="black" />;
   }

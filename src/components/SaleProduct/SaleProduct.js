@@ -2,9 +2,12 @@ import React from 'react';
 import {Text, View, Image, TouchableOpacity} from 'react-native';
 import styles from './styles.js';
 
-const SaleProduct = ({name, price, image}) => {
+const SaleProduct = ({name, price, image, onPress}) => {
   return (
-    <TouchableOpacity style={styles.productContainer} activeOpacity={0.8}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={styles.productContainer}
+      activeOpacity={0.8}>
       <View style={styles.imageContainer}>
         <Image
           source={{uri: image}}

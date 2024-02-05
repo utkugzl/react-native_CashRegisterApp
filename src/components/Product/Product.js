@@ -3,15 +3,13 @@ import {Text, View, Image, TouchableOpacity} from 'react-native';
 import styles from './styles.js';
 import AppIcons from '../AppIcons/AppIcons.js';
 
-const Product = ({name, price, image}) => {
-  const handleFavoritePress = () => {
-    // TODO: Add to favorites
-  };
+const Product = ({name, price, image, onPress}) => {
   return (
-    <TouchableOpacity style={styles.productContainer} activeOpacity={0.8}>
-      <TouchableOpacity
-        style={styles.favoriteButton}
-        onPress={handleFavoritePress}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={styles.productContainer}
+      activeOpacity={0.8}>
+      <TouchableOpacity style={styles.favoriteButton}>
         <View style={styles.favoriteIcon}>
           <AppIcons name="addFavoriteIcon" />
         </View>
@@ -23,7 +21,6 @@ const Product = ({name, price, image}) => {
           resizeMode="contain"
         />
       </View>
-
       <View style={styles.textContainer}>
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.price}>{price}₺</Text>

@@ -3,6 +3,7 @@ import {useState, useEffect, useContext} from 'react';
 import {SafeAreaView, View, ActivityIndicator, FlatList} from 'react-native';
 
 import {ThemeContext} from '../../contexts/ThemeContext.js';
+import {CartContext} from '../../contexts/CartContext.js';
 import FilterButton from '../../components/FilterButton/FilterButton.js';
 import CategoryFilterButton from '../../components/CategoryFilterButton/CategoryFilterButton.js';
 import stylesDark from './stylesDark.js';
@@ -20,6 +21,7 @@ const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [showCategoryButtons, setShowCategoryButtons] = useState(false);
   const {isDarkMode} = useContext(ThemeContext);
+  const {addToCart} = useContext(CartContext);
   const styles = isDarkMode ? stylesDark : stylesLight;
   const filters = [
     'Tüm Ürünler',
@@ -249,7 +251,12 @@ const Products = () => {
             showsVerticalScrollIndicator={false}
             keyExtractor={item => item.id.toString()}
             renderItem={({item}) => (
-              <Product name={item.name} price={item.price} image={item.image} />
+              <Product
+                name={item.name}
+                price={item.price}
+                image={item.image}
+                onPress={() => addToCart(item)}
+              />
             )}
           />
         )}
