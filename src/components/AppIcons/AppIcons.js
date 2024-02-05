@@ -48,6 +48,9 @@ const AppIcons = ({name}) => {
     case 'rightArrowIcon':
       iconElement = <Ionicon name="arrow-forward" size={30} color="black" />;
       break;
+    case 'darkThemeIcon':
+      iconElement = <Ionicon name="moon" size={35} color="black" />;
+      break;
     case 'otherSettingsIcon':
       iconElement = <Ionicon name="repeat" size={35} color="black" />;
       break;

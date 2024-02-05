@@ -8,5 +8,14 @@
     "logout": "Çıkış Yap",
     "other-settings": "Diğer Ayarlar",
     "printer-test": "Yazıcı Testi",
-    "change-language": "Dili Değiştir"
+    "change-language": "Dili Değiştir",
+    "categories": "Kategoriler",
+    "all-products": "Tüm Ürünler",
+    "dark-theme": "Karanlık Tema",
+    "market": "Market",
+    "cleaning": "Temizlik",
+    "clothing": "Giyim",
+    "home": "Ev&Yaşam",
+    "cosmetics": "Kozmetik"
+    
 }

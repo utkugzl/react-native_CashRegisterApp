@@ -41,7 +41,10 @@ const Settings = ({navigation}) => {
             screenName={'deneme'}
           />
           <SettingsOption title={'Deneme'} iconName={'reportsIcon'} />
-          <SettingsSwitchOption title={'Koyu Tema'} iconName={'reportsIcon'} />
+          <SettingsSwitchOption
+            title={t('dark-theme')}
+            iconName={'darkThemeIcon'}
+          />
         </View>
         <View
           style={{

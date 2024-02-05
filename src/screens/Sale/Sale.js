@@ -1,13 +1,17 @@
 import React from 'react';
 import {useEffect, useState, useRef, useContext} from 'react';
+import {useTranslation} from 'react-i18next';
 import {CartContext} from '../../contexts/CartContext.js';
 import {
   SafeAreaView,
   View,
   Text,
-  Image,
   ScrollView,
   FlatList,
+  StyleSheet,
+  TouchableOpacity,
+  TextInput,
+  Button,
 } from 'react-native';
 import axios from 'axios';
 
@@ -17,30 +21,32 @@ import SaleProduct from '../../components/SaleProduct/SaleProduct.js';
 import CartProduct from '../../components/CartProduct/CartProduct.js';
 
 const Sale = () => {
+  const {t} = useTranslation();
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [content, setContent] = useState('categories');
-  const {cart, addToCart} = useContext(CartContext);
-
+  const {cart, addToCart, totalPrice} = useContext(CartContext);
+  const inputRef = useRef(null);
+  const [input, setInput] = useState('0');
   const categories = [
     {
-      title: 'Market',
+      title: t('market'),
       imageSource: require('../../assets/images/foodFilterImage.webp'),
     },
     {
-      title: 'Temizlik',
+      title: t('cleaning'),
       imageSource: require('../../assets/images/cleaningFilterImage.jpeg'),
     },
     {
-      title: 'Giyim',
+      title: t('clothing'),
       imageSource: require('../../assets/images/clothingFilterImage.png'),
     },
     {
-      title: 'Ev&Yaşam',
+      title: t('home'),
       imageSource: require('../../assets/images/homeFilterImage.png'),
     },
     {
-      title: 'Kozmetik',
+      title: t('cosmetics'),
       imageSource: require('../../assets/images/cosmeticFilterImage.jpeg'),
     },
   ];
@@ -113,14 +119,14 @@ const Sale = () => {
               flexDirection: 'row',
             }}>
             <FilterButton
-              title="Kategoriler"
+              title={t('categories')}
               onPress={() => handleFilterButtonClick('categories')}
               selected={content === 'categories'}
             />
             <FilterButton
-              title="ürünler"
+              title={t('products')}
               onPress={() => handleFilterButtonClick('products')}
-              selected={content === 'products'}
+              selected={content === 'all-products'}
             />
           </View>
           <View style={{backgroundColor: '#222831', flex: 8, padding: 5}}>
@@ -234,7 +240,7 @@ const Sale = () => {
                   fontWeight: 'bold',
                   color: 'white',
                 }}>
-                123
+                {totalPrice}₺
               </Text>
             </View>
             <View
@@ -262,12 +268,169 @@ const Sale = () => {
                   fontWeight: 'bold',
                   color: 'white',
                 }}>
-                123
+                123₺
               </Text>
             </View>
           </View>
         </View>
-        <View style={{backgroundColor: 'purple', flex: 1}}></View>
+        <View style={{flex: 1}}>
+          <View style={{backgroundColor: 'brown', flex: 1}}></View>
+          <View style={{backgroundColor: 'pink', flex: 0.5}}></View>
+          <View
+            style={{
+              backgroundColor: 'orange',
+              flex: 3,
+              flexDirection: 'row',
+            }}>
+            <View style={{backgroundColor: 'brown', flex: 2}}>
+              <View
+                style={{
+                  backgroundColor: '#475347',
+                  flex: 1,
+                  flexDirection: 'row',
+                }}>
+                <TouchableOpacity
+                  style={{
+                    backgroundColor: '#504a45',
+                    flex: 1,
+                    borderWidth: 1,
+                  }}></TouchableOpacity>
+                <TouchableOpacity
+                  style={{
+                    backgroundColor: '#d9740f',
+                    flex: 1,
+                    borderWidth: 1,
+                  }}></TouchableOpacity>
+              </View>
+              <View
+                style={{
+                  backgroundColor: '#ded960',
+                  flex: 1,
+                  flexDirection: 'row',
+                }}>
+                <TouchableOpacity
+                  style={{
+                    backgroundColor: '#5fb974',
+                    flex: 1,
+                    borderWidth: 1,
+                  }}></TouchableOpacity>
+                <TouchableOpacity
+                  style={{
+                    backgroundColor: '#d55822',
+                    flex: 1,
+                    borderWidth: 1,
+                  }}></TouchableOpacity>
+                <TouchableOpacity
+                  style={{
+                    backgroundColor: '#e517a4',
+                    flex: 1,
+                    borderWidth: 1,
+                  }}></TouchableOpacity>
+              </View>
+              <View
+                style={{
+                  backgroundColor: '#e3b587',
+                  flex: 1,
+                  flexDirection: 'row',
+                }}>
+                <TouchableOpacity
+                  style={{
+                    backgroundColor: '#60636b',
+                    flex: 1,
+                    borderWidth: 1,
+                  }}></TouchableOpacity>
+                <TouchableOpacity
+                  style={{
+                    backgroundColor: '#132148',
+                    flex: 1,
+                    borderWidth: 1,
+                  }}></TouchableOpacity>
+                <TouchableOpacity
+                  style={{
+                    backgroundColor: '#0f49ea',
+                    flex: 1,
+                    borderWidth: 1,
+                  }}></TouchableOpacity>
+              </View>
+              <View
+                style={{
+                  backgroundColor: '#8da2dd',
+                  flex: 1,
+                  flexDirection: 'row',
+                }}>
+                <TouchableOpacity
+                  style={{
+                    backgroundColor: '#97509b',
+                    flex: 1,
+                    borderWidth: 1,
+                  }}></TouchableOpacity>
+                <TouchableOpacity
+                  style={{
+                    backgroundColor: '#bcd23e',
+                    flex: 1,
+                    borderWidth: 1,
+                  }}></TouchableOpacity>
+                <TouchableOpacity
+                  style={{
+                    backgroundColor: '#289e8a',
+                    flex: 1,
+                    borderWidth: 1,
+                  }}></TouchableOpacity>
+              </View>
+              <View
+                style={{
+                  backgroundColor: '#124d6a',
+                  flex: 1,
+                  flexDirection: 'row',
+                }}>
+                <TouchableOpacity
+                  style={{
+                    backgroundColor: '#21069e',
+                    flex: 1,
+                    borderWidth: 1,
+                  }}></TouchableOpacity>
+                <TouchableOpacity
+                  style={{
+                    backgroundColor: '#f43d0a',
+                    flex: 1,
+                    borderWidth: 1,
+                  }}></TouchableOpacity>
+                <TouchableOpacity
+                  style={{
+                    backgroundColor: '#7d7692',
+                    flex: 1,
+                    borderWidth: 1,
+                  }}></TouchableOpacity>
+              </View>
+            </View>
+            <View style={{backgroundColor: 'yellow', flex: 1}}>
+              <TouchableOpacity
+                style={{
+                  backgroundColor: '#4EB84E',
+                  flex: 1,
+                  borderWidth: 1,
+                }}></TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  backgroundColor: '#9E9A56',
+                  flex: 1,
+                  borderWidth: 1,
+                }}></TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  backgroundColor: '#642a9a',
+                  flex: 2,
+                  borderWidth: 1,
+                }}></TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  backgroundColor: '#76295e',
+                  flex: 1,
+                  borderWidth: 1,
+                }}></TouchableOpacity>
+            </View>
+          </View>
+        </View>
       </View>
       <View style={{backgroundColor: 'blue', flex: 0.1}}></View>
     </SafeAreaView>
@@ -275,3 +438,17 @@ const Sale = () => {
 };
 
 export default Sale;
+
+/*
+<TextInput ref={inputRef} value={input} />
+            <Button
+              title="Satış Yap"
+              onPress={() => {
+                console.log(inputRef.current.value);
+                inputRef.current += '1';
+                setInput(prev => {
+                  return prev + '1';
+                });
+              }}
+            />
+ */

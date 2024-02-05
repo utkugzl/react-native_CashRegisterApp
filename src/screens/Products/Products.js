@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState, useEffect, useContext} from 'react';
 import {SafeAreaView, View, ActivityIndicator, FlatList} from 'react-native';
-
+import {useTranslation} from 'react-i18next';
 import {ThemeContext} from '../../contexts/ThemeContext.js';
 import {CartContext} from '../../contexts/CartContext.js';
 import FilterButton from '../../components/FilterButton/FilterButton.js';
@@ -11,9 +11,9 @@ import stylesLight from './stylesLight.js';
 
 import axios from 'axios';
 import Product from '../../components/Product/Product.js';
-import {t} from 'i18next';
 
 const Products = () => {
+  const {t} = useTranslation();
   const [selectedFilter, setSelectedFilter] = useState('Tüm Ürünler');
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -41,23 +41,23 @@ const Products = () => {
 
   const categories = [
     {
-      title: 'Market',
+      title: t('market'),
       imageSource: require('../../assets/images/foodFilterImage.webp'),
     },
     {
-      title: 'Temizlik',
+      title: t('cleaning'),
       imageSource: require('../../assets/images/cleaningFilterImage.jpeg'),
     },
     {
-      title: 'Giyim',
+      title: t('clothing'),
       imageSource: require('../../assets/images/clothingFilterImage.png'),
     },
     {
-      title: 'Ev&Yaşam',
+      title: t('home'),
       imageSource: require('../../assets/images/homeFilterImage.png'),
     },
     {
-      title: 'Kozmetik',
+      title: t('cosmetics'),
       imageSource: require('../../assets/images/cosmeticFilterImage.jpeg'),
     },
   ];

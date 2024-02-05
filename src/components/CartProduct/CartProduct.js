@@ -1,5 +1,5 @@
 import React from 'react';
-import {TouchableOpacity, View, Text, ImageBackground} from 'react-native';
+import {View, Text} from 'react-native';
 
 const CartProduct = ({name, price}) => {
   return (
@@ -11,14 +11,19 @@ const CartProduct = ({name, price}) => {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        paddingHorizontal: 14,
+        paddingHorizontal: 16,
         borderWidth: 1,
         borderRadius: 12,
         margin: 2,
       }}>
-      <Text style={{fontSize: 14, fontWeight: 'bold', color: 'black'}}>
-        {name}
-      </Text>
+      <View>
+        <Text style={{fontSize: 14, fontWeight: 'bold', color: 'black'}}>
+          {name}
+        </Text>
+        <Text style={{fontSize: 12, fontWeight: 'bold', color: 'black'}}>
+          123456
+        </Text>
+      </View>
       <Text style={{fontSize: 18, fontWeight: 'bold', color: 'black'}}>
         {price}₺
       </Text>

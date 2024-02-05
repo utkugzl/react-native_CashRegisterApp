@@ -8,5 +8,13 @@
     "logout": "Logout",
     "other-settings": "Other Settings",
     "printer-test": "Printer Test",
-    "change-language": "Change Language"
+    "change-language": "Change Language",
+    "categories": "Categories",
+    "all-products": "All Products",
+    "dark-theme": "Dark Theme",
+    "market": "Market",
+    "cleaning": "Cleaning",
+    "clothing": "Clothing",
+    "home": "Home",
+    "cosmetics": "Cosmetics"
 }
