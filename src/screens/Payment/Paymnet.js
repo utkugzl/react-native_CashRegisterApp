@@ -22,8 +22,9 @@ import SaleProduct from '../../components/SaleProduct/SaleProduct.js';
 import CartProduct from '../../components/CartProduct/CartProduct.js';
 import CartButton from '../../components/CartButton/CartButton.js';
 import Keyboard from '../../components/Keyboard/Keyboard.js';
+import PaymentKeyboard from '../../components/PaymnetKeyboard/PaymnetKeyboard.js';
 
-const Sale = () => {
+const Payment = () => {
   const navigation = useNavigation();
   const {t} = useTranslation();
   const [products, setProducts] = useState([]);
@@ -134,79 +135,13 @@ const Sale = () => {
     <SafeAreaView style={{backgroundColor: 'red', flex: 1}}>
       <View style={{flex: 1, flexDirection: 'row'}}>
         <View style={{backgroundColor: 'yellow', flex: 1}}>
-          <View style={{backgroundColor: 'brown', flex: 1}}></View>
           <View
             style={{
               backgroundColor: '#222831',
               flex: 1,
               flexDirection: 'row',
               padding: 8,
-            }}>
-            <FilterButton
-              title={t('categories')}
-              onPress={() => handleFilterButtonClick('categories')}
-              selected={content === 'categories'}
-            />
-            <FilterButton
-              title={t('products')}
-              onPress={() => handleFilterButtonClick('products')}
-              selected={content === 'products'}
-            />
-          </View>
-          <View style={{backgroundColor: '#222831', flex: 8, padding: 5}}>
-            {content === 'categories' && (
-              <View style={{marginTop: 5}}>
-                <ScrollView>
-                  {categories.map((category, index) => (
-                    <CategoryButton
-                      key={index}
-                      title={category.title}
-                      backgroundImageSource={category.imageSource}
-                      onPress={() => handleCategoryButtonClick(category.title)}
-                    />
-                  ))}
-                </ScrollView>
-              </View>
-            )}
-            {content === 'products' && (
-              <View style={{alignItems: 'center', marginTop: 8}}>
-                <FlatList
-                  key={'_'}
-                  numColumns={3}
-                  data={products}
-                  keyExtractor={item => item.id.toString()}
-                  showsVerticalScrollIndicator={false}
-                  renderItem={({item}) => (
-                    <SaleProduct
-                      name={item.name}
-                      price={item.price}
-                      image={item.image}
-                      onPress={() => addToCart(item)}
-                    />
-                  )}
-                />
-              </View>
-            )}
-            {content === 'filteredProducts' && (
-              <View style={{alignItems: 'center', marginTop: 8}}>
-                <FlatList
-                  key={'_'}
-                  numColumns={3}
-                  data={filteredProducts}
-                  keyExtractor={item => item.id.toString()}
-                  showsVerticalScrollIndicator={false}
-                  renderItem={({item}) => (
-                    <SaleProduct
-                      name={item.name}
-                      price={item.price}
-                      image={item.image}
-                      onPress={() => addToCart(item)}
-                    />
-                  )}
-                />
-              </View>
-            )}
-          </View>
+            }}></View>
         </View>
         <View
           style={{
@@ -308,13 +243,7 @@ const Sale = () => {
         <View style={{flex: 1}}>
           <View style={{backgroundColor: 'brown', flex: 1}}>
             <View style={{backgroundColor: '#222831', flex: 1, padding: 8}}>
-              <CartButton
-                title="İsimden Ara"
-                color={'#275485'}
-                onPress={() => {
-                  navigation.navigate('products');
-                }}
-              />
+              <CartButton title="Belge Bitir" color={'#afad21'} />
             </View>
             <View
               style={{
@@ -335,7 +264,7 @@ const Sale = () => {
               />
             </View>
           </View>
-          <Keyboard />
+          <PaymentKeyboard />
         </View>
       </View>
       <View style={{backgroundColor: 'blue', flex: 0.1}}></View>
@@ -343,4 +272,4 @@ const Sale = () => {
   );
 };
 
-export default Sale;
+export default Payment;

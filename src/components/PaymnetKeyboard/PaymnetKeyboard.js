@@ -3,10 +3,10 @@ import {useState} from 'react';
 import {View, Text, TextInput} from 'react-native';
 import {TouchableOpacity} from 'react-native';
 import AppIcons from '../AppIcons/AppIcons.js';
-import {useNavigation} from '@react-navigation/native';
-const Keyboard = () => {
+
+const PaymentKeyboard = () => {
   const [textInputValue, setTextInputValue] = useState('');
-  const navigation = useNavigation();
+
   const handleKeyPress = value => {
     setTextInputValue(prevValue => prevValue + value);
   };
@@ -289,50 +289,51 @@ const Keyboard = () => {
           <TouchableOpacity
             activeOpacity={0.6}
             style={{
-              backgroundColor: '#4EB84E',
+              backgroundColor: '#319331',
               flex: 1,
               borderWidth: 1,
               borderRadius: 16,
-              marginBottom: 4,
-              marginHorizontal: 2,
-            }}></TouchableOpacity>
+              marginRight: 4,
+              marginBottom: 8,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <Text
+              style={{
+                color: 'white',
+                fontSize: 24,
+                fontWeight: 'bold',
+                textAlign: 'center',
+              }}>
+              Nakit
+            </Text>
+          </TouchableOpacity>
           <TouchableOpacity
             activeOpacity={0.6}
             style={{
-              backgroundColor: '#9E9A56',
+              backgroundColor: '#319331',
               flex: 1,
               borderWidth: 1,
               borderRadius: 16,
-              marginBottom: 4,
-              marginHorizontal: 2,
-            }}></TouchableOpacity>
-          <TouchableOpacity
-            activeOpacity={0.6}
-            style={{
-              backgroundColor: '#642a9a',
-              flex: 2,
-              borderWidth: 1,
-              borderRadius: 16,
-              marginBottom: 6,
-              marginHorizontal: 2,
-            }}></TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate('payment');
-            }}
-            activeOpacity={0.6}
-            style={{
-              backgroundColor: '#76295e',
-              flex: 1,
-              borderWidth: 1,
-              borderRadius: 16,
-              marginBottom: 4,
-              marginHorizontal: 2,
-            }}></TouchableOpacity>
+              marginRight: 4,
+              marginBottom: 8,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <Text
+              style={{
+                color: 'white',
+                fontSize: 24,
+                fontWeight: 'bold',
+                textAlign: 'center',
+              }}>
+              Kredi Kartı
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
   );
 };
 
-export default Keyboard;
+export default PaymentKeyboard;
