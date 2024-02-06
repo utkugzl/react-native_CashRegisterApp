@@ -1,6 +1,6 @@
 import React from 'react';
 import {useContext} from 'react';
-import {SafeAreaView, View, Text, Image} from 'react-native';
+import {SafeAreaView, View} from 'react-native';
 import {ThemeContext} from '../../contexts/ThemeContext.js';
 import LanguageButton from '../../components/LanguageButton/LanguageButton.js';
 import i18next from '../../locales/i18next.js';
@@ -11,6 +11,7 @@ import stylesLight from './stylesLight.js';
 const ChangeLanguage = () => {
   const {isDarkMode} = useContext(ThemeContext);
   const styles = isDarkMode ? stylesDark : stylesLight;
+  /*
   const handleLanguageChange = async languageCode => {
     try {
       i18next.changeLanguage(languageCode);
@@ -19,6 +20,7 @@ const ChangeLanguage = () => {
       console.error('Error setting language:', error);
     }
   };
+  */
   return (
     <SafeAreaView style={styles.screenContainer}>
       <View style={styles.leftContainer}>

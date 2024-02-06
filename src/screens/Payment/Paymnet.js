@@ -3,6 +3,7 @@ import {useEffect, useState, useContext} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import {CartContext} from '../../contexts/CartContext.js';
+import {UserContext} from '../../contexts/UserContext.js';
 import {
   SafeAreaView,
   View,
@@ -26,8 +27,16 @@ const Payment = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [content, setContent] = useState('categories');
   const [selectedItem, setSelectedItem] = useState(null);
-  const {cart, addToCart, totalPrice, setCart, setTotalPrice, removeFromCart} =
-    useContext(CartContext);
+  const {user} = useContext(UserContext);
+  const {
+    cart,
+    addToCart,
+    totalPrice,
+    currentDate,
+    setCart,
+    setTotalPrice,
+    removeFromCart,
+  } = useContext(CartContext);
   const categories = [
     {
       title: t('market'),
@@ -127,7 +136,7 @@ const Payment = () => {
   };
 
   return (
-    <SafeAreaView style={{backgroundColor: 'red', flex: 1}}>
+    <SafeAreaView style={{backgroundColor: '#222831', flex: 1}}>
       <View style={{flex: 1, flexDirection: 'row'}}>
         <View style={{backgroundColor: 'yellow', flex: 1}}>
           <View
@@ -271,7 +280,52 @@ const Payment = () => {
           <PaymentKeyboard />
         </View>
       </View>
-      <View style={{backgroundColor: 'blue', flex: 0.1}}></View>
+      <View style={{flex: 0.08, flexDirection: 'row', borderWidth: 2}}>
+        <View
+          style={{
+            backgroundColor: '#222831',
+            flex: 1,
+            justifyContent: 'center',
+          }}>
+          <Text
+            style={{
+              fontSize: 20,
+              fontWeight: 'bold',
+              color: 'white',
+              marginLeft: 16,
+            }}>
+            Kasiyer Kodu : {user}
+          </Text>
+        </View>
+        <View
+          style={{
+            backgroundColor: '#222831',
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Text style={{fontSize: 24, fontWeight: 'bold', color: 'white'}}>
+            {currentDate}
+          </Text>
+        </View>
+        <View
+          style={{
+            backgroundColor: '#222831',
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'flex-end',
+          }}>
+          <Text
+            style={{
+              fontSize: 20,
+              fontWeight: 'bold',
+              color: 'white',
+              marginRight: 16,
+            }}>
+            Server Durumu
+          </Text>
+        </View>
+      </View>
     </SafeAreaView>
   );
 };

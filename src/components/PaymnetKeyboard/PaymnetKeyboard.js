@@ -16,7 +16,7 @@ const PaymentKeyboard = () => {
   };
 
   return (
-    <View style={{backgroundColor: 'pink', flex: 3}}>
+    <View style={{flex: 3}}>
       <View style={{backgroundColor: '#222831', flex: 0.5}}>
         <View
           style={{

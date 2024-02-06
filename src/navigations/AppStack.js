@@ -1,8 +1,6 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import Dashboard from '../screens/Dashboard/Dashboard.js';
-import Products from '../screens/Products/Products.js';
-import Reports from '../screens/Reports/Reports.js';
+import DashboardStack from './DashboardStack.js';
 import SettingStack from './SettingStack.js';
 import SaleStack from './SaleStack.js';
 import ProductStack from './ProductStack.js';
@@ -28,7 +26,7 @@ const AppStack = () => {
       />
       <Drawer.Screen
         name="dashboard"
-        component={Dashboard}
+        component={DashboardStack}
         options={{
           title: t('dashboard'),
           headerTitleStyle: {

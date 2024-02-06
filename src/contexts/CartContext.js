@@ -1,5 +1,5 @@
 import React from 'react';
-import {createContext, useState} from 'react';
+import {createContext, useState, useEffect} from 'react';
 
 const CartContext = createContext();
 
@@ -7,6 +7,19 @@ const CartProvider = ({children}) => {
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [discountedTotalPrice, setDiscountedTotalPrice] = useState(0);
+  const [currentDate, setCurrentDate] = useState('');
+  const [currentTime, setCurrentTime] = useState('');
+
+  useEffect(() => {
+    const date = new Date();
+    const formattedDate = `${date.getDate()}/${
+      date.getMonth() + 1
+    }/${date.getFullYear()}`;
+    setCurrentDate(formattedDate);
+
+    const time = `${date.getHours()}:${date.getMinutes()}`;
+    setCurrentTime(time);
+  }, []);
 
   const addToCart = product => {
     const existingProductIndex = cart.findIndex(item => item.id === product.id);
@@ -46,6 +59,8 @@ const CartProvider = ({children}) => {
       value={{
         cart,
         totalPrice,
+        currentDate,
+        currentTime,
         addToCart,
         removeFromCart,
         setCart,

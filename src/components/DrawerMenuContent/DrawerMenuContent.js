@@ -65,6 +65,7 @@ const DrawerMenuContent = props => {
           icon={() => <AppIcons name={'logoutIcon'} />}
           labelStyle={styles.labelStyle}
           style={styles.logoutStyle}
+          onPress={() => console.log('logout')}
         />
       </View>
       <View style={styles.footerContainer}>

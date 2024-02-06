@@ -33,8 +33,16 @@ const Sale = () => {
   const [content, setContent] = useState('categories');
   const [selectedItem, setSelectedItem] = useState(null);
   const {user} = useContext(UserContext);
-  const {cart, addToCart, totalPrice, setCart, setTotalPrice, removeFromCart} =
-    useContext(CartContext);
+  const {
+    cart,
+    addToCart,
+    totalPrice,
+    currentDate,
+    currentTime,
+    setCart,
+    setTotalPrice,
+    removeFromCart,
+  } = useContext(CartContext);
   const categories = [
     {
       title: t('market'),
@@ -392,8 +400,8 @@ const Sale = () => {
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>
-            Tarih
+          <Text style={{fontSize: 24, fontWeight: 'bold', color: 'white'}}>
+            {currentDate}
           </Text>
         </View>
         <View

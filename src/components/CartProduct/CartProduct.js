@@ -7,7 +7,7 @@ const CartProduct = ({name, price, onPress, quantity}) => {
       onPress={onPress}
       activeOpacity={0.8}
       style={{
-        backgroundColor: 'yellow',
+        backgroundColor: '#ccd226',
         height: 50,
         width: '100%',
         flexDirection: 'row',
