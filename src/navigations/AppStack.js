@@ -6,6 +6,7 @@ import Reports from '../screens/Reports/Reports.js';
 import SettingStack from './SettingStack.js';
 import SaleStack from './SaleStack.js';
 import ProductStack from './ProductStack.js';
+import ReportStack from './ReportStack.js';
 import {useTranslation} from 'react-i18next';
 import DrawerMenuContent from '../components/DrawerMenuContent/DrawerMenuContent.js';
 
@@ -46,14 +47,9 @@ const AppStack = () => {
       />
       <Drawer.Screen
         name="reports"
-        component={Reports}
+        component={ReportStack}
         options={{
           title: t('reports'),
-          headerTitleStyle: {
-            fontWeight: 'bold',
-            fontSize: 30,
-          },
-          headerTitleAlign: 'center',
         }}
       />
       <Drawer.Screen

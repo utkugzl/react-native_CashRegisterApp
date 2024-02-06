@@ -6,6 +6,7 @@ const CartContext = createContext();
 const CartProvider = ({children}) => {
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [discountedTotalPrice, setDiscountedTotalPrice] = useState(0);
 
   const addToCart = product => {
     const existingProductIndex = cart.findIndex(item => item.id === product.id);

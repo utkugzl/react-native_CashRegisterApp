@@ -5,6 +5,7 @@ import {Vibration} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
 import {ThemeContext} from '../../contexts/ThemeContext.js';
+import {UserContext} from '../../contexts/UserContext.js';
 import LoginInput from '../../components/LoginInput/LoginInput.js';
 import LoginButton from '../../components/LoginButton/LoginButton.js';
 import AppIcons from '../../components/AppIcons/AppIcons.js';
@@ -16,6 +17,7 @@ const Sound = require('react-native-sound');
 const Login = () => {
   const {t} = useTranslation();
   const {isDarkMode} = useContext(ThemeContext);
+  const {setUser} = useContext(UserContext);
   const navigation = useNavigation();
   const [userCode, setUserCode] = useState('');
   const [password, setPassword] = useState('');
@@ -91,6 +93,7 @@ const Login = () => {
 
     if (loggedInUser) {
       navigation.navigate('drawer');
+      setUser(userCode);
     } else {
       setLoginErrorMessage('Invalid user code or password. Please try again.');
       // Vibrate the phone (for 500 milliseconds) and play the sound

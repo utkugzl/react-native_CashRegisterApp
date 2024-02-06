@@ -16,7 +16,7 @@ const Keyboard = () => {
   };
 
   return (
-    <View style={{backgroundColor: 'pink', flex: 3}}>
+    <View style={{flex: 3}}>
       <View style={{backgroundColor: '#222831', flex: 0.5}}>
         <View
           style={{
@@ -56,7 +56,6 @@ const Keyboard = () => {
       </View>
       <View
         style={{
-          backgroundColor: 'pink',
           flex: 3,
           flexDirection: 'row',
         }}>
@@ -286,16 +285,6 @@ const Keyboard = () => {
             flex: 1,
             padding: 4,
           }}>
-          <TouchableOpacity
-            activeOpacity={0.6}
-            style={{
-              backgroundColor: '#4EB84E',
-              flex: 1,
-              borderWidth: 1,
-              borderRadius: 16,
-              marginBottom: 4,
-              marginHorizontal: 2,
-            }}></TouchableOpacity>
           <TouchableOpacity
             activeOpacity={0.6}
             style={{

@@ -9,19 +9,14 @@ import {
   Text,
   ScrollView,
   FlatList,
-  StyleSheet,
   TouchableOpacity,
   TextInput,
   Button,
   Alert,
 } from 'react-native';
 import axios from 'axios';
-import CategoryButton from '../../components/CategoryButton/CategoryButton.js';
-import FilterButton from '../../components/FilterButton/FilterButton.js';
-import SaleProduct from '../../components/SaleProduct/SaleProduct.js';
 import CartProduct from '../../components/CartProduct/CartProduct.js';
 import CartButton from '../../components/CartButton/CartButton.js';
-import Keyboard from '../../components/Keyboard/Keyboard.js';
 import PaymentKeyboard from '../../components/PaymnetKeyboard/PaymnetKeyboard.js';
 
 const Payment = () => {
@@ -139,6 +134,15 @@ const Payment = () => {
             style={{
               backgroundColor: '#222831',
               flex: 1,
+              flexDirection: 'row',
+              padding: 18,
+            }}>
+            <CartButton title="E-Fatura" color={'#9c6417'} />
+          </View>
+          <View
+            style={{
+              backgroundColor: '#222831',
+              flex: 4,
               flexDirection: 'row',
               padding: 8,
             }}></View>

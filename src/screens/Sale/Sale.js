@@ -3,6 +3,7 @@ import {useEffect, useState, useContext} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import {CartContext} from '../../contexts/CartContext.js';
+import {UserContext} from '../../contexts/UserContext.js';
 import {
   SafeAreaView,
   View,
@@ -28,8 +29,10 @@ const Sale = () => {
   const {t} = useTranslation();
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [campaigns, setCampaigns] = useState([]);
   const [content, setContent] = useState('categories');
   const [selectedItem, setSelectedItem] = useState(null);
+  const {user} = useContext(UserContext);
   const {cart, addToCart, totalPrice, setCart, setTotalPrice, removeFromCart} =
     useContext(CartContext);
   const categories = [
@@ -65,9 +68,20 @@ const Sale = () => {
     }
   };
 
+  const fetchCampaigns = async () => {
+    try {
+      const url = 'http://10.0.2.2:3000/campaigns';
+      const response = await axios.get(url);
+      setCampaigns(response.data);
+    } catch (error) {
+      console.error('Error fetching version:', error);
+    }
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       await fetchProducts();
+      await fetchCampaigns();
     };
 
     fetchData();
@@ -131,7 +145,7 @@ const Sale = () => {
   };
 
   return (
-    <SafeAreaView style={{backgroundColor: 'red', flex: 1}}>
+    <SafeAreaView style={{backgroundColor: '#222831', flex: 1}}>
       <View style={{flex: 1, flexDirection: 'row'}}>
         <View style={{backgroundColor: 'yellow', flex: 1}}>
           <View style={{backgroundColor: 'brown', flex: 1}}></View>
@@ -151,6 +165,11 @@ const Sale = () => {
               title={t('products')}
               onPress={() => handleFilterButtonClick('products')}
               selected={content === 'products'}
+            />
+            <FilterButton
+              title={t('campaigns')}
+              onPress={() => handleFilterButtonClick('campaigns')}
+              selected={content === 'campaigns'}
             />
           </View>
           <View style={{backgroundColor: '#222831', flex: 8, padding: 5}}>
@@ -184,6 +203,17 @@ const Sale = () => {
                       onPress={() => addToCart(item)}
                     />
                   )}
+                />
+              </View>
+            )}
+            {content === 'campaigns' && (
+              <View style={{alignItems: 'center', marginTop: 8}}>
+                <FlatList
+                  key={'_'}
+                  data={campaigns}
+                  keyExtractor={item => item.id.toString()}
+                  showsVerticalScrollIndicator={false}
+                  renderItem={({item}) => <Text>{item.title}</Text>}
                 />
               </View>
             )}
@@ -300,7 +330,7 @@ const Sale = () => {
                   fontWeight: 'bold',
                   color: 'white',
                 }}>
-                123₺
+                0₺
               </Text>
             </View>
           </View>
@@ -338,7 +368,52 @@ const Sale = () => {
           <Keyboard />
         </View>
       </View>
-      <View style={{backgroundColor: 'blue', flex: 0.1}}></View>
+      <View style={{flex: 0.08, flexDirection: 'row', borderWidth: 2}}>
+        <View
+          style={{
+            backgroundColor: '#222831',
+            flex: 1,
+            justifyContent: 'center',
+          }}>
+          <Text
+            style={{
+              fontSize: 20,
+              fontWeight: 'bold',
+              color: 'white',
+              marginLeft: 16,
+            }}>
+            Kasiyer Kodu : {user}
+          </Text>
+        </View>
+        <View
+          style={{
+            backgroundColor: '#222831',
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>
+            Tarih
+          </Text>
+        </View>
+        <View
+          style={{
+            backgroundColor: '#222831',
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'flex-end',
+          }}>
+          <Text
+            style={{
+              fontSize: 20,
+              fontWeight: 'bold',
+              color: 'white',
+              marginRight: 16,
+            }}>
+            Server Durumu
+          </Text>
+        </View>
+      </View>
     </SafeAreaView>
   );
 };

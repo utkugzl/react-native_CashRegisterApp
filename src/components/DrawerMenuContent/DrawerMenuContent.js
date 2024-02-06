@@ -4,12 +4,14 @@ import {View, Image, Text} from 'react-native';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import {useTranslation} from 'react-i18next';
 import {ThemeContext} from '../../contexts/ThemeContext.js';
+import {UserContext} from '../../contexts/UserContext.js';
 import AppIcons from '../AppIcons/AppIcons.js';
 import stylesDark from './stylesDark.js';
 import stylesLight from './stylesLight.js';
 
 const DrawerMenuContent = props => {
   const {isDarkMode} = useContext(ThemeContext);
+  const {user} = useContext(UserContext);
   const {t} = useTranslation();
   const {state} = props;
   const styles = isDarkMode ? stylesDark : stylesLight;
@@ -34,7 +36,7 @@ const DrawerMenuContent = props => {
         />
       </View>
       <View style={styles.cashiderCodeContainer}>
-        <Text style={styles.cashiersCodeText}>Cashier Code: 123123 </Text>
+        <Text style={styles.cashiersCodeText}>Cashier Code: {user} </Text>
       </View>
       <View style={styles.bodyContainer}>
         <DrawerContentScrollView>
