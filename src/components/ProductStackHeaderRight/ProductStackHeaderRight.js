@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text} from 'react-native';
-import {useNavigation, DrawerActions} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import AppIcons from '../AppIcons/AppIcons';
 import {TouchableOpacity} from 'react-native';
 

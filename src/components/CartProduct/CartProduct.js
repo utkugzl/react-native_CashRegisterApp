@@ -1,9 +1,11 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 
-const CartProduct = ({name, price}) => {
+const CartProduct = ({name, price, onPress, quantity}) => {
   return (
-    <View
+    <TouchableOpacity
+      onPress={onPress}
+      activeOpacity={0.8}
       style={{
         backgroundColor: 'yellow',
         height: 50,
@@ -18,7 +20,7 @@ const CartProduct = ({name, price}) => {
       }}>
       <View>
         <Text style={{fontSize: 14, fontWeight: 'bold', color: 'black'}}>
-          {name}
+          {name} {quantity > 1 ? `x${quantity}` : ''}
         </Text>
         <Text style={{fontSize: 12, fontWeight: 'bold', color: 'black'}}>
           123456
@@ -27,7 +29,7 @@ const CartProduct = ({name, price}) => {
       <Text style={{fontSize: 18, fontWeight: 'bold', color: 'black'}}>
         {price}₺
       </Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

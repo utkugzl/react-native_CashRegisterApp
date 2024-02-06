@@ -1,5 +1,6 @@
 import React from 'react';
-import {useEffect, useState, useRef, useContext} from 'react';
+import {useEffect, useState, useContext} from 'react';
+import {useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import {CartContext} from '../../contexts/CartContext.js';
 import {
@@ -12,22 +13,25 @@ import {
   TouchableOpacity,
   TextInput,
   Button,
+  Alert,
 } from 'react-native';
 import axios from 'axios';
-
 import CategoryButton from '../../components/CategoryButton/CategoryButton.js';
 import FilterButton from '../../components/FilterButton/FilterButton.js';
 import SaleProduct from '../../components/SaleProduct/SaleProduct.js';
 import CartProduct from '../../components/CartProduct/CartProduct.js';
+import CartButton from '../../components/CartButton/CartButton.js';
+import Keyboard from '../../components/Keyboard/Keyboard.js';
 
 const Sale = () => {
+  const navigation = useNavigation();
   const {t} = useTranslation();
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [content, setContent] = useState('categories');
-  const {cart, addToCart, totalPrice} = useContext(CartContext);
-  const inputRef = useRef(null);
-  const [input, setInput] = useState('0');
+  const [selectedItem, setSelectedItem] = useState(null);
+  const {cart, addToCart, totalPrice, setCart, setTotalPrice, removeFromCart} =
+    useContext(CartContext);
   const categories = [
     {
       title: t('market'),
@@ -56,6 +60,7 @@ const Sale = () => {
       const url = 'http://10.0.2.2:3000/products';
       const response = await axios.get(url);
       setProducts(response.data);
+      console.log('response:', response.data);
     } catch (error) {
       console.error('Error fetching version:', error);
     }
@@ -68,6 +73,25 @@ const Sale = () => {
 
     fetchData();
   }, []);
+
+  const handleRowCancel = () => {
+    if (selectedItem) {
+      removeFromCart(selectedItem);
+      setSelectedItem(null);
+    } else {
+      Alert.alert('Uyarı', 'Lütfen bir ürün seçin.');
+    }
+  };
+
+  const handleDocumentCancel = () => {
+    if (cart.length > 0) {
+      setTotalPrice(0);
+      setCart([]);
+      setSelectedItem(null);
+    } else {
+      Alert.alert('Uyarı', 'Sepetinizde ürün bulunmamaktadır.');
+    }
+  };
 
   const handleFilterButtonClick = filterType => {
     setContent(filterType);
@@ -203,7 +227,14 @@ const Sale = () => {
               keyExtractor={(item, index) => `${item.id}_${index}`}
               showsVerticalScrollIndicator={false}
               renderItem={({item}) => (
-                <CartProduct name={item.name} price={item.price} />
+                <CartProduct
+                  name={item.name}
+                  price={item.price}
+                  quantity={item.quantity}
+                  onPress={() => {
+                    setSelectedItem(item);
+                  }}
+                />
               )}
             />
           </View>
@@ -274,162 +305,36 @@ const Sale = () => {
           </View>
         </View>
         <View style={{flex: 1}}>
-          <View style={{backgroundColor: 'brown', flex: 1}}></View>
-          <View style={{backgroundColor: 'pink', flex: 0.5}}></View>
-          <View
-            style={{
-              backgroundColor: 'orange',
-              flex: 3,
-              flexDirection: 'row',
-            }}>
-            <View style={{backgroundColor: 'brown', flex: 2}}>
-              <View
-                style={{
-                  backgroundColor: '#475347',
-                  flex: 1,
-                  flexDirection: 'row',
-                }}>
-                <TouchableOpacity
-                  style={{
-                    backgroundColor: '#504a45',
-                    flex: 1,
-                    borderWidth: 1,
-                  }}></TouchableOpacity>
-                <TouchableOpacity
-                  style={{
-                    backgroundColor: '#d9740f',
-                    flex: 1,
-                    borderWidth: 1,
-                  }}></TouchableOpacity>
-              </View>
-              <View
-                style={{
-                  backgroundColor: '#ded960',
-                  flex: 1,
-                  flexDirection: 'row',
-                }}>
-                <TouchableOpacity
-                  style={{
-                    backgroundColor: '#5fb974',
-                    flex: 1,
-                    borderWidth: 1,
-                  }}></TouchableOpacity>
-                <TouchableOpacity
-                  style={{
-                    backgroundColor: '#d55822',
-                    flex: 1,
-                    borderWidth: 1,
-                  }}></TouchableOpacity>
-                <TouchableOpacity
-                  style={{
-                    backgroundColor: '#e517a4',
-                    flex: 1,
-                    borderWidth: 1,
-                  }}></TouchableOpacity>
-              </View>
-              <View
-                style={{
-                  backgroundColor: '#e3b587',
-                  flex: 1,
-                  flexDirection: 'row',
-                }}>
-                <TouchableOpacity
-                  style={{
-                    backgroundColor: '#60636b',
-                    flex: 1,
-                    borderWidth: 1,
-                  }}></TouchableOpacity>
-                <TouchableOpacity
-                  style={{
-                    backgroundColor: '#132148',
-                    flex: 1,
-                    borderWidth: 1,
-                  }}></TouchableOpacity>
-                <TouchableOpacity
-                  style={{
-                    backgroundColor: '#0f49ea',
-                    flex: 1,
-                    borderWidth: 1,
-                  }}></TouchableOpacity>
-              </View>
-              <View
-                style={{
-                  backgroundColor: '#8da2dd',
-                  flex: 1,
-                  flexDirection: 'row',
-                }}>
-                <TouchableOpacity
-                  style={{
-                    backgroundColor: '#97509b',
-                    flex: 1,
-                    borderWidth: 1,
-                  }}></TouchableOpacity>
-                <TouchableOpacity
-                  style={{
-                    backgroundColor: '#bcd23e',
-                    flex: 1,
-                    borderWidth: 1,
-                  }}></TouchableOpacity>
-                <TouchableOpacity
-                  style={{
-                    backgroundColor: '#289e8a',
-                    flex: 1,
-                    borderWidth: 1,
-                  }}></TouchableOpacity>
-              </View>
-              <View
-                style={{
-                  backgroundColor: '#124d6a',
-                  flex: 1,
-                  flexDirection: 'row',
-                }}>
-                <TouchableOpacity
-                  style={{
-                    backgroundColor: '#21069e',
-                    flex: 1,
-                    borderWidth: 1,
-                  }}></TouchableOpacity>
-                <TouchableOpacity
-                  style={{
-                    backgroundColor: '#f43d0a',
-                    flex: 1,
-                    borderWidth: 1,
-                  }}></TouchableOpacity>
-                <TouchableOpacity
-                  style={{
-                    backgroundColor: '#7d7692',
-                    flex: 1,
-                    borderWidth: 1,
-                  }}></TouchableOpacity>
-              </View>
+          <View style={{backgroundColor: 'brown', flex: 1}}>
+            <View style={{backgroundColor: 'orange', flex: 1, padding: 8}}>
+              <CartButton
+                title="İsimden Ara"
+                color={'#275485'}
+                onPress={() => {
+                  navigation.navigate('products');
+                }}
+              />
             </View>
-            <View style={{backgroundColor: 'yellow', flex: 1}}>
-              <TouchableOpacity
-                style={{
-                  backgroundColor: '#4EB84E',
-                  flex: 1,
-                  borderWidth: 1,
-                }}></TouchableOpacity>
-              <TouchableOpacity
-                style={{
-                  backgroundColor: '#9E9A56',
-                  flex: 1,
-                  borderWidth: 1,
-                }}></TouchableOpacity>
-              <TouchableOpacity
-                style={{
-                  backgroundColor: '#642a9a',
-                  flex: 2,
-                  borderWidth: 1,
-                }}></TouchableOpacity>
-              <TouchableOpacity
-                style={{
-                  backgroundColor: '#76295e',
-                  flex: 1,
-                  borderWidth: 1,
-                }}></TouchableOpacity>
+            <View
+              style={{
+                backgroundColor: 'yellow',
+                flex: 1,
+                flexDirection: 'row',
+                padding: 8,
+              }}>
+              <CartButton
+                title="Satır İptal"
+                onPress={handleRowCancel}
+                color={'#862727'}
+              />
+              <CartButton
+                title="Belge İptal"
+                onPress={handleDocumentCancel}
+                color={'#862727'}
+              />
             </View>
           </View>
+          <Keyboard />
         </View>
       </View>
       <View style={{backgroundColor: 'blue', flex: 0.1}}></View>
@@ -438,17 +343,3 @@ const Sale = () => {
 };
 
 export default Sale;
-
-/*
-<TextInput ref={inputRef} value={input} />
-            <Button
-              title="Satış Yap"
-              onPress={() => {
-                console.log(inputRef.current.value);
-                inputRef.current += '1';
-                setInput(prev => {
-                  return prev + '1';
-                });
-              }}
-            />
- */
