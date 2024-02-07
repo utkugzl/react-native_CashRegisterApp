@@ -1,5 +1,6 @@
 import React from 'react';
 import {createContext, useState, useEffect} from 'react';
+import {Alert} from 'react-native';
 
 const CartContext = createContext();
 
@@ -9,6 +10,7 @@ const CartProvider = ({children}) => {
   const [discountedTotalPrice, setDiscountedTotalPrice] = useState(0);
   const [currentDate, setCurrentDate] = useState('');
   const [currentTime, setCurrentTime] = useState('');
+  const [campaignId, setCampaignId] = useState(null);
 
   useEffect(() => {
     const date = new Date();
@@ -36,6 +38,7 @@ const CartProvider = ({children}) => {
     const price = parseFloat(product.price);
     const newTotalPrice = totalPrice + price;
     setTotalPrice(parseFloat(newTotalPrice.toFixed(2)));
+    calculateDiscount(newTotalPrice, campaignId);
   };
 
   const removeFromCart = product => {
@@ -51,6 +54,50 @@ const CartProvider = ({children}) => {
       const price = parseFloat(itemToRemove.price);
       const newTotalPrice = totalPrice - price * itemToRemove.quantity;
       setTotalPrice(parseFloat(newTotalPrice.toFixed(2)));
+      calculateDiscount(newTotalPrice, campaignId);
+    }
+  };
+
+  const setCampaignContext = id => {
+    switch (id) {
+      case '1':
+        setCampaignId(id);
+        calculateDiscount(totalPrice, id);
+        break;
+      case '2':
+        if (totalPrice > 500) {
+          setCampaignId(id);
+          calculateDiscount(totalPrice, id);
+        } else {
+          console.log('Kampanya 2 için sepet tutarı yetersiz');
+          alert(
+            "Sepet tutarı 500 TL'nin altında olduğu için Kampanya 2 uygulanamaz.",
+          );
+        }
+        break;
+      default:
+        setCampaignId(0);
+    }
+  };
+
+  const calculateDiscount = (price, id) => {
+    switch (id) {
+      case '1':
+        setDiscountedTotalPrice(price * 0.8);
+        break;
+      case '2':
+        if (price > 500) {
+          setDiscountedTotalPrice(price * 0.6);
+        } else {
+          setCampaignId(0);
+          setDiscountedTotalPrice(price);
+          alert(
+            "Sepet tutarı 500 TL'nin altında olduğu için Kampanya 2 uygulanamaz.",
+          );
+        }
+        break;
+      default:
+        setDiscountedTotalPrice(price);
     }
   };
 
@@ -59,12 +106,18 @@ const CartProvider = ({children}) => {
       value={{
         cart,
         totalPrice,
+        discountedTotalPrice,
+        campaignId,
         currentDate,
         currentTime,
         addToCart,
         removeFromCart,
         setCart,
         setTotalPrice,
+        setDiscountedTotalPrice,
+        setCampaignId,
+        calculateDiscount,
+        setCampaignContext,
       }}>
       {children}
     </CartContext.Provider>

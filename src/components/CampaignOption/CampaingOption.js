@@ -7,12 +7,12 @@ import styles from './styles.js';
 import AppIcons from '../AppIcons/AppIcons.js';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
-const CampaignOption = ({title, itemId}) => {
+const CampaignOption = ({title, itemId, onPress, isSelected}) => {
   const {isDarkMode} = useContext(ThemeContext);
 
   const campaignImageMap = {
     1: require('../../assets/images/twenty-percent-discount.png'),
-    2: require('../../assets/images/twenty-percent-discount.png'),
+    2: require('../../assets/images/forty-percent-discount.png'),
   };
 
   const getImageSource = () => {
@@ -20,6 +20,7 @@ const CampaignOption = ({title, itemId}) => {
   };
   return (
     <TouchableOpacity
+      onPress={onPress}
       style={{
         flexDirection: 'row-reverse',
         alignItems: 'center',
@@ -33,18 +34,23 @@ const CampaignOption = ({title, itemId}) => {
           width: scaleByWidth('25'),
           height: 70,
           flexDirection: 'row',
-          justifyContent: 'space-between',
+          justifyContent: 'center',
           alignItems: 'center',
           borderTopRightRadius: 20,
           borderBottomRightRadius: 20,
           paddingRight: 15,
           paddingLeft: 35,
-          borderWidth: 1,
+          borderWidth: isSelected ? 6 : 1,
         }}>
-        <Text style={{fontSize: 18, fontWeight: 'bold', color: '#DDDDDD'}}>
+        <Text
+          style={{
+            fontSize: 18,
+            fontWeight: 'bold',
+            color: '#DDDDDD',
+            textAlign: 'center',
+          }}>
           {title}
         </Text>
-        <AppIcons name={'rightArrowIcon'} />
       </View>
 
       <Image
@@ -53,7 +59,7 @@ const CampaignOption = ({title, itemId}) => {
           width: scaleByWidth('7'),
           height: scaleByWidth('8'),
           borderRadius: 25,
-          borderWidth: 3,
+          borderWidth: isSelected ? 8 : 3,
           borderColor: '#071519',
           backgroundColor: '#0B5269',
           marginRight: -20,
@@ -65,18 +71,3 @@ const CampaignOption = ({title, itemId}) => {
 };
 
 export default CampaignOption;
-
-/*
-<View
-        style={{
-          backgroundColor: '#0B5269',
-          width: 80,
-          height: 80,
-          borderRadius: 40,
-          marginRight: -10,
-          justifyContent: 'center',
-          alignItems: 'center',
-          borderWidth: 3,
-        }}></View>
-        
-*/

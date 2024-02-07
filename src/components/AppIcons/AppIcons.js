@@ -74,6 +74,9 @@ const AppIcons = ({name}) => {
     case 'deleteAllIcon':
       iconElement = <Ionicon name="close" size={45} color="black" />;
       break;
+    case 'checkmarkIcon':
+      iconElement = <Ionicon name="checkmark-circle" size={40} color="black" />;
+      break;
     default:
       iconElement = <Ionicon name="remove" size={35} color="black" />;
   }

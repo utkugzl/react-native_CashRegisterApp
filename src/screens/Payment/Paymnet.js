@@ -33,10 +33,14 @@ const Payment = () => {
     cart,
     addToCart,
     totalPrice,
+    discountedTotalPrice,
     currentDate,
+    currentTime,
     setCart,
     setTotalPrice,
+    setDiscountedTotalPrice,
     removeFromCart,
+    setCampaignId,
   } = useContext(CartContext);
   const storeStatusText = isStoreOnline ? 'Store Online' : 'Store Offline';
   const storeStatusIcon = isStoreOnline ? 'onlineIcon' : 'offlineIcon';
@@ -191,7 +195,7 @@ const Payment = () => {
                   fontWeight: 'bold',
                   color: 'white',
                 }}>
-                123₺
+                {discountedTotalPrice.toFixed(2)}₺
               </Text>
             </View>
           </View>

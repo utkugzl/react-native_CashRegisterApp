@@ -19,6 +19,7 @@ import {
 } from 'react-native';
 import axios from 'axios';
 import AppIcons from '../../components/AppIcons/AppIcons.js';
+import useCategories from '../../hooks/UseCategories.js';
 import CategoryButton from '../../components/CategoryButton/CategoryButton.js';
 import FilterButton from '../../components/FilterButton/FilterButton.js';
 import SaleProduct from '../../components/SaleProduct/SaleProduct.js';
@@ -26,6 +27,7 @@ import CartProduct from '../../components/CartProduct/CartProduct.js';
 import CartButton from '../../components/CartButton/CartButton.js';
 import Keyboard from '../../components/Keyboard/Keyboard.js';
 import CampaignOption from '../../components/CampaignOption/CampaingOption.js';
+import CartList from '../../components/CartList/CartList.js';
 
 const Sale = () => {
   const navigation = useNavigation();
@@ -37,46 +39,27 @@ const Sale = () => {
   const [selectedItem, setSelectedItem] = useState(null);
   const {isStoreOnline} = useContext(StoreContext);
   const {user} = useContext(UserContext);
+
   const {
     cart,
     addToCart,
     totalPrice,
+    discountedTotalPrice,
     currentDate,
     currentTime,
     setCart,
     setTotalPrice,
+    setDiscountedTotalPrice,
     removeFromCart,
+    setCampaignId,
+    campaignId,
+    calculateDiscount,
+    setCampaignContext,
   } = useContext(CartContext);
   const storeStatusText = isStoreOnline ? 'Store Online' : 'Store Offline';
   const storeStatusIcon = isStoreOnline ? 'onlineIcon' : 'offlineIcon';
 
-  const categories = [
-    {
-      title: t('market'),
-      imageSource: require('../../assets/images/foodFilterImage.webp'),
-    },
-    {
-      title: t('cleaning'),
-      imageSource: require('../../assets/images/cleaningFilterImage.jpeg'),
-    },
-    {
-      title: t('clothing'),
-      imageSource: require('../../assets/images/clothingFilterImage.png'),
-    },
-    {
-      title: t('home'),
-      imageSource: require('../../assets/images/homeFilterImage.png'),
-    },
-    {
-      title: t('cosmetics'),
-      imageSource: require('../../assets/images/cosmeticFilterImage.jpeg'),
-    },
-  ];
-
-  const campaignImageMap = {
-    1: require('../../assets/images/twenty-percent-discount.png'),
-    2: require('../../assets/images/twenty-percent-discount.png'),
-  };
+  const categories = useCategories();
 
   const fetchProducts = async () => {
     try {
@@ -118,7 +101,9 @@ const Sale = () => {
 
   const handleDocumentCancel = () => {
     if (cart.length > 0) {
+      setCampaignId(0);
       setTotalPrice(0);
+      setDiscountedTotalPrice(0);
       setCart([]);
       setSelectedItem(null);
     } else {
@@ -128,6 +113,10 @@ const Sale = () => {
 
   const handleFilterButtonClick = filterType => {
     setContent(filterType);
+  };
+
+  const handleSelectedCampaign = campaignIds => {
+    setCampaignContext(campaignIds);
   };
 
   const handleCategoryButtonClick = category => {
@@ -234,7 +223,12 @@ const Sale = () => {
                   keyExtractor={item => item.id.toString()}
                   showsVerticalScrollIndicator={false}
                   renderItem={({item}) => (
-                    <CampaignOption title={item.title} itemId={item.id} />
+                    <CampaignOption
+                      title={item.title}
+                      itemId={item.id}
+                      isSelected={campaignId === item.id}
+                      onPress={() => handleSelectedCampaign(item.id)}
+                    />
                   )}
                 />
               </View>
@@ -273,23 +267,7 @@ const Sale = () => {
               alignItems: 'center',
               padding: 4,
             }}>
-            <FlatList
-              style={{width: '100%', padding: 8}}
-              key={'_'}
-              data={cart}
-              keyExtractor={(item, index) => `${item.id}_${index}`}
-              showsVerticalScrollIndicator={false}
-              renderItem={({item}) => (
-                <CartProduct
-                  name={item.name}
-                  price={item.price}
-                  quantity={item.quantity}
-                  onPress={() => {
-                    setSelectedItem(item);
-                  }}
-                />
-              )}
-            />
+            <CartList cart={cart} setSelectedItem={setSelectedItem} />
           </View>
           <View
             style={{
@@ -352,7 +330,7 @@ const Sale = () => {
                   fontWeight: 'bold',
                   color: 'white',
                 }}>
-                0₺
+                {discountedTotalPrice.toFixed(2)}₺
               </Text>
             </View>
           </View>

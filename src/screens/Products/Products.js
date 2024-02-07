@@ -4,6 +4,7 @@ import {SafeAreaView, View, ActivityIndicator, FlatList} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {ThemeContext} from '../../contexts/ThemeContext.js';
 import {CartContext} from '../../contexts/CartContext.js';
+import useCategories from '../../hooks/UseCategories.js';
 import FilterButton from '../../components/FilterButton/FilterButton.js';
 import CategoryFilterButton from '../../components/CategoryFilterButton/CategoryFilterButton.js';
 import stylesDark from './stylesDark.js';
@@ -22,6 +23,7 @@ const Products = () => {
   const [showCategoryButtons, setShowCategoryButtons] = useState(false);
   const {isDarkMode} = useContext(ThemeContext);
   const {addToCart} = useContext(CartContext);
+  const categories = useCategories();
   const styles = isDarkMode ? stylesDark : stylesLight;
   const filters = [
     'Tüm Ürünler',
@@ -37,29 +39,6 @@ const Products = () => {
     'R-S',
     'T',
     'Ü-Z',
-  ];
-
-  const categories = [
-    {
-      title: t('market'),
-      imageSource: require('../../assets/images/foodFilterImage.webp'),
-    },
-    {
-      title: t('cleaning'),
-      imageSource: require('../../assets/images/cleaningFilterImage.jpeg'),
-    },
-    {
-      title: t('clothing'),
-      imageSource: require('../../assets/images/clothingFilterImage.png'),
-    },
-    {
-      title: t('home'),
-      imageSource: require('../../assets/images/homeFilterImage.png'),
-    },
-    {
-      title: t('cosmetics'),
-      imageSource: require('../../assets/images/cosmeticFilterImage.jpeg'),
-    },
   ];
 
   const fetchProducts = async () => {
