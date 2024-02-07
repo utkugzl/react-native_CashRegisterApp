@@ -5,11 +5,13 @@ import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import {useTranslation} from 'react-i18next';
 import {ThemeContext} from '../../contexts/ThemeContext.js';
 import {UserContext} from '../../contexts/UserContext.js';
+import {StoreContext} from '../../contexts/StoreContext.js';
 import AppIcons from '../AppIcons/AppIcons.js';
 import stylesDark from './stylesDark.js';
 import stylesLight from './stylesLight.js';
 
 const DrawerMenuContent = props => {
+  const {isStoreOnline} = useContext(StoreContext);
   const {isDarkMode} = useContext(ThemeContext);
   const {user} = useContext(UserContext);
   const {t} = useTranslation();
@@ -25,6 +27,9 @@ const DrawerMenuContent = props => {
   const logoImageSource = isDarkMode
     ? require('../../assets/images/32bit_logo_dark.png')
     : require('../../assets/images/32bitlogo.png');
+
+  const storeStatusIcon = isStoreOnline ? 'onlineIcon' : 'offlineIcon';
+  const storeStatusText = isStoreOnline ? 'Store Online' : 'Store Offline';
 
   return (
     <View style={styles.menuContainer}>
@@ -70,9 +75,15 @@ const DrawerMenuContent = props => {
       </View>
       <View style={styles.footerContainer}>
         <View style={{margin: 5}}>
-          <AppIcons name={'offlineIcon'} />
+          <AppIcons name={storeStatusIcon} />
         </View>
-        <Text style={styles.storeStatusText}>Store Offline</Text>
+        <Text
+          style={[
+            styles.storeStatusText,
+            {color: isStoreOnline ? 'green' : 'red'},
+          ]}>
+          {storeStatusText}
+        </Text>
       </View>
     </View>
   );

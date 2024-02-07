@@ -4,6 +4,7 @@ import {useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import {CartContext} from '../../contexts/CartContext.js';
 import {UserContext} from '../../contexts/UserContext.js';
+import {StoreContext} from '../../contexts/StoreContext.js';
 import {
   SafeAreaView,
   View,
@@ -17,12 +18,14 @@ import {
   Alert,
 } from 'react-native';
 import axios from 'axios';
+import AppIcons from '../../components/AppIcons/AppIcons.js';
 import CategoryButton from '../../components/CategoryButton/CategoryButton.js';
 import FilterButton from '../../components/FilterButton/FilterButton.js';
 import SaleProduct from '../../components/SaleProduct/SaleProduct.js';
 import CartProduct from '../../components/CartProduct/CartProduct.js';
 import CartButton from '../../components/CartButton/CartButton.js';
 import Keyboard from '../../components/Keyboard/Keyboard.js';
+import CampaignOption from '../../components/CampaignOption/CampaingOption.js';
 
 const Sale = () => {
   const navigation = useNavigation();
@@ -32,6 +35,7 @@ const Sale = () => {
   const [campaigns, setCampaigns] = useState([]);
   const [content, setContent] = useState('categories');
   const [selectedItem, setSelectedItem] = useState(null);
+  const {isStoreOnline} = useContext(StoreContext);
   const {user} = useContext(UserContext);
   const {
     cart,
@@ -43,6 +47,9 @@ const Sale = () => {
     setTotalPrice,
     removeFromCart,
   } = useContext(CartContext);
+  const storeStatusText = isStoreOnline ? 'Store Online' : 'Store Offline';
+  const storeStatusIcon = isStoreOnline ? 'onlineIcon' : 'offlineIcon';
+
   const categories = [
     {
       title: t('market'),
@@ -65,6 +72,11 @@ const Sale = () => {
       imageSource: require('../../assets/images/cosmeticFilterImage.jpeg'),
     },
   ];
+
+  const campaignImageMap = {
+    1: require('../../assets/images/twenty-percent-discount.png'),
+    2: require('../../assets/images/twenty-percent-discount.png'),
+  };
 
   const fetchProducts = async () => {
     try {
@@ -221,7 +233,9 @@ const Sale = () => {
                   data={campaigns}
                   keyExtractor={item => item.id.toString()}
                   showsVerticalScrollIndicator={false}
-                  renderItem={({item}) => <Text>{item.title}</Text>}
+                  renderItem={({item}) => (
+                    <CampaignOption title={item.title} itemId={item.id} />
+                  )}
                 />
               </View>
             )}
@@ -411,15 +425,25 @@ const Sale = () => {
             justifyContent: 'center',
             alignItems: 'flex-end',
           }}>
-          <Text
+          <View
             style={{
-              fontSize: 20,
-              fontWeight: 'bold',
-              color: 'white',
-              marginRight: 16,
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center',
             }}>
-            Server Durumu
-          </Text>
+            <View style={{margin: 5}}>
+              <AppIcons name={storeStatusIcon} />
+            </View>
+            <Text
+              style={{
+                fontSize: 24,
+                fontWeight: 'bold',
+                color: isStoreOnline ? 'green' : 'red',
+                marginRight: 16,
+              }}>
+              {storeStatusText}
+            </Text>
+          </View>
         </View>
       </View>
     </SafeAreaView>

@@ -6,12 +6,10 @@
       { "id": 4, "userCode": "260720", "userPassword": "asdasasdas" },
       { "id": 5, "userCode": "416973", "userPassword": "dasdas" }
     ],
-    "token": [
-      { "id": 1, "token": "token" }
-    ],
+    "store": {"isOnline": "true"},
     "version": { "version": "v1.18.3.23" },
     "campaigns": [
-      { "id": 1, "title": "token" }
+      { "id": 1, "title": "Yüzde Yirmi İndirim !!!", "type": "twenty-percent" }
     ],
     "products": [
       { 

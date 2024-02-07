@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 
 const CartProduct = ({name, price, onPress, quantity}) => {
+  const totalPrice = (price * quantity).toFixed(2);
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -27,7 +28,7 @@ const CartProduct = ({name, price, onPress, quantity}) => {
         </Text>
       </View>
       <Text style={{fontSize: 18, fontWeight: 'bold', color: 'black'}}>
-        {price}₺
+        {totalPrice}₺
       </Text>
     </TouchableOpacity>
   );

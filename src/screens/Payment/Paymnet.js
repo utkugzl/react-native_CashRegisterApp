@@ -4,6 +4,8 @@ import {useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import {CartContext} from '../../contexts/CartContext.js';
 import {UserContext} from '../../contexts/UserContext.js';
+import {StoreContext} from '../../contexts/StoreContext.js';
+import AppIcons from '../../components/AppIcons/AppIcons.js';
 import {
   SafeAreaView,
   View,
@@ -12,7 +14,6 @@ import {
   FlatList,
   TouchableOpacity,
   TextInput,
-  Button,
   Alert,
 } from 'react-native';
 import axios from 'axios';
@@ -25,8 +26,8 @@ const Payment = () => {
   const {t} = useTranslation();
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [content, setContent] = useState('categories');
   const [selectedItem, setSelectedItem] = useState(null);
+  const {isStoreOnline} = useContext(StoreContext);
   const {user} = useContext(UserContext);
   const {
     cart,
@@ -37,28 +38,8 @@ const Payment = () => {
     setTotalPrice,
     removeFromCart,
   } = useContext(CartContext);
-  const categories = [
-    {
-      title: t('market'),
-      imageSource: require('../../assets/images/foodFilterImage.webp'),
-    },
-    {
-      title: t('cleaning'),
-      imageSource: require('../../assets/images/cleaningFilterImage.jpeg'),
-    },
-    {
-      title: t('clothing'),
-      imageSource: require('../../assets/images/clothingFilterImage.png'),
-    },
-    {
-      title: t('home'),
-      imageSource: require('../../assets/images/homeFilterImage.png'),
-    },
-    {
-      title: t('cosmetics'),
-      imageSource: require('../../assets/images/cosmeticFilterImage.jpeg'),
-    },
-  ];
+  const storeStatusText = isStoreOnline ? 'Store Online' : 'Store Offline';
+  const storeStatusIcon = isStoreOnline ? 'onlineIcon' : 'offlineIcon';
 
   const fetchProducts = async () => {
     try {
@@ -94,44 +75,6 @@ const Payment = () => {
       setSelectedItem(null);
     } else {
       Alert.alert('Uyarı', 'Sepetinizde ürün bulunmamaktadır.');
-    }
-  };
-
-  const handleFilterButtonClick = filterType => {
-    setContent(filterType);
-  };
-
-  const handleCategoryButtonClick = category => {
-    setContent('filteredProducts');
-    switch (category) {
-      case 'Market':
-        setFilteredProducts(
-          products.filter(product => product.category === 'market'),
-        );
-        break;
-      case 'Temizlik':
-        setFilteredProducts(
-          products.filter(product => product.category === 'cleaning'),
-        );
-        break;
-      case 'Giyim':
-        setFilteredProducts(
-          products.filter(product => product.category === 'clothing'),
-        );
-        break;
-      case 'Ev&Yaşam':
-        setFilteredProducts(
-          products.filter(product => product.category === 'home'),
-        );
-        break;
-      case 'Kozmetik':
-        setFilteredProducts(
-          products.filter(product => product.category === 'cosmetic'),
-        );
-        break;
-      default:
-        setFilteredProducts(products);
-        break;
     }
   };
 
@@ -315,15 +258,25 @@ const Payment = () => {
             justifyContent: 'center',
             alignItems: 'flex-end',
           }}>
-          <Text
+          <View
             style={{
-              fontSize: 20,
-              fontWeight: 'bold',
-              color: 'white',
-              marginRight: 16,
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center',
             }}>
-            Server Durumu
-          </Text>
+            <View style={{margin: 5}}>
+              <AppIcons name={storeStatusIcon} />
+            </View>
+            <Text
+              style={{
+                fontSize: 24,
+                fontWeight: 'bold',
+                color: isStoreOnline ? 'green' : 'red',
+                marginRight: 16,
+              }}>
+              {storeStatusText}
+            </Text>
+          </View>
         </View>
       </View>
     </SafeAreaView>

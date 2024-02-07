@@ -4,7 +4,6 @@ export const saveData = async (key, data) => {
   try {
     await AsyncStorage.setItem(key, JSON.stringify(data));
     //await AsyncStorage.setItem(key, data);
-    console.log('Veriler kaydedildi.');
   } catch (error) {
     console.log(error);
   }
