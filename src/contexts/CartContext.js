@@ -11,6 +11,9 @@ const CartProvider = ({children}) => {
   const [currentDate, setCurrentDate] = useState('');
   const [currentTime, setCurrentTime] = useState('');
   const [campaignId, setCampaignId] = useState(null);
+  const [cashPayment, setCashPayment] = useState(0);
+  const [creditCardPayment, setCreditCardPayment] = useState(0);
+  const [cashBack, setCashBack] = useState(0);
 
   useEffect(() => {
     const date = new Date();
@@ -105,19 +108,25 @@ const CartProvider = ({children}) => {
     <CartContext.Provider
       value={{
         cart,
+        setCart,
         totalPrice,
+        setTotalPrice,
         discountedTotalPrice,
+        setDiscountedTotalPrice,
         campaignId,
+        setCampaignId,
         currentDate,
         currentTime,
         addToCart,
         removeFromCart,
-        setCart,
-        setTotalPrice,
-        setDiscountedTotalPrice,
-        setCampaignId,
         calculateDiscount,
         setCampaignContext,
+        cashPayment,
+        setCashPayment,
+        creditCardPayment,
+        setCreditCardPayment,
+        cashBack,
+        setCashBack,
       }}>
       {children}
     </CartContext.Provider>

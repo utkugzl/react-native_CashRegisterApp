@@ -1,13 +1,15 @@
 import React from 'react';
 import {TouchableOpacity, Text} from 'react-native';
 
-const CartButton = ({title, onPress, color}) => {
+const CartButton = ({title, onPress, color, disabled}) => {
   return (
     <TouchableOpacity
+      disabled={disabled}
       activeOpacity={0.8}
       onPress={onPress}
       style={{
-        backgroundColor: color,
+        backgroundColor: disabled ? '#605F63' : color,
+        opacity: disabled ? 0.3 : 1,
         flex: 1,
         borderRadius: 12,
         justifyContent: 'center',

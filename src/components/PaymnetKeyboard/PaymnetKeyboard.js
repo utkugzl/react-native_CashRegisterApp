@@ -1,10 +1,12 @@
 import React from 'react';
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 import {View, Text, TextInput} from 'react-native';
+import {CartContext} from '../../contexts/CartContext.js';
 import {TouchableOpacity} from 'react-native';
 import AppIcons from '../AppIcons/AppIcons.js';
 
 const PaymentKeyboard = () => {
+  const {setCashPayment, setCreditCardPayment} = useContext(CartContext);
   const [textInputValue, setTextInputValue] = useState('');
 
   const handleKeyPress = value => {
@@ -13,6 +15,21 @@ const PaymentKeyboard = () => {
 
   const handleBackspace = () => {
     setTextInputValue(prevValue => prevValue.slice(0, -1));
+  };
+
+  const handleCashPayment = () => {
+    setCashPayment(
+      prevCashPayment => prevCashPayment + parseFloat(textInputValue),
+    );
+    setTextInputValue('');
+  };
+
+  const handleCreditCardPayment = () => {
+    setCreditCardPayment(
+      prevCreditCardPayment =>
+        prevCreditCardPayment + parseFloat(textInputValue),
+    );
+    setTextInputValue('');
   };
 
   return (
@@ -287,6 +304,7 @@ const PaymentKeyboard = () => {
             padding: 4,
           }}>
           <TouchableOpacity
+            onPress={handleCashPayment}
             activeOpacity={0.6}
             style={{
               backgroundColor: '#319331',
@@ -309,6 +327,7 @@ const PaymentKeyboard = () => {
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
+            onPress={handleCreditCardPayment}
             activeOpacity={0.6}
             style={{
               backgroundColor: '#319331',

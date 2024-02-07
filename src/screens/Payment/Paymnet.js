@@ -41,10 +41,16 @@ const Payment = () => {
     setDiscountedTotalPrice,
     removeFromCart,
     setCampaignId,
+    cashPayment,
+    creditCardPayment,
+    cashBack,
+    setCashBack,
   } = useContext(CartContext);
   const storeStatusText = isStoreOnline ? 'Store Online' : 'Store Offline';
   const storeStatusIcon = isStoreOnline ? 'onlineIcon' : 'offlineIcon';
 
+  const [isDocumentFinishDisabled, setIsDocumentFinishDisabled] =
+    useState(true);
   const fetchProducts = async () => {
     try {
       const url = 'http://10.0.2.2:3000/products';
@@ -62,6 +68,13 @@ const Payment = () => {
 
     fetchData();
   }, []);
+
+  useEffect(() => {
+    const newIsDocumentFinishDisabled =
+      discountedTotalPrice > cashPayment + creditCardPayment;
+
+    setIsDocumentFinishDisabled(newIsDocumentFinishDisabled);
+  }, [discountedTotalPrice, cashPayment, creditCardPayment]);
 
   const handleRowCancel = () => {
     if (selectedItem) {
@@ -82,6 +95,15 @@ const Payment = () => {
     }
   };
 
+  const handlePayment = () => {
+    setCashBack(
+      cashPayment + creditCardPayment - discountedTotalPrice > 0
+        ? cashPayment + creditCardPayment - discountedTotalPrice
+        : 0,
+    );
+    console.log(cashBack);
+  };
+
   return (
     <SafeAreaView style={{backgroundColor: '#222831', flex: 1}}>
       <View style={{flex: 1, flexDirection: 'row'}}>
@@ -93,7 +115,11 @@ const Payment = () => {
               flexDirection: 'row',
               padding: 18,
             }}>
-            <CartButton title="E-Fatura" color={'#9c6417'} />
+            <CartButton
+              title="E-Fatura"
+              color={'#9c6417'}
+              onPress={() => console.log('E-Fatura')}
+            />
           </View>
           <View
             style={{
@@ -203,7 +229,12 @@ const Payment = () => {
         <View style={{flex: 1}}>
           <View style={{backgroundColor: 'brown', flex: 1}}>
             <View style={{backgroundColor: '#222831', flex: 1, padding: 8}}>
-              <CartButton title="Belge Bitir" color={'#afad21'} />
+              <CartButton
+                title="Belge Bitir"
+                color={'#afad21'}
+                disabled={isDocumentFinishDisabled}
+                onPress={() => handlePayment()}
+              />
             </View>
             <View
               style={{
@@ -252,7 +283,8 @@ const Payment = () => {
             alignItems: 'center',
           }}>
           <Text style={{fontSize: 24, fontWeight: 'bold', color: 'white'}}>
-            {currentDate}
+            {currentDate} Cash-{cashPayment} Cre-{creditCardPayment} --{' '}
+            {discountedTotalPrice}
           </Text>
         </View>
         <View
