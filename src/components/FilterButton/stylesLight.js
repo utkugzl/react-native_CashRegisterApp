@@ -8,7 +8,7 @@ const stylesLight = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 3,
-    borderColor: '#A8A5A6',
+    borderColor: '#858082',
   },
   textStyle: {
     fontSize: 20,

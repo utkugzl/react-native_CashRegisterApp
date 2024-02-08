@@ -16,14 +16,22 @@ const CartProvider = ({children}) => {
   const [cashBack, setCashBack] = useState(0);
 
   useEffect(() => {
-    const date = new Date();
-    const formattedDate = `${date.getDate()}/${
-      date.getMonth() + 1
-    }/${date.getFullYear()}`;
-    setCurrentDate(formattedDate);
+    const updateDateTime = () => {
+      const date = new Date();
+      const formattedDate = `${date.getDate()}/${
+        date.getMonth() + 1
+      }/${date.getFullYear()}`;
+      setCurrentDate(formattedDate);
 
-    const time = `${date.getHours()}:${date.getMinutes()}`;
-    setCurrentTime(time);
+      const time = `${date.getHours()}:${date.getMinutes()}`;
+      setCurrentTime(time);
+    };
+
+    updateDateTime();
+
+    const intervalId = setInterval(updateDateTime, 60000);
+
+    return () => clearInterval(intervalId);
   }, []);
 
   const addToCart = product => {

@@ -15,17 +15,22 @@ import {
   TouchableOpacity,
   TextInput,
   Alert,
+  Modal,
+  Button,
 } from 'react-native';
 import axios from 'axios';
 import CartProduct from '../../components/CartProduct/CartProduct.js';
 import CartButton from '../../components/CartButton/CartButton.js';
 import PaymentKeyboard from '../../components/PaymnetKeyboard/PaymnetKeyboard.js';
+import ShoppingReceipt from '../../components/ShoppingReceipt/ShoppingReceipt.js';
+import ReceiptButton from '../../components/ReceiptButton/ReceiptButton.js';
 
 const Payment = () => {
   const navigation = useNavigation();
   const {t} = useTranslation();
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [visibleReceipt, setVisibleReceipt] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const {isStoreOnline} = useContext(StoreContext);
   const {user} = useContext(UserContext);
@@ -46,7 +51,9 @@ const Payment = () => {
     cashBack,
     setCashBack,
   } = useContext(CartContext);
-  const storeStatusText = isStoreOnline ? 'Store Online' : 'Store Offline';
+  const storeStatusText = isStoreOnline
+    ? t('store-online')
+    : t('store-offline');
   const storeStatusIcon = isStoreOnline ? 'onlineIcon' : 'offlineIcon';
 
   const [isDocumentFinishDisabled, setIsDocumentFinishDisabled] =
@@ -74,7 +81,7 @@ const Payment = () => {
       discountedTotalPrice > cashPayment + creditCardPayment;
 
     setIsDocumentFinishDisabled(newIsDocumentFinishDisabled);
-  }, [discountedTotalPrice, cashPayment, creditCardPayment]);
+  }, [discountedTotalPrice, cashPayment, creditCardPayment, cashBack]);
 
   const handleRowCancel = () => {
     if (selectedItem) {
@@ -96,6 +103,7 @@ const Payment = () => {
   };
 
   const handlePayment = () => {
+    setVisibleReceipt(true);
     setCashBack(
       cashPayment + creditCardPayment - discountedTotalPrice > 0
         ? cashPayment + creditCardPayment - discountedTotalPrice
@@ -315,6 +323,35 @@ const Payment = () => {
           </View>
         </View>
       </View>
+      <Modal visible={visibleReceipt}>
+        <View style={{flex: 1, flexDirection: 'row'}}>
+          <View style={{flex: 0.8}}>
+            <ReceiptButton
+              title="Kapat"
+              onPress={() => {
+                setVisibleReceipt(false);
+              }}
+              color={'#2287da'}
+              iconName={'closeIcon'}
+            />
+            <Text>{cashBack}</Text>
+            <Text>{currentTime}</Text>
+          </View>
+          <View style={{flex: 1, backgroundColor: 'orange', padding: 10}}>
+            <ShoppingReceipt />
+          </View>
+          <View style={{flex: 0.8, alignItems: 'flex-end'}}>
+            <ReceiptButton
+              title="Yazdir"
+              onPress={() => {
+                console.log('Yazdir');
+              }}
+              color={'#2287da'}
+              iconName={'printerIcon'}
+            />
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 };

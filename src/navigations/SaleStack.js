@@ -16,24 +16,6 @@ const SaleStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="shoppingReceiptPrint"
-        component={ShoppingReceiptPrint}
-        options={{
-          title: t('sale'),
-          headerShown: true,
-          headerLeft: () => <HeaderLeft />,
-          headerTitleStyle: {
-            fontWeight: 'bold',
-            fontSize: 30,
-            color: isDarkMode ? '#DDDDDD' : '#30475E',
-          },
-          headerStyle: {
-            backgroundColor: isDarkMode ? '#30475E' : '#f2f2f2',
-          },
-          headerTitleAlign: 'center',
-        }}
-      />
-      <Stack.Screen
         name="saleScereen"
         component={Sale}
         options={{

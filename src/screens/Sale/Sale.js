@@ -2,6 +2,7 @@ import React from 'react';
 import {useEffect, useState, useContext} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
+import {ThemeContext} from '../../contexts/ThemeContext.js';
 import {CartContext} from '../../contexts/CartContext.js';
 import {UserContext} from '../../contexts/UserContext.js';
 import {StoreContext} from '../../contexts/StoreContext.js';
@@ -11,10 +12,8 @@ import {
   Text,
   ScrollView,
   FlatList,
-  StyleSheet,
   TouchableOpacity,
   TextInput,
-  Button,
   Alert,
 } from 'react-native';
 import axios from 'axios';
@@ -23,14 +22,17 @@ import useCategories from '../../hooks/UseCategories.js';
 import CategoryButton from '../../components/CategoryButton/CategoryButton.js';
 import FilterButton from '../../components/FilterButton/FilterButton.js';
 import SaleProduct from '../../components/SaleProduct/SaleProduct.js';
-import CartProduct from '../../components/CartProduct/CartProduct.js';
 import CartButton from '../../components/CartButton/CartButton.js';
 import Keyboard from '../../components/Keyboard/Keyboard.js';
 import CampaignOption from '../../components/CampaignOption/CampaingOption.js';
 import CartList from '../../components/CartList/CartList.js';
 
+import stylesDark from './stylesDark.js';
+import stylesLight from './stylesLight.js';
+
 const Sale = () => {
   const navigation = useNavigation();
+  const {isDarkMode} = useContext(ThemeContext);
   const {t} = useTranslation();
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -56,11 +58,13 @@ const Sale = () => {
     calculateDiscount,
     setCampaignContext,
   } = useContext(CartContext);
-  const storeStatusText = isStoreOnline ? 'Store Online' : 'Store Offline';
+  const storeStatusText = isStoreOnline
+    ? t('store-online')
+    : t('store-offline');
   const storeStatusIcon = isStoreOnline ? 'onlineIcon' : 'offlineIcon';
 
   const categories = useCategories();
-
+  const styles = isDarkMode ? stylesDark : stylesLight;
   const fetchProducts = async () => {
     try {
       const url = 'http://10.0.2.2:3000/products';
@@ -154,17 +158,11 @@ const Sale = () => {
   };
 
   return (
-    <SafeAreaView style={{backgroundColor: '#222831', flex: 1}}>
-      <View style={{flex: 1, flexDirection: 'row'}}>
-        <View style={{backgroundColor: 'yellow', flex: 1}}>
+    <SafeAreaView style={styles.screenContainer}>
+      <View style={styles.sectionContainer}>
+        <View style={styles.lefSection}>
           <View style={{backgroundColor: 'brown', flex: 1}}></View>
-          <View
-            style={{
-              backgroundColor: '#222831',
-              flex: 1,
-              flexDirection: 'row',
-              padding: 8,
-            }}>
+          <View style={styles.filterButtonsContainer}>
             <FilterButton
               title={t('categories')}
               onPress={() => handleFilterButtonClick('categories')}
@@ -181,7 +179,7 @@ const Sale = () => {
               selected={content === 'campaigns'}
             />
           </View>
-          <View style={{backgroundColor: '#222831', flex: 8, padding: 5}}>
+          <View style={styles.leftListContainer}>
             {content === 'categories' && (
               <View style={{marginTop: 5}}>
                 <ScrollView>
@@ -254,90 +252,28 @@ const Sale = () => {
             )}
           </View>
         </View>
-        <View
-          style={{
-            backgroundColor: '#505860',
-            borderWidth: 1,
-            flex: 1,
-          }}>
-          <View
-            style={{
-              flex: 6,
-              justifyContent: 'center',
-              alignItems: 'center',
-              padding: 4,
-            }}>
+        <View style={styles.centerSection}>
+          <View style={styles.centerListContainer}>
             <CartList cart={cart} setSelectedItem={setSelectedItem} />
           </View>
-          <View
-            style={{
-              backgroundColor: '#222831',
-              flex: 0.8,
-              borderWidth: 8,
-              borderRadius: 16,
-            }}>
-            <View
-              style={{
-                backgroundColor: '#222831',
-                flex: 1,
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                paddingHorizontal: 12,
-                borderBottomWidth: 4,
-                borderTopStartRadius: 16,
-                borderTopEndRadius: 16,
-              }}>
-              <Text
-                style={{
-                  fontSize: 20,
-                  fontWeight: 'bold',
-                  color: 'white',
-                }}>
-                Ara Toplam
-              </Text>
-              <Text
-                style={{
-                  fontSize: 20,
-                  fontWeight: 'bold',
-                  color: 'white',
-                }}>
-                {totalPrice}₺
+          <View style={styles.totalPriceContainer}>
+            <View style={styles.totalPrice}>
+              <Text style={styles.totalPriceText}>Ara Toplam</Text>
+              <Text style={styles.totalPriceText}>
+                {totalPrice.toFixed(2)}₺
               </Text>
             </View>
-            <View
-              style={{
-                backgroundColor: '#222831',
-                flex: 1,
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                paddingHorizontal: 12,
-                borderBottomStartRadius: 16,
-                borderBottomEndRadius: 16,
-              }}>
-              <Text
-                style={{
-                  fontSize: 20,
-                  fontWeight: 'bold',
-                  color: 'white',
-                }}>
-                Toplam Tutar
-              </Text>
-              <Text
-                style={{
-                  fontSize: 20,
-                  fontWeight: 'bold',
-                  color: 'white',
-                }}>
+            <View style={styles.discountedTotalPrice}>
+              <Text style={styles.discountedPriceText}>Toplam Tutar</Text>
+              <Text style={styles.discountedPriceText}>
                 {discountedTotalPrice.toFixed(2)}₺
               </Text>
             </View>
           </View>
         </View>
-        <View style={{flex: 1}}>
-          <View style={{backgroundColor: 'brown', flex: 1}}>
-            <View style={{backgroundColor: '#222831', flex: 1, padding: 8}}>
+        <View style={styles.rightSection}>
+          <View style={styles.cartButtonsSection}>
+            <View style={styles.searchByNameButtonContainer}>
               <CartButton
                 title="İsimden Ara"
                 color={'#275485'}
@@ -346,13 +282,7 @@ const Sale = () => {
                 }}
               />
             </View>
-            <View
-              style={{
-                backgroundColor: '#222831',
-                flex: 1,
-                flexDirection: 'row',
-                padding: 8,
-              }}>
+            <View style={styles.deleteButtonsContainer}>
               <CartButton
                 title="Satır İptal"
                 onPress={handleRowCancel}
@@ -368,48 +298,16 @@ const Sale = () => {
           <Keyboard />
         </View>
       </View>
-      <View style={{flex: 0.08, flexDirection: 'row', borderWidth: 2}}>
-        <View
-          style={{
-            backgroundColor: '#222831',
-            flex: 1,
-            justifyContent: 'center',
-          }}>
-          <Text
-            style={{
-              fontSize: 20,
-              fontWeight: 'bold',
-              color: 'white',
-              marginLeft: 16,
-            }}>
-            Kasiyer Kodu : {user}
-          </Text>
+      <View style={styles.bottomSection}>
+        <View style={styles.cashierCodeContainer}>
+          <Text style={styles.cashierCodeText}>Kasiyer Kodu : {user}</Text>
         </View>
-        <View
-          style={{
-            backgroundColor: '#222831',
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          <Text style={{fontSize: 24, fontWeight: 'bold', color: 'white'}}>
-            {currentDate}
-          </Text>
+        <View style={styles.dateContainer}>
+          <Text style={styles.dateText}>{currentDate}</Text>
         </View>
-        <View
-          style={{
-            backgroundColor: '#222831',
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'flex-end',
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            <View style={{margin: 5}}>
+        <View style={styles.storeStatusContainer}>
+          <View style={styles.storeStatusIconContainer}>
+            <View style={styles.icon}>
               <AppIcons name={storeStatusIcon} />
             </View>
             <Text

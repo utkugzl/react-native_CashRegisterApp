@@ -29,7 +29,9 @@ const DrawerMenuContent = props => {
     : require('../../assets/images/32bitlogo.png');
 
   const storeStatusIcon = isStoreOnline ? 'onlineIcon' : 'offlineIcon';
-  const storeStatusText = isStoreOnline ? 'Store Online' : 'Store Offline';
+  const storeStatusText = isStoreOnline
+    ? t('store-online')
+    : t('store-offline');
 
   return (
     <View style={styles.menuContainer}>

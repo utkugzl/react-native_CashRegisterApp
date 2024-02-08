@@ -9,7 +9,7 @@ const ShoppingReceipt = () => {
         flex: 1,
         backgroundColor: '#c0afaf',
         borderRadius: 10,
-        elevation: 20,
+        elevation: 50,
       }}>
       <View
         style={{
@@ -114,7 +114,7 @@ const ShoppingReceipt = () => {
               color: 'white',
               paddingBottom: 2,
             }}>
-            Satış No : 1234
+            Saat : 1234
           </Text>
           <Text
             style={{
@@ -149,7 +149,16 @@ const ShoppingReceipt = () => {
               color: 'white',
               paddingBottom: 2,
             }}>
-            Satış No : 1234
+            Kredi Karti : 1234
+          </Text>
+          <Text
+            style={{
+              fontWeight: 'bold',
+              fontSize: 16,
+              color: 'white',
+              paddingBottom: 2,
+            }}>
+            Nakit : 1234
           </Text>
         </View>
       </View>
