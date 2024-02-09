@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#DDDDDD',
     borderRadius: 5,
     justifyContent: 'center',
-    borderWidth: 2,
+    borderWidth: 4,
   },
   badge: {
     backgroundColor: '#ad2222',

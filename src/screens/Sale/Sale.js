@@ -12,8 +12,6 @@ import {
   Text,
   ScrollView,
   FlatList,
-  TouchableOpacity,
-  TextInput,
   Alert,
 } from 'react-native';
 import axios from 'axios';
@@ -41,6 +39,7 @@ const Sale = () => {
   const [selectedItem, setSelectedItem] = useState(null);
   const {isStoreOnline} = useContext(StoreContext);
   const {user} = useContext(UserContext);
+  const categories = useCategories();
 
   const {
     cart,
@@ -48,7 +47,6 @@ const Sale = () => {
     totalPrice,
     discountedTotalPrice,
     currentDate,
-    currentTime,
     setCart,
     setTotalPrice,
     setDiscountedTotalPrice,
@@ -63,7 +61,6 @@ const Sale = () => {
     : t('store-offline');
   const storeStatusIcon = isStoreOnline ? 'onlineIcon' : 'offlineIcon';
 
-  const categories = useCategories();
   const styles = isDarkMode ? stylesDark : stylesLight;
   const fetchProducts = async () => {
     try {

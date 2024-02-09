@@ -5,7 +5,7 @@ import scaleByHeight from '../../utils/ScaleByHeight.js';
 const stylesLight = StyleSheet.create({
   screenContainer: {
     flex: 1,
-    backgroundColor: '#222831',
+    backgroundColor: '#DDDDDD',
   },
   sectionContainer: {
     flex: 1,

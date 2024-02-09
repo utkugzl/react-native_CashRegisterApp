@@ -13,7 +13,7 @@ const SendSalesButton = ({onPress}) => {
         <Text style={styles.title}>Satislari Gonder</Text>
         {offlineSalesCount > 0 && (
           <View style={styles.badge}>
-            <Text style={styles.badgeText}>3</Text>
+            <Text style={styles.badgeText}>{offlineSalesCount}</Text>
           </View>
         )}
       </View>

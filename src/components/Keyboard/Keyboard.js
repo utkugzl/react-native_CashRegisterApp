@@ -1,10 +1,15 @@
 import React from 'react';
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 import {View, Text, TextInput, TouchableOpacity, Alert} from 'react-native';
+import {ThemeContext} from '../../contexts/ThemeContext.js';
 import AppIcons from '../AppIcons/AppIcons.js';
 import {useNavigation} from '@react-navigation/native';
+import stylesDark from './stylesDark.js';
+import stylesLight from './stylesLight.js';
 
 const Keyboard = ({cart, products, addToCart}) => {
+  const {isDarkMode} = useContext(ThemeContext);
+  const styles = isDarkMode ? stylesDark : stylesLight;
   const [textInputValue, setTextInputValue] = useState('');
   const [quantity, setQuantity] = useState('');
   const navigation = useNavigation();
@@ -43,7 +48,7 @@ const Keyboard = ({cart, products, addToCart}) => {
 
   return (
     <View style={{flex: 3}}>
-      <View style={{backgroundColor: '#222831', flex: 0.5}}>
+      <View style={styles.inputContainer}>
         <View
           style={{
             flex: 1,
@@ -60,14 +65,16 @@ const Keyboard = ({cart, products, addToCart}) => {
               style={{
                 flex: 1,
                 backgroundColor: '#DDDDDD',
-                width: 50,
+                width: 60,
                 height: 50,
                 justifyContent: 'center',
                 alignItems: 'center',
+                borderWidth: 2,
+                marginRight: 2,
               }}>
               <Text
                 style={{
-                  fontSize: 24,
+                  fontSize: 18,
                   fontWeight: 'bold',
                   color: 'black',
                 }}>
@@ -78,7 +85,7 @@ const Keyboard = ({cart, products, addToCart}) => {
               value={textInputValue}
               style={{
                 backgroundColor: 'white',
-                width: '80%',
+                width: '75%',
                 borderWidth: 1,
                 borderRadius: 8,
                 padding: 14,
@@ -108,13 +115,8 @@ const Keyboard = ({cart, products, addToCart}) => {
           flex: 3,
           flexDirection: 'row',
         }}>
-        <View style={{backgroundColor: '#222831', flex: 2, padding: 4}}>
-          <View
-            style={{
-              backgroundColor: '#222831',
-              flex: 1,
-              flexDirection: 'row',
-            }}>
+        <View style={styles.keyBoardContainer}>
+          <View style={styles.keyBoardTopContainer}>
             <TouchableOpacity
               onPress={() => handleKeyPress('00')}
               activeOpacity={0.6}
@@ -144,13 +146,7 @@ const Keyboard = ({cart, products, addToCart}) => {
               <AppIcons name="backspaceIcon" />
             </TouchableOpacity>
           </View>
-          <View
-            style={{
-              backgroundColor: '#222831', //--------
-              flex: 1,
-              flexDirection: 'row',
-              padding: 4,
-            }}>
+          <View style={styles.numbersContainer}>
             <TouchableOpacity
               onPress={() => handleKeyPress('7')}
               activeOpacity={0.6}
@@ -194,13 +190,7 @@ const Keyboard = ({cart, products, addToCart}) => {
               <Text style={{color: 'white', fontSize: 24}}>9</Text>
             </TouchableOpacity>
           </View>
-          <View
-            style={{
-              backgroundColor: '#222831', //--------
-              flex: 1,
-              flexDirection: 'row',
-              padding: 4,
-            }}>
+          <View style={styles.numbersContainer}>
             <TouchableOpacity
               onPress={() => handleKeyPress('4')}
               activeOpacity={0.6}
@@ -244,13 +234,7 @@ const Keyboard = ({cart, products, addToCart}) => {
               <Text style={{color: 'white', fontSize: 24}}>6</Text>
             </TouchableOpacity>
           </View>
-          <View
-            style={{
-              backgroundColor: '#222831', //--------
-              flex: 1,
-              flexDirection: 'row',
-              padding: 4,
-            }}>
+          <View style={styles.numbersContainer}>
             <TouchableOpacity
               onPress={() => handleKeyPress('1')}
               activeOpacity={0.6}
@@ -294,13 +278,7 @@ const Keyboard = ({cart, products, addToCart}) => {
               <Text style={{color: 'white', fontSize: 24}}>3</Text>
             </TouchableOpacity>
           </View>
-          <View
-            style={{
-              backgroundColor: '#222831', //--------
-              flex: 1,
-              flexDirection: 'row',
-              padding: 4,
-            }}>
+          <View style={styles.numbersContainer}>
             <TouchableOpacity
               onPress={() => handleKeyPress('0')}
               activeOpacity={0.6}
@@ -328,17 +306,12 @@ const Keyboard = ({cart, products, addToCart}) => {
             </TouchableOpacity>
           </View>
         </View>
-        <View
-          style={{
-            backgroundColor: '#222831', //--------
-            flex: 1,
-            padding: 4,
-          }}>
+        <View style={styles.keyboardRightContainer}>
           <TouchableOpacity
             onPress={handleQuantityEntry}
             activeOpacity={0.6}
             style={{
-              backgroundColor: '#9E9A56',
+              backgroundColor: '#bb9d32',
               flex: 1,
               borderWidth: 1,
               borderRadius: 16,

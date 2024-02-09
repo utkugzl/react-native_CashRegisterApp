@@ -1,43 +1,31 @@
 import React from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useEffect, useState, useContext} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import {CartContext} from '../../contexts/CartContext.js';
 import {UserContext} from '../../contexts/UserContext.js';
 import {StoreContext} from '../../contexts/StoreContext.js';
-import AppIcons from '../../components/AppIcons/AppIcons.js';
-import {
-  SafeAreaView,
-  View,
-  Text,
-  ScrollView,
-  FlatList,
-  TouchableOpacity,
-  TextInput,
-  Alert,
-  Modal,
-  Button,
-} from 'react-native';
+import {ReportsContext} from '../../contexts/ReportsContext.js';
+import {SafeAreaView, View, Text, FlatList, Alert, Modal} from 'react-native';
 import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import AppIcons from '../../components/AppIcons/AppIcons.js';
 import CartProduct from '../../components/CartProduct/CartProduct.js';
 import CartButton from '../../components/CartButton/CartButton.js';
 import PaymentKeyboard from '../../components/PaymnetKeyboard/PaymnetKeyboard.js';
 import ShoppingReceipt from '../../components/ShoppingReceipt/ShoppingReceipt.js';
 import ReceiptButton from '../../components/ReceiptButton/ReceiptButton.js';
-import {ReportsContext} from '../../contexts/ReportsContext.js';
+
 const Payment = () => {
   const navigation = useNavigation();
   const {t} = useTranslation();
-  const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
   const [visibleReceipt, setVisibleReceipt] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const {isStoreOnline} = useContext(StoreContext);
   const {user} = useContext(UserContext);
+  const {updateOfflineSalesCount} = useContext(ReportsContext);
   const {
     cart,
-    addToCart,
     totalPrice,
     discountedTotalPrice,
     currentDate,
@@ -46,7 +34,6 @@ const Payment = () => {
     setTotalPrice,
     setDiscountedTotalPrice,
     removeFromCart,
-    setCampaignId,
     cashPayment,
     creditCardPayment,
     cashBack,
@@ -61,23 +48,6 @@ const Payment = () => {
 
   const [isDocumentFinishDisabled, setIsDocumentFinishDisabled] =
     useState(true);
-  const fetchProducts = async () => {
-    try {
-      const url = 'http://10.0.2.2:3000/products';
-      const response = await axios.get(url);
-      setProducts(response.data);
-    } catch (error) {
-      console.error('Error fetching version:', error);
-    }
-  };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      await fetchProducts();
-    };
-
-    fetchData();
-  }, []);
 
   useEffect(() => {
     const newIsDocumentFinishDisabled =
@@ -120,7 +90,6 @@ const Payment = () => {
   const handlePayment = () => {
     setVisibleReceipt(true);
     const sale = {
-      id: 1,
       date: currentDate,
       time: currentTime,
       cashierCode: user,
@@ -131,9 +100,8 @@ const Payment = () => {
       cart: cart,
     };
     if (isStoreOnline) {
-      //postSale(sale);
+      postSale(sale);
     } else {
-      console.log('Offline satış');
       saveSaleLocally(sale);
     }
   };
@@ -151,23 +119,16 @@ const Payment = () => {
       });
   };
 
-  const saveSaleLocally = sale => {
+  const saveSaleLocally = async sale => {
     try {
-      const sales = JSON.parse(AsyncStorage.getItem('offlineSales')) || [];
+      let sales = await AsyncStorage.getItem('offlineSales');
+      sales = sales ? JSON.parse(sales) : [];
       sales.push(sale);
-      AsyncStorage.setItem('offlineSales', JSON.stringify(sales));
+      await AsyncStorage.setItem('offlineSales', JSON.stringify(sales));
       console.log('Sale saved locally:', sale);
+      updateOfflineSalesCount();
     } catch (error) {
       console.error('Error saving sale locally:', error);
-    }
-  };
-
-  const clearOfflineSales = () => {
-    try {
-      AsyncStorage.removeItem('offlineSales');
-      console.log('Offline sales cleared successfully.');
-    } catch (error) {
-      console.error('Error clearing offline sales:', error);
     }
   };
 

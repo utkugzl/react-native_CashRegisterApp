@@ -20,6 +20,7 @@ const DashboardStack = () => {
         options={{
           title: t('dashboard'),
           headerShown: true,
+          headerTitle: '',
           headerLeft: () => <HeaderLeft />,
           headerTitleStyle: {
             fontWeight: 'bold',

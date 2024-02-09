@@ -18,22 +18,22 @@ const AppStack = () => {
       screenOptions={{headerShown: false}}
       drawerContent={props => <DrawerMenuContent {...props} />}>
       <Drawer.Screen
-        name="sale"
-        component={SaleStack}
-        options={{
-          title: t('sale'),
-        }}
-      />
-      <Drawer.Screen
         name="dashboard"
         component={DashboardStack}
         options={{
-          title: t('dashboard'),
+          //title: t('dashboard'),
           headerTitleStyle: {
             fontWeight: 'bold',
             fontSize: 30,
           },
           headerTitleAlign: 'center',
+        }}
+      />
+      <Drawer.Screen
+        name="sale"
+        component={SaleStack}
+        options={{
+          title: t('sale'),
         }}
       />
       <Drawer.Screen
