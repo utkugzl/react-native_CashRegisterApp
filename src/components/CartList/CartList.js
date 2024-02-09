@@ -13,6 +13,7 @@ const CartList = ({cart, setSelectedItem}) => {
       renderItem={({item}) => (
         <CartProduct
           name={item.name}
+          barcode={item.barcode}
           price={item.price}
           quantity={item.quantity}
           onPress={() => {

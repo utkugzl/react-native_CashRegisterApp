@@ -19,6 +19,7 @@ const stylesLight = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     padding: 4,
+    marginTop: 12,
   },
   leftListContainer: {
     backgroundColor: '#DDDDDD',

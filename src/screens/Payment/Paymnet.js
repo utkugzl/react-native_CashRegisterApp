@@ -131,7 +131,7 @@ const Payment = () => {
       cart: cart,
     };
     if (isStoreOnline) {
-      postSale(sale);
+      //postSale(sale);
     } else {
       console.log('Offline satış');
       saveSaleLocally(sale);
@@ -218,6 +218,7 @@ const Payment = () => {
               renderItem={({item}) => (
                 <CartProduct
                   name={item.name}
+                  barcode={item.barcode}
                   price={item.price}
                   quantity={item.quantity}
                   onPress={() => {

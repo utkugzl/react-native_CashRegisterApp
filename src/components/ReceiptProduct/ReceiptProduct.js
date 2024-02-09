@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 
-const ReceiptProduct = ({name, price, quantity}) => {
+const ReceiptProduct = ({name, barcode, price, quantity}) => {
   const totalPrice = (price * quantity).toFixed(2);
   return (
     <View
@@ -19,7 +19,7 @@ const ReceiptProduct = ({name, price, quantity}) => {
         }}>
         <View style={{marginRight: 20}}>
           <Text style={{fontSize: 16, fontWeight: 'bold', color: 'black'}}>
-            123456
+            {barcode}
           </Text>
         </View>
         <Text style={{fontSize: 16, fontWeight: 'bold', color: 'black'}}>

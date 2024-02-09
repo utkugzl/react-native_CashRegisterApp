@@ -161,7 +161,6 @@ const Sale = () => {
     <SafeAreaView style={styles.screenContainer}>
       <View style={styles.sectionContainer}>
         <View style={styles.lefSection}>
-          <View style={{backgroundColor: 'brown', flex: 1}}></View>
           <View style={styles.filterButtonsContainer}>
             <FilterButton
               title={t('categories')}
@@ -295,7 +294,7 @@ const Sale = () => {
               />
             </View>
           </View>
-          <Keyboard cart={cart} />
+          <Keyboard cart={cart} products={products} addToCart={addToCart} />
         </View>
       </View>
       <View style={styles.bottomSection}>

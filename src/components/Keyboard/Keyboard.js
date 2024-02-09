@@ -3,8 +3,9 @@ import {useState} from 'react';
 import {View, Text, TextInput, TouchableOpacity, Alert} from 'react-native';
 import AppIcons from '../AppIcons/AppIcons.js';
 import {useNavigation} from '@react-navigation/native';
-const Keyboard = ({cart}) => {
+const Keyboard = ({cart, products, addToCart}) => {
   const [textInputValue, setTextInputValue] = useState('');
+  const [quantity, setQuantity] = useState('');
   const navigation = useNavigation();
   const handleKeyPress = value => {
     setTextInputValue(prevValue => prevValue + value);
@@ -12,6 +13,31 @@ const Keyboard = ({cart}) => {
 
   const handleBackspace = () => {
     setTextInputValue(prevValue => prevValue.slice(0, -1));
+  };
+
+  const handleQuantityEntry = () => {
+    setQuantity(textInputValue);
+    setTextInputValue('');
+  };
+
+  const handleBarcodeEntry = () => {
+    const enteredBarcode = textInputValue.trim();
+
+    const foundProduct = products.find(
+      product => product.barcode === enteredBarcode,
+    );
+
+    if (foundProduct) {
+      if (quantity !== '' && parseInt(quantity) !== 0) {
+        addToCart(foundProduct, parseInt(quantity));
+        setQuantity('');
+      } else {
+        addToCart(foundProduct);
+      }
+      setTextInputValue('');
+    } else {
+      console.log('Ürün bulunamadı');
+    }
   };
 
   return (
@@ -29,11 +55,29 @@ const Keyboard = ({cart}) => {
               alignItems: 'center',
               marginHorizontal: 8,
             }}>
+            <View
+              style={{
+                flex: 1,
+                backgroundColor: '#DDDDDD',
+                width: 50,
+                height: 50,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <Text
+                style={{
+                  fontSize: 24,
+                  fontWeight: 'bold',
+                  color: 'black',
+                }}>
+                {quantity !== '' ? quantity : '-'}
+              </Text>
+            </View>
             <TextInput
               value={textInputValue}
               style={{
                 backgroundColor: 'white',
-                width: '85%',
+                width: '80%',
                 borderWidth: 1,
                 borderRadius: 8,
                 padding: 14,
@@ -48,7 +92,11 @@ const Keyboard = ({cart}) => {
                 // Text input değiştiğinde yapılacak işlemler buraya yazılabilir
               }}
             />
-            <TouchableOpacity onPress={() => setTextInputValue('')}>
+            <TouchableOpacity
+              onPress={() => {
+                setTextInputValue('');
+                setQuantity('');
+              }}>
               <AppIcons name="deleteAllIcon" />
             </TouchableOpacity>
           </View>
@@ -286,6 +334,7 @@ const Keyboard = ({cart}) => {
             padding: 4,
           }}>
           <TouchableOpacity
+            onPress={handleQuantityEntry}
             activeOpacity={0.6}
             style={{
               backgroundColor: '#9E9A56',
@@ -294,7 +343,19 @@ const Keyboard = ({cart}) => {
               borderRadius: 16,
               marginBottom: 4,
               marginHorizontal: 2,
-            }}></TouchableOpacity>
+              justifyContent: 'center',
+            }}>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: 24,
+                textAlign: 'center',
+                marginTop: 10,
+              }}>
+              Miktar
+            </Text>
+          </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
               if (cart.length === 0) {
@@ -326,6 +387,7 @@ const Keyboard = ({cart}) => {
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
+            onPress={handleBarcodeEntry}
             activeOpacity={0.6}
             style={{
               backgroundColor: '#0B5269',

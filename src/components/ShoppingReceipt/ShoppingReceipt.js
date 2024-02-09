@@ -182,6 +182,7 @@ const ShoppingReceipt = ({
           renderItem={({item}) => (
             <ReceiptProduct
               name={item.name}
+              barcode={item.barcode}
               price={item.price}
               quantity={item.quantity}
             />
