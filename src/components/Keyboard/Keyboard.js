@@ -3,6 +3,7 @@ import {useState} from 'react';
 import {View, Text, TextInput, TouchableOpacity, Alert} from 'react-native';
 import AppIcons from '../AppIcons/AppIcons.js';
 import {useNavigation} from '@react-navigation/native';
+
 const Keyboard = ({cart, products, addToCart}) => {
   const [textInputValue, setTextInputValue] = useState('');
   const [quantity, setQuantity] = useState('');

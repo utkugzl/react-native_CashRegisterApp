@@ -23,7 +23,6 @@ const ReportStack = () => {
           title: t('reports'),
           headerShown: true,
           headerLeft: () => <HeaderLeft />,
-          headerRight: () => <HeaderRight />,
           headerTitleStyle: {
             fontWeight: 'bold',
             fontSize: 30,

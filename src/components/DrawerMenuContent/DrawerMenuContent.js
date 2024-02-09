@@ -6,6 +6,7 @@ import {useTranslation} from 'react-i18next';
 import {ThemeContext} from '../../contexts/ThemeContext.js';
 import {UserContext} from '../../contexts/UserContext.js';
 import {StoreContext} from '../../contexts/StoreContext.js';
+import {ReportsContext} from '../../contexts/ReportsContext.js';
 import AppIcons from '../AppIcons/AppIcons.js';
 import stylesDark from './stylesDark.js';
 import stylesLight from './stylesLight.js';
@@ -14,6 +15,7 @@ const DrawerMenuContent = props => {
   const {isStoreOnline} = useContext(StoreContext);
   const {isDarkMode} = useContext(ThemeContext);
   const {user} = useContext(UserContext);
+  const {offlineSalesCount} = useContext(ReportsContext);
   const {t} = useTranslation();
   const {state} = props;
   const styles = isDarkMode ? stylesDark : stylesLight;
@@ -22,7 +24,14 @@ const DrawerMenuContent = props => {
     {label: t('sale'), routeName: 'sale'},
     {label: t('products'), routeName: 'products'},
     {label: t('reports'), routeName: 'reports'},
-    {label: t('settings'), routeName: 'settings'},
+    {
+      label:
+        offlineSalesCount > 0
+          ? `${t('settings')} (${offlineSalesCount})`
+          : t('settings'),
+      routeName: 'settings',
+    },
+    ,
   ];
   const logoImageSource = isDarkMode
     ? require('../../assets/images/32bit_logo_dark.png')

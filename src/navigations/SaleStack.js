@@ -22,7 +22,6 @@ const SaleStack = () => {
           title: t('sale'),
           headerShown: true,
           headerLeft: () => <HeaderLeft />,
-          headerRight: () => <HeaderRight />,
           headerTitleStyle: {
             fontWeight: 'bold',
             fontSize: 30,

@@ -1,17 +1,22 @@
 import React from 'react';
-import {useContext} from 'react';
-import {SafeAreaView, View, Image, Text} from 'react-native';
+import {useContext, useState} from 'react';
+import {SafeAreaView, View, Image, Modal} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {ThemeContext} from '../../contexts/ThemeContext.js';
+import {useNavigation} from '@react-navigation/native';
 import SettingsOption from '../../components/SettingsOption/SettingsOption.js';
 import SettingsSwitchOption from '../../components/SettingsSwitchOption/SettingsSwitchOption.js';
 import SendSalesButton from '../../components/SendSalesButton/SendSalesButton.js';
+import ReceiptButton from '../../components/ReceiptButton/ReceiptButton.js';
+import DummyShoppingReceipt from '../../components/DummyShoppingReceipt/DummyShoppingReceipt.js';
 import stylesDark from './stylesDark.js';
 import stylesLight from './stylesLight.js';
-const Settings = ({navigation}) => {
+
+const Settings = ({}) => {
   const {t} = useTranslation();
   const {isDarkMode} = useContext(ThemeContext);
-
+  const navigation = useNavigation();
+  const [visiblePrinterTest, setvisiblePrinterTest] = useState(false);
   const styles = isDarkMode ? stylesDark : stylesLight;
   const logoImageSource = isDarkMode
     ? require('../../assets/images/32bit_logo_dark.png')
@@ -35,12 +40,7 @@ const Settings = ({navigation}) => {
             alignItems: 'center',
             marginTop: 25,
           }}>
-          <SettingsOption
-            title={'Deneme'}
-            iconName={'reportsIcon'}
-            navigation={navigation}
-            screenName={'deneme'}
-          />
+          <SettingsOption title={'Deneme'} iconName={'reportsIcon'} />
           <SettingsOption title={'Deneme'} iconName={'reportsIcon'} />
           <SettingsSwitchOption
             title={t('dark-theme')}
@@ -58,12 +58,17 @@ const Settings = ({navigation}) => {
             title={t('other-settings')}
             iconName={'otherSettingsIcon'}
           />
-          <SettingsOption title={t('printer-test')} iconName={'printerIcon'} />
+          <SettingsOption
+            title={t('printer-test')}
+            iconName={'printerIcon'}
+            onPress={() => {
+              setvisiblePrinterTest(true);
+            }}
+          />
           <SettingsOption
             title={t('change-language')}
             iconName={'changeLanguageIcon'}
-            navigation={navigation}
-            screenName={'changeLanguage'}
+            onPress={() => navigation.navigate('changeLanguage')}
           />
         </View>
       </View>
@@ -76,6 +81,33 @@ const Settings = ({navigation}) => {
         }}>
         <SendSalesButton />
       </View>
+      <Modal visible={visiblePrinterTest}>
+        <View style={{flex: 1, flexDirection: 'row'}}>
+          <View style={{flex: 0.8}}>
+            <ReceiptButton
+              title="Kapat"
+              onPress={() => {
+                setvisiblePrinterTest(false);
+              }}
+              color={'#2287da'}
+              iconName={'closeIcon'}
+            />
+          </View>
+          <View style={{flex: 1, padding: 20}}>
+            <DummyShoppingReceipt />
+          </View>
+          <View style={{flex: 0.8, alignItems: 'flex-end'}}>
+            <ReceiptButton
+              title="Yazdir"
+              onPress={() => {
+                console.log('Yazdir');
+              }}
+              color={'#2287da'}
+              iconName={'printerIcon'}
+            />
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 };

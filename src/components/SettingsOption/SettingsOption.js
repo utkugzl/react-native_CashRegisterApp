@@ -7,19 +7,15 @@ import stylesLight from './stylesLight.js';
 import AppIcons from '../AppIcons/AppIcons.js';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
-const SettingsOption = ({title, iconName, navigation, screenName}) => {
+const SettingsOption = ({title, iconName, onPress}) => {
   const {isDarkMode} = useContext(ThemeContext);
   const styles = isDarkMode ? stylesDark : stylesLight;
-
-  const onPressHandler = () => {
-    navigation.navigate(screenName);
-  };
 
   return (
     <TouchableOpacity
       style={styles.optionContainer}
       activeOpacity={0.9}
-      onPress={onPressHandler}>
+      onPress={onPress}>
       <View style={styles.optionTextContainer}>
         <Text style={styles.textStyle}>{title}</Text>
         <AppIcons name={'rightArrowIcon'} />
