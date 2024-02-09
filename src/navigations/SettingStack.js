@@ -16,7 +16,7 @@ const SettingStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="settingsMenu"
+        name="settingsScreen"
         component={Settings}
         options={{
           title: t('settings'),

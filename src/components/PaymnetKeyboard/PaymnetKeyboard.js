@@ -56,6 +56,7 @@ const PaymentKeyboard = () => {
                 borderRadius: 8,
                 padding: 14,
                 marginRight: 4,
+                fontSize: 26,
               }}
               showSoftInputOnFocus={false}
               placeholder="- - - - - -"

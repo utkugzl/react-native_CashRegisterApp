@@ -8,6 +8,7 @@ const stylesDark = StyleSheet.create({
     backgroundColor: '#0A91AB',
     padding: 4,
     borderRadius: 8,
+    borderWidth: 1,
   },
   text: {
     color: 'white',

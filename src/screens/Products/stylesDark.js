@@ -24,7 +24,7 @@ const stylesDark = StyleSheet.create({
     marginTop: 15,
   },
   categoryButtonContainer: {
-    flex: 0.5,
+    flex: 0.8,
     flexDirection: 'row',
     borderWidth: 5,
     borderColor: '#222831',

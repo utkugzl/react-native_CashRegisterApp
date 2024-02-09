@@ -1,4 +1,5 @@
 import React from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useEffect, useState, useContext} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
@@ -24,7 +25,7 @@ import CartButton from '../../components/CartButton/CartButton.js';
 import PaymentKeyboard from '../../components/PaymnetKeyboard/PaymnetKeyboard.js';
 import ShoppingReceipt from '../../components/ShoppingReceipt/ShoppingReceipt.js';
 import ReceiptButton from '../../components/ReceiptButton/ReceiptButton.js';
-
+import {ReportsContext} from '../../contexts/ReportsContext.js';
 const Payment = () => {
   const navigation = useNavigation();
   const {t} = useTranslation();
@@ -50,6 +51,8 @@ const Payment = () => {
     creditCardPayment,
     cashBack,
     setCashBack,
+    setCashPayment,
+    setCreditCardPayment,
   } = useContext(CartContext);
   const storeStatusText = isStoreOnline
     ? t('store-online')
@@ -80,8 +83,20 @@ const Payment = () => {
     const newIsDocumentFinishDisabled =
       discountedTotalPrice > cashPayment + creditCardPayment;
 
+    setCashBack(
+      cashPayment + creditCardPayment - discountedTotalPrice > 0
+        ? cashPayment + creditCardPayment - discountedTotalPrice
+        : 0,
+    );
+
     setIsDocumentFinishDisabled(newIsDocumentFinishDisabled);
-  }, [discountedTotalPrice, cashPayment, creditCardPayment, cashBack]);
+  }, [
+    discountedTotalPrice,
+    cashPayment,
+    creditCardPayment,
+    cashBack,
+    setCashBack,
+  ]);
 
   const handleRowCancel = () => {
     if (selectedItem) {
@@ -104,12 +119,56 @@ const Payment = () => {
 
   const handlePayment = () => {
     setVisibleReceipt(true);
-    setCashBack(
-      cashPayment + creditCardPayment - discountedTotalPrice > 0
-        ? cashPayment + creditCardPayment - discountedTotalPrice
-        : 0,
-    );
-    console.log(cashBack);
+    const sale = {
+      id: 1,
+      date: currentDate,
+      time: currentTime,
+      cashierCode: user,
+      cash: cashPayment,
+      creditCard: creditCardPayment,
+      cashBack: cashBack.toFixed(2),
+      total: discountedTotalPrice.toFixed(2),
+      cart: cart,
+    };
+    if (isStoreOnline) {
+      postSale(sale);
+    } else {
+      console.log('Offline satış');
+      saveSaleLocally(sale);
+    }
+  };
+
+  const postSale = async sale => {
+    const url = 'http://10.0.2.2:3000/sales';
+
+    axios
+      .post(url, sale)
+      .then(response => {
+        console.log('POST isteği başarılı:', response.data);
+      })
+      .catch(error => {
+        console.error('POST isteği başarısız:', error);
+      });
+  };
+
+  const saveSaleLocally = sale => {
+    try {
+      const sales = JSON.parse(AsyncStorage.getItem('offlineSales')) || [];
+      sales.push(sale);
+      AsyncStorage.setItem('offlineSales', JSON.stringify(sales));
+      console.log('Sale saved locally:', sale);
+    } catch (error) {
+      console.error('Error saving sale locally:', error);
+    }
+  };
+
+  const clearOfflineSales = () => {
+    try {
+      AsyncStorage.removeItem('offlineSales');
+      console.log('Offline sales cleared successfully.');
+    } catch (error) {
+      console.error('Error clearing offline sales:', error);
+    }
   };
 
   return (
@@ -330,15 +389,29 @@ const Payment = () => {
               title="Kapat"
               onPress={() => {
                 setVisibleReceipt(false);
+                setCart([]);
+                setCashPayment(0);
+                setCreditCardPayment(0);
+                setTotalPrice(0);
+                setDiscountedTotalPrice(0);
+
+                navigation.goBack();
               }}
               color={'#2287da'}
               iconName={'closeIcon'}
             />
-            <Text>{cashBack}</Text>
-            <Text>{currentTime}</Text>
           </View>
-          <View style={{flex: 1, backgroundColor: 'orange', padding: 10}}>
-            <ShoppingReceipt />
+          <View style={{flex: 1, padding: 20}}>
+            <ShoppingReceipt
+              date={currentDate}
+              time={currentTime}
+              cashierCode={user}
+              cash={cashPayment}
+              creditCard={creditCardPayment}
+              cashBack={cashBack}
+              total={discountedTotalPrice}
+              cart={cart}
+            />
           </View>
           <View style={{flex: 0.8, alignItems: 'flex-end'}}>
             <ReceiptButton

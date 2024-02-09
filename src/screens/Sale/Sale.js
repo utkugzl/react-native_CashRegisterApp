@@ -295,7 +295,7 @@ const Sale = () => {
               />
             </View>
           </View>
-          <Keyboard />
+          <Keyboard cart={cart} />
         </View>
       </View>
       <View style={styles.bottomSection}>

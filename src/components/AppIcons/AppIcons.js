@@ -80,6 +80,15 @@ const AppIcons = ({name}) => {
     case 'checkmarkIcon':
       iconElement = <Ionicon name="checkmark-circle" size={40} color="black" />;
       break;
+    case 'notificationsIcon':
+      iconElement = <Ionicon name="notifications" size={35} color="black" />;
+      break;
+    case 'pastSaleIcon':
+      iconElement = <Ionicon name="archive" size={30} color="black" />;
+      break;
+    case 'campaignsIcon':
+      iconElement = <Ionicon name="medical" size={30} color="black" />;
+      break;
     default:
       iconElement = <Ionicon name="remove" size={35} color="black" />;
   }

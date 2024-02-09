@@ -1,10 +1,9 @@
 import React from 'react';
 import {useState} from 'react';
-import {View, Text, TextInput} from 'react-native';
-import {TouchableOpacity} from 'react-native';
+import {View, Text, TextInput, TouchableOpacity, Alert} from 'react-native';
 import AppIcons from '../AppIcons/AppIcons.js';
 import {useNavigation} from '@react-navigation/native';
-const Keyboard = () => {
+const Keyboard = ({cart}) => {
   const [textInputValue, setTextInputValue] = useState('');
   const navigation = useNavigation();
   const handleKeyPress = value => {
@@ -39,6 +38,7 @@ const Keyboard = () => {
                 borderRadius: 8,
                 padding: 14,
                 marginRight: 4,
+                fontSize: 26,
               }}
               showSoftInputOnFocus={false}
               placeholder="- - - - - -"
@@ -296,28 +296,57 @@ const Keyboard = () => {
               marginHorizontal: 2,
             }}></TouchableOpacity>
           <TouchableOpacity
+            onPress={() => {
+              if (cart.length === 0) {
+                Alert.alert('Sepetiniz Boş');
+              } else {
+                navigation.navigate('payment');
+              }
+            }}
             activeOpacity={0.6}
             style={{
-              backgroundColor: '#642a9a',
+              backgroundColor: '#319331',
               flex: 2,
               borderWidth: 1,
               borderRadius: 16,
               marginBottom: 6,
               marginHorizontal: 2,
-            }}></TouchableOpacity>
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: 24,
+                textAlign: 'center',
+                marginTop: 10,
+              }}>
+              Ödeme
+            </Text>
+          </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => {
-              navigation.navigate('payment');
-            }}
             activeOpacity={0.6}
             style={{
-              backgroundColor: '#76295e',
+              backgroundColor: '#0B5269',
               flex: 1,
               borderWidth: 1,
               borderRadius: 16,
               marginBottom: 4,
               marginHorizontal: 2,
-            }}></TouchableOpacity>
+              justifyContent: 'center',
+            }}>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: 24,
+                textAlign: 'center',
+                marginTop: 10,
+              }}>
+              Giriş
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>

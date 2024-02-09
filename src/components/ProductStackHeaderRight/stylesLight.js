@@ -5,9 +5,10 @@ const stylesLight = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginRight: 8,
-    backgroundColor: '#0A91AB',
+    backgroundColor: '#DDDDDD',
     padding: 4,
     borderRadius: 8,
+    borderWidth: 2,
   },
   text: {
     color: 'black',

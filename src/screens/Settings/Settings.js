@@ -2,12 +2,12 @@ import React from 'react';
 import {useContext} from 'react';
 import {SafeAreaView, View, Image, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
+import {ThemeContext} from '../../contexts/ThemeContext.js';
 import SettingsOption from '../../components/SettingsOption/SettingsOption.js';
 import SettingsSwitchOption from '../../components/SettingsSwitchOption/SettingsSwitchOption.js';
+import SendSalesButton from '../../components/SendSalesButton/SendSalesButton.js';
 import stylesDark from './stylesDark.js';
 import stylesLight from './stylesLight.js';
-import {ThemeContext} from '../../contexts/ThemeContext.js';
-
 const Settings = ({navigation}) => {
   const {t} = useTranslation();
   const {isDarkMode} = useContext(ThemeContext);
@@ -23,6 +23,7 @@ const Settings = ({navigation}) => {
           flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
+          marginTop: 25,
         }}>
         <Image source={logoImageSource} style={{width: 400, height: 120}} />
       </View>
@@ -65,6 +66,15 @@ const Settings = ({navigation}) => {
             screenName={'changeLanguage'}
           />
         </View>
+      </View>
+      <View
+        style={{
+          flex: 0.8,
+          backgroundColor: '#222831',
+          justifyContent: 'flex-start',
+          alignItems: 'center',
+        }}>
+        <SendSalesButton />
       </View>
     </SafeAreaView>
   );

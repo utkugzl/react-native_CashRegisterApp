@@ -5,8 +5,8 @@ import {useTranslation} from 'react-i18next';
 import {ThemeContext} from '../contexts/ThemeContext.js';
 import Sale from '../screens/Sale/Sale.js';
 import Payment from '../screens/Payment/Paymnet.js';
-import ShoppingReceiptPrint from '../screens/ShoppingReceiptPrint/ShoppingReceiptPrint.js';
 import HeaderLeft from '../components/HeaderLeft/HeaderLeft.js';
+import HeaderRight from '../components/HeaderRight/HeaderRight.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +22,7 @@ const SaleStack = () => {
           title: t('sale'),
           headerShown: true,
           headerLeft: () => <HeaderLeft />,
+          headerRight: () => <HeaderRight />,
           headerTitleStyle: {
             fontWeight: 'bold',
             fontSize: 30,

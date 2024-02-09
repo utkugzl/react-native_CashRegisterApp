@@ -1,38 +1,47 @@
 import React from 'react';
+import {View, Text, Image, FlatList} from 'react-native';
 
-import {View, Text, Image} from 'react-native';
+import ReceiptProduct from '../ReceiptProduct/ReceiptProduct.js';
 
-const ShoppingReceipt = () => {
+const ShoppingReceipt = ({
+  date,
+  time,
+  cashierCode,
+  cash,
+  creditCard,
+  cashBack,
+  total,
+  cart,
+}) => {
   return (
     <View
       style={{
         flex: 1,
-        backgroundColor: '#c0afaf',
+        backgroundColor: '#DDDDDD',
         borderRadius: 10,
         elevation: 50,
+        borderWidth: 2,
       }}>
       <View
         style={{
           flex: 1,
-          backgroundColor: '#c38c8c',
           justifyContent: 'center',
           alignItems: 'center',
         }}>
         <Text
           style={{
-            fontSize: 22,
+            fontSize: 24,
             fontWeight: 'bold',
-            color: 'white',
+            color: 'black',
             textAlign: 'auto',
           }}>
           32bit Bilgisayar Hizmetleri Ltd. Şti.
         </Text>
       </View>
-      <View style={{flex: 1.1, backgroundColor: '#c4ca70'}}>
+      <View style={{flex: 0.8}}>
         <View
           style={{
             flex: 1,
-            backgroundColor: '#82836e',
             justifyContent: 'center',
             alignItems: 'center',
           }}>
@@ -40,7 +49,7 @@ const ShoppingReceipt = () => {
             style={{
               fontSize: 14,
               fontWeight: 'bold',
-              color: 'white',
+              color: 'black',
               textAlign: 'auto',
             }}>
             Bağdat Cad. Kumbaracılar Sk. No:18
@@ -49,7 +58,6 @@ const ShoppingReceipt = () => {
         <View
           style={{
             flex: 1,
-            backgroundColor: '#6ac2df',
             justifyContent: 'center',
             alignItems: 'center',
           }}>
@@ -57,7 +65,7 @@ const ShoppingReceipt = () => {
             style={{
               fontSize: 14,
               fontWeight: 'bold',
-              color: 'white',
+              color: 'black',
               textAlign: 'auto',
             }}>
             +90 (216) 348 60 43
@@ -66,7 +74,6 @@ const ShoppingReceipt = () => {
         <View
           style={{
             flex: 1,
-            backgroundColor: '#f0cd63',
             justifyContent: 'center',
             alignItems: 'center',
           }}>
@@ -74,7 +81,7 @@ const ShoppingReceipt = () => {
             style={{
               fontSize: 14,
               fontWeight: 'bold',
-              color: 'white',
+              color: 'black',
               textAlign: 'auto',
             }}>
             İstanbul
@@ -83,8 +90,7 @@ const ShoppingReceipt = () => {
       </View>
       <View
         style={{
-          flex: 1.2,
-          backgroundColor: '#7197a5',
+          flex: 1,
           flexDirection: 'row',
           borderBottomWidth: 2,
           borderColor: '#67666c',
@@ -93,7 +99,6 @@ const ShoppingReceipt = () => {
         <View
           style={{
             flex: 1,
-            backgroundColor: '#cbab74',
             justifyContent: 'center',
             alignItems: 'flex-start',
             paddingLeft: 15,
@@ -102,34 +107,33 @@ const ShoppingReceipt = () => {
             style={{
               fontWeight: 'bold',
               fontSize: 16,
-              color: 'white',
+              color: 'black',
               paddingBottom: 2,
             }}>
-            Tarih : 1234
+            Tarih : {date}
           </Text>
           <Text
             style={{
               fontWeight: 'bold',
               fontSize: 16,
-              color: 'white',
+              color: 'black',
               paddingBottom: 2,
             }}>
-            Saat : 1234
+            Saat : {time}
           </Text>
           <Text
             style={{
               fontWeight: 'bold',
               fontSize: 16,
-              color: 'white',
+              color: 'black',
               paddingBottom: 2,
             }}>
-            Kasiyer Kodu : 1234
+            Kasiyer Kodu : {cashierCode}
           </Text>
         </View>
         <View
           style={{
             flex: 1,
-            backgroundColor: '#b7eede',
             alignItems: 'flex-end',
             paddingRight: 20,
           }}>
@@ -137,7 +141,7 @@ const ShoppingReceipt = () => {
             style={{
               fontWeight: 'bold',
               fontSize: 16,
-              color: 'white',
+              color: 'black',
               paddingBottom: 2,
             }}>
             Saat : 1234
@@ -146,40 +150,53 @@ const ShoppingReceipt = () => {
             style={{
               fontWeight: 'bold',
               fontSize: 16,
-              color: 'white',
+              color: 'black',
               paddingBottom: 2,
             }}>
-            Kredi Karti : 1234
+            Nakit Ödeme : {cash.toFixed(2)}₺
           </Text>
           <Text
             style={{
               fontWeight: 'bold',
               fontSize: 16,
-              color: 'white',
+              color: 'black',
               paddingBottom: 2,
             }}>
-            Nakit : 1234
+            Kredi Kartı Ödeme : {creditCard.toFixed(2)}₺
           </Text>
         </View>
       </View>
       <View
         style={{
           flex: 4,
-          backgroundColor: '#9f68aa',
           borderBottomWidth: 2,
           borderColor: '#67666c',
-        }}></View>
+          backgroundColor: 'white',
+        }}>
+        <FlatList
+          style={{width: '100%'}}
+          key={'_'}
+          data={cart}
+          keyExtractor={(item, index) => `${item.id}_${index}`}
+          showsVerticalScrollIndicator={false}
+          renderItem={({item}) => (
+            <ReceiptProduct
+              name={item.name}
+              price={item.price}
+              quantity={item.quantity}
+            />
+          )}
+        />
+      </View>
       <View
         style={{
           flex: 1,
-          backgroundColor: '#fb7962',
           borderBottomWidth: 2,
           borderColor: '#67666c',
         }}>
         <View
           style={{
             flex: 1,
-            backgroundColor: '#7db75e',
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'center',
@@ -189,7 +206,7 @@ const ShoppingReceipt = () => {
             style={{
               fontWeight: 'bold',
               fontSize: 16,
-              color: 'white',
+              color: 'black',
               paddingBottom: 2,
             }}>
             Alınan Para
@@ -198,16 +215,15 @@ const ShoppingReceipt = () => {
             style={{
               fontWeight: 'bold',
               fontSize: 16,
-              color: 'white',
+              color: 'black',
               paddingBottom: 2,
             }}>
-            1234
+            {(cash + creditCard).toFixed(2)}₺
           </Text>
         </View>
         <View
           style={{
             flex: 1,
-            backgroundColor: '#e8a74b',
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'center',
@@ -217,7 +233,7 @@ const ShoppingReceipt = () => {
             style={{
               fontWeight: 'bold',
               fontSize: 16,
-              color: 'white',
+              color: 'black',
               paddingBottom: 2,
             }}>
             Para Üstü
@@ -226,17 +242,16 @@ const ShoppingReceipt = () => {
             style={{
               fontWeight: 'bold',
               fontSize: 16,
-              color: 'white',
+              color: 'black',
               paddingBottom: 2,
             }}>
-            1234
+            {cashBack.toFixed(2)}₺
           </Text>
         </View>
       </View>
       <View
         style={{
           flex: 0.6,
-          backgroundColor: '#7e8040',
           flexDirection: 'row',
           justifyContent: 'space-between',
           alignItems: 'center',
@@ -246,7 +261,7 @@ const ShoppingReceipt = () => {
           style={{
             fontWeight: 'bold',
             fontSize: 16,
-            color: 'white',
+            color: 'black',
             paddingBottom: 2,
           }}>
           Genel Toplam
@@ -255,10 +270,10 @@ const ShoppingReceipt = () => {
           style={{
             fontWeight: 'bold',
             fontSize: 16,
-            color: 'white',
+            color: 'black',
             paddingBottom: 2,
           }}>
-          1234
+          {total.toFixed(2)}₺
         </Text>
       </View>
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>

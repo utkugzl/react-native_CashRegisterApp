@@ -13,8 +13,8 @@ const CategoryFilterButton = ({
       onPress={onPress}
       style={{
         flex: 1,
-        borderWidth: selected ? 8 : 2,
-        borderColor: '#4D89B4',
+        borderWidth: selected ? 8 : 3,
+        borderColor: '#000000',
       }}>
       <ImageBackground
         source={backgroundImageSource}
