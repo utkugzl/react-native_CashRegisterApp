@@ -4,6 +4,7 @@ import {SafeAreaView, View, ActivityIndicator, FlatList} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {ThemeContext} from '../../contexts/ThemeContext.js';
 import {CartContext} from '../../contexts/CartContext.js';
+import {UserContext} from '../../contexts/UserContext.js';
 import useCategories from '../../hooks/UseCategories.js';
 import FilterButton from '../../components/FilterButton/FilterButton.js';
 import CategoryFilterButton from '../../components/CategoryFilterButton/CategoryFilterButton.js';
@@ -23,7 +24,10 @@ const Products = () => {
   const [showCategoryButtons, setShowCategoryButtons] = useState(false);
   const {isDarkMode} = useContext(ThemeContext);
   const {addToCart} = useContext(CartContext);
+  const {addToFavorites, userFavorites, removeFromFavorites} =
+    useContext(UserContext);
   const categories = useCategories();
+  const [isFavorite, setIsFavorite] = useState(false);
   const styles = isDarkMode ? stylesDark : stylesLight;
   const filters = [
     'Tüm Ürünler',
@@ -66,11 +70,15 @@ const Products = () => {
     setShowCategoryButtons(filter === 'Tüm Ürünler' ? false : true);
     switch (filter) {
       case 'Tüm Ürünler':
+        setIsFavorite(false);
         setFilteredProducts(products);
         break;
       case 'Favoriler':
+        setIsFavorite(true);
+        setFilteredProducts(userFavorites);
         break;
       case 'A':
+        setIsFavorite(false);
         setFilteredProducts(
           products.filter(product =>
             product.name.toUpperCase().toUpperCase().startsWith('A'),
@@ -78,6 +86,7 @@ const Products = () => {
         );
         break;
       case 'B':
+        setIsFavorite(false);
         setFilteredProducts(
           products.filter(product =>
             product.name.toUpperCase().toUpperCase().startsWith('B'),
@@ -85,6 +94,7 @@ const Products = () => {
         );
         break;
       case 'C-D':
+        setIsFavorite(false);
         setFilteredProducts(
           products.filter(product =>
             ['C', 'Ç', 'D'].some(letter =>
@@ -94,6 +104,7 @@ const Products = () => {
         );
         break;
       case 'E-F':
+        setIsFavorite(false);
         setFilteredProducts(
           products.filter(product =>
             ['E', 'F'].some(letter =>
@@ -103,6 +114,7 @@ const Products = () => {
         );
         break;
       case 'G-I':
+        setIsFavorite(false);
         setFilteredProducts(
           products.filter(product =>
             ['G', 'H', 'I', 'İ'].some(letter =>
@@ -112,6 +124,7 @@ const Products = () => {
         );
         break;
       case 'K':
+        setIsFavorite(false);
         setFilteredProducts(
           products.filter(product =>
             product.name.toUpperCase().toUpperCase().startsWith('K'),
@@ -119,6 +132,7 @@ const Products = () => {
         );
         break;
       case 'L-N':
+        setIsFavorite(false);
         setFilteredProducts(
           products.filter(product =>
             ['L', 'M', 'N'].some(letter =>
@@ -128,6 +142,7 @@ const Products = () => {
         );
         break;
       case 'P':
+        setIsFavorite(false);
         setFilteredProducts(
           products.filter(product =>
             product.name.toUpperCase().toUpperCase().startsWith('P'),
@@ -135,6 +150,7 @@ const Products = () => {
         );
         break;
       case 'R-S':
+        setIsFavorite(false);
         setFilteredProducts(
           products.filter(product =>
             ['R', 'S'].some(letter =>
@@ -144,6 +160,7 @@ const Products = () => {
         );
         break;
       case 'T':
+        setIsFavorite(false);
         setFilteredProducts(
           products.filter(product =>
             product.name.toUpperCase().toUpperCase().startsWith('T'),
@@ -151,6 +168,7 @@ const Products = () => {
         );
         break;
       case 'Ü-Z':
+        setIsFavorite(false);
         setFilteredProducts(
           products.filter(product =>
             ['U', 'Ü', 'V', 'Y', 'Z'].some(letter =>
@@ -234,7 +252,15 @@ const Products = () => {
                 name={item.name}
                 price={item.price}
                 image={item.image}
+                isFavorite={isFavorite}
                 onPress={() => addToCart(item)}
+                onPressFavorites={() => addToFavorites(item)}
+                onPressRemoveFavorites={() => {
+                  removeFromFavorites(item);
+                  setFilteredProducts(
+                    filteredProducts.filter(product => product.id !== item.id),
+                  );
+                }}
               />
             )}
           />

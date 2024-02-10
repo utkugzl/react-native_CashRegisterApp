@@ -26,6 +26,33 @@
       "userPassword": "dasdas"
     }
   ],
+  "userFavorites": [
+    {
+      "id": "065434",
+      "favorites": [
+        {
+          "id": "20",
+          "barcode": "794128",
+          "name": "Armut Kg.",
+          "price": "49.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/73524_Armut_Deveci_Kg.jpg"
+        },
+        {
+          "id": "15",
+          "barcode": "593229",
+          "name": "Avakado Adet",
+          "price": "24.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/3c0b6_avakado-adet.jpg"
+        }
+      ]
+    },
+    {
+      "id": "762381",
+      "favorites": []
+    }
+  ],
   "store": [
     {
       "isOnline": "true",
@@ -33,7 +60,54 @@
     }
   ],
   "sales": [
-    
+    {
+      "id": "b747",
+      "date": "10/2/2024",
+      "time": "23:35",
+      "cashierCode": "",
+      "cash": 150,
+      "creditCard": 0,
+      "cashBack": "47.40",
+      "total": "102.60",
+      "cart": [
+        {
+          "id": "3",
+          "barcode": "680898",
+          "name": "Ispanak Kg.",
+          "price": "39.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/39606_Ispanak_Kg._.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "2",
+          "barcode": "873634",
+          "name": "Roka Demet",
+          "price": "21.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/2db58_Roka_Demet_.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "5",
+          "barcode": "592297",
+          "name": "Lahana Kg.",
+          "price": "7.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/7cb05_Lahana_Beyaz_Kg._.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "6",
+          "barcode": "659705",
+          "name": "Kıvırcık Demet",
+          "price": "32.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/4026b_Salata_Kivircikadet_.jpg",
+          "quantity": 1
+        }
+      ]
+    }
   ],
   "version": {
     "version": "v1.18.3.23"

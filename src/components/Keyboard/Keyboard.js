@@ -294,6 +294,7 @@ const Keyboard = ({cart, products, addToCart}) => {
               <Text style={{color: 'white', fontSize: 24}}>0</Text>
             </TouchableOpacity>
             <TouchableOpacity
+              onPress={() => handleKeyPress('.')}
               activeOpacity={0.6}
               style={{
                 backgroundColor: '#0B5269',

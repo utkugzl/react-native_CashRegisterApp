@@ -31,7 +31,13 @@ const Reports = () => {
             alignItems: 'center',
             marginTop: 25,
           }}>
-          <ReportsOption title="Kullanicilar" iconName={'personIcon'} />
+          <ReportsOption
+            onPress={() => {
+              navigation.navigate('users');
+            }}
+            title="Kullanicilar"
+            iconName={'personIcon'}
+          />
           <ReportsOption title="Kampanyalar" iconName={'campaignsIcon'} />
         </View>
         <View
@@ -42,11 +48,11 @@ const Reports = () => {
             marginTop: 25,
           }}>
           <ReportsOption
-            title="Gecmis Siparisler"
-            iconName={'pastSaleIcon'}
             onPress={() => {
               navigation.navigate('saleHistory');
             }}
+            title="Gecmis Siparisler"
+            iconName={'pastSaleIcon'}
           />
         </View>
       </View>

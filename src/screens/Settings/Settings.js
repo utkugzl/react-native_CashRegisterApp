@@ -6,6 +6,8 @@ import {
   Image,
   Modal,
   ActivityIndicator,
+  Platform,
+  PermissionsAndroid,
 } from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {ThemeContext} from '../../contexts/ThemeContext.js';
@@ -21,6 +23,10 @@ import ReceiptButton from '../../components/ReceiptButton/ReceiptButton.js';
 import DummyShoppingReceipt from '../../components/DummyShoppingReceipt/DummyShoppingReceipt.js';
 import stylesDark from './stylesDark.js';
 import stylesLight from './stylesLight.js';
+
+import RNHTMLtoPDF from 'react-native-html-to-pdf';
+import RNFS from 'react-native-fs';
+import Share from 'react-native-share';
 
 const Settings = ({}) => {
   const {t} = useTranslation();
@@ -73,6 +79,138 @@ const Settings = ({}) => {
       }
     } else {
       console.log('Store is offline. Cannot send sales.');
+    }
+  };
+
+  const htmlTemplate = `<!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dummy Shopping Receipt</title>
+  <style>
+    .container {
+      flex: 1;
+      background-color: #DDDDDD;
+      border-radius: 10px;
+      box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.5);
+      border: 2px solid #000000;
+      margin: 20px;
+    }
+    .company-info {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .address-info {
+      flex: 0.8;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+     
+    }
+    .receipt-info {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      border-bottom: 2px solid #67666c;
+      border-bottom: 2px solid #67666c;
+      margin-bottom : 300px;
+    }
+    .receipt-left, .receipt-right {
+      flex: 1;
+      padding: 15px;
+    }
+    .receipt-left {
+      text-align: left;
+    }
+    .receipt-right {
+      text-align: right;
+    }
+    .total-section {
+      border-top: 1px solid #67666c;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 2px solid #67666c;
+    }
+    .barcode-section {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+  </head>
+  <body>
+  <div class="container">
+    <div class="company-info">
+      <h1>32bit Bilgisayar Hizmetleri Ltd. Şti.</h1>
+    </div>
+    <div class="address-info">
+      <p>Bağdat Cad. Kumbaracılar Sk. No:18</p>
+      <p>+90 (216) 348 60 43</p>
+      <p>İstanbul</p>
+    </div>
+    <div class="receipt-info">
+      <div class="receipt-left">
+        <p><strong>Tarih:</strong> XXX</p>
+        <p><strong>Saat:</strong> XXX</p>
+        <p><strong>Kasiyer Kodu:</strong> XXX</p>
+      </div>
+      <div class="receipt-right">
+        <p><strong>Saat:</strong> XXX</p>
+        <p><strong>Nakit Ödeme:</strong> XXXX ₺</p>
+        <p><strong>Kredi Kartı Ödeme:</strong> XXXX ₺</p>
+      </div>
+    </div>
+    <div class="total-section">
+      <p><strong>Alınan Para</strong></p>
+      <p>XXXX ₺</p>
+    </div>
+    <div class="total-section">
+      <p><strong>Para Üstü</strong></p>
+      <p>XXXX ₺</p>
+    </div>
+    <div class="total-section">
+      <p><strong>Genel Toplam</strong></p>
+      <p>XXXX ₺</p>
+    </div>
+  </div>
+  </body>
+  </html>
+    `;
+
+  const convertToPDF = async () => {
+    try {
+      const options = {
+        html: htmlTemplate,
+        fileName: 'cashRegisterReceipt',
+        directory: 'Documents',
+      };
+
+      const pdf = await RNHTMLtoPDF.convert(options);
+      sharePDF(pdf.filePath);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const sharePDF = async filePath => {
+    try {
+      const url = 'file://' + filePath;
+      await Share.open({
+        url,
+        type: 'application/pdf',
+        failOnCancel: false,
+        showApps: true,
+      });
+    } catch (error) {
+      console.log('Hata:', error.message);
     }
   };
 
@@ -153,9 +291,7 @@ const Settings = ({}) => {
           <View style={{flex: 0.8, alignItems: 'flex-end'}}>
             <ReceiptButton
               title="Yazdir"
-              onPress={() => {
-                console.log('Yazdir');
-              }}
+              onPress={convertToPDF} // Yazdırma işlemi
               color={'#2287da'}
               iconName={'printerIcon'}
             />

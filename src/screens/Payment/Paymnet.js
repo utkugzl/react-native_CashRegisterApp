@@ -40,6 +40,7 @@ const Payment = () => {
     setCashBack,
     setCashPayment,
     setCreditCardPayment,
+    setCampaignId,
   } = useContext(CartContext);
   const storeStatusText = isStoreOnline
     ? t('store-online')
@@ -100,7 +101,7 @@ const Payment = () => {
       cart: cart,
     };
     if (isStoreOnline) {
-      postSale(sale);
+      //postSale(sale);
     } else {
       saveSaleLocally(sale);
     }
@@ -356,7 +357,7 @@ const Payment = () => {
                 setCreditCardPayment(0);
                 setTotalPrice(0);
                 setDiscountedTotalPrice(0);
-
+                setCampaignId(0);
                 navigation.goBack();
               }}
               color={'#2287da'}

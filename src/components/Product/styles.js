@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     color: '#d16440',
     marginTop: 8,
   },
-  favoriteButton: {
+  removeFavoriteButton: {
     position: 'absolute',
     top: 5,
     right: 5,
@@ -43,7 +43,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     zIndex: 1,
-    backgroundColor: '#e28769',
+    backgroundColor: '#d44854',
+  },
+  addFavoriteButton: {
+    position: 'absolute',
+    top: 5,
+    right: 5,
+    margin: 4,
+    borderRadius: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 1,
+    backgroundColor: '#1ba32f',
   },
   favoriteIcon: {
     padding: 5,
