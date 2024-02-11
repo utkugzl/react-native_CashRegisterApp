@@ -8,6 +8,8 @@ import {StoreContext} from '../../contexts/StoreContext.js';
 import {ReportsContext} from '../../contexts/ReportsContext.js';
 import {SafeAreaView, View, Text, FlatList, Alert, Modal} from 'react-native';
 import axios from 'axios';
+import RNHTMLtoPDF from 'react-native-html-to-pdf';
+import Share from 'react-native-share';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import AppIcons from '../../components/AppIcons/AppIcons.js';
 import CartProduct from '../../components/CartProduct/CartProduct.js';
@@ -130,6 +132,219 @@ const Payment = () => {
       updateOfflineSalesCount();
     } catch (error) {
       console.error('Error saving sale locally:', error);
+    }
+  };
+
+  const generateCartHTML = cart => {
+    let cartHTML = '';
+    cart.forEach(product => {
+      cartHTML += `
+      <div class="receipt-product">
+         <div class="asdas">
+          <p>${product.barcode} (${product.quantity} x ${product.price}₺)</p>
+          <p>${(product.price * product.quantity).toFixed(2)}₺</p>
+         </div>
+          <p class="total-price">${product.name}</p>
+      </div>
+      `;
+    });
+
+    return cartHTML;
+  };
+
+  const htmlTemplate = `<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Shopping Receipt</title>
+      <style>
+          body {
+              font-family: Arial, sans-serif;
+              margin: 0;
+              padding: 0;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 100vh;
+              background-color: #f0f0f0;
+          }
+  
+          .receipt-container {
+              flex: 1;
+              max-width: 500px;
+              background-color: #DDDDDD;
+              border-radius: 10px;
+              elevation: 50;
+              border-width: 2px;
+              padding: 20px;
+          }
+  
+          .company-info {
+              text-align: center;
+              margin-bottom: 20px;
+          }
+  
+          .company-info h1 {
+              font-size: 24px;
+              font-weight: bold;
+              color: black;
+              margin: 0;
+          }
+  
+          .address-info {
+              text-align: center;
+              margin-bottom: 10px;
+          }
+  
+          .address-info p {
+              font-size: 14px;
+              font-weight: bold;
+              color: black;
+              margin: 0;
+          }
+  
+          .receipt-details {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              border-bottom: 2px solid #67666c;
+              padding-bottom: 10px;
+              margin-bottom: 10px;
+          }
+  
+          .receipt-details p {
+              font-weight: bold;
+              font-size: 16px;
+              color: black;
+              margin: 0;
+          }
+  
+          .receipt-product {
+              border-bottom: 1px solid #ddd;
+              padding: 10px 0;
+          }
+
+          .asdas {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+        
+          .total-price {
+              margin-left: auto;
+          }
+  
+          .receipt-product p {
+              font-size: 14px;
+              color: black;
+              margin: 0;
+          }
+  
+          .payment-summary {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 10px 0;
+              border-bottom: 2px solid #67666c;
+          }
+  
+          .payment-summary p {
+              font-weight: bold;
+              font-size: 16px;
+              color: black;
+              margin: 0;
+          }
+  
+          .total-amount {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 10px 0;
+          }
+  
+          .barcode {
+              text-align: center;
+              margin-top: 20px;
+          }
+  
+          .barcode img {
+              width: 250px;
+              height: 40px;
+              opacity: 0.6;
+          }
+      </style>
+  </head>
+  <body>
+      <div class="receipt-container">
+          <div class="company-info">
+              <h1>32bit Bilgisayar Hizmetleri Ltd. Şti.</h1>
+          </div>
+          <div class="address-info">
+              <p>Bağdat Cad. Kumbaracılar Sk. No:18</p>
+              <p>+90 (216) 348 60 43</p>
+              <p>İstanbul</p>
+          </div>
+          <div class="receipt-details">
+              <div>
+                  <p>Tarih: ${currentDate}</p>
+                  <p>Saat: ${currentTime}</p>
+                  <p>Kasiyer Kodu: ${user}</p>
+              </div>
+              <div>
+                  <p>Nakit Ödeme: ${cashPayment}₺</p>
+                  <p>Kredi Kartı Ödeme: ${creditCardPayment}₺</p>
+              </div>
+          </div>
+          <div class="receipt-product">
+          ${generateCartHTML(cart)}
+          </div>
+          <div class="payment-summary">
+              <p>Alınan Para</p>
+              <p>${(cashPayment + creditCardPayment).toFixed(2)}₺</p>
+          </div>
+          <div class="payment-summary">
+              <p>Para Üstü</p>
+              <p>${cashBack.toFixed(2)}₺</p>
+          </div>
+          <div class="total-amount">
+              <p>Genel Toplam</p>
+              <p>${discountedTotalPrice.toFixed(2)}</p>
+          </div>
+          <div class="barcode">
+              <img src="https://answers.opencv.org/upfiles/1505477115167095.png" alt="Barcode">
+          </div>
+      </div>
+  </body>
+  </html>
+    `;
+
+  const convertToPDF = async () => {
+    try {
+      const options = {
+        html: htmlTemplate,
+        fileName: 'receipt',
+        directory: 'Documents',
+      };
+
+      const pdf = await RNHTMLtoPDF.convert(options);
+      sharePDF(pdf.filePath);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const sharePDF = async filePath => {
+    try {
+      const url = 'file://' + filePath;
+      await Share.open({
+        url,
+        type: 'application/pdf',
+        failOnCancel: false,
+        showApps: true,
+      });
+    } catch (error) {
+      console.log('Hata:', error.message);
     }
   };
 
@@ -379,9 +594,7 @@ const Payment = () => {
           <View style={{flex: 0.8, alignItems: 'flex-end'}}>
             <ReceiptButton
               title="Yazdir"
-              onPress={() => {
-                console.log('Yazdir');
-              }}
+              onPress={convertToPDF}
               color={'#2287da'}
               iconName={'printerIcon'}
             />

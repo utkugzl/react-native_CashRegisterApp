@@ -25,7 +25,6 @@ import stylesDark from './stylesDark.js';
 import stylesLight from './stylesLight.js';
 
 import RNHTMLtoPDF from 'react-native-html-to-pdf';
-import RNFS from 'react-native-fs';
 import Share from 'react-native-share';
 
 const Settings = ({}) => {
@@ -117,7 +116,7 @@ const Settings = ({}) => {
       flex-direction: row;
       border-bottom: 2px solid #67666c;
       border-bottom: 2px solid #67666c;
-      margin-bottom : 300px;
+      margin-bottom : 180px;
     }
     .receipt-left, .receipt-right {
       flex: 1;
@@ -143,6 +142,13 @@ const Settings = ({}) => {
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+    .barcode-section img {
+      width: 250px;
+      height: 40px;
+      opacity: 0.6;
     }
   </style>
   </head>
@@ -158,27 +164,30 @@ const Settings = ({}) => {
     </div>
     <div class="receipt-info">
       <div class="receipt-left">
-        <p><strong>Tarih:</strong> XXX</p>
-        <p><strong>Saat:</strong> XXX</p>
-        <p><strong>Kasiyer Kodu:</strong> XXX</p>
+        <p><strong>Tarih:</strong> XXXXX</p>
+        <p><strong>Saat:</strong> XXXXXX</p>
+        <p><strong>Kasiyer Kodu:</strong> XXXXXX</p>
       </div>
       <div class="receipt-right">
-        <p><strong>Saat:</strong> XXX</p>
-        <p><strong>Nakit Ödeme:</strong> XXXX ₺</p>
-        <p><strong>Kredi Kartı Ödeme:</strong> XXXX ₺</p>
+        <p><strong>Saat:</strong> XXXXXX</p>
+        <p><strong>Nakit Ödeme:</strong> XXXXXX ₺</p>
+        <p><strong>Kredi Kartı Ödeme:</strong> XXXXXX ₺</p>
       </div>
     </div>
     <div class="total-section">
       <p><strong>Alınan Para</strong></p>
-      <p>XXXX ₺</p>
+      <p>XXXXXX ₺</p>
     </div>
     <div class="total-section">
       <p><strong>Para Üstü</strong></p>
-      <p>XXXX ₺</p>
+      <p>XXXXXX ₺</p>
     </div>
     <div class="total-section">
       <p><strong>Genel Toplam</strong></p>
-      <p>XXXX ₺</p>
+      <p>XXXXXX ₺</p>
+    </div>
+    <div class="barcode-section">
+      <img src="https://answers.opencv.org/upfiles/1505477115167095.png" alt="Barcode">
     </div>
   </div>
   </body>

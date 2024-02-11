@@ -29,24 +29,7 @@
   "userFavorites": [
     {
       "id": "065434",
-      "favorites": [
-        {
-          "id": "20",
-          "barcode": "794128",
-          "name": "Armut Kg.",
-          "price": "49.90",
-          "category": "market",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/73524_Armut_Deveci_Kg.jpg"
-        },
-        {
-          "id": "15",
-          "barcode": "593229",
-          "name": "Avakado Adet",
-          "price": "24.90",
-          "category": "market",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/3c0b6_avakado-adet.jpg"
-        }
-      ]
+      "favorites": []
     },
     {
       "id": "762381",
