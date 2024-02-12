@@ -25,5 +25,8 @@
     "monthly-sales-distribution": "Aylık Satış Dağılımı",
     "daily-sales-category-distribution": "Günlük Satış Kategori Dağılımı",
     "daily-sales-goal": "Günlük Satış Hedefi",
-    "completed": "Tamamlandı"
+    "completed": "Tamamlandı",
+    "send-sales": "Satışları Gönder",
+    "print": "Yazdır",
+    "close": "Kapat"
 }

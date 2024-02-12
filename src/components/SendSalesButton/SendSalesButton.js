@@ -4,13 +4,13 @@ import {ReportsContext} from '../../contexts/ReportsContext.js';
 
 import styles from './styles.js';
 
-const SendSalesButton = ({onPress}) => {
+const SendSalesButton = ({title, onPress}) => {
   const {offlineSalesCount} = useContext(ReportsContext);
 
   return (
     <TouchableOpacity onPress={onPress} style={styles.button}>
       <View style={styles.container}>
-        <Text style={styles.title}>Satislari Gonder</Text>
+        <Text style={styles.title}>{title}</Text>
         {offlineSalesCount > 0 && (
           <View style={styles.badge}>
             <Text style={styles.badgeText}>{offlineSalesCount}</Text>

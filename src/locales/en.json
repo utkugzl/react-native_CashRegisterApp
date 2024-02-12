@@ -25,5 +25,8 @@
     "monthly-sales-distribution": "Monthly Sales Distribution",
     "daily-sales-category-distribution": "Daily Sales Category Distribution",
     "daily-sales-goal": "Daily Sales Goal",
-    "completed": "Completed"
+    "completed": "Completed",
+    "send-sales": "Send Sales",
+    "print": "Print",
+    "close": "Close"
 }

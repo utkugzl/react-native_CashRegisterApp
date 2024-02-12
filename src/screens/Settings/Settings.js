@@ -241,7 +241,6 @@ const Settings = ({}) => {
             alignItems: 'center',
             marginTop: 25,
           }}>
-          <SettingsOption title={'Deneme'} iconName={'reportsIcon'} />
           <NotificaitonSwitch
             title={t('notifications')}
             iconName={'notificationsIcon'}
@@ -258,10 +257,6 @@ const Settings = ({}) => {
             alignItems: 'center',
             marginTop: 25,
           }}>
-          <SettingsOption
-            title={t('other-settings')}
-            iconName={'otherSettingsIcon'}
-          />
           <SettingsOption
             title={t('printer-test')}
             iconName={'printerIcon'}
@@ -282,13 +277,16 @@ const Settings = ({}) => {
           justifyContent: 'flex-start',
           alignItems: 'center',
         }}>
-        <SendSalesButton onPress={sendSalesFromStorage} />
+        <SendSalesButton
+          onPress={sendSalesFromStorage}
+          title={t('send-sales')}
+        />
       </View>
       <Modal visible={visiblePrinterTest}>
         <View style={{flex: 1, flexDirection: 'row'}}>
           <View style={{flex: 0.8}}>
             <ReceiptButton
-              title="Kapat"
+              title={t('close')}
               onPress={() => {
                 setvisiblePrinterTest(false);
               }}
@@ -301,8 +299,8 @@ const Settings = ({}) => {
           </View>
           <View style={{flex: 0.8, alignItems: 'flex-end'}}>
             <ReceiptButton
-              title="Yazdir"
-              onPress={convertToPDF} // Yazdırma işlemi
+              title={t('print')}
+              onPress={convertToPDF}
               color={'#2287da'}
               iconName={'printerIcon'}
             />
