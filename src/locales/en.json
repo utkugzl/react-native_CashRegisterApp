@@ -20,5 +20,10 @@
     "campaigns": "Campaigns",
     "go-to-cart": "Go to Cart",
     "store-online": "Store Online",
-    "store-offline": "Store Offline"
+    "store-offline": "Store Offline",
+    "notifications": "Notifications",
+    "monthly-sales-distribution": "Monthly Sales Distribution",
+    "daily-sales-category-distribution": "Daily Sales Category Distribution",
+    "daily-sales-goal": "Daily Sales Goal",
+    "completed": "Completed"
 }

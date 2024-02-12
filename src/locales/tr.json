@@ -20,5 +20,10 @@
     "campaigns": "Kampanyalar",
     "go-to-cart": "Sepete Git",
     "store-online": "Mağaza Çevrimiçi",
-    "store-offline": "Mağaza Çevrimdışı"
+    "store-offline": "Mağaza Çevrimdışı",
+    "notifications": "Bildirimler",
+    "monthly-sales-distribution": "Aylık Satış Dağılımı",
+    "daily-sales-category-distribution": "Günlük Satış Kategori Dağılımı",
+    "daily-sales-goal": "Günlük Satış Hedefi",
+    "completed": "Tamamlandı"
 }

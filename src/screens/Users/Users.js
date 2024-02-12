@@ -12,7 +12,7 @@ const Users = () => {
   const [users, setUsers] = useState([]);
   const styles = isDarkMode ? stylesDark : stylesLight;
 
-  const fetchSales = async () => {
+  const fetchUsers = async () => {
     try {
       const url = 'http://10.0.2.2:3000/users';
       const response = await axios.get(url);
@@ -25,7 +25,7 @@ const Users = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      await fetchSales();
+      await fetchUsers();
     };
 
     fetchData();

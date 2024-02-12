@@ -1,58 +1,84 @@
 import React from 'react';
-import {useContext} from 'react';
+import {useContext, useState, useEffect} from 'react';
 import {SafeAreaView, Text, View} from 'react-native';
 import {BarChart, PieChart, ProgressChart} from 'react-native-chart-kit';
+import {useTranslation} from 'react-i18next';
 import {Dimensions} from 'react-native';
 import {ThemeContext} from '../../contexts/ThemeContext.js';
-
+import {StoreContext} from '../../contexts/StoreContext.js';
+import axios from 'axios';
 import stylesDark from './stylesDark.js';
 import stylesLight from './stylesLight.js';
-const datas = [
+
+const initialData = [
   {
-    name: 'Seoul',
-    population: 21500000,
-    color: 'rgba(131, 167, 234, 1)',
+    name: 'Market',
+    count: 1,
+    color: '#A51717',
     legendFontColor: '#7F7F7F',
-    legendFontSize: 15,
+    legendFontSize: 18,
   },
   {
-    name: 'Toronto',
-    population: 2800000,
-    color: '#F00',
+    name: 'Temizlik',
+    count: 1,
+    color: '#CAD230',
     legendFontColor: '#7F7F7F',
-    legendFontSize: 15,
+    legendFontSize: 18,
   },
   {
-    name: 'Beijing',
-    population: 527612,
-    color: 'red',
+    name: 'Giyim',
+    count: 1,
+    color: '#307BD2',
     legendFontColor: '#7F7F7F',
-    legendFontSize: 15,
+    legendFontSize: 18,
   },
   {
-    name: 'New York',
-    population: 8538000,
-    color: '#ffffff',
+    name: 'Ev&Yaşam',
+    count: 1,
+    color: '#38B85A',
     legendFontColor: '#7F7F7F',
-    legendFontSize: 15,
+    legendFontSize: 18,
   },
   {
-    name: 'Moscow',
-    population: 11920000,
-    color: 'rgb(0, 0, 255)',
+    name: 'Kozmetik',
+    count: 1,
+    color: '#7B387F',
     legendFontColor: '#7F7F7F',
-    legendFontSize: 15,
+    legendFontSize: 18,
   },
 ];
 
-const adata = {
-  labels: ['Sale Goal'],
-  data: [0.6],
-};
-
 const Dashboard = () => {
+  const {t} = useTranslation();
   const {isDarkMode} = useContext(ThemeContext);
+  const {dailySalesAmount} = useContext(StoreContext);
+  const [sales, setSales] = useState([]);
+  const [categoryCounts, setCategoryCounts] = useState(initialData);
   const styles = isDarkMode ? stylesDark : stylesLight;
+
+  const dailySalesData = {
+    labels: [t('completed')],
+    data: [dailySalesAmount / 2000],
+  };
+
+  const fetchSales = async () => {
+    try {
+      const url = 'http://10.0.2.2:3000/sales';
+      const response = await axios.get(url);
+      setSales(response.data);
+    } catch (error) {
+      console.error('Error fetching version:', error);
+    }
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await fetchSales();
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <SafeAreaView style={styles.screenContainer}>
       <View
@@ -61,7 +87,7 @@ const Dashboard = () => {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        <Text style={styles.title}>Satış Geçmişi</Text>
+        <Text style={styles.title}>{t('monthly-sales-distribution')}</Text>
       </View>
       <View
         style={{
@@ -72,48 +98,47 @@ const Dashboard = () => {
         <BarChart
           data={{
             labels: [
-              'January',
-              'February',
-              'March',
-              'April',
-              'May',
-              'June',
-              'July',
-              'August',
-              'September',
-              'October',
-              'November',
-              'December',
+              'Ocak',
+              'Şubat',
+              'Mart',
+              'Nisan',
+              'Mayıs',
+              'Haziran',
+              'Temmuz',
+              'Ağustos',
+              'Eylül',
+              'Ekim',
+              'Kasım',
+              'Aralık',
             ],
             datasets: [
               {
                 data: [
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
+                  Math.random() * 1000000,
+                  Math.random() * 100000,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
                 ],
               },
             ],
           }}
-          width={Dimensions.get('window').width} // from react-native
+          width={Dimensions.get('window').width * 0.95}
           height={Dimensions.get('window').height / 3.5}
-          yAxisLabel="₺"
-          yAxisSuffix="k"
-          yAxisInterval={1} // optional, defaults to 1
+          yAxisSuffix="₺"
+          yAxisInterval={1}
           chartConfig={{
             backgroundColor: '#00cbe2',
             backgroundGradientFrom: isDarkMode ? '#491730' : '#a14848',
             backgroundGradientTo: isDarkMode ? '#071b41' : '#5c2828',
-            decimalPlaces: 2, // optional, defaults to 2dp
+            decimalPlaces: 1, // optional, defaults to 2dp
             color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
             labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
             style: {
@@ -146,7 +171,9 @@ const Dashboard = () => {
               justifyContent: 'flex-end',
               alignItems: 'center',
             }}>
-            <Text style={styles.title}>Günlük Satış Dağılımı</Text>
+            <Text style={styles.title}>
+              {t('daily-sales-category-distribution')}
+            </Text>
           </View>
           <View
             style={{
@@ -155,7 +182,7 @@ const Dashboard = () => {
               alignItems: 'center',
             }}>
             <PieChart
-              data={datas}
+              data={categoryCounts}
               width={Dimensions.get('window').width / 2}
               height={Dimensions.get('window').height / 3}
               chartConfig={{
@@ -164,7 +191,7 @@ const Dashboard = () => {
                 backgroundGradientTo: '#ffa726',
                 color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
               }}
-              accessor={'population'}
+              accessor={'count'}
               backgroundColor={'transparent'}
               paddingLeft={'15'}
               center={[25, 30]}
@@ -180,7 +207,7 @@ const Dashboard = () => {
               alignItems: 'center',
               marginBottom: 30,
             }}>
-            <Text style={styles.title}>Günlük Satış</Text>
+            <Text style={styles.title}>{t('daily-sales-goal')}</Text>
           </View>
           <View
             style={{
@@ -189,7 +216,7 @@ const Dashboard = () => {
               alignItems: 'center',
             }}>
             <ProgressChart
-              data={adata}
+              data={dailySalesData}
               width={Dimensions.get('window').width / 2}
               height={Dimensions.get('window').height / 3}
               strokeWidth={50}
@@ -198,7 +225,10 @@ const Dashboard = () => {
                 backgroundColor: '#e26a00',
                 backgroundGradientFrom: isDarkMode ? '#222831' : '#DDDDDD',
                 backgroundGradientTo: isDarkMode ? '#222831' : '#DDDDDD',
-                color: (opacity = 1) => `rgba(222, 216, 15, ${opacity})`,
+                color: (opacity = 1) =>
+                  isDarkMode
+                    ? `rgba(245, 109, 0, ${opacity})`
+                    : `rgba(243, 109, 0, ${opacity})`,
                 labelColor: (opacity = 1) =>
                   isDarkMode
                     ? `rgba(255, 255, 255, ${opacity})`

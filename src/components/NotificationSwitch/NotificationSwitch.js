@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useState, useContext} from 'react';
 import {View, Text, Switch} from 'react-native';
 import {UserContext} from '../../contexts/UserContext.js';

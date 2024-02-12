@@ -38,7 +38,13 @@ const Reports = () => {
             title="Kullanicilar"
             iconName={'personIcon'}
           />
-          <ReportsOption title="Kampanyalar" iconName={'campaignsIcon'} />
+          <ReportsOption
+            onPress={() => {
+              navigation.navigate('campaigns');
+            }}
+            title="Kampanyalar"
+            iconName={'campaignsIcon'}
+          />
         </View>
         <View
           style={{

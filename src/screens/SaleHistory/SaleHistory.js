@@ -9,13 +9,6 @@ import stylesDark from './stylesDark.js';
 import stylesLight from './stylesLight.js';
 import AppIcons from '../../components/AppIcons/AppIcons.js';
 import SalesHistoryList from '../../components/SalesHistoryList/SalesHistoryList.js';
-const HeaderComponent = () => {
-  return (
-    <View style={{padding: 10}}>
-      <Text style={{fontSize: 20, fontWeight: 'bold'}}>FlatList Başlık</Text>
-    </View>
-  );
-};
 
 const SaleHistory = () => {
   const {isDarkMode} = useContext(ThemeContext);

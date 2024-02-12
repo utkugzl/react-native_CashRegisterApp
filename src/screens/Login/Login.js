@@ -148,17 +148,6 @@ const Login = () => {
     }
   };
 
-  const handleFingerprintAuth = async onSucces => {
-    try {
-      await FingerprintScanner.authenticate({
-        title: 'Fingerprint Authentication',
-        description: 'Scan your fingerprint on the device scanner to continue.',
-      });
-
-      onSucces(); // Parmak izi başarıyla doğrulandığında ana bileşene başarılı yanıt gönder
-    } catch (error) {}
-  };
-
   return (
     <SafeAreaView style={styles.screenContainer}>
       <View style={styles.logoContainer}>

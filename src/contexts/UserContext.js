@@ -19,7 +19,7 @@ const UserProvider = ({children}) => {
         favorites: userFavoritess,
       })
       .then(response => {
-        console.log('POST isteği başarılı:', response.data);
+        //console.log('POST isteği başarılı:', response.data);
       })
       .catch(error => {
         console.error('POST isteği başarısız:', error);
@@ -32,7 +32,7 @@ const UserProvider = ({children}) => {
     axios
       .get(url)
       .then(response => {
-        console.log('GET isteği başarılı:', response.data);
+        //console.log('GET isteği başarılı:', response.data);
         setUserFavorites(response.data.favorites);
       })
       .catch(error => {
@@ -46,7 +46,6 @@ const UserProvider = ({children}) => {
     axios
       .get(url)
       .then(response => {
-        console.log(response.data);
         setIsNotificationOn(response.data.isNotificationOn === 'true');
       })
       .catch(error => {
