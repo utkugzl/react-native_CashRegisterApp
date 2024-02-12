@@ -39,9 +39,13 @@ const stylesDark = StyleSheet.create({
   },
   totalPriceContainer: {
     backgroundColor: '#222831',
-    flex: 0.8,
-    borderWidth: 4,
-    borderRadius: 16,
+    flex: 1,
+    borderTopWidth: 4,
+    borderLeftWidth: 4,
+    borderRightWidth: 4,
+    borderTopRightRadius: 12,
+    borderTopLeftRadius: 12,
+    marginTop: 8,
   },
   totalPrice: {
     backgroundColor: '#222831',

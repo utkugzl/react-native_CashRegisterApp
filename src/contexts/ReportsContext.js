@@ -1,11 +1,14 @@
 import React from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useContext} from 'react';
 import {createContext, useState, useEffect} from 'react';
+import notifee from '@notifee/react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const ReportsContext = createContext();
 
 const ReportsProvider = ({children}) => {
   const [offlineSalesCount, setOfflineSalesCount] = useState(0);
+  const [notification, setNotification] = useState(null);
 
   const updateOfflineSalesCount = async () => {
     try {

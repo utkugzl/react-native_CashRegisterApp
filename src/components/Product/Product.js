@@ -4,6 +4,7 @@ import styles from './styles.js';
 import AppIcons from '../AppIcons/AppIcons.js';
 
 const Product = ({
+  barcode,
   name,
   price,
   image,
@@ -42,6 +43,7 @@ const Product = ({
         />
       </View>
       <View style={styles.textContainer}>
+        <Text style={styles.barcode}>{barcode}</Text>
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.price}>{price}₺</Text>
       </View>

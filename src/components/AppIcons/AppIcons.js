@@ -61,9 +61,7 @@ const AppIcons = ({name}) => {
       iconElement = <Ionicon name="globe" size={35} color="black" />;
       break;
     case 'addFavoriteIcon':
-      iconElement = (
-        <Ionicon name="add-circle-outline" size={30} color="black" />
-      );
+      iconElement = <Ionicon name="heart" size={33} color="#d53232" />;
       break;
     case 'removeFavoriteIcon':
       iconElement = (

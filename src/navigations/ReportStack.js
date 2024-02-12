@@ -38,7 +38,7 @@ const ReportStack = () => {
         name="saleHistory"
         component={SaleHistory}
         options={{
-          title: 'Sale History',
+          title: '',
           headerShown: true,
           headerTitleStyle: {
             fontWeight: 'bold',

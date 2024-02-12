@@ -53,7 +53,6 @@ const Sale = () => {
     removeFromCart,
     setCampaignId,
     campaignId,
-    calculateDiscount,
     setCampaignContext,
   } = useContext(CartContext);
   const storeStatusText = isStoreOnline

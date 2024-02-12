@@ -12,19 +12,20 @@ import AppIcons from '../../components/AppIcons/AppIcons.js';
 import stylesDark from './stylesDark.js';
 import stylesLight from './stylesLight.js';
 import axios from 'axios';
+import FingerprintScanner from 'react-native-fingerprint-scanner';
 
 const Sound = require('react-native-sound');
 const Login = () => {
   const {t} = useTranslation();
   const {isDarkMode} = useContext(ThemeContext);
-  const {setUser} = useContext(UserContext);
-  const navigation = useNavigation();
+  const {setUser, setIsLogedIn, isLogedIn} = useContext(UserContext);
   const [userCode, setUserCode] = useState('');
   const [password, setPassword] = useState('');
   const [isSecureEntry, setIsSecureEntry] = useState(true);
   const [version, setVersion] = useState('');
   const [users, setUsers] = useState([]);
   const [loginErrorMessage, setLoginErrorMessage] = useState('');
+  const [lastUser, setLastUser] = useState('');
 
   const styles = isDarkMode ? stylesDark : stylesLight;
   const logoImageSource = isDarkMode
@@ -68,14 +69,46 @@ const Login = () => {
     }
   };
 
+  const fetchLastUser = async () => {
+    try {
+      const url = 'http://10.0.2.2:3000/lastUser';
+      const response = await axios.get(url);
+      console.log(response.data);
+      setLastUser(response.data);
+    } catch (error) {
+      console.error('Error fetching version:', error);
+    }
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       await fetchVersion();
       await fetchUsers();
+      await fetchLastUser();
     };
 
     fetchData();
   }, []);
+
+  useEffect(() => {
+    if (lastUser.userCode) {
+      FingerprintScanner.authenticate({
+        title: 'Fingerprint Authentication',
+        description: 'Scan your fingerprint on the device scanner to continue.',
+      })
+        .then(() => {
+          console.log('Fingerprint successfully authenticated');
+          console.log('Last user:', lastUser);
+          setUser(lastUser.userCode);
+          setIsLogedIn(true);
+          FingerprintScanner.release();
+        })
+        .catch(error => {
+          FingerprintScanner.release();
+          console.log('Fingerprint authentication failed:', error);
+        });
+    }
+  }, [lastUser]);
 
   const handleUserCodeChange = enteredUserCode => {
     setUserCode(enteredUserCode);
@@ -92,7 +125,9 @@ const Login = () => {
     );
 
     if (loggedInUser) {
-      navigation.navigate('drawer');
+      setIsLogedIn(true);
+      console.log('Logged in user:', isLogedIn);
+      postLastUser(loggedInUser.userCode);
       setUser(userCode);
     } else {
       setLoginErrorMessage('Invalid user code or password. Please try again.');
@@ -100,6 +135,28 @@ const Login = () => {
       playSound();
       Vibration.vibrate(500);
     }
+  };
+
+  const postLastUser = async userId => {
+    const url = 'http://10.0.2.2:3000/lastUser';
+
+    try {
+      const response = await axios.put(url, {userCode: userId});
+      console.log('Last user successfully updated:', response.data);
+    } catch (error) {
+      console.error('Failed to update last user:', error);
+    }
+  };
+
+  const handleFingerprintAuth = async onSucces => {
+    try {
+      await FingerprintScanner.authenticate({
+        title: 'Fingerprint Authentication',
+        description: 'Scan your fingerprint on the device scanner to continue.',
+      });
+
+      onSucces(); // Parmak izi başarıyla doğrulandığında ana bileşene başarılı yanıt gönder
+    } catch (error) {}
   };
 
   return (

@@ -249,6 +249,7 @@ const Products = () => {
             keyExtractor={item => item.id.toString()}
             renderItem={({item}) => (
               <Product
+                barcode={item.barcode}
                 name={item.name}
                 price={item.price}
                 image={item.image}

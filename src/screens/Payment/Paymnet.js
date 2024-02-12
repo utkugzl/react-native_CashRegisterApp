@@ -6,17 +6,17 @@ import {CartContext} from '../../contexts/CartContext.js';
 import {UserContext} from '../../contexts/UserContext.js';
 import {StoreContext} from '../../contexts/StoreContext.js';
 import {ReportsContext} from '../../contexts/ReportsContext.js';
-import {SafeAreaView, View, Text, FlatList, Alert, Modal} from 'react-native';
+import {SafeAreaView, View, Text, Alert, Modal} from 'react-native';
 import axios from 'axios';
 import RNHTMLtoPDF from 'react-native-html-to-pdf';
 import Share from 'react-native-share';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import AppIcons from '../../components/AppIcons/AppIcons.js';
-import CartProduct from '../../components/CartProduct/CartProduct.js';
 import CartButton from '../../components/CartButton/CartButton.js';
 import PaymentKeyboard from '../../components/PaymnetKeyboard/PaymnetKeyboard.js';
 import ShoppingReceipt from '../../components/ShoppingReceipt/ShoppingReceipt.js';
 import ReceiptButton from '../../components/ReceiptButton/ReceiptButton.js';
+import CartList from '../../components/CartList/CartList.js';
 
 const Payment = () => {
   const navigation = useNavigation();
@@ -83,8 +83,10 @@ const Payment = () => {
   const handleDocumentCancel = () => {
     if (cart.length > 0) {
       setTotalPrice(0);
+      setDiscountedTotalPrice(0);
       setCart([]);
       setSelectedItem(null);
+      navigation.goBack();
     } else {
       Alert.alert('Uyarı', 'Sepetinizde ürün bulunmamaktadır.');
     }
@@ -103,7 +105,7 @@ const Payment = () => {
       cart: cart,
     };
     if (isStoreOnline) {
-      //postSale(sale);
+      postSale(sale);
     } else {
       saveSaleLocally(sale);
     }
@@ -386,24 +388,7 @@ const Payment = () => {
               alignItems: 'center',
               padding: 4,
             }}>
-            <FlatList
-              style={{width: '100%', padding: 8}}
-              key={'_'}
-              data={cart}
-              keyExtractor={(item, index) => `${item.id}_${index}`}
-              showsVerticalScrollIndicator={false}
-              renderItem={({item}) => (
-                <CartProduct
-                  name={item.name}
-                  barcode={item.barcode}
-                  price={item.price}
-                  quantity={item.quantity}
-                  onPress={() => {
-                    setSelectedItem(item);
-                  }}
-                />
-              )}
-            />
+            <CartList cart={cart} setSelectedItem={setSelectedItem} />
           </View>
           <View
             style={{

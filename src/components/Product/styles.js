@@ -23,10 +23,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 4,
   },
+  barcode: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
   name: {
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
+    color: 'black',
   },
   price: {
     fontSize: 24,
@@ -54,7 +60,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     zIndex: 1,
-    backgroundColor: '#1ba32f',
   },
   favoriteIcon: {
     padding: 5,

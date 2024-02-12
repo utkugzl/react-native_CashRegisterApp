@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@notifee/react-native": "^7.8.2",
     "@react-native-async-storage/async-storage": "^1.21.0",
     "@react-navigation/drawer": "^6.6.6",
     "@react-navigation/native": "^6.1.9",
@@ -20,6 +21,7 @@
     "react-i18next": "^14.0.1",
     "react-native": "0.73.2",
     "react-native-chart-kit": "^6.12.0",
+    "react-native-fingerprint-scanner": "^6.0.0",
     "react-native-fs": "^2.20.0",
     "react-native-gesture-handler": "^2.14.1",
     "react-native-html-to-pdf": "^0.12.0",

@@ -6,16 +6,16 @@ import {
   Image,
   Modal,
   ActivityIndicator,
-  Platform,
-  PermissionsAndroid,
 } from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {ThemeContext} from '../../contexts/ThemeContext.js';
 import {StoreContext} from '../../contexts/StoreContext.js';
 import {ReportsContext} from '../../contexts/ReportsContext.js';
+import {UserContext} from '../../contexts/UserContext.js';
 import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
+import NotificaitonSwitch from '../../components/NotificationSwitch/NotificationSwitch.js';
 import SettingsOption from '../../components/SettingsOption/SettingsOption.js';
 import SettingsSwitchOption from '../../components/SettingsSwitchOption/SettingsSwitchOption.js';
 import SendSalesButton from '../../components/SendSalesButton/SendSalesButton.js';
@@ -32,6 +32,7 @@ const Settings = ({}) => {
   const {isStoreOnline} = useContext(StoreContext);
   const {updateOfflineSalesCount} = useContext(ReportsContext);
   const {isDarkMode} = useContext(ThemeContext);
+  const {isNotificationOn} = useContext(UserContext);
   const navigation = useNavigation();
   const [visiblePrinterTest, setvisiblePrinterTest] = useState(false);
   const [sendingSales, setSendingSales] = useState(false);
@@ -49,7 +50,7 @@ const Settings = ({}) => {
       console.error('POST request failed:', error);
     }
   };
-
+  console.log(isNotificationOn);
   const sendSalesFromStorage = async () => {
     if (isStoreOnline) {
       try {
@@ -243,7 +244,7 @@ const Settings = ({}) => {
             marginTop: 25,
           }}>
           <SettingsOption title={'Deneme'} iconName={'reportsIcon'} />
-          <SettingsOption title={'Deneme'} iconName={'reportsIcon'} />
+          <NotificaitonSwitch title={'asdas'} iconName={'asdas'} />
           <SettingsSwitchOption
             title={t('dark-theme')}
             iconName={'darkThemeIcon'}

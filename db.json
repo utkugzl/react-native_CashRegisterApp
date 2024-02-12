@@ -7,8 +7,8 @@
     },
     {
       "id": "2",
-      "userCode": "762381",
-      "userPassword": "asd"
+      "userCode": "123456",
+      "userPassword": "123"
     },
     {
       "id": "3",
@@ -26,6 +26,9 @@
       "userPassword": "dasdas"
     }
   ],
+  "lastUser": {
+    "userCode": "065434"
+  },
   "userFavorites": [
     {
       "id": "065434",
@@ -38,30 +41,94 @@
   ],
   "store": [
     {
-      "isOnline": "true",
+      "isOnline": "false",
       "id": "1"
     }
   ],
+  "notifications": {
+    "isNotificationOn": "true",
+    "id": "9fd9"
+  },
   "sales": [
     {
-      "id": "b747",
-      "date": "10/2/2024",
-      "time": "23:35",
+      "id": "69d1",
+      "date": "11/2/2024",
+      "time": "21:6",
       "cashierCode": "",
-      "cash": 150,
+      "cash": 500,
       "creditCard": 0,
-      "cashBack": "47.40",
-      "total": "102.60",
+      "cashBack": "185.30",
+      "total": "314.70",
       "cart": [
         {
-          "id": "3",
-          "barcode": "680898",
-          "name": "Ispanak Kg.",
-          "price": "39.90",
-          "category": "market",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/39606_Ispanak_Kg._.jpg",
+          "id": "23",
+          "barcode": "747074",
+          "name": "Fairy Bulaşık Deterjanı Limon Kokulu 750 Ml",
+          "price": "69.90",
+          "category": "cleaning",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/328f8_Bulasik_Deterjani_Limon_Kokulu_750_Ml.jpg",
           "quantity": 1
         },
+        {
+          "id": "26",
+          "barcode": "329981",
+          "name": "Finish Bulaşık Makinesi Tablet 50 Adet",
+          "price": "219.90",
+          "category": "cleaning",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/c9bfb_Hepsi_Bir_Arada_Bulasik_Makinesi_Tablet_50_Adet.png",
+          "quantity": 1
+        },
+        {
+          "id": "27",
+          "barcode": "412564",
+          "name": "Mintax Bulaşık Mak. Temizleyici 250 Ml",
+          "price": "24.90",
+          "category": "cleaning",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/1e12e_Bulasik_Mak._Temizleyici_250_Ml.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "53f4",
+      "date": "11/2/2024",
+      "time": "21:36",
+      "cashierCode": "",
+      "cash": 250,
+      "creditCard": 0,
+      "cashBack": "8.60",
+      "total": "241.40",
+      "cart": [
+        {
+          "id": "56",
+          "barcode": "600355",
+          "name": "Thermoform Soft Termal Üst İçlik L-XL",
+          "price": "101.90",
+          "category": "clothing",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/0f1e8_Thermoform_Soft_Termal__ust_Iclik_L-xl.png",
+          "quantity": 1
+        },
+        {
+          "id": "57",
+          "barcode": "596604",
+          "name": "Kadın Sweatshirt Wellsoft S-M",
+          "price": "139.50",
+          "category": "clothing",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/b2b23_Kadin_Sweatshirt_Wellsoft_S-M.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "8a62",
+      "date": "11/2/2024",
+      "time": "23:37",
+      "cashierCode": "065434",
+      "cash": 100,
+      "creditCard": 50,
+      "cashBack": "15.40",
+      "total": "134.60",
+      "cart": [
         {
           "id": "2",
           "barcode": "873634",
@@ -72,12 +139,51 @@
           "quantity": 1
         },
         {
-          "id": "5",
-          "barcode": "592297",
-          "name": "Lahana Kg.",
-          "price": "7.90",
+          "id": "3",
+          "barcode": "680898",
+          "name": "Ispanak Kg.",
+          "price": "39.90",
           "category": "market",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/7cb05_Lahana_Beyaz_Kg._.jpg",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/39606_Ispanak_Kg._.jpg",
+          "quantity": 2
+        },
+        {
+          "id": "6",
+          "barcode": "659705",
+          "name": "Kıvırcık Demet",
+          "price": "32.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/4026b_Salata_Kivircikadet_.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "309d",
+      "date": "11/2/2024",
+      "time": "23:53",
+      "cashierCode": "065434",
+      "cash": 100,
+      "creditCard": 0,
+      "cashBack": "5.30",
+      "total": "94.70",
+      "cart": [
+        {
+          "id": "2",
+          "barcode": "873634",
+          "name": "Roka Demet",
+          "price": "21.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/2db58_Roka_Demet_.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "3",
+          "barcode": "680898",
+          "name": "Ispanak Kg.",
+          "price": "39.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/39606_Ispanak_Kg._.jpg",
           "quantity": 1
         },
         {

@@ -1,11 +1,22 @@
 import React from 'react';
+import {useRef} from 'react';
 import {FlatList} from 'react-native';
 import CartProduct from '../CartProduct/CartProduct.js';
 
 const CartList = ({cart, setSelectedItem}) => {
+  const flatListRef = useRef(null);
+
+  const handleAddItem = () => {
+    // Her yeni öğe eklendiğinde scroll işlemi
+    flatListRef.current.scrollToOffset({
+      offset: 50 * cart.length,
+      animated: true,
+    });
+  };
   return (
     <FlatList
-      style={{width: '100%', padding: 8}}
+      ref={flatListRef}
+      style={{width: '100%', padding: 2, paddingHorizontal: 6}}
       key={'_'}
       data={cart}
       keyExtractor={(item, index) => `${item.id}_${index}`}
@@ -21,6 +32,7 @@ const CartList = ({cart, setSelectedItem}) => {
           }}
         />
       )}
+      onContentSizeChange={handleAddItem}
     />
   );
 };

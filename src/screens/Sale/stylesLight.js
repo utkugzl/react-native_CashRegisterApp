@@ -42,6 +42,7 @@ const stylesLight = StyleSheet.create({
     flex: 0.8,
     borderWidth: 4,
     borderRadius: 16,
+    marginTop: 8,
   },
   totalPrice: {
     backgroundColor: '#DDDDDD',

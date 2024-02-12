@@ -18,6 +18,7 @@ const CartProduct = ({name, barcode, price, onPress, quantity}) => {
         borderWidth: 1,
         borderRadius: 12,
         margin: 2,
+        marginBottom: 2,
       }}>
       <View>
         <Text style={{fontSize: 14, fontWeight: 'bold', color: 'black'}}>

@@ -14,7 +14,7 @@ import stylesLight from './stylesLight.js';
 const DrawerMenuContent = props => {
   const {isStoreOnline} = useContext(StoreContext);
   const {isDarkMode} = useContext(ThemeContext);
-  const {user} = useContext(UserContext);
+  const {user, setIsLogedIn} = useContext(UserContext);
   const {offlineSalesCount} = useContext(ReportsContext);
   const {t} = useTranslation();
   const {state} = props;
@@ -81,7 +81,9 @@ const DrawerMenuContent = props => {
           icon={() => <AppIcons name={'logoutIcon'} />}
           labelStyle={styles.labelStyle}
           style={styles.logoutStyle}
-          onPress={() => console.log('logout')}
+          onPress={() => {
+            setIsLogedIn(false);
+          }}
         />
       </View>
       <View style={styles.footerContainer}>

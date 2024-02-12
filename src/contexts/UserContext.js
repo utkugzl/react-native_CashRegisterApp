@@ -7,6 +7,8 @@ const UserContext = createContext();
 const UserProvider = ({children}) => {
   const [user, setUser] = useState('');
   const [userFavorites, setUserFavorites] = useState([]);
+  const [isLogedIn, setIsLogedIn] = useState(false);
+  const [isNotificationOn, setIsNotificationOn] = useState(false);
 
   const updateUserFavorites = async userFavoritess => {
     const url = 'http://10.0.2.2:3000/userFavorites/065434';
@@ -32,6 +34,20 @@ const UserProvider = ({children}) => {
       .then(response => {
         console.log('GET isteği başarılı:', response.data);
         setUserFavorites(response.data.favorites);
+      })
+      .catch(error => {
+        console.error('POST isteği başarısız:', error);
+      });
+  };
+
+  const getNotificationStatus = async => {
+    const url = 'http://10.0.2.2:3000/notifications';
+
+    axios
+      .get(url)
+      .then(response => {
+        console.log(response.data);
+        setIsNotificationOn(response.data.isNotificationOn === 'true');
       })
       .catch(error => {
         console.error('POST isteği başarısız:', error);
@@ -66,6 +82,7 @@ const UserProvider = ({children}) => {
 
   useEffect(() => {
     getUserFavorites();
+    getNotificationStatus();
   }, []);
 
   useEffect(() => {
@@ -81,6 +98,10 @@ const UserProvider = ({children}) => {
         setUserFavorites,
         addToFavorites,
         removeFromFavorites,
+        isLogedIn,
+        setIsLogedIn,
+        isNotificationOn,
+        setIsNotificationOn,
       }}>
       {children}
     </UserContext.Provider>
