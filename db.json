@@ -50,143 +50,53 @@
     "id": "9fd9"
   },
   "dailySalesAmount": {
-    "amount": 1217.4
+    "amount": 354.6
   },
   "sales": [
     {
-      "id": "8bf3",
-      "date": "13/2/2024",
-      "time": "14:52",
+      "id": "7984",
+      "date": "14/2/2024",
+      "time": "2:22",
       "cashierCode": "065434",
-      "cash": 200,
+      "cash": 360,
       "creditCard": 0,
-      "cashBack": "49.40",
-      "total": "150.60",
+      "cashBack": "5.40",
+      "total": "354.60",
       "cart": [
         {
-          "id": "3",
-          "barcode": "680898",
-          "name": "Ispanak Kg.",
-          "price": "39.90",
-          "category": "market",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/39606_Ispanak_Kg._.jpg",
-          "quantity": 1
-        },
-        {
-          "id": "6",
-          "barcode": "659705",
-          "name": "Kıvırcık Demet",
-          "price": "32.90",
-          "category": "market",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/4026b_Salata_Kivircikadet_.jpg",
-          "quantity": 1
-        },
-        {
-          "id": "5",
-          "barcode": "592297",
-          "name": "Lahana Kg.",
-          "price": "7.90",
-          "category": "market",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/7cb05_Lahana_Beyaz_Kg._.jpg",
-          "quantity": 1
-        },
-        {
-          "id": "9",
-          "barcode": "397197",
-          "name": "Salatalık Kg.",
+          "id": "23",
+          "barcode": "747074",
+          "name": "Fairy Bulaşık Deterjanı Limon Kokulu 750 Ml",
           "price": "69.90",
-          "category": "market",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/a4a87_Salatalik_Kg_.jpg",
+          "category": "cleaning",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/328f8_Bulasik_Deterjani_Limon_Kokulu_750_Ml.jpg",
           "quantity": 1
-        }
-      ]
-    },
-    {
-      "id": "4f4d",
-      "date": "13/2/2024",
-      "time": "15:34",
-      "cashierCode": "065434",
-      "cash": 0,
-      "creditCard": 300,
-      "cashBack": "47.50",
-      "total": "252.50",
-      "cart": [
+        },
         {
-          "id": "3",
-          "barcode": "680898",
-          "name": "Ispanak Kg.",
+          "id": "24",
+          "barcode": "389333",
+          "name": "Mintax Sıvı Bulaşık Deterjanı 750 Ml",
           "price": "39.90",
-          "category": "market",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/39606_Ispanak_Kg._.jpg",
-          "quantity": 2
-        },
-        {
-          "id": "6",
-          "barcode": "659705",
-          "name": "Kıvırcık Demet",
-          "price": "32.90",
-          "category": "market",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/4026b_Salata_Kivircikadet_.jpg",
+          "category": "cleaning",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/b32cb_Ultra_Sivi_Bulasik_Deterjani_750_Ml.jpg",
           "quantity": 1
         },
         {
-          "id": "9",
-          "barcode": "397197",
-          "name": "Salatalık Kg.",
-          "price": "69.90",
-          "category": "market",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/a4a87_Salatalik_Kg_.jpg",
-          "quantity": 2
-        }
-      ]
-    },
-    {
-      "id": "1da8",
-      "date": "13/2/2024",
-      "time": "22:33",
-      "cashierCode": "065434",
-      "cash": 600,
-      "creditCard": 0,
-      "cashBack": "0.10",
-      "total": "599.90",
-      "cart": [
-        {
-          "id": "91",
-          "barcode": "641333",
-          "name": "Çelik Tencere Derin 24x12 Cm",
-          "price": "599.90",
-          "category": "home",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/73464_Amboss_Delta_celik__Tencere_Derin_24_12.jpg",
-          "quantity": 1
-        }
-      ]
-    },
-    {
-      "id": "cc8a",
-      "date": "13/2/2024",
-      "time": "22:40",
-      "cashierCode": "065434",
-      "cash": 0,
-      "creditCard": 300,
-      "cashBack": "85.60",
-      "total": "214.40",
-      "cart": [
-        {
-          "id": "94",
-          "barcode": "867822",
-          "name": "Çay Bardağı 6'lı 100 Cc",
-          "price": "34.50",
-          "category": "home",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/8b7b2_Cay_Bardagi_6li_100_Cc.jpg",
+          "id": "27",
+          "barcode": "412564",
+          "name": "Mintax Bulaşık Mak. Temizleyici 250 Ml",
+          "price": "24.90",
+          "category": "cleaning",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/1e12e_Bulasik_Mak._Temizleyici_250_Ml.jpg",
           "quantity": 1
         },
         {
-          "id": "93",
-          "barcode": "591834",
-          "name": "Tava Ezme 26 Cm 3mm",
-          "price": "179.90",
-          "category": "home",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/c6376_Kumsal_Tava_26_Cm_Ezme__3mm.png",
+          "id": "26",
+          "barcode": "329981",
+          "name": "Finish Bulaşık Makinesi Tablet 50 Adet",
+          "price": "219.90",
+          "category": "cleaning",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/c9bfb_Hepsi_Bir_Arada_Bulasik_Makinesi_Tablet_50_Adet.png",
           "quantity": 1
         }
       ]

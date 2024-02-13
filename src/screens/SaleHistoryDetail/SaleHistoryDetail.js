@@ -1,5 +1,5 @@
 import React from 'react';
-import {useContext} from 'react';
+import {useContext, useEffect} from 'react';
 import {SafeAreaView, View, Text, TouchableOpacity} from 'react-native';
 import {ThemeContext} from '../../contexts/ThemeContext.js';
 import {useNavigation} from '@react-navigation/native';

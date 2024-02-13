@@ -9,6 +9,7 @@ import stylesDark from './stylesDark.js';
 import stylesLight from './stylesLight.js';
 import AppIcons from '../../components/AppIcons/AppIcons.js';
 import SalesHistoryList from '../../components/SalesHistoryList/SalesHistoryList.js';
+import {useFocusEffect} from '@react-navigation/native';
 
 const SaleHistory = () => {
   const {isDarkMode} = useContext(ThemeContext);
@@ -27,14 +28,12 @@ const SaleHistory = () => {
     }
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      await fetchSales();
-      await fetchOfflineSales();
-    };
-
-    fetchData();
-  }, []);
+  useFocusEffect(
+    React.useCallback(() => {
+      fetchSales();
+      fetchOfflineSales();
+    }, []),
+  );
 
   const fetchOfflineSales = async () => {
     try {
@@ -51,19 +50,24 @@ const SaleHistory = () => {
       <View></View>
       <View style={styles.screenInnerContainer}>
         <View style={styles.listContainer}>
-          <Text style={styles.title}>Tüm Satışlar</Text>
+          <Text style={styles.title}>Aktarılan Satışlar</Text>
           <SalesHistoryList sales={sales} />
         </View>
         {offlineSalesCount > 0 && (
           <View
             style={{
               flex: 1,
-              backgroundColor: 'green',
+              backgroundColor: '#292f39',
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <Text style={{fontSize: 40, fontWeight: 'bold', marginBottom: 10}}>
-              Offline Satışlar
+            <Text
+              style={{
+                fontSize: 40,
+                fontWeight: 'bold',
+                marginVertical: 20,
+              }}>
+              Aktarılamayan Satışlar
             </Text>
             <FlatList
               width="75%"

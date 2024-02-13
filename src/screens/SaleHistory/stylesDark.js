@@ -20,8 +20,7 @@ const stylesDark = StyleSheet.create({
     fontSize: 40,
     fontWeight: 'bold',
     color: 'white',
-    marginBottom: 20,
-    marginTop: 15,
+    marginVertical: 20,
   },
 });
 

@@ -20,7 +20,7 @@ const Dashboard = () => {
 
   const dailySalesData = {
     labels: [t('completed')],
-    data: [dailySalesAmount / 2000],
+    data: [dailySalesAmount / 5000],
   };
 
   const salesData = [
@@ -131,39 +131,41 @@ const Dashboard = () => {
           flexDirection: 'row',
           marginTop: 20,
         }}>
-        <View style={{flex: 1}}>
-          <View
-            style={{
-              flex: 0.5,
-              justifyContent: 'flex-end',
-              alignItems: 'center',
-            }}>
-            <Text style={styles.title}>{t('sending-sales-status')}</Text>
+        {salesCount > 0 && (
+          <View style={{flex: 1}}>
+            <View
+              style={{
+                flex: 0.5,
+                justifyContent: 'flex-end',
+                alignItems: 'center',
+              }}>
+              <Text style={styles.title}>{t('sending-sales-status')}</Text>
+            </View>
+            <View
+              style={{
+                flex: 5,
+                justifyContent: 'flex-start',
+                alignItems: 'center',
+              }}>
+              <PieChart
+                data={salesData}
+                width={Dimensions.get('window').width / 2}
+                height={Dimensions.get('window').height / 3}
+                chartConfig={{
+                  backgroundColor: '#e26a00',
+                  backgroundGradientFrom: '#fb8c00',
+                  backgroundGradientTo: '#ffa726',
+                  color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                }}
+                accessor={'count'}
+                backgroundColor={'transparent'}
+                paddingLeft={'15'}
+                center={[25, 30]}
+                absolute
+              />
+            </View>
           </View>
-          <View
-            style={{
-              flex: 5,
-              justifyContent: 'flex-start',
-              alignItems: 'center',
-            }}>
-            <PieChart
-              data={salesData}
-              width={Dimensions.get('window').width / 2}
-              height={Dimensions.get('window').height / 3}
-              chartConfig={{
-                backgroundColor: '#e26a00',
-                backgroundGradientFrom: '#fb8c00',
-                backgroundGradientTo: '#ffa726',
-                color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-              }}
-              accessor={'count'}
-              backgroundColor={'transparent'}
-              paddingLeft={'15'}
-              center={[25, 30]}
-              absolute
-            />
-          </View>
-        </View>
+        )}
         <View style={{flex: 1}}>
           <View
             style={{
@@ -172,7 +174,11 @@ const Dashboard = () => {
               alignItems: 'center',
               marginBottom: 30,
             }}>
-            <Text style={styles.title}>{t('daily-sales-goal')}</Text>
+            <Text style={styles.title}>
+              {t('daily-sales-goal')}
+              {'  '}
+              {dailySalesAmount} ₺
+            </Text>
           </View>
           <View
             style={{

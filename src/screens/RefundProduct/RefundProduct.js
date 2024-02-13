@@ -87,15 +87,15 @@ const RefundProduct = ({route}) => {
   };
 
   const handleRefund = () => {
-    setVisibleReceipt(true);
+    //setVisibleReceipt(true);
     const updatedSale = {
       id: sale.id,
-      date: currentDate,
-      time: currentTime,
-      cashierCode: user,
+      date: sale.date,
+      time: sale.time,
+      cashierCode: sale.cashierCode,
       cash: sale.cash,
       creditCard: sale.creditCard,
-      cashBack: cashBack.toFixed(2),
+      cashBack: (sale.cash + sale.creditCard - totalPrice).toFixed(2),
       total: discountedTotalPrice.toFixed(2),
       cart: cart,
     };
@@ -107,12 +107,17 @@ const RefundProduct = ({route}) => {
   };
 
   const updateSale = async putSale => {
-    const url = 'http://10.0.2.2:3000/sales';
+    const url = 'http://10.0.2.2:3000/sales/' + putSale.id;
 
     axios
       .put(url, putSale)
       .then(response => {
-        //console.log('POST isteği başarılı:', response.data);
+        Alert.alert('İade', 'İade işlemi başarılı.');
+        setTotalPrice(0);
+        setDiscountedTotalPrice(0);
+        setCart([]);
+        setSelectedItem(null);
+        navigation.navigate('saleHistory');
       })
       .catch(error => {
         console.error('POST isteği başarısız:', error);

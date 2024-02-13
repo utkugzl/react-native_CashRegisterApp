@@ -66,7 +66,7 @@ const CartProvider = ({children}) => {
 
     const price = parseFloat(product.price);
     const newTotalPrice = totalPrice + price * quantityToAdd;
-    setTotalPrice(parseFloat(newTotalPrice.toFixed(2)));
+    setTotalPrice(newTotalPrice);
     calculateDiscount(newTotalPrice, campaignId);
   };
   const removeFromCart = product => {
@@ -81,7 +81,7 @@ const CartProvider = ({children}) => {
 
       const price = parseFloat(itemToRemove.price);
       const newTotalPrice = totalPrice - price * itemToRemove.quantity;
-      setTotalPrice(parseFloat(newTotalPrice.toFixed(2)));
+      setTotalPrice(newTotalPrice);
       calculateDiscount(newTotalPrice, campaignId);
     }
   };
