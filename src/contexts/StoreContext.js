@@ -6,6 +6,7 @@ const StoreContext = createContext();
 const StoreProvider = ({children}) => {
   const [isStoreOnline, setIsStoreOnline] = useState(false);
   const [dailySalesAmount, setDailySalesAmount] = useState(0);
+  const [salesCount, setSalesCount] = useState(0);
 
   const fetchStoreStatus = async () => {
     try {
@@ -24,6 +25,7 @@ const StoreProvider = ({children}) => {
 
       const response = await axios.get(url);
       updateDailySalesAmount(response.data);
+      setSalesCount(response.data.length);
     } catch (error) {
       console.error('Error fetching sales:', error);
     }
@@ -64,7 +66,8 @@ const StoreProvider = ({children}) => {
   }, []);
 
   return (
-    <StoreContext.Provider value={{isStoreOnline, dailySalesAmount}}>
+    <StoreContext.Provider
+      value={{isStoreOnline, dailySalesAmount, salesCount}}>
       {children}
     </StoreContext.Provider>
   );

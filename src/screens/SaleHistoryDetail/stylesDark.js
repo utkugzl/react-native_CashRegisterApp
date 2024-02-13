@@ -43,8 +43,9 @@ const stylesDark = StyleSheet.create({
   },
   footerContainer: {
     flex: 0.6,
-    justifyContent: 'center',
-    alignItems: 'flex-end',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    alignItems: 'center',
     borderTopWidth: 2,
     borderColor: '#DDDDDD',
   },
@@ -53,6 +54,21 @@ const stylesDark = StyleSheet.create({
     fontWeight: 'bold',
     marginRight: 20,
     color: '#DDDDDD',
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 20,
+    backgroundColor: '#b73612',
+    padding: 6,
+    borderRadius: 8,
+    borderWidth: 1,
+  },
+  buttonTitle: {
+    color: 'white',
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginHorizontal: 12,
   },
 });
 

@@ -52,7 +52,22 @@ const stylesLight = StyleSheet.create({
     fontSize: scaleByWidth('2.6'),
     fontWeight: 'bold',
     marginRight: 20,
-    color: '#DDDDDD',
+    color: 'black',
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 20,
+    backgroundColor: '#b73612',
+    padding: 6,
+    borderRadius: 8,
+    borderWidth: 1,
+  },
+  buttonTitle: {
+    color: 'white',
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginHorizontal: 12,
   },
 });
 

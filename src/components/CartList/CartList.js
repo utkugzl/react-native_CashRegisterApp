@@ -13,6 +13,7 @@ const CartList = ({cart, setSelectedItem}) => {
       animated: true,
     });
   };
+
   return (
     <FlatList
       ref={flatListRef}

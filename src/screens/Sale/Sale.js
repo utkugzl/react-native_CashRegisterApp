@@ -253,14 +253,12 @@ const Sale = () => {
           <View style={styles.totalPriceContainer}>
             <View style={styles.totalPrice}>
               <Text style={styles.totalPriceText}>Ara Toplam</Text>
-              <Text style={styles.totalPriceText}>
-                {totalPrice.toFixed(2)}₺
-              </Text>
+              <Text style={styles.totalPriceText}>{totalPrice}₺</Text>
             </View>
             <View style={styles.discountedTotalPrice}>
               <Text style={styles.discountedPriceText}>Toplam Tutar</Text>
               <Text style={styles.discountedPriceText}>
-                {discountedTotalPrice.toFixed(2)}₺
+                {discountedTotalPrice}₺
               </Text>
             </View>
           </View>

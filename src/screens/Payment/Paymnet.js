@@ -6,7 +6,15 @@ import {CartContext} from '../../contexts/CartContext.js';
 import {UserContext} from '../../contexts/UserContext.js';
 import {StoreContext} from '../../contexts/StoreContext.js';
 import {ReportsContext} from '../../contexts/ReportsContext.js';
-import {SafeAreaView, View, Text, Alert, Modal} from 'react-native';
+import {
+  SafeAreaView,
+  View,
+  Text,
+  Alert,
+  Modal,
+  TouchableOpacity,
+  TextInput,
+} from 'react-native';
 import axios from 'axios';
 import RNHTMLtoPDF from 'react-native-html-to-pdf';
 import Share from 'react-native-share';
@@ -17,11 +25,13 @@ import PaymentKeyboard from '../../components/PaymnetKeyboard/PaymnetKeyboard.js
 import ShoppingReceipt from '../../components/ShoppingReceipt/ShoppingReceipt.js';
 import ReceiptButton from '../../components/ReceiptButton/ReceiptButton.js';
 import CartList from '../../components/CartList/CartList.js';
+import MailBoxButton from '../../components/MailBoxButton/MailBoxButton.js';
 
 const Payment = () => {
   const navigation = useNavigation();
   const {t} = useTranslation();
   const [visibleReceipt, setVisibleReceipt] = useState(false);
+  const [visibleEmailInput, setVisibleEmailInput] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const {isStoreOnline} = useContext(StoreContext);
   const {user} = useContext(UserContext);
@@ -367,7 +377,9 @@ const Payment = () => {
             <CartButton
               title="E-Fatura"
               color={'#9c6417'}
-              onPress={() => console.log('E-Fatura')}
+              onPress={() => {
+                setVisibleEmailInput(true);
+              }}
             />
           </View>
           <View
@@ -586,6 +598,80 @@ const Payment = () => {
               color={'#2287da'}
               iconName={'printerIcon'}
             />
+          </View>
+        </View>
+      </Modal>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={visibleEmailInput}
+        onRequestClose={() => {
+          setVisibleEmailInput(!visibleEmailInput);
+        }}>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: 'rgba(0, 0, 0, 0.7)', // Arkaplan rengi
+          }}>
+          <View
+            style={{
+              backgroundColor: 'white',
+              height: 200,
+              width: 400,
+              padding: 15,
+              borderRadius: 10,
+              alignItems: 'center',
+              elevation: 5,
+              borderWidth: 2,
+            }}>
+            <View style={{flex: 2}}>
+              <View
+                style={{
+                  flex: 1,
+                  alignItems: 'center',
+                  flexDirection: 'row',
+                  width: '100%',
+                }}>
+                <TextInput
+                  style={{
+                    width: '100%',
+                    height: 60,
+                    borderColor: 'gray',
+                    borderWidth: 3,
+                    borderRadius: 5,
+                    padding: 15,
+                  }}
+                  placeholder="Email"
+                  //onChangeText={text => setEmail(text)}
+                  //value={email}
+                />
+              </View>
+            </View>
+            <View
+              style={{
+                flex: 1,
+                flexDirection: 'row',
+                width: '100%',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}>
+              <MailBoxButton
+                onPress={() => {
+                  setVisibleEmailInput(!visibleEmailInput);
+                }}
+                title="Kapat"
+                color="#b9340f"
+              />
+              <MailBoxButton
+                onPress={() => {
+                  console.log('email pressed');
+                }}
+                title="Kaydet"
+                color="#19b021"
+              />
+            </View>
           </View>
         </View>
       </Modal>

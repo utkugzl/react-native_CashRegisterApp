@@ -10,6 +10,7 @@ import SaleHistoryDetail from '../screens/SaleHistoryDetail/SaleHistoryDetail.js
 import Users from '../screens/Users/Users.js';
 import Campaigns from '../screens/Campaigns/Campaings.js';
 import HeaderLeft from '../components/HeaderLeft/HeaderLeft.js';
+import RefundProduct from '../screens/RefundProduct/RefundProduct.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -56,6 +57,23 @@ const ReportStack = () => {
       <Stack.Screen
         name="saleHistoryDetail"
         component={SaleHistoryDetail}
+        options={{
+          title: '',
+          headerShown: true,
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize: 30,
+            color: isDarkMode ? '#DDDDDD' : '#30475E',
+          },
+          headerStyle: {
+            backgroundColor: isDarkMode ? '#30475E' : '#f2f2f2',
+          },
+          headerTitleAlign: 'center',
+        }}
+      />
+      <Stack.Screen
+        name="refundProduct"
+        component={RefundProduct}
         options={{
           title: '',
           headerShown: true,

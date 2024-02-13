@@ -6,54 +6,16 @@ import {useTranslation} from 'react-i18next';
 import {Dimensions} from 'react-native';
 import {ThemeContext} from '../../contexts/ThemeContext.js';
 import {StoreContext} from '../../contexts/StoreContext.js';
-import axios from 'axios';
+import {ReportsContext} from '../../contexts/ReportsContext.js';
 import stylesDark from './stylesDark.js';
 import stylesLight from './stylesLight.js';
-
-const initialData = [
-  {
-    name: 'Market',
-    count: 1,
-    color: '#A51717',
-    legendFontColor: '#7F7F7F',
-    legendFontSize: 18,
-  },
-  {
-    name: 'Temizlik',
-    count: 1,
-    color: '#CAD230',
-    legendFontColor: '#7F7F7F',
-    legendFontSize: 18,
-  },
-  {
-    name: 'Giyim',
-    count: 1,
-    color: '#307BD2',
-    legendFontColor: '#7F7F7F',
-    legendFontSize: 18,
-  },
-  {
-    name: 'Ev&Yaşam',
-    count: 1,
-    color: '#38B85A',
-    legendFontColor: '#7F7F7F',
-    legendFontSize: 18,
-  },
-  {
-    name: 'Kozmetik',
-    count: 1,
-    color: '#7B387F',
-    legendFontColor: '#7F7F7F',
-    legendFontSize: 18,
-  },
-];
 
 const Dashboard = () => {
   const {t} = useTranslation();
   const {isDarkMode} = useContext(ThemeContext);
-  const {dailySalesAmount} = useContext(StoreContext);
-  const [sales, setSales] = useState([]);
-  const [categoryCounts, setCategoryCounts] = useState(initialData);
+  const {dailySalesAmount, salesCount} = useContext(StoreContext);
+  const {offlineSalesCount} = useContext(ReportsContext);
+
   const styles = isDarkMode ? stylesDark : stylesLight;
 
   const dailySalesData = {
@@ -61,20 +23,25 @@ const Dashboard = () => {
     data: [dailySalesAmount / 2000],
   };
 
-  const fetchSales = async () => {
-    try {
-      const url = 'http://10.0.2.2:3000/sales';
-      const response = await axios.get(url);
-      setSales(response.data);
-    } catch (error) {
-      console.error('Error fetching version:', error);
-    }
-  };
+  const salesData = [
+    {
+      name: 'Aktarıldı',
+      count: salesCount,
+      color: '#1f903d',
+      legendFontColor: '#7F7F7F',
+      legendFontSize: 18,
+    },
+    {
+      name: 'Aktarılamadı',
+      count: offlineSalesCount,
+      color: '#6f1616',
+      legendFontColor: '#7F7F7F',
+      legendFontSize: 18,
+    },
+  ];
 
   useEffect(() => {
-    const fetchData = async () => {
-      await fetchSales();
-    };
+    const fetchData = async () => {};
 
     fetchData();
   }, []);
@@ -171,9 +138,7 @@ const Dashboard = () => {
               justifyContent: 'flex-end',
               alignItems: 'center',
             }}>
-            <Text style={styles.title}>
-              {t('daily-sales-category-distribution')}
-            </Text>
+            <Text style={styles.title}>{t('sending-sales-status')}</Text>
           </View>
           <View
             style={{
@@ -182,7 +147,7 @@ const Dashboard = () => {
               alignItems: 'center',
             }}>
             <PieChart
-              data={categoryCounts}
+              data={salesData}
               width={Dimensions.get('window').width / 2}
               height={Dimensions.get('window').height / 3}
               chartConfig={{
