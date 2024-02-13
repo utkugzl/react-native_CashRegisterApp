@@ -75,6 +75,9 @@ const Payment = () => {
     if (selectedItem) {
       removeFromCart(selectedItem);
       setSelectedItem(null);
+      if (cart.length === 0) {
+        navigation.goBack();
+      }
     } else {
       Alert.alert('Uyarı', 'Lütfen bir ürün seçin.');
     }
@@ -423,7 +426,7 @@ const Payment = () => {
                   fontWeight: 'bold',
                   color: 'white',
                 }}>
-                {totalPrice}₺
+                {totalPrice.toFixed(2)}₺
               </Text>
             </View>
             <View

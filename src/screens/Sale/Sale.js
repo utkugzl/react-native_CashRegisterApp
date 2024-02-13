@@ -24,21 +24,20 @@ import CartButton from '../../components/CartButton/CartButton.js';
 import Keyboard from '../../components/Keyboard/Keyboard.js';
 import CampaignOption from '../../components/CampaignOption/CampaingOption.js';
 import CartList from '../../components/CartList/CartList.js';
-
 import stylesDark from './stylesDark.js';
 import stylesLight from './stylesLight.js';
 
 const Sale = () => {
   const navigation = useNavigation();
   const {isDarkMode} = useContext(ThemeContext);
+  const {isStoreOnline} = useContext(StoreContext);
+  const {user} = useContext(UserContext);
   const {t} = useTranslation();
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [campaigns, setCampaigns] = useState([]);
   const [content, setContent] = useState('categories');
   const [selectedItem, setSelectedItem] = useState(null);
-  const {isStoreOnline} = useContext(StoreContext);
-  const {user} = useContext(UserContext);
   const categories = useCategories();
 
   const {

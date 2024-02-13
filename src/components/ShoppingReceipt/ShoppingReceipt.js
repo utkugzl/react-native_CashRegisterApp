@@ -144,15 +144,6 @@ const ShoppingReceipt = ({
               color: 'black',
               paddingBottom: 2,
             }}>
-            Saat : 1234
-          </Text>
-          <Text
-            style={{
-              fontWeight: 'bold',
-              fontSize: 16,
-              color: 'black',
-              paddingBottom: 2,
-            }}>
             Nakit Ödeme : {cash.toFixed(2)}₺
           </Text>
           <Text

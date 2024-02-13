@@ -6,6 +6,7 @@ import {
   Image,
   Modal,
   ActivityIndicator,
+  Alert,
 } from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {ThemeContext} from '../../contexts/ThemeContext.js';
@@ -29,7 +30,8 @@ import Share from 'react-native-share';
 const Settings = ({}) => {
   const {t} = useTranslation();
   const {isStoreOnline} = useContext(StoreContext);
-  const {updateOfflineSalesCount} = useContext(ReportsContext);
+  const {offlineSalesCount, updateOfflineSalesCount} =
+    useContext(ReportsContext);
   const {isDarkMode} = useContext(ThemeContext);
   const navigation = useNavigation();
   const [visiblePrinterTest, setvisiblePrinterTest] = useState(false);
@@ -51,32 +53,36 @@ const Settings = ({}) => {
 
   const sendSalesFromStorage = async () => {
     if (isStoreOnline) {
-      try {
-        const sales = await AsyncStorage.getItem('offlineSales');
-        if (sales) {
-          const salesArray = JSON.parse(sales);
-          setSendingSales(true);
-          for (const sale of salesArray) {
-            await postSale(sale); // Her satışı göndermeden önce bir süre bekle
-            await new Promise(resolve => setTimeout(resolve, 1000)); // 1 saniye bekleme
+      if (offlineSalesCount > 0) {
+        try {
+          const sales = await AsyncStorage.getItem('offlineSales');
+          if (sales) {
+            const salesArray = JSON.parse(sales);
+            setSendingSales(true);
+            for (const sale of salesArray) {
+              await postSale(sale);
+              await new Promise(resolve => setTimeout(resolve, 1000)); // 1 saniye bekleme
+            }
+            // Clear offline sales from local storage and update the badge count
+            AsyncStorage.removeItem('offlineSales');
+            updateOfflineSalesCount();
+            console.log(
+              'Sales sent successfully from local storage:',
+              salesArray,
+            );
+          } else {
+            console.log('No offline sales found.');
           }
-          // Clear offline sales from local storage and update the badge count
-          AsyncStorage.removeItem('offlineSales');
-          updateOfflineSalesCount();
-          console.log(
-            'Sales sent successfully from local storage:',
-            salesArray,
-          );
-        } else {
-          console.log('No offline sales found.');
+        } catch (error) {
+          console.error('Error sending sales from local storage:', error);
+        } finally {
+          setSendingSales(false);
         }
-      } catch (error) {
-        console.error('Error sending sales from local storage:', error);
-      } finally {
-        setSendingSales(false);
+      } else {
+        Alert.alert('Gönderilecek çevrimdışı satış yok.');
       }
     } else {
-      console.log('Store is offline. Cannot send sales.');
+      Alert.alert('Mağaza çevrimdışı olduğu için satış gönderilemiyor.');
     }
   };
 

@@ -130,7 +130,9 @@ const Login = () => {
       postLastUser(loggedInUser.userCode);
       setUser(userCode);
     } else {
-      setLoginErrorMessage('Invalid user code or password. Please try again.');
+      setLoginErrorMessage(
+        'Geçersiz kullanıcı kodu veya şifre. Lütfen tekrar deneyin.',
+      );
       // Vibrate the phone (for 500 milliseconds) and play the sound
       playSound();
       Vibration.vibrate(500);

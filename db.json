@@ -50,9 +50,97 @@
     "id": "9fd9"
   },
   "dailySalesAmount": {
-    "amount": 0
+    "amount": 403.1
   },
-  "sales": [],
+  "sales": [
+    {
+      "id": "8bf3",
+      "date": "13/2/2024",
+      "time": "14:52",
+      "cashierCode": "065434",
+      "cash": 200,
+      "creditCard": 0,
+      "cashBack": "49.40",
+      "total": "150.60",
+      "cart": [
+        {
+          "id": "3",
+          "barcode": "680898",
+          "name": "Ispanak Kg.",
+          "price": "39.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/39606_Ispanak_Kg._.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "6",
+          "barcode": "659705",
+          "name": "Kıvırcık Demet",
+          "price": "32.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/4026b_Salata_Kivircikadet_.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "5",
+          "barcode": "592297",
+          "name": "Lahana Kg.",
+          "price": "7.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/7cb05_Lahana_Beyaz_Kg._.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "9",
+          "barcode": "397197",
+          "name": "Salatalık Kg.",
+          "price": "69.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/a4a87_Salatalik_Kg_.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "4f4d",
+      "date": "13/2/2024",
+      "time": "15:34",
+      "cashierCode": "065434",
+      "cash": 0,
+      "creditCard": 300,
+      "cashBack": "47.50",
+      "total": "252.50",
+      "cart": [
+        {
+          "id": "3",
+          "barcode": "680898",
+          "name": "Ispanak Kg.",
+          "price": "39.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/39606_Ispanak_Kg._.jpg",
+          "quantity": 2
+        },
+        {
+          "id": "6",
+          "barcode": "659705",
+          "name": "Kıvırcık Demet",
+          "price": "32.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/4026b_Salata_Kivircikadet_.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "9",
+          "barcode": "397197",
+          "name": "Salatalık Kg.",
+          "price": "69.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/a4a87_Salatalik_Kg_.jpg",
+          "quantity": 2
+        }
+      ]
+    }
+  ],
   "version": {
     "version": "v1.18.3.23"
   },
