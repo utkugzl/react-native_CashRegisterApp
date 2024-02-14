@@ -1,10 +1,40 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+<div align ="center">
+<img  width="450" src="https://32bit.com.tr/wp-content/uploads/2019/09/32Bit_TransparentBG_1500x434.png">
+</div>
+<h1 align ="center" >Cash Register App</h1> 
 
-# Getting Started
+  * [About](#about)
+  * [Configuration and Setup](#configuration-and-setup)
+  * [Features](#features)
+  * [Screenshots](#screenshots)
+  * [Dependencies](#dependencies)
+  * [How to Contribute](#how-to-contribute)
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+<br/>
 
-## Step 1: Start the Metro Server
+## About
+This cash register app is developed using React Native to create a simple and user-friendly payment system. 
+Designed for use by stores, small businesses, or individual users, it enables users to manage their shopping 
+transactions quickly and efficiently with its straightforward interface and functionality. Whether adding, 
+removing, or editing products, managing shopping carts, handling payment processes, or tracking sales and 
+generating reports, this app provides an intuitive solution for businesses or individuals looking to streamline 
+their payment operations.
+
+<br/>
+
+## Configuration and Setup
+
+### Step 1: Install the Dependencies
+
+```bash
+# using npm
+npm install
+
+# OR using Yarn
+yarn install
+```
+
+### Step 2: Start the Metro Server
 
 First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
 
@@ -18,7 +48,8 @@ npm start
 yarn start
 ```
 
-## Step 2: Start your Application
+
+### Step 3: Start your Application
 
 Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
 
@@ -46,34 +77,79 @@ If everything is set up _correctly_, you should see your new app running in your
 
 This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
 
-## Step 3: Modifying your App
+<br/>
 
-Now that you have successfully run the app, let's modify it.
+## Features
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+-  User login with user code and password 🔐
+-  User login with finger print 👆
+-  Audible and visual warning for wrong entry ❌
+-  Graphical representations for store sales 📊
+-  Filtering, pagination, sorting, products
+-  Downloading/Sharing shopping receipts as PDF after sales 🧾
+-  Sending receipt to customer e-mail 📩
+-  Usage of async storage 📦
+-  Dark and light theme options 🌑 🌞
+-  Multi-language support 🗣️
+-  Notifications settings 🔔
+-  Printer testing 🖨
+-  Listing and applying discounts 📋
+-  Listing loged users and sales history 🗃
+-  Mock services for all sales transactions 📚
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+<br/>
 
-## Congratulations! :tada:
+## Screenshots
+### - Login Screen -
+<img width="600" alt="login" src="https://github.com/utkugzl/deneme/assets/100433115/451fc77d-8f50-4e3f-a0f5-9ef339450dad">
 
-You've successfully run and modified your React Native App. :partying_face:
+### - Dashboard Screen -
+<img width="600" alt="dashboard" src="https://github.com/utkugzl/deneme/assets/100433115/49ba97aa-e8fe-4dec-9d4a-9031f53ee7d1">
 
-### Now what?
+### - Sale Screen -
+<img width="600" alt="sale" src="https://github.com/utkugzl/deneme/assets/100433115/f6f33e1b-dd81-496f-aa3c-2b63b3285bd3">
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+### - Payment Screen -
+<img width="600" alt="payment" src="https://github.com/utkugzl/deneme/assets/100433115/a3d1717a-bb3c-4b87-8e48-3ea479fd49bb">
 
-# Troubleshooting
+### - Receipt -
+<img width="600" alt="receipt" src="https://github.com/utkugzl/deneme/assets/100433115/e84c8a23-276b-4ca3-ba57-eb9c4d76bade">
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+### - Products Screen -
+<img width="600" alt="products" src="https://github.com/utkugzl/deneme/assets/100433115/3910df5b-fe23-4913-8b89-3052be208d95">
 
-# Learn More
+### - Reports Screen -
+<img width="600" alt="reports" src="https://github.com/utkugzl/deneme/assets/100433115/74713dd8-1bf5-49b7-b2a7-f3ccc4517059">
 
-To learn more about React Native, take a look at the following resources:
+### - Sale History Detail Screen -
+<img width="600" alt="salesHistoryDetail" src="https://github.com/utkugzl/deneme/assets/100433115/729e1e2f-e451-4fdc-b91b-afd0ef33b508">
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+### - Refund Screen -
+<img width="600" alt="refund" src="https://github.com/utkugzl/deneme/assets/100433115/0d8f04b3-27da-4d5c-a4c7-869d044b0036">
+
+### - Settings Screen -
+<img width="600" alt="settings" src="https://github.com/utkugzl/deneme/assets/100433115/7062c2f6-7da5-432d-bfd4-2664cac657c8">
+
+### - Dummy Shopping Receipt For Printer Test -
+<img width="600" alt="dummyReceipt" src="https://github.com/utkugzl/deneme/assets/100433115/3329ab1b-2042-4bd6-a869-816559f41c74">
+
+<br/>
+
+## Dependencies
+- [React Navigation](https://reactnavigation.org/)
+- [React Navigation Drawer](https://reactnavigation.org/docs/drawer-navigator)
+- [React Navigation Native Stack](https://reactnavigation.org/docs/native-stack-navigator)
+- [Notifee](https://notifee.app/)
+- [axios](https://www.npmjs.com/package/axios)
+- [@react-native-async-storage/async-storage](https://www.npmjs.com/package/@react-native-async-storage/async-storage)
+- [react-native-i18next](https://www.npmjs.com/package/react-i18next)
+- [react-native-share](https://github.com/react-native-share/react-native-share)
+- [react-native-html-to-pdf](https://www.npmjs.com/package/react-native-html-to-pdf)
+- [react-native-svg](https://www.npmjs.com/package/react-native-svg)
+- [react-native-chart-kit](https://www.npmjs.com/package/react-native-chart-kit)
+- [react-native-fingerprint-scanner](https://www.npmjs.com/package/react-native-fingerprint-scanner)
+- [react-native-sound](https://www.npmjs.com/package/react-native-sound)
+- [react-native-email](https://www.npmjs.com/package/react-native-email)
+- [react-native-vector-icons](https://www.npmjs.com/package/react-native-vector-icons)
+
+<br/>
