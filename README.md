@@ -153,3 +153,8 @@ This is one way to run your app — you can also run it directly from within And
 - [react-native-vector-icons](https://www.npmjs.com/package/react-native-vector-icons)
 
 <br/>
+
+## Author
+
+- Linkedin: [Utku Güzel](https://www.linkedin.com/in/utkugzl/)
+- Email: utku.guzel44@gmail.com
