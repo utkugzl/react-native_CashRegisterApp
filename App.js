@@ -1,13 +1,25 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-
-import Navigator from './src/navigations/Navigator.js';
+import 'react-native-gesture-handler';
+import {ThemeProvider} from './src/contexts/ThemeContext.js';
+import {CartProvider} from './src/contexts/CartContext.js';
+import {UserProvider} from './src/contexts/UserContext.js';
+import {StoreProvider} from './src/contexts/StoreContext.js';
+import {ReportsProvider} from './src/contexts/ReportsContext.js';
+import AppContainer from './src/navigations/AppContainer.js';
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <Navigator />
-    </NavigationContainer>
+    <StoreProvider>
+      <ReportsProvider>
+        <UserProvider>
+          <ThemeProvider>
+            <CartProvider>
+              <AppContainer />
+            </CartProvider>
+          </ThemeProvider>
+        </UserProvider>
+      </ReportsProvider>
+    </StoreProvider>
   );
 };
 
