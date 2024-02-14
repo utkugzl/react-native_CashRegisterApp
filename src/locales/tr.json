@@ -28,5 +28,22 @@
     "completed": "Tamamlandı",
     "send-sales": "Satışları Gönder",
     "print": "Yazdır",
-    "close": "Kapat"
+    "close": "Kapat",
+    "subtotals": "Ara Toplam",
+    "total-amount": "Toplam Tutar",
+    "users": "Kullanıcılar",
+    "past-sales": "Geçmiş Satışlar",
+    "date": "Tarih",
+    "time": "Saat",
+    "cashier-code": "Kasiyer Kodu",
+    "cash-payment-amount": "Nakit Ödeme Miktarı",
+    "credit-payment-amount": "Kredi Kartı Ödeme Miktarı",
+    "cashback-amount": "Para Üstü",
+    "sent-sales": "Aktarılan Satışlar",
+    "unsent-sales": "Aktarılamayan Satışlar",
+    "welcome": "Hoşgeldiniz",
+    "enter-username-password": "Lütfen kullanıcı kodu ve şifrenizi giriniz",
+    "user-code": "Kullanıcı Kodu",
+    "password": "Şifre",
+    "login": "Giriş Yap"
 }

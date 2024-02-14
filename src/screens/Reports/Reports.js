@@ -35,14 +35,14 @@ const Reports = () => {
             onPress={() => {
               navigation.navigate('users');
             }}
-            title="Kullanicilar"
+            title={t('users')}
             iconName={'personIcon'}
           />
           <ReportsOption
             onPress={() => {
               navigation.navigate('campaigns');
             }}
-            title="Kampanyalar"
+            title={t('campaigns')}
             iconName={'campaignsIcon'}
           />
         </View>
@@ -57,7 +57,7 @@ const Reports = () => {
             onPress={() => {
               navigation.navigate('saleHistory');
             }}
-            title="Gecmis Siparisler"
+            title={t('past-sales')}
             iconName={'pastSaleIcon'}
           />
         </View>

@@ -2,13 +2,10 @@ import React from 'react';
 import {useContext, useEffect, useState} from 'react';
 import {SafeAreaView, View, Text, Image, FlatList} from 'react-native';
 import {ThemeContext} from '../../contexts/ThemeContext.js';
-import {ReportsContext} from '../../contexts/ReportsContext.js';
 import axios from 'axios';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import stylesDark from './stylesDark.js';
 import stylesLight from './stylesLight.js';
-import AppIcons from '../../components/AppIcons/AppIcons.js';
-import SalesHistoryList from '../../components/SalesHistoryList/SalesHistoryList.js';
 
 const Campaigns = () => {
   const {isDarkMode} = useContext(ThemeContext);

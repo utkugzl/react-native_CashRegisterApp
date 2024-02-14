@@ -6,37 +6,37 @@ const stylesDark = StyleSheet.create({
     flex: 1,
     backgroundColor: '#222831',
   },
-  sectionContainer: {
+  sectionsContainer: {
     flex: 1,
     flexDirection: 'row',
   },
-  lefSection: {
+  leftSection: {
     flex: 1,
   },
-  filterButtonsContainer: {
+  leftButtonContainer: {
     backgroundColor: '#222831',
     flex: 1,
     flexDirection: 'row',
-    padding: 4,
-    marginTop: 12,
+    padding: 18,
   },
-  leftListContainer: {
+  leftBottomContainer: {
     backgroundColor: '#222831',
-    flex: 8,
-    padding: 5,
+    flex: 4,
+    flexDirection: 'row',
+    padding: 8,
   },
-  centerSection: {
+  centerContainer: {
     backgroundColor: '#505860',
     borderWidth: 1,
     flex: 1,
   },
-  centerListContainer: {
+  listContainer: {
     flex: 6,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 4,
   },
-  totalPriceContainer: {
+  priceContainer: {
     backgroundColor: '#222831',
     flex: 1,
     borderTopWidth: 4,
@@ -46,7 +46,7 @@ const stylesDark = StyleSheet.create({
     borderTopLeftRadius: 12,
     marginTop: 8,
   },
-  totalPrice: {
+  totalPriceContainer: {
     backgroundColor: '#222831',
     flex: 1,
     flexDirection: 'row',
@@ -57,12 +57,7 @@ const stylesDark = StyleSheet.create({
     borderTopStartRadius: 16,
     borderTopEndRadius: 16,
   },
-  totalPriceText: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: 'white',
-  },
-  discountedTotalPrice: {
+  discountedTotalPriceContainer: {
     backgroundColor: '#222831',
     flex: 1,
     flexDirection: 'row',
@@ -72,21 +67,18 @@ const stylesDark = StyleSheet.create({
     borderBottomStartRadius: 16,
     borderBottomEndRadius: 16,
   },
-  discountedPriceText: {
-    fontSize: 20,
+  priceText: {
+    fontSize: scaleByWidth('1.5'),
     fontWeight: 'bold',
     color: 'white',
   },
-  rightSection: {
+  rightContainer: {
     flex: 1,
   },
-  cartButtonsSection: {
-    flex: 1,
-  },
-  searchByNameButtonContainer: {
+  finishSaleButtonContainer: {
     backgroundColor: '#222831',
     flex: 1,
-    padding: 12,
+    padding: 8,
   },
   deleteButtonsContainer: {
     backgroundColor: '#222831',
@@ -94,10 +86,11 @@ const stylesDark = StyleSheet.create({
     flexDirection: 'row',
     padding: 8,
   },
-  bottomSection: {
+  footerContainer: {
     flex: 0.08,
     flexDirection: 'row',
-    borderWidth: 2,
+    borderTopWidth: 2,
+    borderBottomWidth: 2,
   },
   cashierCodeContainer: {
     backgroundColor: '#222831',
@@ -110,13 +103,13 @@ const stylesDark = StyleSheet.create({
     color: 'white',
     marginLeft: 16,
   },
-  dateContainer: {
+  currentDateContainer: {
     backgroundColor: '#222831',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  dateText: {
+  currentDateText: {
     fontSize: scaleByWidth('1.9'),
     fontWeight: 'bold',
     color: 'white',
@@ -132,8 +125,68 @@ const stylesDark = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  icon: {
+  iconContainer: {
     margin: 5,
+  },
+  storeStatusText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginRight: 16,
+  },
+  receiptModalContainer: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  receiptModalLeft: {
+    flex: 0.8,
+  },
+  receiptModalCenter: {
+    flex: 1,
+    padding: 20,
+  },
+  receiptModalRight: {
+    flex: 0.8,
+    alignItems: 'flex-end',
+  },
+  emailModal: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+  },
+  emailModalContainer: {
+    backgroundColor: 'white',
+    height: 200,
+    width: 400,
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+    elevation: 5,
+    borderWidth: 2,
+  },
+  emailInputContainer: {
+    flex: 1,
+    alignItems: 'center',
+    flexDirection: 'row',
+    width: '100%',
+  },
+  emailInput: {
+    width: '100%',
+    height: 60,
+    borderColor: 'gray',
+    borderWidth: 3,
+    borderRadius: 5,
+    padding: 15,
+  },
+  emailButtonsContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
+  },
+  flex2: {
+    flex: 2,
   },
 });
 

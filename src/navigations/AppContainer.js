@@ -35,9 +35,8 @@ const AppContainer = () => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      console.log('interval çalıştı');
       if (offlineSalesCount > 0 && isNotificationOn) {
-        console.log('asdasasdasda');
+        console.log('notification çalıştı');
         onDisplayNotification();
       }
     }, 10000); // 10 saniye (10000 milisaniye)

@@ -1,5 +1,5 @@
 import React from 'react';
-import {useContext, useState, useEffect} from 'react';
+import {useContext, useEffect} from 'react';
 import {SafeAreaView, Text, View} from 'react-native';
 import {BarChart, PieChart, ProgressChart} from 'react-native-chart-kit';
 import {useTranslation} from 'react-i18next';
@@ -177,7 +177,7 @@ const Dashboard = () => {
             <Text style={styles.title}>
               {t('daily-sales-goal')}
               {'  '}
-              {dailySalesAmount} ₺
+              {dailySalesAmount.toFixed(2)} ₺
             </Text>
           </View>
           <View

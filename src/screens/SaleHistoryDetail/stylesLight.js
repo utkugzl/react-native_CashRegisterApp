@@ -43,8 +43,9 @@ const stylesLight = StyleSheet.create({
   },
   footerContainer: {
     flex: 0.6,
-    justifyContent: 'center',
-    alignItems: 'flex-end',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    alignItems: 'center',
     borderTopWidth: 2,
     borderColor: 'black',
   },

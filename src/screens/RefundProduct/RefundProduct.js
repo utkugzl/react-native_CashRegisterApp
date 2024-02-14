@@ -144,25 +144,28 @@ const RefundProduct = ({route}) => {
           style={{
             backgroundColor: '#222831',
             flex: 1,
-            padding: 12,
+            padding: 16,
           }}>
-          <CartButton
-            title="İade Bitir"
-            color={'#e28010'}
-            onPress={handleRefund}
-          />
-          <View style={{flex: 0.5}}></View>
-          <CartButton
-            title="Satır İptal"
-            onPress={handleRowCancel}
-            color={'#862727'}
-          />
+          <View style={{flex: 1}}>
+            <View style={{flex: 1, flexDirection: 'row', marginBottom: 20}}>
+              <CartButton
+                title="İşlem İptal"
+                onPress={handleRefundCancel}
+                color={'#862727'}
+              />
+              <CartButton
+                title="Satır İptal"
+                onPress={handleRowCancel}
+                color={'#862727'}
+              />
+            </View>
+            <CartButton
+              title="İade Bitir"
+              color={'#e28010'}
+              onPress={handleRefund}
+            />
+          </View>
           <View style={{flex: 1}}></View>
-          <CartButton
-            title="İşlem İptal"
-            onPress={handleRefundCancel}
-            color={'#862727'}
-          />
         </View>
         <View
           style={{
@@ -182,9 +185,13 @@ const RefundProduct = ({route}) => {
           <View
             style={{
               backgroundColor: '#222831',
-              flex: 0.8,
-              borderWidth: 8,
-              borderRadius: 16,
+              flex: 1,
+              borderTopWidth: 4,
+              borderLeftWidth: 4,
+              borderRightWidth: 4,
+              borderTopRightRadius: 12,
+              borderTopLeftRadius: 12,
+              marginTop: 8,
             }}>
             <View
               style={{
@@ -204,7 +211,7 @@ const RefundProduct = ({route}) => {
                   fontWeight: 'bold',
                   color: 'white',
                 }}>
-                Ara Toplam
+                {t('subtotals')}
               </Text>
               <Text
                 style={{
@@ -232,7 +239,7 @@ const RefundProduct = ({route}) => {
                   fontWeight: 'bold',
                   color: 'white',
                 }}>
-                Toplam Tutar
+                {t('total-amount')}
               </Text>
               <Text
                 style={{
@@ -272,13 +279,6 @@ const RefundProduct = ({route}) => {
           }}>
           <Text style={{fontSize: 24, fontWeight: 'bold', color: 'white'}}>
             {currentDate}
-            {'--'}
-            cash-
-            {sale.cash}
-            cre-
-            {sale.creditCard}
-            {'----'}
-            {totalPrice - (sale.cash + sale.creditCard)}
           </Text>
         </View>
         <View

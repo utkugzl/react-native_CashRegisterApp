@@ -1,17 +1,19 @@
 import React from 'react';
-import {useContext, useEffect, useState} from 'react';
+import {useContext, useState} from 'react';
 import {SafeAreaView, View, Text, Image, FlatList} from 'react-native';
 import {ThemeContext} from '../../contexts/ThemeContext.js';
 import {ReportsContext} from '../../contexts/ReportsContext.js';
+import {useTranslation} from 'react-i18next';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import stylesDark from './stylesDark.js';
-import stylesLight from './stylesLight.js';
-import AppIcons from '../../components/AppIcons/AppIcons.js';
 import SalesHistoryList from '../../components/SalesHistoryList/SalesHistoryList.js';
 import {useFocusEffect} from '@react-navigation/native';
 
+import stylesDark from './stylesDark.js';
+import stylesLight from './stylesLight.js';
+
 const SaleHistory = () => {
+  const {t} = useTranslation();
   const {isDarkMode} = useContext(ThemeContext);
   const {offlineSalesCount} = useContext(ReportsContext);
   const [sales, setSales] = useState([]);
@@ -47,10 +49,9 @@ const SaleHistory = () => {
 
   return (
     <SafeAreaView style={styles.screenContainer}>
-      <View></View>
       <View style={styles.screenInnerContainer}>
         <View style={styles.listContainer}>
-          <Text style={styles.title}>Aktarılan Satışlar</Text>
+          <Text style={styles.title}>{t('sent-sales')}</Text>
           <SalesHistoryList sales={sales} />
         </View>
         {offlineSalesCount > 0 && (
@@ -67,7 +68,7 @@ const SaleHistory = () => {
                 fontWeight: 'bold',
                 marginVertical: 20,
               }}>
-              Aktarılamayan Satışlar
+              {t('unsent-sales')}
             </Text>
             <FlatList
               width="75%"

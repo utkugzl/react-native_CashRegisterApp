@@ -50,18 +50,258 @@
     "id": "9fd9"
   },
   "dailySalesAmount": {
-    "amount": 354.6
+    "amount": 1352.8500000000001
   },
   "sales": [
     {
-      "id": "7984",
+      "id": "2d5e",
       "date": "14/2/2024",
-      "time": "2:22",
+      "time": "19:3",
       "cashierCode": "065434",
-      "cash": 360,
+      "cash": 500,
       "creditCard": 0,
-      "cashBack": "5.40",
-      "total": "354.60",
+      "cashBack": "61.90",
+      "total": "438.10",
+      "cart": [
+        {
+          "id": "29",
+          "barcode": "715134",
+          "name": "Mintax Oluklu Sünger 5'li",
+          "price": "19.90",
+          "category": "cleaning",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/11be3_Oluklu_Sunger_5li.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "30",
+          "barcode": "358264",
+          "name": "Mintax Ovma Topu 4'lü",
+          "price": "18.75",
+          "category": "cleaning",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/a7d0e_Ovma_Topu_4lu_.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "33",
+          "barcode": "793174",
+          "name": "Mintax Sensitive Yumuşatıcı 1440 Ml",
+          "price": "65.75",
+          "category": "cleaning",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/16a0e_Sensitive_Yumusatici_1440_Ml.JPG",
+          "quantity": 1
+        },
+        {
+          "id": "36",
+          "barcode": "892356",
+          "name": "Perwoll Sıvı Deterjan Siyahlar 2.7 Lt",
+          "price": "181.50",
+          "category": "cleaning",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/19ba7_Sivi_Deterjan_Siyahlar_2.7_Lt.JPG",
+          "quantity": 1
+        },
+        {
+          "id": "35",
+          "barcode": "827345",
+          "name": "Mintax Kireç Önleyici 500 Gr",
+          "price": "24.90",
+          "category": "cleaning",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/bc0a4_Kirec_Onleyici_500_Gr.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "34",
+          "barcode": "339521",
+          "name": "Omo Matik Color Çamaşır Deterjanı 1.5 kg",
+          "price": "97.50",
+          "category": "cleaning",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/71f51_Matik_Color_Camasir_Deterjani_1.5_kg_.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "2",
+          "barcode": "873634",
+          "name": "Roka Demet",
+          "price": "21.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/2db58_Roka_Demet_.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "5",
+          "barcode": "592297",
+          "name": "Lahana Kg.",
+          "price": "7.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/7cb05_Lahana_Beyaz_Kg._.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "bb72",
+      "date": "14/2/2024",
+      "time": "19:10",
+      "cashierCode": "065434",
+      "cash": 100,
+      "creditCard": 0,
+      "cashBack": "19.30",
+      "total": "80.70",
+      "cart": [
+        {
+          "id": "3",
+          "barcode": "680898",
+          "name": "Ispanak Kg.",
+          "price": "39.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/39606_Ispanak_Kg._.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "6",
+          "barcode": "659705",
+          "name": "Kıvırcık Demet",
+          "price": "32.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/4026b_Salata_Kivircikadet_.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "5",
+          "barcode": "592297",
+          "name": "Lahana Kg.",
+          "price": "7.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/7cb05_Lahana_Beyaz_Kg._.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "b075",
+      "date": "14/2/2024",
+      "time": "19:11",
+      "cashierCode": "065434",
+      "cash": 100,
+      "creditCard": 0,
+      "cashBack": "19.30",
+      "total": "80.70",
+      "cart": [
+        {
+          "id": "3",
+          "barcode": "680898",
+          "name": "Ispanak Kg.",
+          "price": "39.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/39606_Ispanak_Kg._.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "6",
+          "barcode": "659705",
+          "name": "Kıvırcık Demet",
+          "price": "32.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/4026b_Salata_Kivircikadet_.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "5",
+          "barcode": "592297",
+          "name": "Lahana Kg.",
+          "price": "7.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/7cb05_Lahana_Beyaz_Kg._.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "eb41",
+      "date": "14/2/2024",
+      "time": "19:43",
+      "cashierCode": "065434",
+      "cash": 50,
+      "creditCard": 0,
+      "cashBack": "10.10",
+      "total": "39.90",
+      "cart": [
+        {
+          "id": "24",
+          "barcode": "389333",
+          "name": "Mintax Sıvı Bulaşık Deterjanı 750 Ml",
+          "price": "39.90",
+          "category": "cleaning",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/b32cb_Ultra_Sivi_Bulasik_Deterjani_750_Ml.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "f999",
+      "date": "14/2/2024",
+      "time": "20:26",
+      "cashierCode": "065434",
+      "cash": 50,
+      "creditCard": 300,
+      "cashBack": "1.00",
+      "total": "349.00",
+      "cart": [
+        {
+          "id": "103",
+          "barcode": "306097",
+          "name": "Beypazarı Maden Suyu 6x200 Ml",
+          "price": "26.50",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/88ad1_Maden_Suyu_6x200_Ml.JPG",
+          "quantity": 1
+        },
+        {
+          "id": "104",
+          "barcode": "562650",
+          "name": "Coca Cola Kola 2,5 Lt",
+          "price": "49.50",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/0df6b_Kola_2_5_Lt.png",
+          "quantity": 2
+        },
+        {
+          "id": "146",
+          "barcode": "416352",
+          "name": "Türk Kahvesi 100 Gr",
+          "price": "39.50",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/52d20_Turk_Kahvesi_100_Gr.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "135",
+          "barcode": "719645",
+          "name": "Yeşil Çay Açaili Ananaslı 20 li",
+          "price": "34.50",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/e6f72_Yesil_Cay_Acaili_Ananasli_20_li.png",
+          "quantity": 1
+        },
+        {
+          "id": "134",
+          "barcode": "955110",
+          "name": "Çaykur Rize Turist Çay 1000 Gr",
+          "price": "149.50",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/5c56a_Rize_Turist_Cay_1000_Gr.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "e9ea",
+      "date": "14/2/2024",
+      "time": "20:35",
+      "cashierCode": "065434",
+      "cash": 100,
+      "creditCard": 0,
+      "cashBack": "5.20",
+      "total": "94.80",
       "cart": [
         {
           "id": "23",
@@ -73,15 +313,6 @@
           "quantity": 1
         },
         {
-          "id": "24",
-          "barcode": "389333",
-          "name": "Mintax Sıvı Bulaşık Deterjanı 750 Ml",
-          "price": "39.90",
-          "category": "cleaning",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/b32cb_Ultra_Sivi_Bulasik_Deterjani_750_Ml.jpg",
-          "quantity": 1
-        },
-        {
           "id": "27",
           "barcode": "412564",
           "name": "Mintax Bulaşık Mak. Temizleyici 250 Ml",
@@ -89,14 +320,56 @@
           "category": "cleaning",
           "image": "https://docsd.ceptesok.com/product/1000x1000/1e12e_Bulasik_Mak._Temizleyici_250_Ml.jpg",
           "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "9ab1",
+      "date": "15/2/2024",
+      "time": "0:24",
+      "cashierCode": "065434",
+      "cash": 0,
+      "creditCard": 50,
+      "cashBack": "10.10",
+      "total": "39.90",
+      "cart": [
+        {
+          "id": "3",
+          "barcode": "680898",
+          "name": "Ispanak Kg.",
+          "price": "39.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/39606_Ispanak_Kg._.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "45c2",
+      "date": "15/2/2024",
+      "time": "2:5",
+      "cashierCode": "065434",
+      "cash": 200,
+      "creditCard": 50,
+      "cashBack": "20.25",
+      "total": "229.75",
+      "cart": [
+        {
+          "id": "58",
+          "barcode": "767315",
+          "name": "Kadın Polar Alt S-M",
+          "price": "90.25",
+          "category": "clothing",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/bcece_Kadin_Polar_Alt_S-m_.png",
+          "quantity": 1
         },
         {
-          "id": "26",
-          "barcode": "329981",
-          "name": "Finish Bulaşık Makinesi Tablet 50 Adet",
-          "price": "219.90",
-          "category": "cleaning",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/c9bfb_Hepsi_Bir_Arada_Bulasik_Makinesi_Tablet_50_Adet.png",
+          "id": "57",
+          "barcode": "596604",
+          "name": "Kadın Sweatshirt Wellsoft S-M",
+          "price": "139.50",
+          "category": "clothing",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/b2b23_Kadin_Sweatshirt_Wellsoft_S-M.jpg",
           "quantity": 1
         }
       ]

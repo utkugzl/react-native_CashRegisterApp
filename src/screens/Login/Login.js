@@ -3,7 +3,6 @@ import {useState, useEffect, useContext} from 'react';
 import {SafeAreaView, View, Image, Text, TouchableOpacity} from 'react-native';
 import {Vibration} from 'react-native';
 import {useTranslation} from 'react-i18next';
-import {useNavigation} from '@react-navigation/native';
 import {ThemeContext} from '../../contexts/ThemeContext.js';
 import {UserContext} from '../../contexts/UserContext.js';
 import LoginInput from '../../components/LoginInput/LoginInput.js';
@@ -159,16 +158,16 @@ const Login = () => {
       <View style={styles.loginInputContainer}>
         <View>
           <View style={styles.textContainer}>
-            <Text style={styles.welceomeText}>Hoşgeldiniz!</Text>
+            <Text style={styles.welceomeText}>{t('welcome')}</Text>
             <Text style={styles.descriptionText}>
-              Lütfen kullanıcı kodu ve şifrenizi giriniz
+              {t('enter-username-password')}
             </Text>
           </View>
           <View style={styles.inputContainer}>
             <AppIcons name={'personIcon'} />
 
             <LoginInput
-              placeholder="Kullaıcı Kodu"
+              placeholder={t('user-code')}
               keyboardType="numeric"
               onChange={handleUserCodeChange}
             />
@@ -176,7 +175,7 @@ const Login = () => {
           <View style={styles.inputContainer}>
             <AppIcons name={'lockIcon'} />
             <LoginInput
-              placeholder="Şifre"
+              placeholder={t('password')}
               isSecure={isSecureEntry}
               onChange={handlePasswordChange}
             />
@@ -194,7 +193,7 @@ const Login = () => {
               <Text style={styles.errorMessageText}>{loginErrorMessage}</Text>
             </View>
           ) : null}
-          <LoginButton title="Giriş Yap" onPress={handleLogin} />
+          <LoginButton title={t('login')} onPress={handleLogin} />
         </View>
       </View>
     </SafeAreaView>
