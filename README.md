@@ -8,7 +8,7 @@
   * [Features](#features)
   * [Screenshots](#screenshots)
   * [Dependencies](#dependencies)
-  * [How to Contribute](#how-to-contribute)
+  * [Author](#author)
 
 <br/>
 
