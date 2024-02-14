@@ -15,6 +15,7 @@ const CartButton = ({title, onPress, color, disabled}) => {
         justifyContent: 'center',
         alignItems: 'center',
         marginHorizontal: 8,
+        borderWidth: 1,
       }}>
       <Text style={{fontSize: 24, fontWeight: 'bold', color: 'white'}}>
         {title}

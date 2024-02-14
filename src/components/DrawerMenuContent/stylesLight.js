@@ -1,6 +1,5 @@
 import {StyleSheet} from 'react-native';
 import scaleByWidth from '../../utils/ScaleByWidth.js';
-import scaleByHeight from '../../utils/ScaleByHeight.js';
 
 const stylesLight = StyleSheet.create({
   menuContainer: {
@@ -23,7 +22,7 @@ const stylesLight = StyleSheet.create({
     padding: 5,
   },
   cashiersCodeText: {
-    fontSize: 15,
+    fontSize: scaleByWidth('1.5'),
     fontWeight: 'bold',
   },
   bodyContainer: {

@@ -7,7 +7,7 @@ import ProductStack from './ProductStack.js';
 import ReportStack from './ReportStack.js';
 import {useTranslation} from 'react-i18next';
 import DrawerMenuContent from '../components/DrawerMenuContent/DrawerMenuContent.js';
-import HeaderRight from '../components/HeaderRight/HeaderRight.js';
+
 const Drawer = createDrawerNavigator();
 
 const AppStack = () => {

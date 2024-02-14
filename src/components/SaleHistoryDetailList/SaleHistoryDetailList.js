@@ -8,6 +8,7 @@ const SaleHistoryDetailList = ({sale}) => {
       style={{marginTop: 15}}
       data={sale.cart}
       width="70%"
+      showsVerticalScrollIndicator={false}
       keyExtractor={item => item.id.toString()}
       renderItem={({item}) => (
         <View

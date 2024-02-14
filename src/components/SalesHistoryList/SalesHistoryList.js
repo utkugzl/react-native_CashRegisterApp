@@ -13,6 +13,8 @@ const SalesHistoryList = ({sales}) => {
       width="75%"
       data={sales}
       keyExtractor={item => item.id.toString()}
+      showsVerticalScrollIndicator={false}
+      inverted={true}
       renderItem={({item}) => (
         <TouchableOpacity
           activeOpacity={0.8}

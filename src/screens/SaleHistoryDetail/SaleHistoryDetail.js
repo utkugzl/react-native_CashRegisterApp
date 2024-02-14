@@ -1,14 +1,16 @@
 import React from 'react';
-import {useContext, useEffect} from 'react';
+import {useContext} from 'react';
 import {SafeAreaView, View, Text, TouchableOpacity} from 'react-native';
 import {ThemeContext} from '../../contexts/ThemeContext.js';
 import {useNavigation} from '@react-navigation/native';
+import {useTranslation} from 'react-i18next';
 import SaleHistoryDetailList from '../../components/SaleHistoryDetailList/SaleHistoryDetailList.js';
 import AppIcons from '../../components/AppIcons/AppIcons.js';
 import stylesDark from './stylesDark.js';
 import stylesLight from './stylesLight.js';
 
 const SaleHistoryDetail = ({route}) => {
+  const {t} = useTranslation();
   const {isDarkMode} = useContext(ThemeContext);
   const navigation = useNavigation();
   const styles = isDarkMode ? stylesDark : stylesLight;
@@ -19,20 +21,28 @@ const SaleHistoryDetail = ({route}) => {
       <View style={styles.headerContainer}>
         <View style={styles.headerLeftContainer}>
           <View style={styles.headerLeftTextContainer}>
-            <Text style={styles.text}>Tarih : {sale.date} </Text>
-            <Text style={styles.text}>Saat : {sale.time}</Text>
-            <Text style={styles.text}>Kasiyer Kodu : {sale.cashierCode}</Text>
+            <Text style={styles.text}>
+              {t('date')} : {sale.date}{' '}
+            </Text>
+            <Text style={styles.text}>
+              {t('time')} : {sale.time}
+            </Text>
+            <Text style={styles.text}>
+              {t('cashier-code')} : {sale.cashierCode}
+            </Text>
           </View>
         </View>
         <View style={styles.headerRightContainer}>
           <View style={styles.headerRightTextContainer}>
             <Text style={styles.text}>
-              Natkit Ödenen Miktar : {sale.cash} ₺
+              {t('cash-payment-amount')} : {sale.cash} ₺
             </Text>
             <Text style={styles.text}>
-              Kredi Kartı Ödenen Miktar : {sale.creditCard} ₺
+              {t('credit-payment-amount')} : {sale.creditCard} ₺
             </Text>
-            <Text style={styles.text}>Para Üstü : {sale.cashBack} ₺</Text>
+            <Text style={styles.text}>
+              {t('cashback-amount')} : {sale.cashBack} ₺
+            </Text>
           </View>
         </View>
       </View>
@@ -46,7 +56,9 @@ const SaleHistoryDetail = ({route}) => {
           <AppIcons name={'cartIcon'} />
           <Text style={styles.buttonTitle}>İade İşlemi</Text>
         </TouchableOpacity>
-        <Text style={styles.totalText}>Toplam Tutar : {sale.total} ₺</Text>
+        <Text style={styles.totalText}>
+          {t('total-amount')} : {sale.total} ₺
+        </Text>
       </View>
     </SafeAreaView>
   );

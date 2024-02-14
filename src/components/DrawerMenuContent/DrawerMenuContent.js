@@ -52,7 +52,9 @@ const DrawerMenuContent = props => {
         />
       </View>
       <View style={styles.cashiderCodeContainer}>
-        <Text style={styles.cashiersCodeText}>Cashier Code: {user} </Text>
+        <Text style={styles.cashiersCodeText}>
+          {t('cashier-code')} : {user}{' '}
+        </Text>
       </View>
       <View style={styles.bodyContainer}>
         <DrawerContentScrollView>

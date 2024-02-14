@@ -252,13 +252,15 @@ const Sale = () => {
           </View>
           <View style={styles.totalPriceContainer}>
             <View style={styles.totalPrice}>
-              <Text style={styles.totalPriceText}>Ara Toplam</Text>
+              <Text style={styles.totalPriceText}>{t('subtotals')}</Text>
               <Text style={styles.totalPriceText}>
                 {parseFloat(totalPrice).toFixed(2)}₺
               </Text>
             </View>
             <View style={styles.discountedTotalPrice}>
-              <Text style={styles.discountedPriceText}>Toplam Tutar</Text>
+              <Text style={styles.discountedPriceText}>
+                {t('total-amount')}
+              </Text>
               <Text style={styles.discountedPriceText}>
                 {parseFloat(discountedTotalPrice).toFixed(2)}₺
               </Text>

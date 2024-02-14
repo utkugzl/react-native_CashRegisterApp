@@ -2,22 +2,16 @@ import React from 'react';
 import {useEffect, useState, useContext} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
+import {ThemeContext} from '../../contexts/ThemeContext.js';
 import {CartContext} from '../../contexts/CartContext.js';
 import {UserContext} from '../../contexts/UserContext.js';
 import {StoreContext} from '../../contexts/StoreContext.js';
 import {ReportsContext} from '../../contexts/ReportsContext.js';
-import {
-  SafeAreaView,
-  View,
-  Text,
-  Alert,
-  Modal,
-  TouchableOpacity,
-  TextInput,
-} from 'react-native';
+import {SafeAreaView, View, Text, Alert, Modal, TextInput} from 'react-native';
 import axios from 'axios';
 import RNHTMLtoPDF from 'react-native-html-to-pdf';
 import Share from 'react-native-share';
+import email from 'react-native-email';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import AppIcons from '../../components/AppIcons/AppIcons.js';
 import CartButton from '../../components/CartButton/CartButton.js';
@@ -27,6 +21,9 @@ import ReceiptButton from '../../components/ReceiptButton/ReceiptButton.js';
 import CartList from '../../components/CartList/CartList.js';
 import MailBoxButton from '../../components/MailBoxButton/MailBoxButton.js';
 
+import stylesDark from './stylesDark.js';
+import stylesLight from './stylesLight.js';
+
 const Payment = () => {
   const navigation = useNavigation();
   const {t} = useTranslation();
@@ -35,6 +32,7 @@ const Payment = () => {
   const [selectedItem, setSelectedItem] = useState(null);
   const {isStoreOnline} = useContext(StoreContext);
   const {user} = useContext(UserContext);
+  const {isDarkMode} = useContext(ThemeContext);
   const {updateOfflineSalesCount} = useContext(ReportsContext);
   const {
     cart,
@@ -54,13 +52,16 @@ const Payment = () => {
     setCreditCardPayment,
     setCampaignId,
   } = useContext(CartContext);
+  const [isDocumentFinishDisabled, setIsDocumentFinishDisabled] =
+    useState(true);
+  const [customerEmail, setCustomerEmail] = useState('');
+  const [receiptPDFpath, setReceiptPDFpath] = useState('');
+
   const storeStatusText = isStoreOnline
     ? t('store-online')
     : t('store-offline');
   const storeStatusIcon = isStoreOnline ? 'onlineIcon' : 'offlineIcon';
-
-  const [isDocumentFinishDisabled, setIsDocumentFinishDisabled] =
-    useState(true);
+  const styles = isDarkMode ? stylesDark : stylesLight;
 
   useEffect(() => {
     const newIsDocumentFinishDisabled =
@@ -86,6 +87,7 @@ const Payment = () => {
       removeFromCart(selectedItem);
       setSelectedItem(null);
       if (cart.length === 0) {
+        setCustomerEmail('');
         navigation.goBack();
       }
     } else {
@@ -99,6 +101,9 @@ const Payment = () => {
       setDiscountedTotalPrice(0);
       setCart([]);
       setSelectedItem(null);
+      setCashPayment(0);
+      setCreditCardPayment(0);
+      setCustomerEmail('');
       navigation.goBack();
     } else {
       Alert.alert('Uyarı', 'Sepetinizde ürün bulunmamaktadır.');
@@ -343,7 +348,23 @@ const Payment = () => {
       };
 
       const pdf = await RNHTMLtoPDF.convert(options);
+
       sharePDF(pdf.filePath);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const convertToPDF2 = async () => {
+    try {
+      const options = {
+        html: htmlTemplate,
+        fileName: 'receipt',
+        directory: 'Documents',
+      };
+
+      const pdf = await RNHTMLtoPDF.convert(options);
+      setReceiptPDFpath(pdf.filePath);
     } catch (error) {
       console.error(error);
     }
@@ -363,131 +384,96 @@ const Payment = () => {
     }
   };
 
+  const generateMailReceipt = cart => {
+    let cartText = '...\n';
+    cart.forEach(product => {
+      cartText += `${product.name}\n${product.barcode} (${product.quantity} x ${
+        product.price
+      }₺)\nToplam: ${(product.price * product.quantity).toFixed(2)}₺\n\n`;
+    });
+    return cartText;
+  };
+
+  const handleEmail = () => {
+    if (customerEmail === '') {
+      Alert.alert('Uyarı', 'E-mail adresi girilmedi.');
+      return;
+    }
+    const to = customerEmail;
+
+    const emailBody = `Fatura bilgileri:\n
+    Tarih: ${currentDate}
+    Saat: ${currentTime}
+    Kasiyer Kodu: ${user}
+    Alınan Para: ${(cashPayment + creditCardPayment).toFixed(2)}₺
+    Para Üstü: ${cashBack.toFixed(2)}₺
+    Genel Toplam: ${discountedTotalPrice.toFixed(2)}₺
+    
+    ${generateMailReceipt(cart)}`;
+
+    email(to, {
+      subject: 'E-Fatura',
+      body: emailBody,
+      checkCanOpen: false,
+      isHTML: false,
+
+      attachments: [
+        {
+          path: receiptPDFpath, // PDF dosyasının yolu
+          type: 'application/pdf', // Dosya tipi
+          name: 'receipt.pdf', // Dosya adı
+        },
+      ],
+    }).catch(console.error);
+  };
+
   return (
-    <SafeAreaView style={{backgroundColor: '#222831', flex: 1}}>
-      <View style={{flex: 1, flexDirection: 'row'}}>
-        <View style={{backgroundColor: 'yellow', flex: 1}}>
-          <View
-            style={{
-              backgroundColor: '#222831',
-              flex: 1,
-              flexDirection: 'row',
-              padding: 18,
-            }}>
+    <SafeAreaView style={styles.screenContainer}>
+      <View style={styles.sectionsContainer}>
+        <View style={styles.leftSection}>
+          <View style={styles.leftButtonContainer}>
             <CartButton
               title="E-Fatura"
               color={'#9c6417'}
+              disabled={isDocumentFinishDisabled}
               onPress={() => {
+                convertToPDF2();
                 setVisibleEmailInput(true);
               }}
             />
           </View>
-          <View
-            style={{
-              backgroundColor: '#222831',
-              flex: 4,
-              flexDirection: 'row',
-              padding: 8,
-            }}></View>
+          <View style={styles.leftBottomContainer}></View>
         </View>
-        <View
-          style={{
-            backgroundColor: '#505860',
-            borderWidth: 1,
-            flex: 1,
-          }}>
-          <View
-            style={{
-              flex: 6,
-              justifyContent: 'center',
-              alignItems: 'center',
-              padding: 4,
-            }}>
+        <View style={styles.centerContainer}>
+          <View style={styles.listContainer}>
             <CartList cart={cart} setSelectedItem={setSelectedItem} />
           </View>
-          <View
-            style={{
-              backgroundColor: '#222831',
-              flex: 0.8,
-              borderWidth: 8,
-              borderRadius: 16,
-            }}>
-            <View
-              style={{
-                backgroundColor: '#222831',
-                flex: 1,
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                paddingHorizontal: 12,
-                borderBottomWidth: 4,
-                borderTopStartRadius: 16,
-                borderTopEndRadius: 16,
-              }}>
-              <Text
-                style={{
-                  fontSize: 20,
-                  fontWeight: 'bold',
-                  color: 'white',
-                }}>
-                Ara Toplam
-              </Text>
-              <Text
-                style={{
-                  fontSize: 20,
-                  fontWeight: 'bold',
-                  color: 'white',
-                }}>
-                {totalPrice.toFixed(2)}₺
-              </Text>
+          <View style={styles.priceContainer}>
+            <View style={styles.totalPriceContainer}>
+              <Text style={styles.priceText}>{t('subtotals')}</Text>
+              <Text style={styles.priceText}>{totalPrice.toFixed(2)}₺</Text>
             </View>
-            <View
-              style={{
-                backgroundColor: '#222831',
-                flex: 1,
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                paddingHorizontal: 12,
-                borderBottomStartRadius: 16,
-                borderBottomEndRadius: 16,
-              }}>
-              <Text
-                style={{
-                  fontSize: 20,
-                  fontWeight: 'bold',
-                  color: 'white',
-                }}>
-                Toplam Tutar
-              </Text>
-              <Text
-                style={{
-                  fontSize: 20,
-                  fontWeight: 'bold',
-                  color: 'white',
-                }}>
+            <View style={styles.discountedTotalPriceContainer}>
+              <Text style={styles.priceText}>{t('total-amount')}</Text>
+              <Text style={styles.priceText}>
                 {discountedTotalPrice.toFixed(2)}₺
               </Text>
             </View>
           </View>
         </View>
-        <View style={{flex: 1}}>
-          <View style={{backgroundColor: 'brown', flex: 1}}>
-            <View style={{backgroundColor: '#222831', flex: 1, padding: 8}}>
+        <View style={styles.rightContainer}>
+          <View style={styles.rightContainer}>
+            <View style={styles.finishSaleButtonContainer}>
               <CartButton
                 title="Belge Bitir"
                 color={'#afad21'}
                 disabled={isDocumentFinishDisabled}
-                onPress={() => handlePayment()}
+                onPress={() => {
+                  handlePayment();
+                }}
               />
             </View>
-            <View
-              style={{
-                backgroundColor: '#222831',
-                flex: 1,
-                flexDirection: 'row',
-                padding: 8,
-              }}>
+            <View style={styles.deleteButtonsContainer}>
               <CartButton
                 title="Satır İptal"
                 onPress={handleRowCancel}
@@ -503,66 +489,36 @@ const Payment = () => {
           <PaymentKeyboard />
         </View>
       </View>
-      <View style={{flex: 0.08, flexDirection: 'row', borderWidth: 2}}>
-        <View
-          style={{
-            backgroundColor: '#222831',
-            flex: 1,
-            justifyContent: 'center',
-          }}>
-          <Text
-            style={{
-              fontSize: 20,
-              fontWeight: 'bold',
-              color: 'white',
-              marginLeft: 16,
-            }}>
-            Kasiyer Kodu : {user}
-          </Text>
+      <View style={styles.footerContainer}>
+        <View style={styles.cashierCodeContainer}>
+          <Text style={styles.cashierCodeText}>Kasiyer Kodu : {user}</Text>
         </View>
-        <View
-          style={{
-            backgroundColor: '#222831',
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          <Text style={{fontSize: 24, fontWeight: 'bold', color: 'white'}}>
+        <View style={styles.currentDateContainer}>
+          <Text style={styles.currentDateText}>
             {currentDate} Cash-{cashPayment} Cre-{creditCardPayment} --{' '}
             {discountedTotalPrice}
           </Text>
         </View>
-        <View
-          style={{
-            backgroundColor: '#222831',
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'flex-end',
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            <View style={{margin: 5}}>
+        <View style={styles.storeStatusContainer}>
+          <View style={styles.storeStatusIconContainer}>
+            <View style={styles.iconContainer}>
               <AppIcons name={storeStatusIcon} />
             </View>
             <Text
-              style={{
-                fontSize: 24,
-                fontWeight: 'bold',
-                color: isStoreOnline ? 'green' : 'red',
-                marginRight: 16,
-              }}>
+              style={[
+                styles.storeStatusText,
+                {
+                  color: isStoreOnline ? 'green' : 'red',
+                },
+              ]}>
               {storeStatusText}
             </Text>
           </View>
         </View>
       </View>
       <Modal visible={visibleReceipt}>
-        <View style={{flex: 1, flexDirection: 'row'}}>
-          <View style={{flex: 0.8}}>
+        <View style={styles.receiptModalContainer}>
+          <View style={styles.receiptModalLeft}>
             <ReceiptButton
               title="Kapat"
               onPress={() => {
@@ -573,13 +529,14 @@ const Payment = () => {
                 setTotalPrice(0);
                 setDiscountedTotalPrice(0);
                 setCampaignId(0);
+                setCustomerEmail('');
                 navigation.goBack();
               }}
               color={'#2287da'}
               iconName={'closeIcon'}
             />
           </View>
-          <View style={{flex: 1, padding: 20}}>
+          <View style={styles.receiptModalCenter}>
             <ShoppingReceipt
               date={currentDate}
               time={currentTime}
@@ -591,12 +548,18 @@ const Payment = () => {
               cart={cart}
             />
           </View>
-          <View style={{flex: 0.8, alignItems: 'flex-end'}}>
+          <View style={styles.receiptModalRight}>
             <ReceiptButton
-              title="Yazdir"
+              title="Yazdır"
               onPress={convertToPDF}
               color={'#2287da'}
               iconName={'printerIcon'}
+            />
+            <ReceiptButton
+              title="E-Mail"
+              onPress={handleEmail}
+              color={'#2287da'}
+              iconName={'mailIcon'}
             />
           </View>
         </View>
@@ -608,65 +571,30 @@ const Payment = () => {
         onRequestClose={() => {
           setVisibleEmailInput(!visibleEmailInput);
         }}>
-        <View
-          style={{
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: 'rgba(0, 0, 0, 0.7)', // Arkaplan rengi
-          }}>
-          <View
-            style={{
-              backgroundColor: 'white',
-              height: 200,
-              width: 400,
-              padding: 15,
-              borderRadius: 10,
-              alignItems: 'center',
-              elevation: 5,
-              borderWidth: 2,
-            }}>
-            <View style={{flex: 2}}>
-              <View
-                style={{
-                  flex: 1,
-                  alignItems: 'center',
-                  flexDirection: 'row',
-                  width: '100%',
-                }}>
+        <View style={styles.emailModal}>
+          <View style={styles.emailModalContainer}>
+            <View style={styles.flex2}>
+              <View style={styles.emailInputContainer}>
                 <TextInput
-                  style={{
-                    width: '100%',
-                    height: 60,
-                    borderColor: 'gray',
-                    borderWidth: 3,
-                    borderRadius: 5,
-                    padding: 15,
-                  }}
+                  style={styles.emailInput}
                   placeholder="Email"
-                  //onChangeText={text => setEmail(text)}
-                  //value={email}
+                  keyboardType="email-address"
+                  onChangeText={text => setCustomerEmail(text)}
                 />
               </View>
             </View>
-            <View
-              style={{
-                flex: 1,
-                flexDirection: 'row',
-                width: '100%',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-              }}>
+            <View style={styles.emailButtonsContainer}>
               <MailBoxButton
                 onPress={() => {
                   setVisibleEmailInput(!visibleEmailInput);
+                  setCustomerEmail('');
                 }}
                 title="Kapat"
                 color="#b9340f"
               />
               <MailBoxButton
                 onPress={() => {
-                  console.log('email pressed');
+                  setVisibleEmailInput(!visibleEmailInput);
                 }}
                 title="Kaydet"
                 color="#19b021"
