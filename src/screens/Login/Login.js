@@ -1,6 +1,14 @@
 import React from 'react';
 import {useState, useEffect, useContext} from 'react';
-import {SafeAreaView, View, Image, Text, TouchableOpacity} from 'react-native';
+import {
+  SafeAreaView,
+  View,
+  Image,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from 'react-native';
 import {Vibration} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {ThemeContext} from '../../contexts/ThemeContext.js';
@@ -14,6 +22,13 @@ import axios from 'axios';
 import FingerprintScanner from 'react-native-fingerprint-scanner';
 
 const Sound = require('react-native-sound');
+
+const DismisKeyboard = ({children}) => (
+  <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+    {children}
+  </TouchableWithoutFeedback>
+);
+
 const Login = () => {
   const {t} = useTranslation();
   const {isDarkMode} = useContext(ThemeContext);
@@ -150,53 +165,55 @@ const Login = () => {
   };
 
   return (
-    <SafeAreaView style={styles.screenContainer}>
-      <View style={styles.logoContainer}>
-        <Image source={logoImageSource} style={styles.image} />
-        <Text style={styles.versionText}>{version}</Text>
-      </View>
-      <View style={styles.loginInputContainer}>
-        <View>
-          <View style={styles.textContainer}>
-            <Text style={styles.welceomeText}>{t('welcome')}</Text>
-            <Text style={styles.descriptionText}>
-              {t('enter-username-password')}
-            </Text>
-          </View>
-          <View style={styles.inputContainer}>
-            <AppIcons name={'personIcon'} />
-
-            <LoginInput
-              placeholder={t('user-code')}
-              keyboardType="numeric"
-              onChange={handleUserCodeChange}
-            />
-          </View>
-          <View style={styles.inputContainer}>
-            <AppIcons name={'lockIcon'} />
-            <LoginInput
-              placeholder={t('password')}
-              isSecure={isSecureEntry}
-              onChange={handlePasswordChange}
-            />
-            <TouchableOpacity
-              style={styles.showPasswordContainer}
-              onPress={() => {
-                setIsSecureEntry(prev => !prev);
-              }}>
-              <AppIcons name={'showPasswordIcon'} />
-            </TouchableOpacity>
-          </View>
-          {loginErrorMessage ? (
-            <View style={styles.errorMessageContainer}>
-              <AppIcons name={'alertIcon'} />
-              <Text style={styles.errorMessageText}>{loginErrorMessage}</Text>
-            </View>
-          ) : null}
-          <LoginButton title={t('login')} onPress={handleLogin} />
+    <DismisKeyboard>
+      <SafeAreaView style={styles.screenContainer}>
+        <View style={styles.logoContainer}>
+          <Image source={logoImageSource} style={styles.image} />
+          <Text style={styles.versionText}>{version}</Text>
         </View>
-      </View>
-    </SafeAreaView>
+        <View style={styles.loginInputContainer}>
+          <View>
+            <View style={styles.textContainer}>
+              <Text style={styles.welceomeText}>{t('welcome')}</Text>
+              <Text style={styles.descriptionText}>
+                {t('enter-username-password')}
+              </Text>
+            </View>
+            <View style={styles.inputContainer}>
+              <AppIcons name={'personIcon'} />
+
+              <LoginInput
+                placeholder={t('user-code')}
+                keyboardType="numeric"
+                onChange={handleUserCodeChange}
+              />
+            </View>
+            <View style={styles.inputContainer}>
+              <AppIcons name={'lockIcon'} />
+              <LoginInput
+                placeholder={t('password')}
+                isSecure={isSecureEntry}
+                onChange={handlePasswordChange}
+              />
+              <TouchableOpacity
+                style={styles.showPasswordContainer}
+                onPress={() => {
+                  setIsSecureEntry(prev => !prev);
+                }}>
+                <AppIcons name={'showPasswordIcon'} />
+              </TouchableOpacity>
+            </View>
+            {loginErrorMessage ? (
+              <View style={styles.errorMessageContainer}>
+                <AppIcons name={'alertIcon'} />
+                <Text style={styles.errorMessageText}>{loginErrorMessage}</Text>
+              </View>
+            ) : null}
+            <LoginButton title={t('login')} onPress={handleLogin} />
+          </View>
+        </View>
+      </SafeAreaView>
+    </DismisKeyboard>
   );
 };
 

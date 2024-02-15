@@ -451,12 +451,14 @@ const Payment = () => {
           <View style={styles.priceContainer}>
             <View style={styles.totalPriceContainer}>
               <Text style={styles.priceText}>{t('subtotals')}</Text>
-              <Text style={styles.priceText}>{totalPrice.toFixed(2)}₺</Text>
+              <Text style={styles.priceText}>
+                {parseFloat(totalPrice).toFixed(2)}₺
+              </Text>
             </View>
             <View style={styles.discountedTotalPriceContainer}>
               <Text style={styles.priceText}>{t('total-amount')}</Text>
               <Text style={styles.priceText}>
-                {discountedTotalPrice.toFixed(2)}₺
+                {parseFloat(discountedTotalPrice).toFixed(2)}₺
               </Text>
             </View>
           </View>
@@ -494,10 +496,7 @@ const Payment = () => {
           <Text style={styles.cashierCodeText}>Kasiyer Kodu : {user}</Text>
         </View>
         <View style={styles.currentDateContainer}>
-          <Text style={styles.currentDateText}>
-            {currentDate} Cash-{cashPayment} Cre-{creditCardPayment} --{' '}
-            {discountedTotalPrice}
-          </Text>
+          <Text style={styles.currentDateText}>{currentDate}</Text>
         </View>
         <View style={styles.storeStatusContainer}>
           <View style={styles.storeStatusIconContainer}>

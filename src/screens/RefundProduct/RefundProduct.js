@@ -8,8 +8,6 @@ import {StoreContext} from '../../contexts/StoreContext.js';
 import {ReportsContext} from '../../contexts/ReportsContext.js';
 import {SafeAreaView, View, Text, Alert, Modal} from 'react-native';
 import axios from 'axios';
-import RNHTMLtoPDF from 'react-native-html-to-pdf';
-import Share from 'react-native-share';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import AppIcons from '../../components/AppIcons/AppIcons.js';
 import CartButton from '../../components/CartButton/CartButton.js';
@@ -219,7 +217,7 @@ const RefundProduct = ({route}) => {
                   fontWeight: 'bold',
                   color: 'white',
                 }}>
-                {totalPrice}₺
+                {parseFloat(totalPrice).toFixed(2)}₺
               </Text>
             </View>
             <View
@@ -247,7 +245,7 @@ const RefundProduct = ({route}) => {
                   fontWeight: 'bold',
                   color: 'white',
                 }}>
-                {discountedTotalPrice}₺
+                {parseFloat(discountedTotalPrice).toFixed(2)}₺
               </Text>
             </View>
           </View>
