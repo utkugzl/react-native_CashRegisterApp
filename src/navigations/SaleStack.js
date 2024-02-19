@@ -6,7 +6,6 @@ import {ThemeContext} from '../contexts/ThemeContext.js';
 import Sale from '../screens/Sale/Sale.js';
 import Payment from '../screens/Payment/Paymnet.js';
 import HeaderLeft from '../components/HeaderLeft/HeaderLeft.js';
-import HeaderRight from '../components/HeaderRight/HeaderRight.js';
 
 const Stack = createNativeStackNavigator();
 

@@ -10,7 +10,6 @@ const CartProduct = ({name, barcode, price, onPress, quantity}) => {
       style={{
         backgroundColor: '#ccd226',
         height: 50,
-        width: '100%',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',

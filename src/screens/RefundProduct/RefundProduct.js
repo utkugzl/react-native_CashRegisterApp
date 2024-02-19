@@ -2,35 +2,38 @@ import React from 'react';
 import {useEffect, useState, useContext} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
+import {ThemeContext} from '../../contexts/ThemeContext.js';
 import {CartContext} from '../../contexts/CartContext.js';
 import {UserContext} from '../../contexts/UserContext.js';
 import {StoreContext} from '../../contexts/StoreContext.js';
-import {ReportsContext} from '../../contexts/ReportsContext.js';
-import {SafeAreaView, View, Text, Alert, Modal} from 'react-native';
+import {SafeAreaView, View, Text, Alert} from 'react-native';
 import axios from 'axios';
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import AppIcons from '../../components/AppIcons/AppIcons.js';
 import CartButton from '../../components/CartButton/CartButton.js';
-import PaymentKeyboard from '../../components/PaymnetKeyboard/PaymnetKeyboard.js';
-import ShoppingReceipt from '../../components/ShoppingReceipt/ShoppingReceipt.js';
-import ReceiptButton from '../../components/ReceiptButton/ReceiptButton.js';
 import CartList from '../../components/CartList/CartList.js';
+import RefundedProductList from '../../components/RefundedProductList/RefundedProductList.js';
+
+import stylesDark from './stylesDark.js';
+import stylesLight from './stylesLight.js';
 
 const RefundProduct = ({route}) => {
-  const navigation = useNavigation();
   const {t} = useTranslation();
-  const [visibleReceipt, setVisibleReceipt] = useState(false);
+  const navigation = useNavigation();
   const [selectedItem, setSelectedItem] = useState(null);
+  const [refundItems, setRefundItems] = useState([]);
+  const {isDarkMode} = useContext(ThemeContext);
   const {isStoreOnline} = useContext(StoreContext);
   const {user} = useContext(UserContext);
-  const {updateOfflineSalesCount} = useContext(ReportsContext);
+
   const {
     cart,
     totalPrice,
     discountedTotalPrice,
     currentDate,
-    currentTime,
     setCart,
+    addToCart,
     setTotalPrice,
     setDiscountedTotalPrice,
     removeFromCart,
@@ -38,15 +41,16 @@ const RefundProduct = ({route}) => {
     creditCardPayment,
     cashBack,
     setCashBack,
-    setCashPayment,
-    setCreditCardPayment,
-    setCampaignId,
   } = useContext(CartContext);
+
+  const styles = isDarkMode ? stylesDark : stylesLight;
   const storeStatusText = isStoreOnline
     ? t('store-online')
     : t('store-offline');
   const storeStatusIcon = isStoreOnline ? 'onlineIcon' : 'offlineIcon';
+
   const {sale} = route.params;
+
   useEffect(() => {
     setCashBack(
       cashPayment + creditCardPayment - discountedTotalPrice > 0
@@ -70,6 +74,7 @@ const RefundProduct = ({route}) => {
   const handleRowCancel = () => {
     if (selectedItem) {
       removeFromCart(selectedItem);
+      setRefundItems([...refundItems, selectedItem]);
       setSelectedItem(null);
     } else {
       Alert.alert('Uyarı', 'Lütfen bir ürün seçin.');
@@ -85,7 +90,6 @@ const RefundProduct = ({route}) => {
   };
 
   const handleRefund = () => {
-    //setVisibleReceipt(true);
     const updatedSale = {
       id: sale.id,
       date: sale.date,
@@ -122,30 +126,18 @@ const RefundProduct = ({route}) => {
       });
   };
 
-  const saveSaleLocally = async sale => {
-    try {
-      let sales = await AsyncStorage.getItem('offlineSales');
-      sales = sales ? JSON.parse(sales) : [];
-      sales.push(sale);
-      await AsyncStorage.setItem('offlineSales', JSON.stringify(sales));
-      console.log('Sale saved locally:', sale);
-      updateOfflineSalesCount();
-    } catch (error) {
-      console.error('Error saving sale locally:', error);
-    }
+  const handleRemoveRefundItem = index => {
+    const updatedRefundItems = [...refundItems];
+    updatedRefundItems.splice(index, 1);
+    setRefundItems(updatedRefundItems);
   };
 
   return (
-    <SafeAreaView style={{backgroundColor: '#222831', flex: 1}}>
-      <View style={{flex: 1, flexDirection: 'row'}}>
-        <View
-          style={{
-            backgroundColor: '#222831',
-            flex: 1,
-            padding: 16,
-          }}>
-          <View style={{flex: 1}}>
-            <View style={{flex: 1, flexDirection: 'row', marginBottom: 20}}>
+    <SafeAreaView style={styles.screenContainer}>
+      <View style={styles.sectionsContainer}>
+        <View style={styles.leftSection}>
+          <View style={styles.flex1}>
+            <View style={styles.buttonsContainer}>
               <CartButton
                 title="İşlem İptal"
                 onPress={handleRefundCancel}
@@ -163,21 +155,19 @@ const RefundProduct = ({route}) => {
               onPress={handleRefund}
             />
           </View>
-          <View style={{flex: 1}}></View>
+          <View style={styles.titleContainer}>
+            <Text style={styles.title}>İade Edilen Ürünler</Text>
+          </View>
+          <View style={styles.refundListContainer}>
+            <RefundedProductList
+              refundItems={refundItems}
+              handleRemoveRefundItem={handleRemoveRefundItem}
+              addToCart={addToCart}
+            />
+          </View>
         </View>
-        <View
-          style={{
-            backgroundColor: '#505860',
-            borderWidth: 1,
-            flex: 2,
-          }}>
-          <View
-            style={{
-              flex: 6,
-              justifyContent: 'center',
-              alignItems: 'center',
-              padding: 4,
-            }}>
+        <View style={styles.rightSection}>
+          <View style={styles.cartListContainer}>
             <CartList cart={cart} setSelectedItem={setSelectedItem} />
           </View>
           <View
@@ -203,20 +193,8 @@ const RefundProduct = ({route}) => {
                 borderTopStartRadius: 16,
                 borderTopEndRadius: 16,
               }}>
-              <Text
-                style={{
-                  fontSize: 20,
-                  fontWeight: 'bold',
-                  color: 'white',
-                }}>
-                {t('subtotals')}
-              </Text>
-              <Text
-                style={{
-                  fontSize: 20,
-                  fontWeight: 'bold',
-                  color: 'white',
-                }}>
+              <Text style={styles.totalPriceText}>{t('subtotals')}</Text>
+              <Text style={styles.totalPriceText}>
                 {parseFloat(totalPrice).toFixed(2)}₺
               </Text>
             </View>
@@ -231,68 +209,24 @@ const RefundProduct = ({route}) => {
                 borderBottomStartRadius: 16,
                 borderBottomEndRadius: 16,
               }}>
-              <Text
-                style={{
-                  fontSize: 20,
-                  fontWeight: 'bold',
-                  color: 'white',
-                }}>
-                {t('total-amount')}
-              </Text>
-              <Text
-                style={{
-                  fontSize: 20,
-                  fontWeight: 'bold',
-                  color: 'white',
-                }}>
+              <Text style={styles.totalPriceText}>{t('total-amount')}</Text>
+              <Text style={styles.totalPriceText}>
                 {parseFloat(discountedTotalPrice).toFixed(2)}₺
               </Text>
             </View>
           </View>
         </View>
       </View>
-      <View style={{flex: 0.08, flexDirection: 'row', borderWidth: 2}}>
-        <View
-          style={{
-            backgroundColor: '#222831',
-            flex: 1,
-            justifyContent: 'center',
-          }}>
-          <Text
-            style={{
-              fontSize: 20,
-              fontWeight: 'bold',
-              color: 'white',
-              marginLeft: 16,
-            }}>
-            Kasiyer Kodu : {user}
-          </Text>
+      <View style={styles.bottomSection}>
+        <View style={styles.cashierCodeContainer}>
+          <Text style={styles.cashierCodeText}>Kasiyer Kodu : {user}</Text>
         </View>
-        <View
-          style={{
-            backgroundColor: '#222831',
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          <Text style={{fontSize: 24, fontWeight: 'bold', color: 'white'}}>
-            {currentDate}
-          </Text>
+        <View style={styles.dateContainer}>
+          <Text style={styles.dateText}>{currentDate}</Text>
         </View>
-        <View
-          style={{
-            backgroundColor: '#222831',
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'flex-end',
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            <View style={{margin: 5}}>
+        <View style={styles.storeStatusContainer}>
+          <View style={styles.storeStatusIconContainer}>
+            <View style={styles.icon}>
               <AppIcons name={storeStatusIcon} />
             </View>
             <Text

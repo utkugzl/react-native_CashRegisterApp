@@ -50,7 +50,7 @@
     "id": "9fd9"
   },
   "dailySalesAmount": {
-    "amount": 323.6
+    "amount": 166.8
   },
   "sales": [
     {
@@ -60,36 +60,9 @@
       "cashierCode": "065434",
       "cash": 250,
       "creditCard": 0,
-      "cashBack": "23.40",
-      "total": "226.60",
+      "cashBack": "205.10",
+      "total": "44.90",
       "cart": [
-        {
-          "id": "109",
-          "barcode": "515068",
-          "name": "Gazoz 200 Ml",
-          "price": "10.50",
-          "category": "market",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/camlica-gazoz-250-ml-68025.jpg",
-          "quantity": 1
-        },
-        {
-          "id": "108",
-          "barcode": "637204",
-          "name": "Fanta Portakal 2.5 Lt",
-          "price": "49.50",
-          "category": "market",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/e5432_Portakal__2.5_Lt.png",
-          "quantity": 1
-        },
-        {
-          "id": "112",
-          "barcode": "868046",
-          "name": "Schweppes Bitter Limon 1 Lt",
-          "price": "29.90",
-          "category": "market",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/95f1c_Bitter_Limon_1_Lt.JPG",
-          "quantity": 1
-        },
         {
           "id": "18",
           "barcode": "591783",
@@ -97,24 +70,6 @@
           "price": "44.90",
           "category": "market",
           "image": "https://docsd.ceptesok.com/product/1000x1000/9613c_Muz_Yerli_Kg_.jpg",
-          "quantity": 1
-        },
-        {
-          "id": "9",
-          "barcode": "397197",
-          "name": "Salatalık Kg.",
-          "price": "69.90",
-          "category": "market",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/a4a87_Salatalik_Kg_.jpg",
-          "quantity": 1
-        },
-        {
-          "id": "1",
-          "barcode": "397981",
-          "name": "Nane Demet",
-          "price": "21.90",
-          "category": "market",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/64d96_Nane_Dmt._.jpg",
           "quantity": 1
         }
       ]
@@ -163,6 +118,27 @@
           "price": "9.50",
           "category": "market",
           "image": "https://docsd.ceptesok.com/product/1000x1000/84b1d_Odun_Ekmek_200-250_Gr.png",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "ac5b",
+      "date": "15/2/2024",
+      "time": "19:8",
+      "cashierCode": "065434",
+      "cash": 200,
+      "creditCard": 100,
+      "cashBack": "275.10",
+      "total": "24.90",
+      "cart": [
+        {
+          "id": "35",
+          "barcode": "827345",
+          "name": "Mintax Kireç Önleyici 500 Gr",
+          "price": "24.90",
+          "category": "cleaning",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/bc0a4_Kirec_Onleyici_500_Gr.jpg",
           "quantity": 1
         }
       ]

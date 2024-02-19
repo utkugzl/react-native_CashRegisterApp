@@ -33,25 +33,7 @@ const CartProvider = ({children}) => {
 
     return () => clearInterval(intervalId);
   }, []);
-  /*
-  const addToCart = product => {
-    const existingProductIndex = cart.findIndex(item => item.id === product.id);
 
-    if (existingProductIndex !== -1) {
-      const updatedCart = [...cart];
-      updatedCart[existingProductIndex].quantity += 1;
-      setCart(updatedCart);
-    } else {
-      const updatedProduct = {...product, quantity: 1};
-      setCart([...cart, updatedProduct]);
-    }
-
-    const price = parseFloat(product.price);
-    const newTotalPrice = totalPrice + price;
-    setTotalPrice(parseFloat(newTotalPrice.toFixed(2)));
-    calculateDiscount(newTotalPrice, campaignId);
-  };
-*/
   const addToCart = (product, quantityToAdd = 1) => {
     const existingProductIndex = cart.findIndex(item => item.id === product.id);
 
@@ -69,6 +51,7 @@ const CartProvider = ({children}) => {
     setTotalPrice(newTotalPrice);
     calculateDiscount(newTotalPrice, campaignId);
   };
+
   const removeFromCart = product => {
     const updatedCart = [...cart];
     const index = updatedCart.findIndex(item => item.id === product.id);
