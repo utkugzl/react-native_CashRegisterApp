@@ -30,6 +30,7 @@ const SaleHistory = () => {
     }
   };
 
+  // Fetch sales and offline sales when the screen is focused
   useFocusEffect(
     React.useCallback(() => {
       fetchSales();

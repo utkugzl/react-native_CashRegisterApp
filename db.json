@@ -3,12 +3,12 @@
     {
       "id": "1",
       "userCode": "065434",
-      "userPassword": "password"
+      "userPassword": "123"
     },
     {
       "id": "2",
       "userCode": "123456",
-      "userPassword": "123"
+      "userPassword": "321"
     },
     {
       "id": "3",
@@ -50,78 +50,9 @@
     "id": "9fd9"
   },
   "dailySalesAmount": {
-    "amount": 166.8
+    "amount": 24.9
   },
   "sales": [
-    {
-      "id": "5ff5",
-      "date": "15/2/2024",
-      "time": "5:15",
-      "cashierCode": "065434",
-      "cash": 250,
-      "creditCard": 0,
-      "cashBack": "205.10",
-      "total": "44.90",
-      "cart": [
-        {
-          "id": "18",
-          "barcode": "591783",
-          "name": "Muz Kg.",
-          "price": "44.90",
-          "category": "market",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/9613c_Muz_Yerli_Kg_.jpg",
-          "quantity": 1
-        }
-      ]
-    },
-    {
-      "id": "cb06",
-      "date": "15/2/2024",
-      "time": "5:19",
-      "cashierCode": "065434",
-      "cash": 150,
-      "creditCard": 0,
-      "cashBack": "53.00",
-      "total": "97.00",
-      "cart": [
-        {
-          "id": "2",
-          "barcode": "873634",
-          "name": "Roka Demet",
-          "price": "21.90",
-          "category": "market",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/2db58_Roka_Demet_.jpg",
-          "quantity": 1
-        },
-        {
-          "id": "3",
-          "barcode": "680898",
-          "name": "Ispanak Kg.",
-          "price": "39.90",
-          "category": "market",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/39606_Ispanak_Kg._.jpg",
-          "quantity": 1
-        },
-        {
-          "id": "14",
-          "barcode": "192172",
-          "name": "Kabak Kg.",
-          "price": "49.95",
-          "category": "market",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/b08d3_Kabak_Sakiz_Kg._.jpg",
-          "quantity": 1
-        },
-        {
-          "id": "55",
-          "barcode": "770960",
-          "name": "Odun Ekmek 200-250 Gr",
-          "price": "9.50",
-          "category": "market",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/84b1d_Odun_Ekmek_200-250_Gr.png",
-          "quantity": 1
-        }
-      ]
-    },
     {
       "id": "ac5b",
       "date": "15/2/2024",

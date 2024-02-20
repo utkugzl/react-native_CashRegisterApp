@@ -1,36 +1,30 @@
 import React from 'react';
 import {useContext} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {View, Image, SafeAreaView, Text} from 'react-native';
+import {View, Image, SafeAreaView} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {ThemeContext} from '../../contexts/ThemeContext.js';
 import ReportsOption from '../../components/ReportsOption/ReportsOption.js';
+import stylesDark from './stylesDark.js';
+import stylesLight from './stylesLight.js';
 
 const Reports = () => {
-  const navigation = useNavigation();
   const {t} = useTranslation();
+  const navigation = useNavigation();
   const {isDarkMode} = useContext(ThemeContext);
   const logoImageSource = isDarkMode
     ? require('../../assets/images/32bit_logo_dark.png')
     : require('../../assets/images/32bitlogo.png');
+
+  const styles = isDarkMode ? stylesDark : stylesLight;
+
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: '#222831'}}>
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
+    <SafeAreaView style={styles.screenContainer}>
+      <View style={styles.logoContainer}>
         <Image source={logoImageSource} style={{width: 400, height: 120}} />
       </View>
-      <View style={{flex: 3, flexDirection: 'row'}}>
-        <View
-          style={{
-            flex: 1,
-            justifyContent: 'flex-start',
-            alignItems: 'center',
-            marginTop: 25,
-          }}>
+      <View style={styles.optionsSection}>
+        <View style={styles.optionsContainer}>
           <ReportsOption
             onPress={() => {
               navigation.navigate('users');
@@ -46,13 +40,7 @@ const Reports = () => {
             iconName={'campaignsIcon'}
           />
         </View>
-        <View
-          style={{
-            flex: 1,
-            justifyContent: 'flex-start',
-            alignItems: 'center',
-            marginTop: 25,
-          }}>
+        <View style={styles.optionsContainer}>
           <ReportsOption
             onPress={() => {
               navigation.navigate('saleHistory');

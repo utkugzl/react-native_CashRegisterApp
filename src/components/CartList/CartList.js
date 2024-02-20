@@ -7,7 +7,7 @@ const CartList = ({cart, setSelectedItem}) => {
   const flatListRef = useRef(null);
 
   const handleAddItem = () => {
-    // Her yeni öğe eklendiğinde scroll işlemi
+    // Scroll to the end of the list
     flatListRef.current.scrollToOffset({
       offset: 50 * cart.length,
       animated: true,
