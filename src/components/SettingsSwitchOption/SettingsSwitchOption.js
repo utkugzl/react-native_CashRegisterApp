@@ -1,5 +1,5 @@
 import React from 'react';
-import {useState, useContext} from 'react';
+import {useContext} from 'react';
 import {View, Text, Switch} from 'react-native';
 
 import {ThemeContext} from '../../contexts/ThemeContext.js';

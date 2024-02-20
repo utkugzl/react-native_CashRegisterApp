@@ -81,7 +81,7 @@ const CartProvider = ({children}) => {
           calculateDiscount(totalPrice, id);
         } else {
           console.log('Kampanya 2 için sepet tutarı yetersiz');
-          alert(
+          Alert.alert(
             "Sepet tutarı 500 TL'nin altında olduğu için Kampanya 2 uygulanamaz.",
           );
         }
@@ -102,7 +102,7 @@ const CartProvider = ({children}) => {
         } else {
           setCampaignId(0);
           setDiscountedTotalPrice(price);
-          alert(
+          Alert.alert(
             "Sepet tutarı 500 TL'nin altında olduğu için Kampanya 2 uygulanamaz.",
           );
         }

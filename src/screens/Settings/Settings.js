@@ -296,7 +296,6 @@ const Settings = ({}) => {
               onPress={() => {
                 setvisiblePrinterTest(false);
               }}
-              color={'#2287da'}
               iconName={'closeIcon'}
             />
           </View>
@@ -307,7 +306,6 @@ const Settings = ({}) => {
             <ReceiptButton
               title={t('print')}
               onPress={convertToPDF}
-              color={'#2287da'}
               iconName={'printerIcon'}
             />
           </View>

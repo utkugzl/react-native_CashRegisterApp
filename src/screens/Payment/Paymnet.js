@@ -531,7 +531,6 @@ const Payment = () => {
                 setCustomerEmail('');
                 navigation.goBack();
               }}
-              color={'#2287da'}
               iconName={'closeIcon'}
             />
           </View>
@@ -551,13 +550,11 @@ const Payment = () => {
             <ReceiptButton
               title="Yazdır"
               onPress={convertToPDF}
-              color={'#2287da'}
               iconName={'printerIcon'}
             />
             <ReceiptButton
               title="E-Mail"
               onPress={handleEmail}
-              color={'#2287da'}
               iconName={'mailIcon'}
             />
           </View>

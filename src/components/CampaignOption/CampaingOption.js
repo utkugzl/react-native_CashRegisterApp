@@ -2,8 +2,6 @@ import React from 'react';
 import {useContext} from 'react';
 import {View, Text, Image} from 'react-native';
 import {ThemeContext} from '../../contexts/ThemeContext.js';
-import scaleByWidth from '../../utils/ScaleByWidth.js';
-
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import stylesDark from './stylesDark.js';
 import stylesLight from './stylesLight.js';
