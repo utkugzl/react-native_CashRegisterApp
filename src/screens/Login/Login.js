@@ -20,8 +20,7 @@ import stylesDark from './stylesDark.js';
 import stylesLight from './stylesLight.js';
 import axios from 'axios';
 import FingerprintScanner from 'react-native-fingerprint-scanner';
-
-const Sound = require('react-native-sound');
+import playSound from '../../utils/PlaySound.js';
 
 const DismisKeyboard = ({children}) => (
   <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -45,23 +44,6 @@ const Login = () => {
   const logoImageSource = isDarkMode
     ? require('../../assets/images/32bit_logo_dark.png')
     : require('../../assets/images/32bitlogo.png');
-
-  const playSound = () => {
-    var whoosh = new Sound('wrong_entry.mp3', Sound.MAIN_BUNDLE, error => {
-      if (error) {
-        console.log('failed to load the sound', error);
-        return;
-      }
-      // Play the sound with an onEnd callback
-      whoosh.play(success => {
-        if (success) {
-          console.log('successfully finished playing');
-        } else {
-          console.log('playback failed due to audio decoding errors');
-        }
-      });
-    });
-  };
 
   const fetchVersion = async () => {
     try {

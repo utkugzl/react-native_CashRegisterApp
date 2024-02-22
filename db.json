@@ -32,7 +32,24 @@
   "userFavorites": [
     {
       "id": "065434",
-      "favorites": []
+      "favorites": [
+        {
+          "id": "327",
+          "barcode": "444655",
+          "name": "Mintax Temizlik Bezi 5'li",
+          "price": "19.90",
+          "category": "cleaning",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/2f19e_Temizlik_Bezi_5li.JPG"
+        },
+        {
+          "id": "328",
+          "barcode": "715134",
+          "name": "Mintax Oluklu Sünger 5'li",
+          "price": "19.90",
+          "category": "cleaning",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/11be3_Oluklu_Sunger_5li.jpg"
+        }
+      ]
     },
     {
       "id": "762381",
@@ -50,26 +67,113 @@
     "id": "9fd9"
   },
   "dailySalesAmount": {
-    "amount": 24.9
+    "amount": 291.79
   },
   "sales": [
     {
-      "id": "ac5b",
-      "date": "15/2/2024",
-      "time": "19:8",
+      "id": "1921",
+      "date": "22/2/2024",
+      "time": "9:28",
       "cashierCode": "065434",
-      "cash": 200,
-      "creditCard": 100,
-      "cashBack": "275.10",
-      "total": "24.90",
+      "cash": 70,
+      "creditCard": 30,
+      "cashBack": "26.96",
+      "total": "73.04",
       "cart": [
         {
-          "id": "35",
-          "barcode": "827345",
-          "name": "Mintax Kireç Önleyici 500 Gr",
+          "id": "55",
+          "barcode": "770960",
+          "name": "Odun Ekmek 200-250 Gr",
+          "price": "9.50",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/84b1d_Odun_Ekmek_200-250_Gr.png",
+          "quantity": 5
+        },
+        {
+          "id": "2",
+          "barcode": "873634",
+          "name": "Roka Demet",
+          "price": "21.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/2db58_Roka_Demet_.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "1",
+          "barcode": "397981",
+          "name": "Nane Demet",
+          "price": "21.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/64d96_Nane_Dmt._.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "5d58",
+      "date": "22/2/2024",
+      "time": "9:28",
+      "cashierCode": "065434",
+      "cash": 200,
+      "creditCard": 0,
+      "cashBack": "44.80",
+      "total": "155.20",
+      "cart": [
+        {
+          "id": "58",
+          "barcode": "767315",
+          "name": "Kadın Polar Alt S-M",
+          "price": "90.25",
+          "category": "clothing",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/bcece_Kadin_Polar_Alt_S-m_.png",
+          "quantity": 1
+        },
+        {
+          "id": "61",
+          "barcode": "552097",
+          "name": "Terlik Kadın Kış",
+          "price": "64.95",
+          "category": "clothing",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/d6c97_Gezer_Terlik_Kadin_Kis__Gt2kzm.14481.00.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "310e",
+      "date": "22/2/2024",
+      "time": "9:29",
+      "cashierCode": "065434",
+      "cash": 65,
+      "creditCard": 0,
+      "cashBack": "1.45",
+      "total": "63.55",
+      "cart": [
+        {
+          "id": "27",
+          "barcode": "412564",
+          "name": "Mintax Bulaşık Mak. Temizleyici 250 Ml",
           "price": "24.90",
           "category": "cleaning",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/bc0a4_Kirec_Onleyici_500_Gr.jpg",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/1e12e_Bulasik_Mak._Temizleyici_250_Ml.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "30",
+          "barcode": "358264",
+          "name": "Mintax Ovma Topu 4'lü",
+          "price": "18.75",
+          "category": "cleaning",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/a7d0e_Ovma_Topu_4lu_.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "29",
+          "barcode": "715134",
+          "name": "Mintax Oluklu Sünger 5'li",
+          "price": "19.90",
+          "category": "cleaning",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/11be3_Oluklu_Sunger_5li.jpg",
           "quantity": 1
         }
       ]

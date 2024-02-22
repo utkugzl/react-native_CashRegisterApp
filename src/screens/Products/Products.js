@@ -1,7 +1,6 @@
 import React from 'react';
 import {useState, useEffect, useContext} from 'react';
 import {SafeAreaView, View, ActivityIndicator, FlatList} from 'react-native';
-import {useTranslation} from 'react-i18next';
 import {ThemeContext} from '../../contexts/ThemeContext.js';
 import {CartContext} from '../../contexts/CartContext.js';
 import {UserContext} from '../../contexts/UserContext.js';
@@ -15,7 +14,6 @@ import axios from 'axios';
 import Product from '../../components/Product/Product.js';
 
 const Products = () => {
-  const {t} = useTranslation();
   const [selectedFilter, setSelectedFilter] = useState('Tüm Ürünler');
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);

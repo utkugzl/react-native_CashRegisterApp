@@ -19,20 +19,22 @@ import AppIcons from '../../components/AppIcons/AppIcons.js';
 import useCategories from '../../hooks/UseCategories.js';
 import CategoryButton from '../../components/CategoryButton/CategoryButton.js';
 import FilterButton from '../../components/FilterButton/FilterButton.js';
-import SaleProduct from '../../components/SaleProduct/SaleProduct.js';
 import CartButton from '../../components/CartButton/CartButton.js';
 import Keyboard from '../../components/Keyboard/Keyboard.js';
 import CampaignOption from '../../components/CampaignOption/CampaingOption.js';
 import CartList from '../../components/CartList/CartList.js';
+import SaleProductsList from '../../components/SaleProductsList/SaleProductsList.js';
+import SaleFilteredProductsList from '../../components/SaleFilteredProductsList/SaleFilteredProductsList.js';
+
 import stylesDark from './stylesDark.js';
 import stylesLight from './stylesLight.js';
 
 const Sale = () => {
+  const {t} = useTranslation();
+  const {user} = useContext(UserContext);
   const navigation = useNavigation();
   const {isDarkMode} = useContext(ThemeContext);
   const {isStoreOnline} = useContext(StoreContext);
-  const {user} = useContext(UserContext);
-  const {t} = useTranslation();
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [campaigns, setCampaigns] = useState([]);
@@ -54,6 +56,7 @@ const Sale = () => {
     campaignId,
     setCampaignContext,
   } = useContext(CartContext);
+
   const storeStatusText = isStoreOnline
     ? t('store-online')
     : t('store-offline');
@@ -190,21 +193,7 @@ const Sale = () => {
             )}
             {content === 'products' && (
               <View style={{alignItems: 'center', marginTop: 8}}>
-                <FlatList
-                  key={'_'}
-                  numColumns={3}
-                  data={products}
-                  keyExtractor={item => item.id.toString()}
-                  showsVerticalScrollIndicator={false}
-                  renderItem={({item}) => (
-                    <SaleProduct
-                      name={item.name}
-                      price={item.price}
-                      image={item.image}
-                      onPress={() => addToCart(item)}
-                    />
-                  )}
-                />
+                <SaleProductsList products={products} addToCart={addToCart} />
               </View>
             )}
             {content === 'campaigns' && (
@@ -227,20 +216,9 @@ const Sale = () => {
             )}
             {content === 'filteredProducts' && (
               <View style={{alignItems: 'center', marginTop: 8}}>
-                <FlatList
-                  key={'_'}
-                  numColumns={3}
-                  data={filteredProducts}
-                  keyExtractor={item => item.id.toString()}
-                  showsVerticalScrollIndicator={false}
-                  renderItem={({item}) => (
-                    <SaleProduct
-                      name={item.name}
-                      price={item.price}
-                      image={item.image}
-                      onPress={() => addToCart(item)}
-                    />
-                  )}
+                <SaleFilteredProductsList
+                  filteredProducts={filteredProducts}
+                  addToCart={addToCart}
                 />
               </View>
             )}

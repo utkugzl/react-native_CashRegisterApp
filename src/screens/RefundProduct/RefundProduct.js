@@ -144,7 +144,7 @@ const RefundProduct = ({route}) => {
                 color={'#862727'}
               />
               <CartButton
-                title="Satır İptal"
+                title="Ürün İade"
                 onPress={handleRowCancel}
                 color={'#862727'}
               />
