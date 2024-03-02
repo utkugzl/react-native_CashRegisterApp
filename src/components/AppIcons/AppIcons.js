@@ -51,7 +51,7 @@ const AppIcons = ({name}) => {
     case 'darkThemeIcon':
       iconElement = <Ionicon name="moon" size={35} color="black" />;
       break;
-    case 'otherSettingsIcon':
+    case 'refundProductIcon':
       iconElement = <Ionicon name="repeat" size={35} color="black" />;
       break;
     case 'printerIcon':
@@ -94,6 +94,9 @@ const AppIcons = ({name}) => {
       break;
     case 'campaignsIcon':
       iconElement = <Ionicon name="medical" size={30} color="black" />;
+      break;
+    case 'refundReasonIcon':
+      iconElement = <Ionicon name="play" size={20} color="black" />;
       break;
     default:
       iconElement = <Ionicon name="remove" size={35} color="black" />;

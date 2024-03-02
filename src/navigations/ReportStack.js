@@ -6,6 +6,8 @@ import {ThemeContext} from '../contexts/ThemeContext.js';
 
 import Reports from '../screens/Reports/Reports.js';
 import SaleHistory from '../screens/SaleHistory/SaleHistory.js';
+import RefundHistory from '../screens/RefundHistory/RefundHistory.js';
+import RefundHistoryDetail from '../screens/RefundHistoryDetail/RefundHistoryDetail.js';
 import SaleHistoryDetail from '../screens/SaleHistoryDetail/SaleHistoryDetail.js';
 import Users from '../screens/Users/Users.js';
 import Campaigns from '../screens/Campaigns/Campaings.js';
@@ -74,6 +76,40 @@ const ReportStack = () => {
       <Stack.Screen
         name="refundProduct"
         component={RefundProduct}
+        options={{
+          title: '',
+          headerShown: true,
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize: 30,
+            color: isDarkMode ? '#DDDDDD' : '#30475E',
+          },
+          headerStyle: {
+            backgroundColor: isDarkMode ? '#30475E' : '#f2f2f2',
+          },
+          headerTitleAlign: 'center',
+        }}
+      />
+      <Stack.Screen
+        name="refundsHistory"
+        component={RefundHistory}
+        options={{
+          title: '',
+          headerShown: true,
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize: 30,
+            color: isDarkMode ? '#DDDDDD' : '#30475E',
+          },
+          headerStyle: {
+            backgroundColor: isDarkMode ? '#30475E' : '#f2f2f2',
+          },
+          headerTitleAlign: 'center',
+        }}
+      />
+      <Stack.Screen
+        name="refundHistoryDetail"
+        component={RefundHistoryDetail}
         options={{
           title: '',
           headerShown: true,

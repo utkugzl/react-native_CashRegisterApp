@@ -45,5 +45,6 @@
     "enter-username-password": "Lütfen kullanıcı kodu ve şifrenizi giriniz",
     "user-code": "Kullanıcı Kodu",
     "password": "Şifre",
-    "login": "Giriş Yap"
+    "login": "Giriş Yap",
+    "refund-history": "Ürün İade Geçmişi"
 }

@@ -45,5 +45,6 @@
     "enter-username-password": "Please enter your username and password",
     "user-code": "User Code",
     "password": "Password",
-    "login": "Login"
+    "login": "Login",
+    "refund-history": "Refund History"
 }

@@ -32,24 +32,7 @@
   "userFavorites": [
     {
       "id": "065434",
-      "favorites": [
-        {
-          "id": "327",
-          "barcode": "444655",
-          "name": "Mintax Temizlik Bezi 5'li",
-          "price": "19.90",
-          "category": "cleaning",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/2f19e_Temizlik_Bezi_5li.JPG"
-        },
-        {
-          "id": "328",
-          "barcode": "715134",
-          "name": "Mintax Oluklu Sünger 5'li",
-          "price": "19.90",
-          "category": "cleaning",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/11be3_Oluklu_Sunger_5li.jpg"
-        }
-      ]
+      "favorites": []
     },
     {
       "id": "762381",
@@ -67,8 +50,28 @@
     "id": "9fd9"
   },
   "dailySalesAmount": {
-    "amount": 291.79
+    "amount": 226.84000000000003
   },
+  "refunds": [
+    {
+      "id": "da66",
+      "date": "2/3/2024",
+      "time": "18:54",
+      "cashierCode": "065434",
+      "refundItems": [
+        {
+          "id": "61",
+          "barcode": "552097",
+          "name": "Terlik Kadın Kış",
+          "price": "64.95",
+          "category": "clothing",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/d6c97_Gezer_Terlik_Kadin_Kis__Gt2kzm.14481.00.jpg",
+          "quantity": 1
+        }
+      ],
+      "refundReason": null
+    }
+  ],
   "sales": [
     {
       "id": "1921",
@@ -116,8 +119,8 @@
       "cashierCode": "065434",
       "cash": 200,
       "creditCard": 0,
-      "cashBack": "44.80",
-      "total": "155.20",
+      "cashBack": "109.75",
+      "total": "90.25",
       "cart": [
         {
           "id": "58",
@@ -126,15 +129,6 @@
           "price": "90.25",
           "category": "clothing",
           "image": "https://docsd.ceptesok.com/product/1000x1000/bcece_Kadin_Polar_Alt_S-m_.png",
-          "quantity": 1
-        },
-        {
-          "id": "61",
-          "barcode": "552097",
-          "name": "Terlik Kadın Kış",
-          "price": "64.95",
-          "category": "clothing",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/d6c97_Gezer_Terlik_Kadin_Kis__Gt2kzm.14481.00.jpg",
           "quantity": 1
         }
       ]

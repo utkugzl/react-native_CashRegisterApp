@@ -6,7 +6,7 @@ import {ThemeContext} from '../../contexts/ThemeContext.js';
 import {CartContext} from '../../contexts/CartContext.js';
 import {UserContext} from '../../contexts/UserContext.js';
 import {StoreContext} from '../../contexts/StoreContext.js';
-import {SafeAreaView, View, Text, Alert} from 'react-native';
+import {SafeAreaView, View, Text, Alert, Modal} from 'react-native';
 import axios from 'axios';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -14,6 +14,8 @@ import AppIcons from '../../components/AppIcons/AppIcons.js';
 import CartButton from '../../components/CartButton/CartButton.js';
 import CartList from '../../components/CartList/CartList.js';
 import RefundedProductList from '../../components/RefundedProductList/RefundedProductList.js';
+import RefundReasonList from '../../components/RefundReasonList/RefundReasonList.js';
+import RefundReasonModalButton from '../../components/RefundReasonModalButton/RefundReasonModalButton.js';
 
 import stylesDark from './stylesDark.js';
 import stylesLight from './stylesLight.js';
@@ -26,12 +28,22 @@ const RefundProduct = ({route}) => {
   const {isDarkMode} = useContext(ThemeContext);
   const {isStoreOnline} = useContext(StoreContext);
   const {user} = useContext(UserContext);
-
+  const [visibleReasonModal, setVisibleReasonModal] = useState(false);
+  const [selectedReason, setSelectedReason] = useState(null);
+  const refundReasons = [
+    'Son Kullanma Tarihi Geçmiş Ürün',
+    'Ürün Arızalı',
+    'Hasarlı Ambalaj',
+    'Yanlış Ürün',
+    'Fiyat Farkı',
+    'Diğer',
+  ];
   const {
     cart,
     totalPrice,
     discountedTotalPrice,
     currentDate,
+    currentTime,
     setCart,
     addToCart,
     setTotalPrice,
@@ -101,10 +113,21 @@ const RefundProduct = ({route}) => {
       total: discountedTotalPrice.toFixed(2),
       cart: cart,
     };
-    if (isStoreOnline) {
+    const refund = {
+      date: currentDate,
+      time: currentTime,
+      cashierCode: user,
+      refundItems: refundItems,
+      refundReason: selectedReason,
+    };
+    if (selectedReason) {
       updateSale(updatedSale);
+      postRefund(refund);
     } else {
-      //saveSaleLocally(sale);
+      Alert.alert(
+        'Lütfen iade nedeni seçiniz',
+        'İade nedeni seçmeden işlemi tamamlayamazsınız.',
+      );
     }
   };
 
@@ -120,6 +143,19 @@ const RefundProduct = ({route}) => {
         setCart([]);
         setSelectedItem(null);
         navigation.navigate('saleHistory');
+      })
+      .catch(error => {
+        console.error('POST isteği başarısız:', error);
+      });
+  };
+
+  const postRefund = async refund => {
+    const url = 'http://10.0.2.2:3000/refunds';
+
+    axios
+      .post(url, refund)
+      .then(response => {
+        console.log('POST isteği başarılı:', response.data);
       })
       .catch(error => {
         console.error('POST isteği başarısız:', error);
@@ -152,7 +188,13 @@ const RefundProduct = ({route}) => {
             <CartButton
               title="İade Bitir"
               color={'#e28010'}
-              onPress={handleRefund}
+              onPress={() => {
+                if (refundItems.length > 0) {
+                  setVisibleReasonModal(true);
+                } else {
+                  Alert.alert('Uyarı', 'Lütfen iade edilecek ürün seçin.');
+                }
+              }}
             />
           </View>
           <View style={styles.titleContainer}>
@@ -241,6 +283,83 @@ const RefundProduct = ({route}) => {
           </View>
         </View>
       </View>
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={visibleReasonModal}
+        onRequestClose={() => {
+          //setVisibleEmailInput(!visibleEmailInput);
+        }}>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+          }}>
+          <View
+            style={{
+              backgroundColor: 'white',
+              height: 500,
+              width: 600,
+              padding: 15,
+              borderRadius: 10,
+              elevation: 5,
+              borderWidth: 2,
+            }}>
+            <View
+              style={{
+                flex: 1,
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderBottomWidth: 1,
+                marginBottom: 12,
+              }}>
+              <Text
+                style={{
+                  fontSize: 32,
+                  fontWeight: 'bold',
+                  color: 'black',
+                }}>
+                İade Nedeni Seçiniz
+              </Text>
+            </View>
+            <View
+              style={{
+                flex: 4,
+              }}>
+              <RefundReasonList
+                selectedReason={selectedReason}
+                setSelectedReason={setSelectedReason}
+              />
+            </View>
+            <View
+              style={{
+                flex: 1.2,
+                flexDirection: 'row',
+                justifyContent: 'space-around',
+                alignItems: 'center',
+                borderTopWidth: 1,
+              }}>
+              <RefundReasonModalButton
+                title="Kapat"
+                color={'#862727'}
+                onPress={() => {
+                  setVisibleReasonModal(false);
+                  setSelectedReason(null);
+                }}
+              />
+              <RefundReasonModalButton
+                title="İade Bitir"
+                color={'#e28010'}
+                onPress={() => {
+                  handleRefund();
+                }}
+              />
+            </View>
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 };

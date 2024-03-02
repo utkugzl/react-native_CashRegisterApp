@@ -48,6 +48,13 @@ const Reports = () => {
             title={t('past-sales')}
             iconName={'pastSaleIcon'}
           />
+          <ReportsOption
+            onPress={() => {
+              navigation.navigate('refundsHistory');
+            }}
+            title={t('refund-history')}
+            iconName={'refundProductIcon'}
+          />
         </View>
       </View>
     </SafeAreaView>

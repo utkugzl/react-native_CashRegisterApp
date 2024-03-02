@@ -9,37 +9,20 @@ const stylesLight = StyleSheet.create({
   headerContainer: {
     flex: 1,
     flexDirection: 'row',
-  },
-  headerLeftContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'flex-start',
+    justifyContent: 'space-around',
+    alignItems: 'center',
     borderBottomWidth: 2,
     borderColor: 'black',
-  },
-  headerLeftTextContainer: {
-    marginLeft: 30,
   },
   text: {
     color: 'black',
-    fontSize: scaleByWidth('2'),
+    fontSize: scaleByWidth('2.5'),
     fontWeight: 'bold',
-  },
-  headerRightContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'flex-end',
-    borderBottomWidth: 2,
-    borderColor: 'black',
-  },
-  headerRightTextContainer: {
-    marginRight: 30,
   },
   listContainer: {
     flex: 4,
+    flexDirection: 'row',
     backgroundColor: '#DDDDDD',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   footerContainer: {
     flex: 0.6,
@@ -54,21 +37,6 @@ const stylesLight = StyleSheet.create({
     fontWeight: 'bold',
     marginRight: 20,
     color: 'black',
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginLeft: 20,
-    backgroundColor: '#b73612',
-    padding: 6,
-    borderRadius: 8,
-    borderWidth: 1,
-  },
-  buttonTitle: {
-    color: 'white',
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginHorizontal: 12,
   },
 });
 
