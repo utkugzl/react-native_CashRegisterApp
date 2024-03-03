@@ -46,5 +46,7 @@
     "user-code": "User Code",
     "password": "Password",
     "login": "Login",
-    "refund-history": "Refund History"
+    "refund-history": "Refund History",
+    "refunded-products": "Refunded Products",
+    "refund-reasons": "Refund Reasons"
 }

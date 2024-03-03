@@ -50,26 +50,44 @@
     "id": "9fd9"
   },
   "dailySalesAmount": {
-    "amount": 226.84000000000003
+    "amount": 180.04
   },
   "refunds": [
     {
-      "id": "da66",
-      "date": "2/3/2024",
-      "time": "18:54",
+      "id": "3e37",
+      "date": "3/3/2024",
+      "time": "14:45",
       "cashierCode": "065434",
       "refundItems": [
         {
-          "id": "61",
-          "barcode": "552097",
-          "name": "Terlik Kadın Kış",
-          "price": "64.95",
-          "category": "clothing",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/d6c97_Gezer_Terlik_Kadin_Kis__Gt2kzm.14481.00.jpg",
+          "id": "2",
+          "barcode": "873634",
+          "name": "Roka Demet",
+          "price": "21.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/2db58_Roka_Demet_.jpg",
           "quantity": 1
         }
       ],
-      "refundReason": null
+      "refundReason": "Hasarlı Ambalaj"
+    },
+    {
+      "id": "bb74",
+      "date": "3/3/2024",
+      "time": "14:52",
+      "cashierCode": "065434",
+      "refundItems": [
+        {
+          "id": "27",
+          "barcode": "412564",
+          "name": "Mintax Bulaşık Mak. Temizleyici 250 Ml",
+          "price": "24.90",
+          "category": "cleaning",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/1e12e_Bulasik_Mak._Temizleyici_250_Ml.jpg",
+          "quantity": 1
+        }
+      ],
+      "refundReason": "Hasarlı Ambalaj"
     }
   ],
   "sales": [
@@ -80,8 +98,8 @@
       "cashierCode": "065434",
       "cash": 70,
       "creditCard": 30,
-      "cashBack": "26.96",
-      "total": "73.04",
+      "cashBack": "48.86",
+      "total": "51.14",
       "cart": [
         {
           "id": "55",
@@ -91,15 +109,6 @@
           "category": "market",
           "image": "https://docsd.ceptesok.com/product/1000x1000/84b1d_Odun_Ekmek_200-250_Gr.png",
           "quantity": 5
-        },
-        {
-          "id": "2",
-          "barcode": "873634",
-          "name": "Roka Demet",
-          "price": "21.90",
-          "category": "market",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/2db58_Roka_Demet_.jpg",
-          "quantity": 1
         },
         {
           "id": "1",
@@ -140,18 +149,9 @@
       "cashierCode": "065434",
       "cash": 65,
       "creditCard": 0,
-      "cashBack": "1.45",
-      "total": "63.55",
+      "cashBack": "26.35",
+      "total": "38.65",
       "cart": [
-        {
-          "id": "27",
-          "barcode": "412564",
-          "name": "Mintax Bulaşık Mak. Temizleyici 250 Ml",
-          "price": "24.90",
-          "category": "cleaning",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/1e12e_Bulasik_Mak._Temizleyici_250_Ml.jpg",
-          "quantity": 1
-        },
         {
           "id": "30",
           "barcode": "358264",

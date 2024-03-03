@@ -96,6 +96,43 @@ const stylesLight = StyleSheet.create({
   icon: {
     margin: 5,
   },
+  reasonModalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+  },
+  reasonModal: {
+    backgroundColor: 'white',
+    width: '50%',
+    height: '60%',
+    padding: 15,
+    borderRadius: 10,
+    elevation: 5,
+    borderWidth: 2,
+  },
+  reasonModalTitleContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    marginBottom: 12,
+  },
+  reasonModalTitle: {
+    fontSize: scaleByWidth('3'),
+    fontWeight: 'bold',
+    color: 'black',
+  },
+  reasonModalListContainer: {
+    flex: 4,
+  },
+  reasonModalButtonContainer: {
+    flex: 1.2,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    borderTopWidth: 1,
+  },
 });
 
 export default stylesLight;

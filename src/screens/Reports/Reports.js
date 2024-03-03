@@ -21,7 +21,7 @@ const Reports = () => {
   return (
     <SafeAreaView style={styles.screenContainer}>
       <View style={styles.logoContainer}>
-        <Image source={logoImageSource} style={{width: 400, height: 120}} />
+        <Image source={logoImageSource} style={styles.image} />
       </View>
       <View style={styles.optionsSection}>
         <View style={styles.optionsContainer}>

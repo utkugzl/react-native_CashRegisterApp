@@ -32,6 +32,31 @@ const stylesDark = StyleSheet.create({
     borderTopWidth: 2,
     borderColor: '#DDDDDD',
   },
+  bodyTitleContainer: {
+    flex: 0.5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderColor: '#DDDDDD',
+  },
+  bodySectionContainer: {
+    flex: 3,
+    paddingHorizontal: 30,
+    paddingVertical: 10,
+  },
+  bodyLeftSectionContainer: {
+    flex: 1,
+    borderRightWidth: 1,
+    borderColor: '#DDDDDD',
+  },
+  bodyRightSectionContainer: {
+    flex: 1,
+  },
+  titleText: {
+    color: '#DDDDDD',
+    fontSize: scaleByWidth('3'),
+    fontWeight: 'bold',
+  },
   totalText: {
     fontSize: scaleByWidth('2.6'),
     fontWeight: 'bold',

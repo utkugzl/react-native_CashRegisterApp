@@ -9,7 +9,6 @@ import {StoreContext} from '../../contexts/StoreContext.js';
 import {SafeAreaView, View, Text, Alert, Modal} from 'react-native';
 import axios from 'axios';
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import AppIcons from '../../components/AppIcons/AppIcons.js';
 import CartButton from '../../components/CartButton/CartButton.js';
 import CartList from '../../components/CartList/CartList.js';
@@ -30,14 +29,7 @@ const RefundProduct = ({route}) => {
   const {user} = useContext(UserContext);
   const [visibleReasonModal, setVisibleReasonModal] = useState(false);
   const [selectedReason, setSelectedReason] = useState(null);
-  const refundReasons = [
-    'Son Kullanma Tarihi Geçmiş Ürün',
-    'Ürün Arızalı',
-    'Hasarlı Ambalaj',
-    'Yanlış Ürün',
-    'Fiyat Farkı',
-    'Diğer',
-  ];
+
   const {
     cart,
     totalPrice,
@@ -286,61 +278,19 @@ const RefundProduct = ({route}) => {
       <Modal
         animationType="fade"
         transparent={true}
-        visible={visibleReasonModal}
-        onRequestClose={() => {
-          //setVisibleEmailInput(!visibleEmailInput);
-        }}>
-        <View
-          style={{
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: 'rgba(0, 0, 0, 0.7)',
-          }}>
-          <View
-            style={{
-              backgroundColor: 'white',
-              height: 500,
-              width: 600,
-              padding: 15,
-              borderRadius: 10,
-              elevation: 5,
-              borderWidth: 2,
-            }}>
-            <View
-              style={{
-                flex: 1,
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderBottomWidth: 1,
-                marginBottom: 12,
-              }}>
-              <Text
-                style={{
-                  fontSize: 32,
-                  fontWeight: 'bold',
-                  color: 'black',
-                }}>
-                İade Nedeni Seçiniz
-              </Text>
+        visible={visibleReasonModal}>
+        <View style={styles.reasonModalContainer}>
+          <View style={styles.reasonModal}>
+            <View style={styles.reasonModalTitleContainer}>
+              <Text style={styles.reasonModalTitle}>İade Nedeni Seçiniz</Text>
             </View>
-            <View
-              style={{
-                flex: 4,
-              }}>
+            <View style={styles.reasonModalListContainer}>
               <RefundReasonList
                 selectedReason={selectedReason}
                 setSelectedReason={setSelectedReason}
               />
             </View>
-            <View
-              style={{
-                flex: 1.2,
-                flexDirection: 'row',
-                justifyContent: 'space-around',
-                alignItems: 'center',
-                borderTopWidth: 1,
-              }}>
+            <View style={styles.reasonModalButtonContainer}>
               <RefundReasonModalButton
                 title="Kapat"
                 color={'#862727'}

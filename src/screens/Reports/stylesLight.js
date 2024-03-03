@@ -1,9 +1,14 @@
 import {StyleSheet} from 'react-native';
+import scaleByWidth from '../../utils/ScaleByWidth.js';
 
 const stylesLight = StyleSheet.create({
   screenContainer: {
     flex: 1,
     backgroundColor: '#DDDDDD',
+  },
+  image: {
+    width: scaleByWidth('30'),
+    height: 120,
   },
   logoContainer: {
     flex: 1,

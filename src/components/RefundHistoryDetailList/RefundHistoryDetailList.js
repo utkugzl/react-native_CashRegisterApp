@@ -2,12 +2,11 @@ import React from 'react';
 import {View, Text, Image} from 'react-native';
 import {FlatList} from 'react-native';
 
-const SaleHistoryDetailList = ({sale}) => {
+const RefundHistoryDetailList = ({refund}) => {
   return (
     <FlatList
       style={{marginTop: 15}}
-      data={sale.cart}
-      width="70%"
+      data={refund.refundItems}
       showsVerticalScrollIndicator={false}
       keyExtractor={item => item.id.toString()}
       renderItem={({item}) => (
@@ -30,10 +29,20 @@ const SaleHistoryDetailList = ({sale}) => {
               resizeMode="contain"
             />
             <View style={{justifyContent: 'center', marginLeft: 25}}>
-              <Text style={{fontSize: 20, fontWeight: 'bold', color: 'black'}}>
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontWeight: 'bold',
+                  color: 'black',
+                }}>
                 {item.name} {item.quantity > 1 ? `x${item.quantity}` : ''}
               </Text>
-              <Text style={{fontSize: 18, fontWeight: 'bold', color: 'black'}}>
+              <Text
+                style={{
+                  fontSize: 18,
+                  fontWeight: 'bold',
+                  color: 'black',
+                }}>
                 {item.barcode}
               </Text>
             </View>
@@ -48,4 +57,4 @@ const SaleHistoryDetailList = ({sale}) => {
   );
 };
 
-export default SaleHistoryDetailList;
+export default RefundHistoryDetailList;

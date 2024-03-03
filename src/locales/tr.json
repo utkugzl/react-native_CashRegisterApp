@@ -46,5 +46,7 @@
     "user-code": "Kullanıcı Kodu",
     "password": "Şifre",
     "login": "Giriş Yap",
-    "refund-history": "Ürün İade Geçmişi"
+    "refund-history": "Ürün İade Geçmişi",
+    "refunded-products": "İade Edilen Ürünler",
+    "refund-reasons": "İade Nedenleri"
 }
