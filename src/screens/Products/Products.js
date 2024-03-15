@@ -1,5 +1,5 @@
 import React from 'react';
-import {useState, useEffect, useContext} from 'react';
+import {useState, useContext} from 'react';
 import {SafeAreaView, View, ActivityIndicator, FlatList} from 'react-native';
 import {ThemeContext} from '../../contexts/ThemeContext.js';
 import {CartContext} from '../../contexts/CartContext.js';
@@ -7,15 +7,14 @@ import {UserContext} from '../../contexts/UserContext.js';
 import useCategories from '../../hooks/UseCategories.js';
 import FilterButton from '../../components/FilterButton/FilterButton.js';
 import CategoryFilterButton from '../../components/CategoryFilterButton/CategoryFilterButton.js';
+import useFetch from '../../hooks/useFetch.js';
+import Product from '../../components/Product/Product.js';
+
 import stylesDark from './stylesDark.js';
 import stylesLight from './stylesLight.js';
 
-import axios from 'axios';
-import Product from '../../components/Product/Product.js';
-
 const Products = () => {
   const [selectedFilter, setSelectedFilter] = useState('Tüm Ürünler');
-  const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -42,24 +41,7 @@ const Products = () => {
     'T',
     'Ü-Z',
   ];
-
-  const fetchProducts = async () => {
-    try {
-      const url = 'http://10.0.2.2:3000/products';
-      const response = await axios.get(url);
-      setProducts(response.data);
-    } catch (error) {
-      console.error('Error fetching version:', error);
-    }
-  };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      await fetchProducts();
-    };
-
-    fetchData();
-  }, []);
+  const {data: products, loading} = useFetch('http://10.0.2.2:3000/products');
 
   const handleFilterPress = filter => {
     setIsLoading(true);

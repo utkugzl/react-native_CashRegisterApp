@@ -54,7 +54,7 @@ const UserProvider = ({children}) => {
   };
 
   const addToFavorites = product => {
-    // Kullanıcının favorilerinde eklemek istediği ürünün index'ini bul
+    // find the index of the product that the user wants to add to favorites
     const index = userFavorites.findIndex(
       favorite => favorite.id === product.id,
     );
@@ -66,12 +66,12 @@ const UserProvider = ({children}) => {
   };
 
   const removeFromFavorites = product => {
-    // Kullanıcının favorilerinde eklemek istediği ürünün index'ini bul
+    // find the index of the product that the user wants to remove from favorites
     const index = userFavorites.findIndex(
       favorite => favorite.id === product.id,
     );
 
-    // Eğer ürün kullanıcının favorilerinde bulunuyorsa, çıkarın
+    // if the product is in the user's favorites, remove it
     if (index !== -1) {
       setUserFavorites(prevFavorites =>
         prevFavorites.filter(favorite => favorite.id !== product.id),

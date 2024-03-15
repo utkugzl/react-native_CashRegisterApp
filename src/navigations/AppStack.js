@@ -21,7 +21,6 @@ const AppStack = () => {
         name="dashboard"
         component={DashboardStack}
         options={{
-          //title: t('dashboard'),
           headerTitleStyle: {
             fontWeight: 'bold',
             fontSize: 30,

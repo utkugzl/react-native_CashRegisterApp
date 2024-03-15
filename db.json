@@ -32,7 +32,16 @@
   "userFavorites": [
     {
       "id": "065434",
-      "favorites": []
+      "favorites": [
+        {
+          "id": "228",
+          "barcode": "715134",
+          "name": "Mintax Oluklu Sünger 5'li",
+          "price": "19.90",
+          "category": "cleaning",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/11be3_Oluklu_Sunger_5li.jpg"
+        }
+      ]
     },
     {
       "id": "762381",
@@ -50,33 +59,78 @@
     "id": "9fd9"
   },
   "dailySalesAmount": {
-    "amount": 180.04
+    "amount": 2425.8599999999997
   },
   "refunds": [
     {
-      "id": "3e37",
-      "date": "3/3/2024",
-      "time": "14:45",
+      "id": "14e8",
+      "date": "14/3/2024",
+      "time": "17:1",
       "cashierCode": "065434",
       "refundItems": [
         {
-          "id": "2",
-          "barcode": "873634",
-          "name": "Roka Demet",
-          "price": "21.90",
-          "category": "market",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/2db58_Roka_Demet_.jpg",
+          "id": "28",
+          "barcode": "444655",
+          "name": "Mintax Temizlik Bezi 5'li",
+          "price": "19.90",
+          "category": "cleaning",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/2f19e_Temizlik_Bezi_5li.JPG",
           "quantity": 1
         }
       ],
-      "refundReason": "Hasarlı Ambalaj"
+      "refundReason": "Yanlış Ürün"
+    }
+  ],
+  "sales": [
+    {
+      "id": "cd78",
+      "date": "14/3/2024",
+      "time": "14:42",
+      "cashierCode": "065434",
+      "cash": 250,
+      "creditCard": 0,
+      "cashBack": "43.60",
+      "total": "206.40",
+      "cart": [
+        {
+          "id": "57",
+          "barcode": "596604",
+          "name": "Kadın Sweatshirt Wellsoft S-M",
+          "price": "139.50",
+          "category": "clothing",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/b2b23_Kadin_Sweatshirt_Wellsoft_S-M.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "22",
+          "barcode": "569766",
+          "name": "Fairy Bulaşık Losyon 750 Ml",
+          "price": "66.90",
+          "category": "cleaning",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/bdce0_Bulasik_Losyon_750_Ml.jpg",
+          "quantity": 1
+        }
+      ]
     },
     {
-      "id": "bb74",
-      "date": "3/3/2024",
-      "time": "14:52",
+      "id": "1f00",
+      "date": "14/3/2024",
+      "time": "16:58",
       "cashierCode": "065434",
-      "refundItems": [
+      "cash": 100,
+      "creditCard": 10,
+      "cashBack": "4.64",
+      "total": "105.36",
+      "cart": [
+        {
+          "id": "24",
+          "barcode": "389333",
+          "name": "Mintax Sıvı Bulaşık Deterjanı 750 Ml",
+          "price": "39.90",
+          "category": "cleaning",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/b32cb_Ultra_Sivi_Bulasik_Deterjani_750_Ml.jpg",
+          "quantity": 1
+        },
         {
           "id": "27",
           "barcode": "412564",
@@ -85,89 +139,83 @@
           "category": "cleaning",
           "image": "https://docsd.ceptesok.com/product/1000x1000/1e12e_Bulasik_Mak._Temizleyici_250_Ml.jpg",
           "quantity": 1
-        }
-      ],
-      "refundReason": "Hasarlı Ambalaj"
-    }
-  ],
-  "sales": [
-    {
-      "id": "1921",
-      "date": "22/2/2024",
-      "time": "9:28",
-      "cashierCode": "065434",
-      "cash": 70,
-      "creditCard": 30,
-      "cashBack": "48.86",
-      "total": "51.14",
-      "cart": [
-        {
-          "id": "55",
-          "barcode": "770960",
-          "name": "Odun Ekmek 200-250 Gr",
-          "price": "9.50",
-          "category": "market",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/84b1d_Odun_Ekmek_200-250_Gr.png",
-          "quantity": 5
         },
         {
-          "id": "1",
-          "barcode": "397981",
-          "name": "Nane Demet",
-          "price": "21.90",
-          "category": "market",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/64d96_Nane_Dmt._.jpg",
+          "id": "22",
+          "barcode": "569766",
+          "name": "Fairy Bulaşık Losyon 750 Ml",
+          "price": "66.90",
+          "category": "cleaning",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/bdce0_Bulasik_Losyon_750_Ml.jpg",
           "quantity": 1
         }
       ]
     },
     {
-      "id": "5d58",
-      "date": "22/2/2024",
-      "time": "9:28",
+      "id": "c2b5",
+      "date": "14/3/2024",
+      "time": "16:59",
       "cashierCode": "065434",
-      "cash": 200,
+      "cash": 800,
       "creditCard": 0,
-      "cashBack": "109.75",
-      "total": "90.25",
+      "cashBack": "85.70",
+      "total": "714.30",
       "cart": [
         {
-          "id": "58",
-          "barcode": "767315",
-          "name": "Kadın Polar Alt S-M",
-          "price": "90.25",
-          "category": "clothing",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/bcece_Kadin_Polar_Alt_S-m_.png",
+          "id": "90",
+          "barcode": "866561",
+          "name": "Masa Örtüsü 140x140 Cm",
+          "price": "79.90",
+          "category": "home",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/d4fd7_Pvc_Masa_ortusu_140_140_Cm.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "94",
+          "barcode": "867822",
+          "name": "Çay Bardağı 6'lı 100 Cc",
+          "price": "34.50",
+          "category": "home",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/8b7b2_Cay_Bardagi_6li_100_Cc.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "91",
+          "barcode": "641333",
+          "name": "Çelik Tencere Derin 24x12 Cm",
+          "price": "599.90",
+          "category": "home",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/73464_Amboss_Delta_celik__Tencere_Derin_24_12.jpg",
           "quantity": 1
         }
       ]
     },
     {
-      "id": "310e",
-      "date": "22/2/2024",
-      "time": "9:29",
+      "id": "ff4b",
+      "date": "14/3/2024",
+      "time": "17:1",
       "cashierCode": "065434",
-      "cash": 65,
+      "cash": 1400,
       "creditCard": 0,
-      "cashBack": "26.35",
-      "total": "38.65",
+      "cashBack": "0.20",
+      "total": "1399.80",
       "cart": [
         {
-          "id": "30",
-          "barcode": "358264",
-          "name": "Mintax Ovma Topu 4'lü",
-          "price": "18.75",
-          "category": "cleaning",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/a7d0e_Ovma_Topu_4lu_.jpg",
+          "id": "88",
+          "barcode": "702309",
+          "name": "Ofis Bazaar Oyuncak Dolabı",
+          "price": "799.90",
+          "category": "home",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/a8b3c_Oyuncak_Dolabi_.jpg",
           "quantity": 1
         },
         {
-          "id": "29",
-          "barcode": "715134",
-          "name": "Mintax Oluklu Sünger 5'li",
-          "price": "19.90",
-          "category": "cleaning",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/11be3_Oluklu_Sunger_5li.jpg",
+          "id": "91",
+          "barcode": "641333",
+          "name": "Çelik Tencere Derin 24x12 Cm",
+          "price": "599.90",
+          "category": "home",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/73464_Amboss_Delta_celik__Tencere_Derin_24_12.jpg",
           "quantity": 1
         }
       ]

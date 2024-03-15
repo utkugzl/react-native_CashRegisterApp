@@ -1,12 +1,14 @@
 import React from 'react';
-import {useContext, useEffect} from 'react';
+import {useContext} from 'react';
 import {SafeAreaView, Text, View} from 'react-native';
-import {BarChart, PieChart, ProgressChart} from 'react-native-chart-kit';
+import {PieChart, ProgressChart} from 'react-native-chart-kit';
 import {useTranslation} from 'react-i18next';
 import {Dimensions} from 'react-native';
 import {ThemeContext} from '../../contexts/ThemeContext.js';
 import {StoreContext} from '../../contexts/StoreContext.js';
 import {ReportsContext} from '../../contexts/ReportsContext.js';
+import MonthlyBarChart from './Components/MonthlyBarChart/MonthlyBarChart.js';
+
 import stylesDark from './stylesDark.js';
 import stylesLight from './stylesLight.js';
 
@@ -40,113 +42,21 @@ const Dashboard = () => {
     },
   ];
 
-  useEffect(() => {
-    const fetchData = async () => {};
-
-    fetchData();
-  }, []);
-
   return (
     <SafeAreaView style={styles.screenContainer}>
-      <View
-        style={{
-          flex: 0.3,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
+      <View style={styles.titleContainer}>
         <Text style={styles.title}>{t('monthly-sales-distribution')}</Text>
       </View>
-      <View
-        style={{
-          flex: 1.8,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        <BarChart
-          data={{
-            labels: [
-              'Ocak',
-              'Şubat',
-              'Mart',
-              'Nisan',
-              'Mayıs',
-              'Haziran',
-              'Temmuz',
-              'Ağustos',
-              'Eylül',
-              'Ekim',
-              'Kasım',
-              'Aralık',
-            ],
-            datasets: [
-              {
-                data: [
-                  Math.random() * 1000000,
-                  Math.random() * 100000,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                ],
-              },
-            ],
-          }}
-          width={Dimensions.get('window').width * 0.95}
-          height={Dimensions.get('window').height / 3.5}
-          yAxisSuffix="₺"
-          yAxisInterval={1}
-          chartConfig={{
-            backgroundColor: '#00cbe2',
-            backgroundGradientFrom: isDarkMode ? '#491730' : '#a14848',
-            backgroundGradientTo: isDarkMode ? '#071b41' : '#5c2828',
-            decimalPlaces: 1, // optional, defaults to 2dp
-            color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-            labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-            style: {
-              borderRadius: 16,
-            },
-            propsForDots: {
-              r: '6',
-              strokeWidth: '2',
-              stroke: '#c59e64',
-            },
-          }}
-          bezier
-          style={{
-            marginHorizontal: 8,
-            borderWidth: 2,
-            marginTop: 20,
-          }}
-        />
+      <View style={styles.monthlyBarChartContainer}>
+        <MonthlyBarChart isDarkMode={isDarkMode} />
       </View>
-      <View
-        style={{
-          flex: 3,
-          flexDirection: 'row',
-          marginTop: 20,
-        }}>
+      <View style={styles.pieChartSection}>
         {salesCount > 0 && (
-          <View style={{flex: 1}}>
-            <View
-              style={{
-                flex: 0.5,
-                justifyContent: 'flex-end',
-                alignItems: 'center',
-              }}>
+          <View style={styles.flex1}>
+            <View style={styles.titleContainer}>
               <Text style={styles.title}>{t('sending-sales-status')}</Text>
             </View>
-            <View
-              style={{
-                flex: 5,
-                justifyContent: 'flex-start',
-                alignItems: 'center',
-              }}>
+            <View style={styles.leftPieChart}>
               <PieChart
                 data={salesData}
                 width={Dimensions.get('window').width / 2}
@@ -166,26 +76,15 @@ const Dashboard = () => {
             </View>
           </View>
         )}
-        <View style={{flex: 1}}>
-          <View
-            style={{
-              flex: 0.5,
-              justifyContent: 'flex-end',
-              alignItems: 'center',
-              marginBottom: 30,
-            }}>
+        <View style={styles.flex1}>
+          <View style={styles.titleContainer}>
             <Text style={styles.title}>
               {t('daily-sales-goal')}
               {'  '}
               {dailySalesAmount.toFixed(2)} ₺
             </Text>
           </View>
-          <View
-            style={{
-              flex: 5,
-              justifyContent: 'flex-start',
-              alignItems: 'center',
-            }}>
+          <View style={styles.rightPieChart}>
             <ProgressChart
               data={dailySalesData}
               width={Dimensions.get('window').width / 2}

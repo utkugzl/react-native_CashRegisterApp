@@ -68,6 +68,7 @@ const SaleHistory = () => {
                 fontSize: 40,
                 fontWeight: 'bold',
                 marginVertical: 20,
+                color: isDarkMode ? '#c73939' : '#30475E',
               }}>
               {t('unsent-sales')}
             </Text>

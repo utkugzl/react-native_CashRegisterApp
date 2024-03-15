@@ -7,6 +7,7 @@ const ReportsContext = createContext();
 const ReportsProvider = ({children}) => {
   const [offlineSalesCount, setOfflineSalesCount] = useState(0);
 
+  // this function updates the offlineSalesCount state
   const updateOfflineSalesCount = async () => {
     try {
       const offlineSalesString = await AsyncStorage.getItem('offlineSales');

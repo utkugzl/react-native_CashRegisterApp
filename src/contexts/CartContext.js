@@ -16,6 +16,7 @@ const CartProvider = ({children}) => {
   const [cashBack, setCashBack] = useState(0);
 
   useEffect(() => {
+    // this function updates the current date and time every minute
     const updateDateTime = () => {
       const date = new Date();
       const formattedDate = `${date.getDate()}/${
@@ -34,6 +35,7 @@ const CartProvider = ({children}) => {
     return () => clearInterval(intervalId);
   }, []);
 
+  // this function adds the product to the cart and updates the total price
   const addToCart = (product, quantityToAdd = 1) => {
     const existingProductIndex = cart.findIndex(item => item.id === product.id);
 
@@ -52,6 +54,7 @@ const CartProvider = ({children}) => {
     calculateDiscount(newTotalPrice, campaignId);
   };
 
+  // this function removes the product from the cart and updates the total price
   const removeFromCart = product => {
     const updatedCart = [...cart];
     const index = updatedCart.findIndex(item => item.id === product.id);
@@ -69,6 +72,7 @@ const CartProvider = ({children}) => {
     }
   };
 
+  // this function sets the campaign context and calculates the discounted total price
   const setCampaignContext = id => {
     switch (id) {
       case '1':
@@ -91,6 +95,7 @@ const CartProvider = ({children}) => {
     }
   };
 
+  // this function calculates the discounted total price
   const calculateDiscount = (price, id) => {
     switch (id) {
       case '1':

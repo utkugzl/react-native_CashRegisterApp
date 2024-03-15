@@ -39,7 +39,7 @@ const AppContainer = () => {
         console.log('notification çalıştı');
         onDisplayNotification();
       }
-    }, 10000); // 10 saniye (10000 milisaniye)
+    }, 10000); // 10 seconds
 
     return () => clearInterval(intervalId);
   }, [offlineSalesCount, isNotificationOn]);
