@@ -1,6 +1,4 @@
-<div align ="center">
-<img  width="450" src="https://32bit.com.tr/wp-content/uploads/2019/09/32Bit_TransparentBG_1500x434.png">
-</div>
+
 <h1 align ="center" >Cash Register App</h1> 
 
   * [About](#about)
