@@ -99,37 +99,40 @@ This is one way to run your app — you can also run it directly from within And
 
 ## Screenshots
 ### - Login Screen -
-<img width="600" alt="login" src="https://github.com/utkugzl/deneme/assets/100433115/451fc77d-8f50-4e3f-a0f5-9ef339450dad">
+<img width="600" alt="login" src="https://github.com/user-attachments/assets/79e371c7-ccdd-43b5-8c9a-4b3793f8e21e">
 
 ### - Dashboard Screen -
-<img width="600" alt="dashboard" src="https://github.com/utkugzl/deneme/assets/100433115/49ba97aa-e8fe-4dec-9d4a-9031f53ee7d1">
+<img width="600" alt="dashboard" src="https://github.com/user-attachments/assets/f597c057-b35a-45d2-be05-58a958d5f04f">
 
 ### - Sale Screen -
-<img width="600" alt="sale" src="https://github.com/utkugzl/deneme/assets/100433115/f6f33e1b-dd81-496f-aa3c-2b63b3285bd3">
+<img width="600" alt="sale" src="https://github.com/user-attachments/assets/19202219-381f-41aa-bac5-48fbffd3830e">
 
 ### - Payment Screen -
-<img width="600" alt="payment" src="https://github.com/utkugzl/deneme/assets/100433115/a3d1717a-bb3c-4b87-8e48-3ea479fd49bb">
+<img width="600" alt="payment" src="https://github.com/user-attachments/assets/936eb575-e5f2-4b19-a3bf-df3d2425bedb">
 
 ### - Receipt -
-<img width="600" alt="receipt" src="https://github.com/utkugzl/deneme/assets/100433115/e84c8a23-276b-4ca3-ba57-eb9c4d76bade">
+<img width="600" alt="receipt" src="https://github.com/user-attachments/assets/913099e2-7829-47f7-a670-0ceb9a976752">
 
 ### - Products Screen -
-<img width="600" alt="products" src="https://github.com/utkugzl/deneme/assets/100433115/3910df5b-fe23-4913-8b89-3052be208d95">
+<img width="600" alt="products" src="https://github.com/user-attachments/assets/614ab877-42c8-48ee-a7db-1ea16092b0af">
 
 ### - Reports Screen -
-<img width="600" alt="reports" src="https://github.com/utkugzl/deneme/assets/100433115/74713dd8-1bf5-49b7-b2a7-f3ccc4517059">
+<img width="600" alt="reports" src="https://github.com/user-attachments/assets/90083ca9-c171-4f85-b811-5add401ae320">
+
+### - Sale History Screen -
+<img width="600" alt="salesHistoryDetail" src="https://github.com/user-attachments/assets/86bf5520-9e97-4694-ad03-0b3ce6f8bd15">
 
 ### - Sale History Detail Screen -
-<img width="600" alt="salesHistoryDetail" src="https://github.com/utkugzl/deneme/assets/100433115/729e1e2f-e451-4fdc-b91b-afd0ef33b508">
+<img width="600" alt="salesHistoryDetail" src="https://github.com/user-attachments/assets/2124c21e-ec6b-4b4e-bf9c-5de7c4a5f516">
 
 ### - Refund Screen -
-<img width="600" alt="refund" src="https://github.com/utkugzl/deneme/assets/100433115/0d8f04b3-27da-4d5c-a4c7-869d044b0036">
+<img width="600" alt="refund" src="https://github.com/user-attachments/assets/00348e4f-6513-4479-8d9d-6152a02684df">
 
 ### - Settings Screen -
-<img width="600" alt="settings" src="https://github.com/utkugzl/deneme/assets/100433115/7062c2f6-7da5-432d-bfd4-2664cac657c8">
+<img width="600" alt="settings" src="https://github.com/user-attachments/assets/7967025e-6b72-4eb3-8f67-708414909fcb">
 
 ### - Dummy Shopping Receipt For Printer Test -
-<img width="600" alt="dummyReceipt" src="https://github.com/utkugzl/deneme/assets/100433115/3329ab1b-2042-4bd6-a869-816559f41c74">
+<img width="600" alt="dummyReceipt" src="https://github.com/user-attachments/assets/13be8a38-8565-486f-ab65-18b00e9cac39">
 
 <br/>
 
