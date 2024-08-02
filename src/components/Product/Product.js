@@ -14,6 +14,7 @@ const Product = ({
   isFavorite,
 }) => {
   return (
+    console.log(image),
     <TouchableOpacity
       onPress={onPress}
       style={styles.productContainer}
@@ -37,7 +38,8 @@ const Product = ({
       )}
       <View style={styles.imageContainer}>
         <Image
-          source={{uri: image}}
+          //source={{uri: image}}
+          source={require('../../assets/images/product.jpeg')}
           style={styles.image}
           resizeMode="contain"
         />

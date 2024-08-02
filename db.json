@@ -2,7 +2,7 @@
   "users": [
     {
       "id": "1",
-      "userCode": "065434",
+      "userCode": "0654",
       "userPassword": "123"
     },
     {
@@ -27,19 +27,19 @@
     }
   ],
   "lastUser": {
-    "userCode": "065434"
+    "userCode": "0654"
   },
   "userFavorites": [
     {
       "id": "065434",
       "favorites": [
         {
-          "id": "228",
-          "barcode": "715134",
-          "name": "Mintax Oluklu Sünger 5'li",
+          "id": "28",
+          "barcode": "444655",
+          "name": "Mintax Temizlik Bezi 5'li",
           "price": "19.90",
           "category": "cleaning",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/11be3_Oluklu_Sunger_5li.jpg"
+          "image": "https://docsd.ceptesok.com/product/1000x1000/2f19e_Temizlik_Bezi_5li.JPG"
         }
       ]
     },
@@ -50,7 +50,7 @@
   ],
   "store": [
     {
-      "isOnline": "true",
+      "isOnline": "false",
       "id": "1"
     }
   ],
@@ -59,7 +59,7 @@
     "id": "9fd9"
   },
   "dailySalesAmount": {
-    "amount": 2425.8599999999997
+    "amount": 1075.5
   },
   "refunds": [
     {
@@ -191,31 +191,31 @@
       ]
     },
     {
-      "id": "ff4b",
-      "date": "14/3/2024",
-      "time": "17:1",
-      "cashierCode": "065434",
-      "cash": 1400,
+      "id": "9f13",
+      "date": "30/7/2024",
+      "time": "15:27",
+      "cashierCode": "0654",
+      "cash": 50,
       "creditCard": 0,
-      "cashBack": "0.20",
-      "total": "1399.80",
+      "cashBack": "0.56",
+      "total": "49.44",
       "cart": [
         {
-          "id": "88",
-          "barcode": "702309",
-          "name": "Ofis Bazaar Oyuncak Dolabı",
-          "price": "799.90",
-          "category": "home",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/a8b3c_Oyuncak_Dolabi_.jpg",
+          "id": "3",
+          "barcode": "680898",
+          "name": "Ispanak Kg.",
+          "price": "39.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/39606_Ispanak_Kg._.jpg",
           "quantity": 1
         },
         {
-          "id": "91",
-          "barcode": "641333",
-          "name": "Çelik Tencere Derin 24x12 Cm",
-          "price": "599.90",
-          "category": "home",
-          "image": "https://docsd.ceptesok.com/product/1000x1000/73464_Amboss_Delta_celik__Tencere_Derin_24_12.jpg",
+          "id": "2",
+          "barcode": "873634",
+          "name": "Roka Demet",
+          "price": "21.90",
+          "category": "market",
+          "image": "https://docsd.ceptesok.com/product/1000x1000/2db58_Roka_Demet_.jpg",
           "quantity": 1
         }
       ]

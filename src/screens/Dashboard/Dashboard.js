@@ -90,7 +90,7 @@ const Dashboard = () => {
               width={Dimensions.get('window').width / 2}
               height={Dimensions.get('window').height / 3}
               strokeWidth={50}
-              radius={120}
+              radius={103}
               chartConfig={{
                 backgroundColor: '#e26a00',
                 backgroundGradientFrom: isDarkMode ? '#222831' : '#DDDDDD',

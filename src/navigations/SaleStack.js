@@ -6,6 +6,8 @@ import {ThemeContext} from '../contexts/ThemeContext.js';
 import Sale from '../screens/Sale/Sale.js';
 import Payment from '../screens/Payment/Paymnet.js';
 import HeaderLeft from '../components/HeaderLeft/HeaderLeft.js';
+import {TouchableOpacity} from 'react-native';
+import AppIcons from '../components/AppIcons/AppIcons.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +23,27 @@ const SaleStack = () => {
           title: t('sale'),
           headerShown: true,
           headerLeft: () => <HeaderLeft />,
+          headerRight: () => (
+            <TouchableOpacity
+              onPress={() => {
+                // const { status } = await BarCodeScanner.requestPermissionsAsync();
+                // setHasPermission(status === 'granted');
+                // setScanned(true);
+                // setData(data);
+              }}
+              activeOpacity={0.3}
+              style={{
+                backgroundColor: 'white',
+                width: 50,
+                height: 50,
+                borderRadius: 25,
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderWidth: 2,
+              }}>
+              <AppIcons name="qr" />
+            </TouchableOpacity>
+          ),
           headerTitleStyle: {
             fontWeight: 'bold',
             fontSize: 30,

@@ -19,7 +19,7 @@ import AppIcons from '../../components/AppIcons/AppIcons.js';
 import stylesDark from './stylesDark.js';
 import stylesLight from './stylesLight.js';
 import axios from 'axios';
-import FingerprintScanner from 'react-native-fingerprint-scanner';
+//import FingerprintScanner from 'react-native-fingerprint-scanner';
 import playSound from '../../utils/PlaySound.js';
 
 const DismisKeyboard = ({children}) => (
@@ -86,25 +86,25 @@ const Login = () => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    if (lastUser.userCode) {
-      FingerprintScanner.authenticate({
-        title: 'Fingerprint Authentication',
-        description: 'Scan your fingerprint on the device scanner to continue.',
-      })
-        .then(() => {
-          console.log('Fingerprint successfully authenticated');
-          console.log('Last user:', lastUser);
-          setUser(lastUser.userCode);
-          setIsLogedIn(true);
-          FingerprintScanner.release();
-        })
-        .catch(error => {
-          FingerprintScanner.release();
-          console.log('Fingerprint authentication failed:', error);
-        });
-    }
-  }, [lastUser]);
+  // useEffect(() => {
+  //   if (lastUser.userCode) {
+  //     FingerprintScanner.authenticate({
+  //       title: 'Fingerprint Authentication',
+  //       description: 'Scan your fingerprint on the device scanner to continue.',
+  //     })
+  //       .then(() => {
+  //         console.log('Fingerprint successfully authenticated');
+  //         console.log('Last user:', lastUser);
+  //         setUser(lastUser.userCode);
+  //         setIsLogedIn(true);
+  //         FingerprintScanner.release();
+  //       })
+  //       .catch(error => {
+  //         FingerprintScanner.release();
+  //         console.log('Fingerprint authentication failed:', error);
+  //       });
+  //   }
+  // }, [lastUser]);
 
   const handleUserCodeChange = enteredUserCode => {
     setUserCode(enteredUserCode);

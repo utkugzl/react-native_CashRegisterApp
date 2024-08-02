@@ -6,6 +6,9 @@ const AppIcons = ({name}) => {
   let iconElement;
 
   switch (name) {
+    case 'qr':
+      iconElement = <Ionicon name="qr-code-outline" size={35} color="black" />;
+      break;
     case 'personIcon':
       iconElement = <Ionicon name="person" size={30} color="black" />;
       break;
